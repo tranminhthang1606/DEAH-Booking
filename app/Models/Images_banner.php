@@ -5,19 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Images_banner extends Model
 {
     use HasFactory;
-    protected $table  ='users';
+    protected $table = 'image_banner';
     protected $fillable = [
-      'name',
-      'email',
-      'password',
-      'date_of_birth',
-      'phone',
-      'address',
-      'role_id'
-
-
+        'banner_id',
+        'image'
     ];
 }

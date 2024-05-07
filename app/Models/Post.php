@@ -5,19 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Post extends Model
 {
     use HasFactory;
-    protected $table  ='users';
+    protected $table = 'posts';
     protected $fillable = [
-      'name',
-      'email',
-      'password',
-      'date_of_birth',
-      'phone',
-      'address',
-      'role_id'
-
+      'title','body','tags','user_id'
 
     ];
 }
