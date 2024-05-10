@@ -893,6 +893,9 @@ const Payment = (props: Props) => {
     </div>
     {/* Add an search-overlay element */}
     <div className="search-overlay" />
+    {/* jquery*/}
+    {/* Plugin */}
+    {/* Main js*/}
   </div></div>
   )
 }

@@ -7,7 +7,6 @@ import Destination from './components/DestinationDetail'
 import DestinationDetail from './components/DestinationDetail'
 import Faq from './components/Faq'
 import Forgot from './components/Forgot'
-import Index from './components/Index'
 import Login from './components/Login'
 import NewPassword from './components/NewPassword'
 import NewsDetails from './components/NewsDetails'
@@ -33,7 +32,6 @@ function App() {
         <Route path='/destination' Component={Destination}/>
         <Route path='/faq' Component={Faq}/>
         <Route path='/fogot' Component={Forgot}/>
-        <Route path='/index' Component={Index}/>
         <Route path='/login' Component={Login}/>
         <Route path='/newpassword' Component={NewPassword}/>
         <Route path='/newdetail' Component={NewsDetails}/>

@@ -841,6 +841,11 @@ const Faq = (props: Props) => {
         <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
       </svg>
     </div>
+    {/* Add an search-overlay element */}
+    <div className="search-overlay" />
+    {/* jquery*/}
+    {/* Plugin */}
+    {/* Main js*/}
   </div></div>
   )
 }

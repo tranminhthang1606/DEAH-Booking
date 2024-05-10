@@ -762,7 +762,8 @@ const Register = (props: Props) => {
     {/* jquery*/}
     {/* Plugin */}
     {/* Main js*/}
-  </div></div>
+  </div>
+  </div>
   )
 }
 
