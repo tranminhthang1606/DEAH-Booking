@@ -90,18 +90,7 @@ const Payment = () => {
                       <div className="d-flex justify-content-between align-items-center">
                         <ul className="listing" id="navigation">
                           <li className="single-list">
-                            <a href="javascript:void(0)" className="single">Home <i className="ri-arrow-down-s-line" /></a>
-                            <ul className="submenu">
-                              <li className="single-list">
-                                <a href="index.html" className="single">Home 01</a>
-                              </li>
-                              <li className="single-list">
-                                <a href="index-two.html" className="single">Home 02</a>
-                              </li>
-                              <li className="single-list">
-                                <a href="index-three.html" className="single">Home 03</a>
-                              </li>
-                            </ul>
+                            <a href="javascript:void(0)" className="single">Home <i/></a>
                           </li>
                           <li className="single-list ">
                             <a href="about.html" className="single">About</a>

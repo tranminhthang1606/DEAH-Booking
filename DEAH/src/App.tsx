@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import HomePage from './components/Home'
@@ -8,7 +7,6 @@ import Destination from './components/DestinationDetail'
 import DestinationDetail from './components/DestinationDetail'
 import Faq from './components/Faq'
 import Forgot from './components/Forgot'
-import Indextwo from './components/Indextwo'
 import Index from './components/Index'
 import Login from './components/Login'
 import NewPassword from './components/NewPassword'
@@ -35,7 +33,6 @@ function App() {
         <Route path='/destination' Component={Destination}/>
         <Route path='/faq' Component={Faq}/>
         <Route path='/fogot' Component={Forgot}/>
-        <Route path='/indextwo' Component={Indextwo}/>
         <Route path='/index' Component={Index}/>
         <Route path='/login' Component={Login}/>
         <Route path='/newpassword' Component={NewPassword}/>
