@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "../assets/js/main.js"
 
 type Props = {}
 
@@ -20,7 +20,7 @@ const HomePage = (props: Props) => {
                   <div className="top-header-left d-flex align-items-center">
                     {/* Logo*/}
                     <div className="logo">
-                      <a href="index.html"><img src="src/assets/images/logo/logo.png" alt="logo" className="changeLogo" /></a>
+                      <a href="index.html"><img src="/src/assets/images/logo/logo.png" alt="logo" className="changeLogo" /></a>
                     </div>
                     {/* search box */}
                     <div className="search-box search-bar d-none d-lg-block">
