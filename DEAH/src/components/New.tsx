@@ -1,9 +1,11 @@
 import React from 'react'
 
-const New = () => {
+type Props = {}
+
+const New = (props: Props) => {
   return (
     <div>
-<div>
+      <div>
   <header>
     <div className="header-area">
       <div className="main-header">
@@ -1131,7 +1133,6 @@ const New = () => {
   {/* Plugin */}
   {/* Main js*/}
 </div>
-
     </div>
   )
 }

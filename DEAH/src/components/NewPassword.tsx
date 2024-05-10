@@ -1,9 +1,11 @@
 import React from 'react'
 
-const NewPassword = () => {
+type Props = {}
+
+const NewPassword = (props: Props) => {
   return (
     <div>
-<div>
+      <div>
   <header>
     <div className="header-area">
       <div className="main-header">
@@ -738,7 +740,6 @@ const NewPassword = () => {
   {/* Plugin */}
   {/* Main js*/}
 </div>
-
     </div>
   )
 }

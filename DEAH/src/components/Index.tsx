@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Index = () => {
+type Props = {}
+
+const Index = (props: Props) => {
   return (
     <div>
-<div>
+      <div>
   <header className="header-area-three">
     <div className="main-header">
       {/* Header Top */}
@@ -2634,13 +2636,7 @@ const Index = () => {
       <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
     </svg>
   </div>
-  {/* Add an search-overlay element */}
-  <div className="search-overlay" />
-  {/* jquery*/}
-  {/* Plugin */}
-  {/* Main js*/}
 </div>
-
     </div>
   )
 }
