@@ -25,7 +25,7 @@ const HomePage = (props: Props) => {
                     {/* search box */}
                     <div className="search-box search-bar d-none d-lg-block">
                       <div className="header-search">
-                        <span className="pera">Destination, attraction</span>
+                        <span className="pera">Điểm đến, thu hút</span>
                         <div className="search-icon">
                           <i className="ri-search-line" />
                         </div>
@@ -58,7 +58,7 @@ const HomePage = (props: Props) => {
                         <i className="ri-mail-line" />
                       </div>
                       <div className="info">
-                        <p className="pera">Email Anytime</p>
+                        <p className="pera">Email bất cứ lúc nào </p>
                         <h4 className="title">
                           <a href="javascript:void(0)">example@gmail.com</a>
                         </h4>
@@ -69,7 +69,7 @@ const HomePage = (props: Props) => {
                         <i className="ri-phone-line" />
                       </div>
                       <div className="info">
-                        <p className="pera">Call Anytime</p>
+                        <p className="pera">Gọi bất cứ lúc nào</p>
                         <h4 className="title">
                           <a href="javascript:void(0)">00 (888) +123456</a>
                         </h4>
@@ -93,74 +93,84 @@ const HomePage = (props: Props) => {
                       <div className="d-flex justify-content-between align-items-center">
                         <ul className="listing" id="navigation">
                           <li className="single-list">
-                            <a href="javascript:void(0)" className="single link-active">Home <i/></a>
-                            
-                          </li>
-                          <li className="single-list">
-                            <a href="about.html" className="single">About</a>
-                          </li>
-                          <li className="single-list">
-                            <a href="destination.html" className="single">Destination</a>
-                          </li>
-                          <li className="single-list">
-                            <a href="tour-list.html" className="single">Tour Package</a>
-                          </li>
-                          <li className="single-list">
-                            <a href="javascript:void(0)" className="single">Pages <i className="ri-arrow-down-s-line" /></a>
+                            <a href="javascript:void(0)" className="single link-active">Trang chủ <i className="ri-arrow-down-s-line" /></a>
                             <ul className="submenu">
                               <li className="single-list">
-                                <a href="tour-details.html" className="single">Tour
-                                  Details</a>
+                                <a href="index.html" className="single">Trang chủ 01</a>
                               </li>
                               <li className="single-list">
-                                <a href="news-details.html" className="single">News
-                                  Details</a>
+                                <a href="index-two.html" className="single">Trang chủ 02</a>
                               </li>
                               <li className="single-list">
-                                <a href="destination-details.html" className="single">Destination Details</a>
-                              </li>
-                              <li className="single-list">
-                                <a href="payment.html" className="single">payment</a>
-                              </li>
-                              <li className="single-list">
-                                <a href="javascript:void(0)" className="single">Login<i className="ri-arrow-right-s-line" /></a>
-                                <ul className="submenu">
-                                  <li className="single-list">
-                                    <a href="login.html" className="single">Login</a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a href="register.html" className="single">Registration</a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a href="forgot-pass.html" className="single">Forgot
-                                      Password</a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a href="verification.html" className="single">Verification</a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a href="new-password.html" className="single">New
-                                      Password</a>
-                                  </li>
-                                </ul>
-                              </li>
-                              <li className="single-list">
-                                <a href="faq.html" className="single">FAQs</a>
-                              </li>
-                              <li className="single-list">
-                                <a href="privacy-policy.html" className="single">privacy
-                                  policy</a>
-                              </li>
-                              <li className="single-list">
-                                <a href="terms-condition.html" className="single">terms-condition</a>
+                                <a href="index-three.html" className="single">Trang chủ 03</a>
                               </li>
                             </ul>
                           </li>
                           <li className="single-list">
-                            <a href="news.html" className="single">News</a>
+                            <a href="about.html" className="single">về</a>
                           </li>
                           <li className="single-list">
-                            <a href="contact.html" className="single">Contact</a>
+                            <a href="destination.html" className="single">Điểm đến </a>
+                          </li>
+                          <li className="single-list">
+                            <a href="tour-list.html" className="single">Gói du lịch</a>
+                          </li>
+                          <li className="single-list">
+                            <a href="javascript:void(0)" className="single">Trang<i className="ri-arrow-down-s-line" /></a>
+                            <ul className="submenu">
+                              <li className="single-list">
+                                <a href="tour-details.html" className="single">Chuyến du lịch
+Chi tiết</a>
+                              </li>
+                              <li className="single-list">
+                                <a href="news-details.html" className="single">Tin tức
+Chi tiết </a>
+                              </li>
+                              <li className="single-list">
+                                <a href="destination-details.html" className="single">Chi tiết điểm đến</a>
+                              </li>
+                              <li className="single-list">
+                                <a href="payment.html" className="single">sự chi trả</a>
+                              </li>
+                              <li className="single-list">
+                                <a href="javascript:void(0)" className="single">Đăng nhập <i className="ri-arrow-right-s-line" /></a>
+                                <ul className="submenu">
+                                  <li className="single-list">
+                                    <a href="login.html" className="single">Đăng nhập</a>
+                                  </li>
+                                  <li className="single-list">
+                                    <a href="register.html" className="single">Sự đăng ký</a>
+                                  </li>
+                                  <li className="single-list">
+                                    <a href="forgot-pass.html" className="single">Quên
+Mật khẩu </a>
+                                  </li>
+                                  <li className="single-list">
+                                    <a href="verification.html" className="single">Xác minh </a>
+                                  </li>
+                                  <li className="single-list">
+                                    <a href="new-password.html" className="single">Mới
+Mật khẩu</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li className="single-list">
+                                <a href="faq.html" className="single">Câu hỏi thường gặp</a>
+                              </li>
+                              <li className="single-list">
+                                <a href="privacy-policy.html" className="single">sự riêng tư
+Chính sách </a>
+                              </li>
+                              <li className="single-list">
+                                <a href="terms-condition.html" className="single"> Điều khoản-Điều kiện </a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li className="single-list">
+                            <a href="news.html" className="single">Tin tức</a>
+                          </li>
+                          <li className="single-list">
+                            <a href="contact.html" className="single">Liên hệ</a>
                           </li>
                           <li className="d-block d-lg-none">
                             <div className="header-right pl-15">
@@ -170,12 +180,12 @@ const HomePage = (props: Props) => {
                                 </div>
                                 <div className="divider gradient-divider" />
                                 <div className="money">
-                                  <p className="pera">USD</p>
+                                  <p className="pera">VND</p>
                                 </div>
                               </div>
                               <div className="sign-btn">
-                                <a href="login.html" className="btn-secondary-sm">Sign
-                                  In</a>
+                                <a href="login.html" className="btn-secondary-sm">Đăng nhập</a>
+                        
                               </div>
                             </div>
                           </li>
@@ -187,7 +197,7 @@ const HomePage = (props: Props) => {
                             </div>
                             <div className="divider gradient-divider" />
                             <div className="money">
-                              <p className="pera">USD</p>
+                              <p className="pera">VND</p>
                             </div>
                           </div>
                           <div className="sign-btn">
@@ -231,7 +241,7 @@ const HomePage = (props: Props) => {
             <div className="col-md-8">
               <ul className="listing">
                 <li>
-                  <h4 className="search-label">Recent</h4>
+                  <h4 className="search-label">Gần đây</h4>
                 </li>
                 <li className="single-list">
                   <a href="tour-details.html">
@@ -241,13 +251,13 @@ const HomePage = (props: Props) => {
                       </div>
                       <div className="content">
                         <h4 className="title line-clamp-1">
-                          Dubai by Night City Tour with Fountain show
+                     Dubai by Night City Tour với Fountain Show
                         </h4>
                         <p className="pera line-clamp-2">
-                          Wonderful evening escapade starting at Madinat
-                          Jumeirah to the musical fountains to see another.
-                          Wonderful evening escapade starting at Madinat
-                          Jumeirah to the musical fountains to see another
+                        Buổi tối tuyệt vời Escapade bắt đầu từ Madinat
+Jumeirah đến đài phun nước âm nhạc để xem người khác.
+Buổi tối tuyệt vời Escapade bắt đầu từ Madinat
+Jumeirah đến các đài phun nước âm nhạc để xem người khác
                         </p>
                       </div>
                     </div>
@@ -261,14 +271,14 @@ const HomePage = (props: Props) => {
                       </div>
                       <div className="content">
                         <h4 className="title line-clamp-1">
-                          Dubai: Premium Red Dunes, Camels, Stargazing &amp; 5*
-                          BBQ at Al Khayma Camp™️
+                       Dubai: cồn cát đỏ cao cấp, lạc đà, Stargazing & amp;5*
+BBQ tại Al Khayma Camp ™
                         </h4>
                         <p className="pera line-clamp-2">
-                          Give a great end to your day in Dubai with our
-                          premium evening Red Dune Desert Safari. Give a great
-                          end to your day in Dubai with our premium evening
-                          Red Dune Desert Safari.
+                      Kết thúc tuyệt vời cho ngày của bạn ở Dubai với
+buổi tối cao cấp red dune sa mạc safari.Cho một tuyệt vời
+Kết thúc một ngày của bạn ở Dubai với buổi tối cao cấp của chúng tôi
+Safari sa mạc Red Dune.
                         </p>
                       </div>
                     </div>
@@ -282,20 +292,20 @@ const HomePage = (props: Props) => {
                       </div>
                       <div className="content">
                         <h4 className="title line-clamp-1">
-                          Admission to Global Village in Dubai
+                      Nhập học vào làng toàn cầu ở Dubai
                         </h4>
                         <p className="pera line-clamp-2">
-                          Admission to Dubai’s biggest, multicultural festival
-                          park with replicas of iconic landmarks. Admission to
-                          Dubai’s biggest, multicultural festival park with
-                          replicas of iconic landmarks
+                    Nhập học vào lễ hội đa văn hóa lớn nhất Dubai Dubai
+Công viên với bản sao của các địa danh mang tính biểu tượng.Nhập vào
+Công viên lễ hội đa văn hóa lớn nhất Dubai với
+bản sao của các địa danh mang tính biểu tượng
                         </p>
                       </div>
                     </div>
                   </a>
                 </li>
                 <li>
-                  <h4 className="search-label">Recent</h4>
+                  <h4 className="search-label">Gần đây</h4>
                 </li>
                 <li className="single-list">
                   <a href="tour-details.html">
@@ -305,13 +315,13 @@ const HomePage = (props: Props) => {
                       </div>
                       <div className="content">
                         <h4 className="title line-clamp-1">
-                          Dubai by Night City Tour with Fountain show
+                     Dubai by Night City Tour với Fountain Show
                         </h4>
                         <p className="pera line-clamp-2">
-                          Wonderful evening escapade starting at Madinat
-                          Jumeirah to the musical fountains to see another.
-                          Wonderful evening escapade starting at Madinat
-                          Jumeirah to the musical fountains to see another
+                        Buổi tối tuyệt vời Escapade bắt đầu từ Madinat
+Jumeirah đến đài phun nước âm nhạc để xem người khác.
+Buổi tối tuyệt vời Escapade bắt đầu từ Madinat
+Jumeirah đến các đài phun nước âm nhạc để xem người khác
                         </p>
                       </div>
                     </div>
@@ -325,14 +335,14 @@ const HomePage = (props: Props) => {
                       </div>
                       <div className="content">
                         <h4 className="title line-clamp-1">
-                          Dubai: Premium Red Dunes, Camels, Stargazing &amp; 5*
-                          BBQ at Al Khayma Camp™️
+                       Dubai: cồn cát đỏ cao cấp, lạc đà, Stargazing & amp;5*
+BBQ tại Al Khayma Camp ™
                         </h4>
                         <p className="pera line-clamp-2">
-                          Give a great end to your day in Dubai with our
-                          premium evening Red Dune Desert Safari. Give a great
-                          end to your day in Dubai with our premium evening
-                          Red Dune Desert Safari.
+                      Kết thúc tuyệt vời cho ngày của bạn ở Dubai với
+buổi tối cao cấp red dune sa mạc safari.Cho một tuyệt vời
+Kết thúc một ngày của bạn ở Dubai với buổi tối cao cấp của chúng tôi
+Safari sa mạc Red Dune.
                         </p>
                       </div>
                     </div>
@@ -346,13 +356,13 @@ const HomePage = (props: Props) => {
                       </div>
                       <div className="content">
                         <h4 className="title line-clamp-1">
-                          Admission to Global Village in Dubai
+                      Nhập học vào làng toàn cầu ở Dubai
                         </h4>
                         <p className="pera line-clamp-2">
-                          Admission to Dubai’s biggest, multicultural festival
-                          park with replicas of iconic landmarks. Admission to
-                          Dubai’s biggest, multicultural festival park with
-                          replicas of iconic landmarks
+                    Nhập học vào lễ hội đa văn hóa lớn nhất Dubai Dubai
+Công viên với bản sao của các địa danh mang tính biểu tượng.Nhập vào
+Công viên lễ hội đa văn hóa lớn nhất Dubai với
+bản sao của các địa danh mang tính biểu tượng
                         </p>
                       </div>
                     </div>
@@ -362,11 +372,11 @@ const HomePage = (props: Props) => {
             </div>
             <div className="col-md-4">
               <div className="right-section" id="filterMenu">
-                <h4 className="title">Filter Options</h4>
+                <h4 className="title">Tùy chọn lọc</h4>
                 {/* List of Filter */}
                 <ul className="listing">
                   <li>
-                    <h4 className="search-label">Post Type</h4>
+                    <h4 className="search-label"> Loại bài</h4>
                   </li>
                   <li className="single-list">
                     <div className="d-flex align-items-center gap-8">
@@ -375,7 +385,7 @@ const HomePage = (props: Props) => {
                         <span className="checkmark-style" />
                       </label>
                       <div className="content">
-                        <p className="pera">Posts (3)</p>
+                        <p className="pera">Bài viết (3)</p>
                       </div>
                     </div>
                   </li>
@@ -386,7 +396,7 @@ const HomePage = (props: Props) => {
                         <span className="checkmark-style" />
                       </label>
                       <div className="content">
-                        <p className="pera">Posts (3)</p>
+                        <p className="pera">Bài viết (3)</p>
                       </div>
                     </div>
                   </li>
@@ -397,7 +407,7 @@ const HomePage = (props: Props) => {
                         <span className="checkmark-style" />
                       </label>
                       <div className="content">
-                        <p className="pera">Links (44)</p>
+                        <p className="pera">Liên kết (44)</p>
                       </div>
                     </div>
                   </li>
@@ -416,7 +426,7 @@ const HomePage = (props: Props) => {
                 {/* List of Filter */}
                 <ul className="listing">
                   <li>
-                    <h4 className="search-label">Categories</h4>
+                    <h4 className="search-label">Thể loại</h4>
                   </li>
                   <li className="single-list">
                     <div className="d-flex align-items-center gap-8">
@@ -425,7 +435,7 @@ const HomePage = (props: Props) => {
                         <span className="checkmark-style" />
                       </label>
                       <div className="content">
-                        <p className="pera">Articles (3)</p>
+                        <p className="pera">Bài viết (3)</p>
                       </div>
                     </div>
                   </li>
@@ -447,7 +457,7 @@ const HomePage = (props: Props) => {
                         <span className="checkmark-style" />
                       </label>
                       <div className="content">
-                        <p className="pera">Article (44)</p>
+                        <p className="pera">Bài báo (44)</p>
                       </div>
                     </div>
                   </li>
@@ -475,7 +485,7 @@ const HomePage = (props: Props) => {
                         <span className="checkmark-style" />
                       </label>
                       <div className="content">
-                        <p className="pera">Articles (3)</p>
+                        <p className="pera">Bài viết (3)</p>
                       </div>
                     </div>
                   </li>
@@ -497,7 +507,7 @@ const HomePage = (props: Props) => {
                         <span className="checkmark-style" />
                       </label>
                       <div className="content">
-                        <p className="pera">Article (44)</p>
+                        <p className="pera">Bài báo (44)</p>
                       </div>
                     </div>
                   </li>
@@ -531,12 +541,12 @@ const HomePage = (props: Props) => {
         <div className="row align-items-center justify-content-between g-4">
           <div className="col-xxl-5 col-xl-6 col-lg-6 col-md-8">
             <div className="hero-caption-one position-relative">
-              <h4 className="title wow fadeInUp" data-wow-delay="0.0s">The World's Best Travel Spots</h4>
+              <h4 className="title wow fadeInUp" data-wow-delay="0.0s">Những điểm du lịch tốt nhất thế giới </h4>
               <p className="pera wow fadeInUp" data-wow-delay="0.1s">
-                Lorem ipsum dolor sit amet consectetur. Platea urna hendrerit
-                dui eget velit sollicitudin orci. Non sit lorem dolor placerat
-                faucibus. Ut tellus fewow fadeInUp" data-wow-delay="0.0s"ugiat facilisi neque sagittis cursus
-                sagittis.
+             Lorem Ipsum Dolor ngồi ampe, lãnh sự.Cục Urn đường phố
+DUI cần một sự chăm sóc tự động.Có một bất động sản người tiêu dùng xe
+họng.Đến khu vực Fewow FadeInup "Data-Wow-Delay =" 0.0s "Ugiat Facilisi hoặc Mũi tên đang chạy
+Mũi tên.
               </p>
             </div>
             <div className="hero-footer position-relative">
@@ -561,7 +571,7 @@ const HomePage = (props: Props) => {
                 <div className="happy-user-count">
                   <p className="user-count">5k+</p>
                 </div>
-                <p className="pera">Happy Customer</p>
+                <p className="pera">Khách hàng hạnh phúc</p>
               </div>
             </div>
           </div>
@@ -574,21 +584,21 @@ const HomePage = (props: Props) => {
                   <div className="swiper-slide">
                     <video className="hero-slider-video" loop autoPlay muted>
                       <source src="/src/assets/images/hero/hero-slider2.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
+                   Trình duyệt của bạn không hỗ trợ thẻ video.
                     </video>
                   </div>
                   {/* Single */}
                   <div className="swiper-slide">
                     <video className="hero-slider-video" loop autoPlay muted>
                       <source src="/src/assets/images/hero/hero-slider1.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
+                   Trình duyệt của bạn không hỗ trợ thẻ video.
                     </video>
                   </div>
                   {/* Single */}
                   <div className="swiper-slide">
                     <video className="hero-slider-video" loop autoPlay muted>
                       <source src="/src/assets/images/videos/travel11.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
+                   Trình duyệt của bạn không hỗ trợ thẻ video.
                     </video>
                   </div>
                   {/*img*/}
@@ -615,7 +625,7 @@ const HomePage = (props: Props) => {
           <div className="select-dropdown-section">
             <div className="d-flex gap-10 align-items-center">
               <i className="ri-map-pin-line" />
-              <h4 className="select2-title">Destination</h4>
+              <h4 className="select2-title">Điểm đến</h4>
             </div>
             <select className="destination-dropdown">
               <option value={1}>Sydney, Australia</option>
@@ -627,12 +637,12 @@ const HomePage = (props: Props) => {
           <div className="select-dropdown-section">
             <div className="d-flex gap-10 align-items-center">
               <i className="ri-flight-takeoff-fill" />
-              <h4 className="select2-title">Tour Type</h4>
+              <h4 className="select2-title">Loại du lịch</h4>
             </div>
             <select className="destination-dropdown">
-              <option value="1">Booking Type</option>
-              <option value="2">Advance Type</option>
-              <option value="3">Pre-book Type</option>
+              <option value="1"> Loại đặt phòng</option>
+              <option value="2"> Loại trước</option>
+              <option value="3"> Loại sách trước </option>
             </select>
           </div>
           <div className="divider plan-divider d-none d-lg-block" />
@@ -640,7 +650,7 @@ const HomePage = (props: Props) => {
             <div className="d-flex gap-10 align-items-center">
               <i className="ri-time-line" />
               <div className="custom-dropdown custom-date">
-                <h4 className="title">Date From</h4>
+                <h4 className="title"> Ngày từ</h4>
                 <div className="arrow">
                   <i className="ri-arrow-down-s-line" />
                 </div>
@@ -653,7 +663,7 @@ const HomePage = (props: Props) => {
             <div className="d-flex gap-10 align-items-center">
               <i className="ri-user-line" />
               <div className="custom-dropdown">
-                <h4 className="title">Guests</h4>
+                <h4 className="title">Khách</h4>
                 <div className="arrow">
                   <i className="ri-arrow-down-s-line" />
                 </div>
@@ -663,7 +673,7 @@ const HomePage = (props: Props) => {
             <div className="user-picker dropdown-shadow">
               <div className="user-category">
                 <div className="category-name">
-                  <h4 className="title">Adults</h4>
+                  <h4 className="title">Người lớn</h4>
                   <p className="pera">12years and above</p>
                 </div>
                 <div className="qty-container">
@@ -678,7 +688,7 @@ const HomePage = (props: Props) => {
               </div>
               <div className="user-category">
                 <div className="category-name">
-                  <h4 className="title">Children</h4>
+                  <h4 className="title">Những đứa trẻ</h4>
                   <p className="pera">2-11 years</p>
                 </div>
                 <div className="qty-container">
@@ -693,7 +703,7 @@ const HomePage = (props: Props) => {
               </div>
               <div className="user-category">
                 <div className="category-name">
-                  <h4 className="title">infant</h4>
+                  <h4 className="title">Trẻ sơ sinh</h4>
                   <p className="pera">belwo 2 years</p>
                 </div>
                 <div className="qty-container">
@@ -707,12 +717,12 @@ const HomePage = (props: Props) => {
                 </div>
               </div>
               <div className="btn-section">
-                <a href="javascript:void(0)" className="done-btn">Done</a>
+                <a href="javascript:void(0)" className="done-btn">xong</a>
               </div>
             </div>
           </div>
           <div className="sign-btn">
-            <a href="tour-list.html" className="btn-secondary-lg">Search Plan</a>
+            <a href="tour-list.html" className="btn-secondary-lg">Kế hoạch tìm kiếm</a>
           </div>
         </div>
       </div>
@@ -724,9 +734,9 @@ const HomePage = (props: Props) => {
         <div className="row justify-content-center">
           <div className="col-xl-7 col-lg-7">
             <div className="section-title mx-430 mx-auto text-center">
-              <span className="highlights">special offers</span>
+              <span className="highlights">Ưu đãi đặc biệt</span>
               <h4 className="title">
-                Winter Our Big Offers to Inspire You
+              Mùa đông những lời đề nghị lớn của chúng tôi để truyền cảm hứng cho bạn
               </h4>
             </div>
           </div>
@@ -736,14 +746,14 @@ const HomePage = (props: Props) => {
             <a href="tour-list.html" className="offer-banner imgEffect4 wow fadeInLeft" data-wow-delay="0.0s">
               <img src="/src/assets/images/gallery/offer-1.png" alt="travello" />
               <div className="offer-content">
-                <p className="highlights-text">Save up to</p>
+                <p className="highlights-text"> Tiết kiệm đến</p>
                 <h4 className="title">50%</h4>
-                <p className="pera">Let’s Explore The World</p>
+                <p className="pera">Hãy cùng khám phá thế giới </p>
                 <div className="location">
                   <i className="ri-map-pin-line" />
                   <p className="name">Bangkok, Thailand</p>
                 </div>
-                <div className="btn-secondary-sm radius-30"> Booking Now </div>
+                <div className="btn-secondary-sm radius-30">Đặt phòng ngay </div>
               </div>
             </a>
           </div>
@@ -751,16 +761,16 @@ const HomePage = (props: Props) => {
             <a href="tour-list.html" className="offer-banner imgEffect4 wow fadeInRight" data-wow-delay="0.0s">
               <img src="/src/assets/images/gallery/offer-2.png" alt="travello" />
               <div className="offer-content-two">
-                <h4 className="title">Nearby Hotel</h4>
+                <h4 className="title"> Khách sạn gần đó</h4>
                 <p className="pera">
-                  Up to <span className="highlights-text">50%</span> Off The Best
-                  Hotels Near
+                  Up to <span className="highlights-text">50%</span> Tắt tốt nhất
+Khách sạn gần
                 </p>
                 <div className="location">
                   <i className="ri-map-pin-line" />
                   <p className="name">Bangkok, Thailand</p>
                 </div>
-                <div className="btn-secondary-sm radius-30"> Booking Now </div>
+                <div className="btn-secondary-sm radius-30"> Đặt phòng ngay </div>
               </div>
             </a>
           </div>
@@ -775,13 +785,13 @@ const HomePage = (props: Props) => {
         <div className="row">
           <div className="col-xl-8">
             <div className="section-title mx-605 mb-30">
-              <span className="highlights">about us</span>
-              <h4 className="title">Experience The World With Our Company</h4>
+              <span className="highlights"> Về chúng tôi</span>
+              <h4 className="title">Trải nghiệm thế giới với công ty của chúng tôi </h4>
               <p className="pera">
-                Lorem ipsum dolor sit amet consectetur. Platea urna hendrerit
-                dui eget velit sollicitudin orci. Non sit lorem dolor placerat
-                faucibus. Ut tellus feugiat facilisi neque sagittis cursus
-                sagittis.
+              Lorem Ipsum Dolor ngồi ampe, lãnh sự.Cục Urn đường phố
+DUI cần một sự chăm sóc tự động.Có một bất động sản người tiêu dùng xe
+họng.Ra trái đất, EU tạo điều kiện hoặc mũi tên đang chạy
+Mũi tên.
               </p>
             </div>
           </div>
@@ -818,10 +828,10 @@ const HomePage = (props: Props) => {
                   <span>$</span>
                 </div>
                 <div className="key-content">
-                  <h4 className="title">Best Price Guarantee</h4>
+                  <h4 className="title">Đảm bảo giá tốt nhất</h4>
                   <p className="pera">
-                    A "Best Price Guarantee" is a commitment offered by
-                    businesses, typically in the retail or hospitality
+                  A "Đảm bảo giá tốt nhất" is a commitment offered by
+businesses, typically in the retail or hospitality
                   </p>
                 </div>
               </div>
@@ -830,10 +840,10 @@ const HomePage = (props: Props) => {
                   <span>$</span>
                 </div>
                 <div className="key-content">
-                  <h4 className="title">Easy &amp; Quick Booking</h4>
+                  <h4 className="title">Dễ dàng & amp;Đặt phòng nhanh</h4>
                   <p className="pera">
-                    A "Best Price Guarantee" is a commitment offered by
-                    businesses, typically in the retail or hospitality
+                  A "Đảm bảo giá tốt nhất" is a commitment offered by
+businesses, typically in the retail or hospitality
                   </p>
                 </div>
               </div>
@@ -842,10 +852,10 @@ const HomePage = (props: Props) => {
                   <span>$</span>
                 </div>
                 <div className="key-content">
-                  <h4 className="title">Tour Guide</h4>
+                  <h4 className="title">Hướng dẫn viên du lịch</h4>
                   <p className="pera">
-                    A "Best Price Guarantee" is a commitment offered by
-                    businesses, typically in the retail or hospitality
+                  A "Đảm bảo giá tốt nhất" is a commitment offered by
+businesses, typically in the retail or hospitality
                   </p>
                 </div>
               </div>
@@ -856,8 +866,8 @@ const HomePage = (props: Props) => {
                 <div className="key-content">
                   <h4 className="title">World Class Travel</h4>
                   <p className="pera">
-                    A "Best Price Guarantee" is a commitment offered by
-                    businesses, typically in the retail or hospitality
+A "Đảm bảo giá tốt nhất" is a commitment offered by
+businesses, typically in the retail or hospitality
                   </p>
                 </div>
               </div>
@@ -874,9 +884,9 @@ const HomePage = (props: Props) => {
         <div className="row justify-content-center">
           <div className="col-xl-7 col-lg-7">
             <div className="section-title text-center mx-430 mx-auto position-relative">
-              <span className="highlights">Destination List</span>
+              <span className="highlights">Danh sách đích</span>
               <h4 className="title">
-                Explore The Beautiful Places Around World
+               khámPháNhữngNơiTuyệtĐẹpTrênThếGiới
               </h4>
             </div>
           </div>
@@ -892,7 +902,7 @@ const HomePage = (props: Props) => {
                 </div>
                 <div className="destination-info">
                   <div className="destination-name">
-                    <p className="pera">Spain</p>
+                    <p className="pera">Tây ban nha</p>
                     <div className="location">
                       <i className="ri-map-pin-line" />
                       <p className="name">Malaga View</p>
@@ -1022,7 +1032,7 @@ const HomePage = (props: Props) => {
         <div className="row">
           <div className="col-lg-12">
             <div className="border-section-title">
-              <h4 className="title">We’ve been mentioned in Below Brands</h4>
+              <h4 className="title">Chúng tôi đã được đề cập trong các thương hiệu dưới đây</h4>
             </div>
             <div className="swiper brandSwiper-active">
               <div className="swiper-wrapper">
@@ -1058,9 +1068,9 @@ const HomePage = (props: Props) => {
         <div className="row justify-content-center">
           <div className="col-xl-7 col-lg-7">
             <div className="section-title mx-430 mx-auto text-center">
-              <span className="highlights">Popular Packages</span>
+              <span className="highlights">Gói phổ biến</span>
               <h4 className="title">
-                Most Favorite Tour Place in The World
+     Địa điểm du lịch yêu thích nhất trên thế giới
               </h4>
             </div>
           </div>
@@ -1104,12 +1114,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-4.png" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1118,16 +1128,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 người </p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">Từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1145,12 +1155,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-3.png" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1159,16 +1169,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 Ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 người </p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">Từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1186,12 +1196,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-2.png" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1200,16 +1210,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 Ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 người </p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">Từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1227,12 +1237,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-10.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1241,16 +1251,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 Ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 người </p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">Từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1272,12 +1282,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-5.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1286,16 +1296,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 Ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 người </p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">Từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1313,12 +1323,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-6.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1327,16 +1337,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 Ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 người </p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">Từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1354,12 +1364,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-7.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1368,16 +1378,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 Ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 Người</p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">Từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1395,12 +1405,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-8.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1409,16 +1419,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 Người</p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">Từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1440,12 +1450,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-9.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1454,16 +1464,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 Người</p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">Từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1481,12 +1491,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-10.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1495,16 +1505,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 Người</p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">Từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1522,12 +1532,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-11.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1536,16 +1546,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 Người</p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">Từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1563,12 +1573,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-12.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1577,16 +1587,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 Người</p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1608,12 +1618,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-13.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1622,16 +1632,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 người </p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1649,12 +1659,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-14.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1663,16 +1673,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 người </p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1690,12 +1700,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-15.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1704,16 +1714,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 người </p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1731,12 +1741,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-16.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1745,16 +1755,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 người </p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1776,12 +1786,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-17.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1790,16 +1800,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera"> 3 ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 Người</p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">Từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1817,12 +1827,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-18.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1831,16 +1841,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 người </p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">Từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1858,12 +1868,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-19.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1872,16 +1882,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 người </p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">Từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1899,12 +1909,12 @@ const HomePage = (props: Props) => {
                           <img src="/src/assets/images/package/package-20.jpg" alt="travello" />
                         </a>
                         <div className="image-badge">
-                          <p className="pera">Featured</p>
+                          <p className="pera">Đặc sắc</p>
                         </div>
                       </div>
                       <div className="package-content">
                         <h4 className="area-name">
-                          <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                          <a href="tour-details.html">dusitd2SamyanBangkok</a>
                         </h4>
                         <div className="location">
                           <i className="ri-map-pin-line" />
@@ -1913,16 +1923,16 @@ const HomePage = (props: Props) => {
                         <div className="packages-person">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 Days 2 Night</p>
+                            <p className="pera">3 ngày 2 đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
-                            <p className="pera">2 Person</p>
+                            <p className="pera">2 người </p>
                           </div>
                         </div>
                         <div className="price-review">
                           <div className="d-flex gap-10">
-                            <p className="light-pera">From</p>
+                            <p className="light-pera">Từ</p>
                             <p className="pera">$95</p>
                           </div>
                           <div className="rating">
@@ -1943,7 +1953,7 @@ const HomePage = (props: Props) => {
             <div className="section-button d-inline-block">
               <a href="tour-list.html">
                 <div className="btn-primary-icon-sm">
-                  <p className="pera">View All Tour</p>
+                  <p className="pera">Xem tất cả các tour du lịch </p>
                   <i className="ri-arrow-right-up-line" />
                 </div>
               </a>
@@ -1957,9 +1967,9 @@ const HomePage = (props: Props) => {
         <div className="row justify-content-center">
           <div className="col-xl-7 col-lg-7">
             <div className="section-title mx-430 mx-auto text-center">
-              <span className="highlights">Testimonial</span>
+              <span className="highlights">Chứng thực</span>
               <h4 className="title">
-                What People Have Said About Our Service
+             Những gì mọi người đã nói về dịch vụ của chúng tôi
               </h4>
             </div>
           </div>
@@ -1980,10 +1990,10 @@ const HomePage = (props: Props) => {
               </div>
               <div className="testimonial-body">
                 <p className="pera">
-                  Lorem ipsum dolor sit amet consectetur. Et amet nulla in
-                  adipiscing. Donec tincidunt dui vel adipiscing sit turpis
-                  neque at cursus. Dignissim scelerisque mattis ultricies
-                  vitae.
+            Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
+Hộp.Tincidunt DUI hoặc đại học là xấu xí
+hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
+mạng sống.
                 </p>
               </div>
               <div className="testimonial-footer">
@@ -2005,10 +2015,10 @@ const HomePage = (props: Props) => {
               </div>
               <div className="testimonial-body">
                 <p className="pera">
-                  Lorem ipsum dolor sit amet consectetur. Et amet nulla in
-                  adipiscing. Donec tincidunt dui vel adipiscing sit turpis
-                  neque at cursus. Dignissim scelerisque mattis ultricies
-                  vitae.
+            Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
+Hộp.Tincidunt DUI hoặc đại học là xấu xí
+hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
+mạng sống.
                 </p>
               </div>
               <div className="testimonial-footer">
@@ -2030,10 +2040,10 @@ const HomePage = (props: Props) => {
               </div>
               <div className="testimonial-body">
                 <p className="pera">
-                  Lorem ipsum dolor sit amet consectetur. Et amet nulla in
-                  adipiscing. Donec tincidunt dui vel adipiscing sit turpis
-                  neque at cursus. Dignissim scelerisque mattis ultricies
-                  vitae.
+            Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
+Hộp.Tincidunt DUI hoặc đại học là xấu xí
+hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
+mạng sống.
                 </p>
               </div>
               <div className="testimonial-footer">
@@ -2055,10 +2065,10 @@ const HomePage = (props: Props) => {
               </div>
               <div className="testimonial-body">
                 <p className="pera">
-                  Lorem ipsum dolor sit amet consectetur. Et amet nulla in
-                  adipiscing. Donec tincidunt dui vel adipiscing sit turpis
-                  neque at cursus. Dignissim scelerisque mattis ultricies
-                  vitae.
+            Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
+Hộp.Tincidunt DUI hoặc đại học là xấu xí
+hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
+mạng sống.
                 </p>
               </div>
               <div className="testimonial-footer">
@@ -2080,10 +2090,10 @@ const HomePage = (props: Props) => {
               </div>
               <div className="testimonial-body">
                 <p className="pera">
-                  Lorem ipsum dolor sit amet consectetur. Et amet nulla in
-                  adipiscing. Donec tincidunt dui vel adipiscing sit turpis
-                  neque at cursus. Dignissim scelerisque mattis ultricies
-                  vitae.
+            Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
+Hộp.Tincidunt DUI hoặc đại học là xấu xí
+hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
+mạng sống.
                 </p>
               </div>
               <div className="testimonial-footer">
@@ -2105,10 +2115,10 @@ const HomePage = (props: Props) => {
               </div>
               <div className="testimonial-body">
                 <p className="pera">
-                  Lorem ipsum dolor sit amet consectetur. Et amet nulla in
-                  adipiscing. Donec tincidunt dui vel adipiscing sit turpis
-                  neque at cursus. Dignissim scelerisque mattis ultricies
-                  vitae.
+            Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
+Hộp.Tincidunt DUI hoặc đại học là xấu xí
+hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
+mạng sống.
                 </p>
               </div>
               <div className="testimonial-footer">
@@ -2134,10 +2144,10 @@ const HomePage = (props: Props) => {
               </div>
               <div className="testimonial-body">
                 <p className="pera">
-                  Lorem ipsum dolor sit amet consectetur. Et amet nulla in
-                  adipiscing. Donec tincidunt dui vel adipiscing sit turpis
-                  neque at cursus. Dignissim scelerisque mattis ultricies
-                  vitae.
+            Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
+Hộp.Tincidunt DUI hoặc đại học là xấu xí
+hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
+mạng sống.
                 </p>
               </div>
               <div className="testimonial-footer">
@@ -2159,10 +2169,10 @@ const HomePage = (props: Props) => {
               </div>
               <div className="testimonial-body">
                 <p className="pera">
-                  Lorem ipsum dolor sit amet consectetur. Et amet nulla in
-                  adipiscing. Donec tincidunt dui vel adipiscing sit turpis
-                  neque at cursus. Dignissim scelerisque mattis ultricies
-                  vitae.
+            Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
+Hộp.Tincidunt DUI hoặc đại học là xấu xí
+hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
+mạng sống.
                 </p>
               </div>
               <div className="testimonial-footer">
@@ -2184,10 +2194,10 @@ const HomePage = (props: Props) => {
               </div>
               <div className="testimonial-body">
                 <p className="pera">
-                  Lorem ipsum dolor sit amet consectetur. Et amet nulla in
-                  adipiscing. Donec tincidunt dui vel adipiscing sit turpis
-                  neque at cursus. Dignissim scelerisque mattis ultricies
-                  vitae.
+            Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
+Hộp.Tincidunt DUI hoặc đại học là xấu xí
+hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
+mạng sống.
                 </p>
               </div>
               <div className="testimonial-footer">
@@ -2209,10 +2219,10 @@ const HomePage = (props: Props) => {
               </div>
               <div className="testimonial-body">
                 <p className="pera">
-                  Lorem ipsum dolor sit amet consectetur. Et amet nulla in
-                  adipiscing. Donec tincidunt dui vel adipiscing sit turpis
-                  neque at cursus. Dignissim scelerisque mattis ultricies
-                  vitae.
+            Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
+Hộp.Tincidunt DUI hoặc đại học là xấu xí
+hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
+mạng sống.
                 </p>
               </div>
               <div className="testimonial-footer">
@@ -2234,10 +2244,10 @@ const HomePage = (props: Props) => {
               </div>
               <div className="testimonial-body">
                 <p className="pera">
-                  Lorem ipsum dolor sit amet consectetur. Et amet nulla in
-                  adipiscing. Donec tincidunt dui vel adipiscing sit turpis
-                  neque at cursus. Dignissim scelerisque mattis ultricies
-                  vitae.
+            Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
+Hộp.Tincidunt DUI hoặc đại học là xấu xí
+hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
+mạng sống.
                 </p>
               </div>
               <div className="testimonial-footer">
@@ -2259,10 +2269,10 @@ const HomePage = (props: Props) => {
               </div>
               <div className="testimonial-body">
                 <p className="pera">
-                  Lorem ipsum dolor sit amet consectetur. Et amet nulla in
-                  adipiscing. Donec tincidunt dui vel adipiscing sit turpis
-                  neque at cursus. Dignissim scelerisque mattis ultricies
-                  vitae.
+            Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
+Hộp.Tincidunt DUI hoặc đại học là xấu xí
+hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
+mạng sống.
                 </p>
               </div>
               <div className="testimonial-footer">
@@ -2281,7 +2291,7 @@ const HomePage = (props: Props) => {
             <div className="section-button d-inline-block">
               <a href="javascript:void(0)">
                 <div className="btn-primary-icon-sm">
-                  <p className="pera">All Customers Say</p>
+                  <p className="pera">Tất cả khách hàng nói</p>
                   <i className="ri-arrow-right-up-line" />
                 </div>
               </a>
@@ -2295,9 +2305,9 @@ const HomePage = (props: Props) => {
         <div className="row justify-content-center">
           <div className="col-xl-7 col-lg-7">
             <div className="section-title text-center mx-605 mx-auto position-relative">
-              <span className="highlights-primary">Package Pricing Plan</span>
+              <span className="highlights-primary">Kế hoạch định giá gói</span>
               <h4 className=" title">
-                Simply Choose The Pricing Plan That Fits You Best
+               Đơn giản chỉ cần chọn kế hoạch định giá phù hợp với bạn nhất
               </h4>
             </div>
           </div>
@@ -2308,15 +2318,15 @@ const HomePage = (props: Props) => {
               <div className="price-card h-calc wow fadeInUp" data-wow-delay="0.0s">
                 <div className="price-header">
                   <div className="d-flex gap-7 mb-2">
-                    <h4 className="title">Basic</h4>
-                    <div className="price-badge d-none">popular</div>
+                    <h4 className="title">Nền tảng</h4>
+                    <div className="price-badge d-none">phổ biến</div>
                   </div>
-                  <p className="pera">Best for personal and basic needs</p>
+                  <p className="pera">Tốt nhất cho các nhu cầu cá nhân và cơ bản</p>
                 </div>
                 <div className="price-tag-section">
                   <div className="price-tag">
                     <h4 className="title">$10</h4>
-                    <p className="pera">One-time payment</p>
+                    <p className="pera">Thanh toán một lần</p>
                   </div>
                 </div>
                 <ul className="feature-points">
@@ -2324,49 +2334,49 @@ const HomePage = (props: Props) => {
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">20+ Partners</p>
+                    <p className="pera">Hơn 20 đối tác</p>
                   </li>
                   <li className="feature-point">
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">Mass Messaging</p>
+                    <p className="pera">Tin nhắn hàng loạt</p>
                   </li>
                   <li className="feature-point">
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">Lorem ipsum dolor sit amet</p>
+                    <p className="pera">Lorem rất cà rốt</p>
                   </li>
                   <li className="feature-point disable">
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">Lorem ipsum dolor</p>
+                    <p className="pera">Lorem rất thông minh</p>
                   </li>
                   <li className="feature-point disable">
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">Online booking engine</p>
+                    <p className="pera">Công cụ đặt phòng trực tuyến</p>
                   </li>
                   <li className="feature-point disable">
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">Business Card Scanner</p>
+                    <p className="pera">Máy quét danh thiếp</p>
                   </li>
                 </ul>
                 <div className="button-section">
                   <a href="payment.html">
                     <div className="btn-primary-icon-outline">
-                      <span className="pera">Try Now</span>
+                      <span className="pera">Hãy thử ngay </span>
                       <i className="ri-arrow-right-up-line" />
                     </div>
                   </a>
                 </div>
                 <div className="imp-note">
-                  <p className="pera">Per month +2% per online Booking</p>
+                  <p className="pera">Mỗi tháng +2% mỗi lần đặt phòng trực tuyến</p>
                 </div>
               </div>
             </div>
@@ -2375,14 +2385,14 @@ const HomePage = (props: Props) => {
                 <div className="price-header">
                   <div className="d-flex gap-7 mb-2">
                     <h4 className="title">Pro</h4>
-                    <div className="price-badge">popular</div>
+                    <div className="price-badge">phổ biến</div>
                   </div>
-                  <p className="pera">Best for personal and basic needs</p>
+                  <p className="pera">Tốt nhất cho các nhu cầu cá nhân và cơ bản</p>
                 </div>
                 <div className="price-tag-section">
                   <div className="price-tag">
                     <h4 className="title">$77</h4>
-                    <p className="pera">One-time payment</p>
+                    <p className="pera">Thanh toán một lần</p>
                   </div>
                 </div>
                 <ul className="feature-points">
@@ -2390,49 +2400,49 @@ const HomePage = (props: Props) => {
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">20+ Partners</p>
+                    <p className="pera">Hơn 20 đối tác </p>
+</li>
+                  <li className="feature-point">
+                    <div className="tick-icon">
+                      <i className="ri-check-line" />
+                    </div>
+                    <p className="pera">Tin nhắn hàng loạt</p>
                   </li>
                   <li className="feature-point">
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">Mass Messaging</p>
+                    <p className="pera">Lorem rất thông minh sit amet</p>
                   </li>
                   <li className="feature-point">
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">Lorem ipsum dolor sit amet</p>
+                    <p className="pera">Lorem rất thông minh</p>
                   </li>
                   <li className="feature-point">
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">Lorem ipsum dolor</p>
-                  </li>
-                  <li className="feature-point">
-                    <div className="tick-icon">
-                      <i className="ri-check-line" />
-                    </div>
-                    <p className="pera">Online booking engine</p>
+                    <p className="pera">Công cụ đặt phòng trực tuyến</p>
                   </li>
                   <li className="feature-point disable">
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">Business Card Scanner</p>
+                    <p className="pera">Máy quét danh thiếp</p>
                   </li>
                 </ul>
                 <div className="button-section">
                   <a href="payment.html">
                     <div className="btn-primary-icon-outline">
-                      <span className="pera">Try Now</span>
+                      <span className="pera">Hãy thử ngay </span>
                       <i className="ri-arrow-right-up-line" />
                     </div>
                   </a>
                 </div>
                 <div className="imp-note">
-                  <p className="pera">Per month +1.9% per online Booking</p>
+                  <p className="pera">Mỗi tháng +1,9% mỗi lần đặt phòng trực tuyến</p>
                 </div>
               </div>
             </div>
@@ -2440,23 +2450,23 @@ const HomePage = (props: Props) => {
               <div className="price-card h-calc wow fadeInUp" data-wow-delay="0.2s">
                 <div className="price-header">
                   <div className="d-flex gap-7 mb-2">
-                    <h4 className="title">Custom</h4>
-                    <div className="price-badge d-none">popular</div>
+                    <h4 className="title">Phong tục</h4>
+                    <div className="price-badge d-none">phổ biến</div>
                   </div>
-                  <p className="pera">Best for personal and basic needs</p>
+                  <p className="pera">Tốt nhất cho các nhu cầu cá nhân và cơ bản </p>
                 </div>
                 <ul className="feature-points">
                   <li className="feature-point">
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">Mass Messaging</p>
+                    <p className="pera">Tin nhắn hàng loạt</p>
                   </li>
                   <li className="feature-point">
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">Lorem ipsum dolor sit amet</p>
+                    <p className="pera">Lorem rất thông minh sit amet</p>
                   </li>
                   <li className="feature-point">
                     <div className="tick-icon">
@@ -2468,37 +2478,37 @@ const HomePage = (props: Props) => {
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">Lorem ipsum dolor</p>
+                    <p className="pera">Lorem rất thông minh</p>
                   </li>
                   <li className="feature-point">
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">Lorem ipsum dolor</p>
+                    <p className="pera">Lorem rất thông minh</p>
                   </li>
                   <li className="feature-point">
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">Lorem ipsum dolor</p>
+                    <p className="pera">Lorem rất thông minh</p>
                   </li>
                   <li className="feature-point">
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">Online booking engine</p>
+                    <p className="pera">Công cụ đặt phòng trực tuyến</p>
                   </li>
                   <li className="feature-point">
                     <div className="tick-icon">
                       <i className="ri-check-line" />
                     </div>
-                    <p className="pera">Business Card Scanner</p>
+                    <p className="pera">Máy quét danh thiếp</p>
                   </li>
                 </ul>
                 <div className="button-section">
                   <a href="payment.html">
                     <div className="btn-primary-icon-outline">
-                      <span className="pera">Contact</span>
+                      <span className="pera">Liên hệ</span>
                       <i className="ri-arrow-right-up-line" />
                     </div>
                   </a>
@@ -2517,9 +2527,9 @@ const HomePage = (props: Props) => {
         <div className="row justify-content-center">
           <div className="col-xl-7 col-lg-7">
             <div className="section-title text-center mx-605 mx-auto position-relative mb-60">
-              <span className="highlights">News &amp; Article</span>
+              <span className="highlights">Tin tức &amp; Bài báo</span>
               <h4 className="title">
-                Latest News &amp; Articles From The Blog Posts
+                Latest Tin tức &amp; Bài viết Từ The Blog Bài viết
               </h4>
             </div>
           </div>
@@ -2548,12 +2558,12 @@ const HomePage = (props: Props) => {
             <div className="all-contents" id="v-pills-tab-two" role="tablist" aria-orientation="vertical">
               <div className="news-content active" id="pills-news-one-tab" data-bs-toggle="pill" data-bs-target="#pills-news-one" role="tab" aria-controls="pills-news-one" aria-selected="true">
                 <div className="heading">
-                  <span className="heading-pera">Tour Guide</span>
+                  <span className="heading-pera">Hướng dẫn viên du lịch</span>
                 </div>
                 <h4 className="title">
-                  <a href="javascript:void(0)">The World is a Book and Those Who do not Travel Read
-                    Only
-                    One Page.</a>
+                  <a href="javascript:void(0)">Thế giới là một cuốn sách và những người không đi du lịch đọc
+Chỉ một
+Một trang.</a>
                 </h4>
                 <div className="news-info">
                   <div className="d-flex gap-10 align-items-center">
@@ -2567,7 +2577,7 @@ const HomePage = (props: Props) => {
               </div>
               <div className="news-content" id="pills-news-two-tab" data-bs-toggle="pill" data-bs-target="#pills-news-two" role="tab" aria-controls="pills-news-two" aria-selected="true">
                 <div className="heading">
-                  <span className="heading-pera">Tour Guide</span>
+                  <span className="heading-pera">Hướng dẫn viên du lịch</span>
                 </div>
                 <h4 className="title">
                   <a href="javascript:void(0)">A Good Traveler Has no Fixed Plans and is Not Intent on
@@ -2585,7 +2595,7 @@ const HomePage = (props: Props) => {
               </div>
               <div className="news-content" id="pills-news-three-tab" data-bs-toggle="pill" data-bs-target="#pills-news-three" role="tab" aria-controls="pills-news-three" aria-selected="true">
                 <div className="heading">
-                  <span className="heading-pera">Tour Guide</span>
+                  <span className="heading-pera">Hướng dẫn viên du lịch</span>
                 </div>
                 <h4 className="title">
                   <a href="javascript:void(0)">We Travel, Some of us Forever, to Seek Other States,
@@ -2606,7 +2616,7 @@ const HomePage = (props: Props) => {
               <div className="section-button d-inline-block">
                 <a href="news.html">
                   <div className="btn-primary-icon-sm">
-                    <p className="pera">View All News</p>
+                    <p className="pera">Xem tất cả Tin tức</p>
                     <i className="ri-arrow-right-up-line" />
                   </div>
                 </a>
@@ -2625,13 +2635,13 @@ const HomePage = (props: Props) => {
           <div className="col-lg-8">
             <div className="app-section-padding">
               <div className="hero-caption-one position-relative">
-                <span className="highlight">Our Platform</span>
+                <span className="highlight"> Nền tảng của chúng tôi </span>
                 <h4 className="title">
-                  Enjoy And Book This App All Over The World
+                Thưởng thức và đặt ứng dụng này trên toàn thế giới
                 </h4>
                 <p className="pera">
-                  Lorem ipsum dolor sit amet consectetur. Curabitur volutpat
-                  tellus id vulputate viverra. Sapien non mauris risus
+                  Lorem rất Thôn Minh SIT AMET tăng cường.Trò chuyện cuối tuần
+Earth ID Vận tải Vận động.Sapien không bỏ lỡ nụ cười
                 </p>
               </div>
               <div className="hero-footer position-relative">
@@ -2640,7 +2650,7 @@ const HomePage = (props: Props) => {
                     <i className="ri-play-fill" />
                   </div>
                 </a>
-                <a href="javascript:void(0)" className="pera position-relative">Download Our Apps</a>
+                <a href="javascript:void(0)" className="pera position-relative">Tải xuống ứng dụng của chúng tôi </a>
               </div>
             </div>
           </div>
@@ -2664,17 +2674,17 @@ const HomePage = (props: Props) => {
           <div className="col-xl-3 col-lg-4 col-sm-6">
             <div className="single-footer-caption">
               <div className="footer-tittle">
-                <h4 className="title">Company</h4>
+                <h4 className="title">Công ty</h4>
                 <ul className="listing">
                   <li className="single-lsit">
-                    <a href="about.html">About Us</a>
+                    <a href="about.html">Về chúng tôi</a>
                   </li>
                   <li className="single-lsit">
-                    <a href="news.html">News</a>
+                    <a href="news.html">Tin tức</a>
                   </li>
-                  <li className="single-lsit"><a href="faq.html">Faq</a></li>
+                  <li className="single-lsit"><a href="faq.html">Câu hỏi thường gặp</a></li>
                   <li className="single-lsit">
-                    <a href="contact.html">Contact</a>
+                    <a href="contact.html">Liên hệ</a>
                   </li>
                 </ul>
               </div>
@@ -2683,14 +2693,14 @@ const HomePage = (props: Props) => {
           <div className="col-xl-3 col-lg-4 col-sm-6">
             <div className="single-footer-caption">
               <div className="footer-tittle">
-                <h4 className="title">Explore</h4>
+                <h4 className="title">Khám phá</h4>
                 <ul className="listing">
-                  <li className="single-lsit"><a href="faq.html">Faq</a></li>
+                  <li className="single-lsit"><a href="faq.html">Câu hỏi thường gặp</a></li>
                   <li className="single-lsit">
-                    <a href="tour-list.html">Tour Listings</a>
+                    <a href="tour-list.html">Danh sách du lịch</a>
                   </li>
                   <li className="single-lsit">
-                    <a href="destination.html">Destination</a>
+                    <a href="destination.html">điểm Đến</a>
                   </li>
                 </ul>
               </div>
@@ -2699,14 +2709,14 @@ const HomePage = (props: Props) => {
           <div className="col-xl-3 col-lg-4 col-sm-6">
             <div className="single-footer-caption">
               <div className="footer-tittle">
-                <h4 className="title">Quick Links</h4>
+                <h4 className="title">nhanh Liên kết</h4>
                 <ul className="listing">
-                  <li className="single-lsit"><a href="index.html">Home</a></li>
+                  <li className="single-lsit"><a href="index.html">Trang chủ</a></li>
                   <li className="single-lsit">
-                    <a href="about.html">About Us</a>
+                    <a href="about.html">Về chúng tôi</a>
                   </li>
                   <li className="single-lsit">
-                    <a href="contact.html">Contact Us</a>
+                    <a href="contact.html">Liên hệ Chúng ta</a>
                   </li>
                 </ul>
               </div>
@@ -2715,7 +2725,7 @@ const HomePage = (props: Props) => {
           <div className="col-xl-3 col-lg-4 col-sm-6">
             <div className="single-footer-caption">
               <div className="footer-tittle">
-                <h4 className="title">Contact</h4>
+                <h4 className="title">Liên hệ</h4>
                 <ul className="listing">
                   <li className="single-lsit">
                     <a href="#" className="mb-20 d-block">70/A Floor Divo Tower Melbourne,
@@ -2749,16 +2759,16 @@ const HomePage = (props: Props) => {
                 <img src="/src//src/assets/images/logo/logo.png" alt="travello" className="changeLogo" />
               </div>
               <p className="pera">
-                Travel is a transformative and enriching experience that
-                allows individuals to explore new destinations, cultures,
-                and landscapes.
+          Du lịch là một trải nghiệm biến đổi và phong phú
+cho phép các cá nhân khám phá các điểm đến, văn hóa mới,
+và phong cảnh.
               </p>
             </div>
             <div className="footer-right">
-              <h4 className="title">Subscribe Our Newsletter</h4>
+              <h4 className="title"> Đăng ký bản tin của chúng tôi </h4>
               <div className="subscribe-wraper">
                 <input className="footer-search" type="search" name="footer" placeholder="Enter Your Email" />
-                <button className="subscribe-btn">Subscribe</button>
+                <button className="subscribe-btn">Đặt mua</button>
               </div>
             </div>
           </div>
@@ -2766,13 +2776,13 @@ const HomePage = (props: Props) => {
         <div className="footer-bottom">
           <ul className="listing">
             <li className="single-list">
-              <a href="terms-condition.html" className="single">Terms of usa</a>
+              <a href="terms-condition.html" className="single">Điều khoản của Hoa Kỳ</a>
             </li>
             <li className="single-list">
-              <a href="privacy-policy.html" className="single">Privacy and Cookies Statement</a>
+              <a href="privacy-policy.html" className="single">Tuyên bố về quyền riêng tư và cookie</a>
             </li>
             <li className="single-list">
-              <a href="contact.html" className="single">How the site works</a>
+              <a href="contact.html" className="single">Cách thức hoạt động của trang web </a>
             </li>
           </ul>
         </div>
@@ -2784,10 +2794,10 @@ const HomePage = (props: Props) => {
           <div className="col-lg-12">
             <div className="d-flex justify-content-between gap-14 flex-wrap">
               <p className="pera">
-                © <span className="current-year">2023</span> initTheme. All rights
-                reserved
+                © <span className="current-year">2023</span> ban đầu.Tất cả các quyền
+kín đáo
               </p>
-              <p className="pera">Powered by @Travello</p>
+              <p className="pera">Được cung cấp bởi @Travello </p>
             </div>
           </div>
         </div>
