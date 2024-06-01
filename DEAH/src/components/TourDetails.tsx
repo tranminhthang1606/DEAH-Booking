@@ -1087,7 +1087,7 @@ const TourDetails = () => {
                   <div className="col-xl-12">
                     <div className="d-flex justify-content-between gap-14 flex-wrap">
                       <p className="pera">
-                        © <span className="current-year">2023</span> ban đầu.Tất cả các quyền
+                        © <span className="current-year">2023</span> ban đầu Tất cả các quyền
                         kín đáo
                       </p>
                       <p className="pera">Được cung cấp bởi @Travello</p>
