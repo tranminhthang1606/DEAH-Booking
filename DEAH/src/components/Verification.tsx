@@ -92,15 +92,15 @@ const Verification = () => {
                                                                 <li className="single-list">
                                                                     <a href="javascript:void(0)" className="single">Trang chủ <i className="ri-arrow-down-s-line" /></a>
                                                                     <ul className="submenu">
-                                                                        <li className="single-list">
+                                                                        {/* <li className="single-list">
                                                                             <a href="index.html" className="single">Trang chủ 01</a>
-                                                                        </li>
+                                                                        </li> */}
                                                                         <li className="single-list">
-                                                                            <a href="index-two.html" className="single">Trang chủ 02</a>
+                                                                            <a href="index-two.html" className="single">Trang chủ </a>
                                                                         </li>
-                                                                        <li className="single-list">
+                                                                        {/* <li className="single-list">
                                                                             <a href="index-three.html" className="single">Trang chủ 03</a>
-                                                                        </li>
+                                                                        </li> */}
                                                                     </ul>
                                                                 </li>
                                                                 <li className="single-list ">
@@ -138,14 +138,14 @@ const Verification = () => {
                                                                                 </li>
                                                                                 <li className="single-list">
                                                                                     <a href="forgot-pass.html" className="single">Quên
-Mật khẩu </a>
+                                                                                        Mật khẩu </a>
                                                                                 </li>
                                                                                 <li className="single-list">
                                                                                     <a href="verification.html" className="single">xác minh</a>
                                                                                 </li>
                                                                                 <li className="single-list">
                                                                                     <a href="new-password.html" className="single">Mới
-Mật khẩu </a>
+                                                                                        Mật khẩu </a>
                                                                                 </li>
                                                                             </ul>
                                                                         </li>
@@ -154,7 +154,7 @@ Mật khẩu </a>
                                                                         </li>
                                                                         <li className="single-list">
                                                                             <a href="privacy-policy.html" className="single">sự riêng tư
-Chính sách </a>
+                                                                                Chính sách </a>
                                                                         </li>
                                                                         <li className="single-list">
                                                                             <a href="terms-condition.html" className="single">Điều kiện-Điều kiện </a>
@@ -180,7 +180,7 @@ Chính sách </a>
                                                                         </div>
                                                                         <div className="sign-btn">
                                                                             <a href="login.html" className="btn-secondary-sm">Đăng nhập</a>
-                                                                          
+
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -598,7 +598,7 @@ Chính sách </a>
                                         <div className="login-footer">
                                             <div className="create-account">
                                                 <p className="mb-0">
-                                                   Quay trở lại
+                                                    Quay trở lại
                                                     <a href="login.html">
                                                         <span className="text-primary">Đăng nhập</span>
                                                     </a>
@@ -614,161 +614,161 @@ Chính sách </a>
                 </main>
                 {/* Footer S t a r t */}
                 <footer>
-          <div className="footer-wrapper footer-bg">
-            <div className="container">
-              <div className="footer-area">
-                <div className="row g-4">
-                  <div className="col-xl-3 col-lg-4 col-sm-6">
-                    <div className="single-footer-caption">
-                      <div className="footer-tittle">
-                        <h4 className="title">Công ty</h4>
-                        <ul className="listing">
-                          <li className="single-lsit">
-                            <a href="about.html">về Chúng ta</a>
-                          </li>
-                          <li className="single-lsit">
-                            <a href="news.html">Tin tức</a>
-                          </li>
-                          <li className="single-lsit"><a href="faq.html">Câu hỏi thường gặp</a></li>
-                          <li className="single-lsit">
-                            <a href="contact.html">liênHệ</a>
-                          </li>
-                        </ul>
-                      </div>
+                    <div className="footer-wrapper footer-bg">
+                        <div className="container">
+                            <div className="footer-area">
+                                <div className="row g-4">
+                                    <div className="col-xl-3 col-lg-4 col-sm-6">
+                                        <div className="single-footer-caption">
+                                            <div className="footer-tittle">
+                                                <h4 className="title">Công ty</h4>
+                                                <ul className="listing">
+                                                    <li className="single-lsit">
+                                                        <a href="about.html">về Chúng ta</a>
+                                                    </li>
+                                                    <li className="single-lsit">
+                                                        <a href="news.html">Tin tức</a>
+                                                    </li>
+                                                    <li className="single-lsit"><a href="faq.html">Câu hỏi thường gặp</a></li>
+                                                    <li className="single-lsit">
+                                                        <a href="contact.html">liênHệ</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-3 col-lg-4 col-sm-6">
+                                        <div className="single-footer-caption">
+                                            <div className="footer-tittle">
+                                                <h4 className="title">Khám phá</h4>
+                                                <ul className="listing">
+                                                    <li className="single-lsit"><a href="faq.html">Câu hỏi thường gặp</a></li>
+                                                    <li className="single-lsit">
+                                                        <a href="tour-list.html">Chuyến du lịch Danh sách</a>
+                                                    </li>
+                                                    <li className="single-lsit">
+                                                        <a href="destination.html">Điểm đến</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-3 col-lg-4 col-sm-6">
+                                        <div className="single-footer-caption">
+                                            <div className="footer-tittle">
+                                                <h4 className="title">Quick Liên kết</h4>
+                                                <ul className="listing">
+                                                    <li className="single-lsit"><a href="index.html">Trang chủ</a></li>
+                                                    <li className="single-lsit">
+                                                        <a href="about.html">Về Us</a>
+                                                    </li>
+                                                    <li className="single-lsit">
+                                                        <a href="contact.html">Liên hệ Us</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-3 col-lg-4 col-sm-6">
+                                        <div className="single-footer-caption">
+                                            <div className="footer-tittle">
+                                                <h4 className="title">liênHệ</h4>
+                                                <ul className="listing">
+                                                    <li className="single-lsit">
+                                                        <a href="#" className="mb-20 d-block">70/aSloundDivoTowerMelbourne,
+                                                            châuÚc</a>
+                                                    </li>
+                                                    <li className="single-lsit">
+                                                        <a href="#">
+                                                            <div className="d-flex gap-12">
+                                                                <i className="ri-phone-line" /> (00) +888 123456 789
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li className="single-lsit">
+                                                        <a href="#">
+                                                            <div className="d-flex gap-12">
+                                                                <i className="ri-mail-line" /> example@gmail.com
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="footer-middle-area">
+                                <div className="footer-body">
+                                    <div className="footer-content">
+                                        <div className="d-flex flex-column gap-20">
+                                            <div className="logo">
+                                                <img src="/src//images/logo/logo.png" alt="travello" className="changeLogo" />
+                                            </div>
+                                            <p className="pera">
+                                                Du lịch là một trải nghiệm biến đổi và phong phú
+                                                cho phép các cá nhân khám phá các điểm đến, văn hóa mới,
+                                                và phong cảnh.
+                                            </p>
+                                        </div>
+                                        <div className="footer-right">
+                                            <h4 className="title">Đăng ký bản tin của chúng tôi</h4>
+                                            <div className="subscribe-wraper">
+                                                <input className="footer-search" type="search" name="footer" placeholder="Enter Your Email" />
+                                                <button className="subscribe-btn">Đặt mua</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="footer-bottom">
+                                    <ul className="listing">
+                                        <li className="single-list">
+                                            <a href="terms-condition.html" className="single"> Điều khoản của Hoa Kỳ </a>
+                                        </li>
+                                        <li className="single-list">
+                                            <a href="privacy-policy.html" className="single"> Tuyên bố về quyền riêng tư và cookie</a>
+                                        </li>
+                                        <li className="single-list">
+                                            <a href="contact.html" className="single"> Cách thức hoạt động của trang web </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        {/* footer-bottom area */}
+                        <div className="footer-bottom-area">
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-xl-12">
+                                        <div className="d-flex justify-content-between gap-14 flex-wrap">
+                                            <p className="pera">
+                                                © <span className="current-year">2023</span> ban đầu.Tất cả các quyền
+                                                kín đáo
+                                            </p>
+                                            <p className="pera">Được cung cấp bởi @Travello</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-sm-6">
-                    <div className="single-footer-caption">
-                      <div className="footer-tittle">
-                        <h4 className="title">Khám phá</h4>
-                        <ul className="listing">
-                          <li className="single-lsit"><a href="faq.html">Câu hỏi thường gặp</a></li>
-                          <li className="single-lsit">
-                            <a href="tour-list.html">Chuyến du lịch Danh sách</a>
-                          </li>
-                          <li className="single-lsit">
-                            <a href="destination.html">Điểm đến</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-sm-6">
-                    <div className="single-footer-caption">
-                      <div className="footer-tittle">
-                        <h4 className="title">Quick Liên kết</h4>
-                        <ul className="listing">
-                          <li className="single-lsit"><a href="index.html">Trang chủ</a></li>
-                          <li className="single-lsit">
-                            <a href="about.html">Về Us</a>
-                          </li>
-                          <li className="single-lsit">
-                            <a href="contact.html">Liên hệ Us</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-sm-6">
-                    <div className="single-footer-caption">
-                      <div className="footer-tittle">
-                        <h4 className="title">liênHệ</h4>
-                        <ul className="listing">
-                          <li className="single-lsit">
-                            <a href="#" className="mb-20 d-block">70/aSloundDivoTowerMelbourne,
-                              châuÚc</a>
-                          </li>
-                          <li className="single-lsit">
-                            <a href="#">
-                              <div className="d-flex gap-12">
-                                <i className="ri-phone-line" /> (00) +888 123456 789
-                              </div>
-                            </a>
-                          </li>
-                          <li className="single-lsit">
-                            <a href="#">
-                              <div className="d-flex gap-12">
-                                <i className="ri-mail-line" /> example@gmail.com
-                              </div>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+                </footer>
+                {/*/ End-of Footer */}
+                {/* Scroll Up  */}
+                <div className="progressParent" id="back-top">
+                    <svg className="backCircle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+                    </svg>
                 </div>
-              </div>
-              <div className="footer-middle-area">
-                <div className="footer-body">
-                  <div className="footer-content">
-                    <div className="d-flex flex-column gap-20">
-                      <div className="logo">
-                        <img src="/src//images/logo/logo.png" alt="travello" className="changeLogo" />
-                      </div>
-                      <p className="pera">
-                        Du lịch là một trải nghiệm biến đổi và phong phú
-                        cho phép các cá nhân khám phá các điểm đến, văn hóa mới,
-                        và phong cảnh.
-                      </p>
-                    </div>
-                    <div className="footer-right">
-                      <h4 className="title">Đăng ký bản tin của chúng tôi</h4>
-                      <div className="subscribe-wraper">
-                        <input className="footer-search" type="search" name="footer" placeholder="Enter Your Email" />
-                        <button className="subscribe-btn">Đặt mua</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="footer-bottom">
-                  <ul className="listing">
-                    <li className="single-list">
-                      <a href="terms-condition.html" className="single"> Điều khoản của Hoa Kỳ </a>
-                    </li>
-                    <li className="single-list">
-                      <a href="privacy-policy.html" className="single"> Tuyên bố về quyền riêng tư và cookie</a>
-                    </li>
-                    <li className="single-list">
-                      <a href="contact.html" className="single"> Cách thức hoạt động của trang web </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+                {/* Add an search-overlay element */}
+                <div className="search-overlay" />
+                {/* jquery*/}
+                {/* Plugin */}
+                {/* Main js*/}
             </div>
-            {/* footer-bottom area */}
-            <div className="footer-bottom-area">
-              <div className="container">
-                <div className="row">
-                  <div className="col-xl-12">
-                    <div className="d-flex justify-content-between gap-14 flex-wrap">
-                      <p className="pera">
-                        © <span className="current-year">2023</span> ban đầu.Tất cả các quyền
-                        kín đáo
-                      </p>
-                      <p className="pera">Được cung cấp bởi @Travello</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
-        {/*/ End-of Footer */}
-        {/* Scroll Up  */}
-        <div className="progressParent" id="back-top">
-          <svg className="backCircle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-          </svg>
-        </div>
-        {/* Add an search-overlay element */}
-        <div className="search-overlay" />
-        {/* jquery*/}
-        {/* Plugin */}
-        {/* Main js*/}
-      </div>
 
-    </div>
-  )
+        </div>
+    )
 }
 
 export default Verification

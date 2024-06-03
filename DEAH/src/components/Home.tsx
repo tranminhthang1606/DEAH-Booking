@@ -95,15 +95,15 @@ const HomePage = (props: Props) => {
                           <li className="single-list">
                             <a href="javascript:void(0)" className="single link-active">Trang chủ <i className="ri-arrow-down-s-line" /></a>
                             <ul className="submenu">
-                              <li className="single-list">
+                              {/* <li className="single-list">
                                 <a href="index.html" className="single">Trang chủ 01</a>
-                              </li>
+                              </li> */}
                               <li className="single-list">
-                                <a href="index-two.html" className="single">Trang chủ 02</a>
+                                <a href="index-two.html" className="single">Trang chủ </a>
                               </li>
-                              <li className="single-list">
+                              {/* <li className="single-list">
                                 <a href="index-three.html" className="single">Trang chủ 03</a>
-                              </li>
+                              </li> */}
                             </ul>
                           </li>
                           <li className="single-list">

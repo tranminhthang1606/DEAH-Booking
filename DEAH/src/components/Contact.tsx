@@ -92,15 +92,15 @@ const Contact = () => {
                           <li className="single-list">
                             <a href="javascript:void(0)" className="single">Trang chủ <i className="ri-arrow-down-s-line" /></a>
                             <ul className="submenu">
-                              <li className="single-list">
+                              {/* <li className="single-list">
                                 <a href="index.html" className="single">Trang chủ 01</a>
-                              </li>
+                              </li> */}
                               <li className="single-list">
-                                <a href="index-two.html" className="single">Trang chủ 02</a>
+                                <a href="index-two.html" className="single">Trang chủ </a>
                               </li>
-                              <li className="single-list">
+                              {/* <li className="single-list">
                                 <a href="index-three.html" className="single">Trang chủ 03</a>
-                              </li>
+                              </li> */}
                             </ul>
                           </li>
                           <li className="single-list ">
@@ -110,13 +110,13 @@ const Contact = () => {
                             <a href="destination.html" className="single">Điểm đến</a>
                           </li>
                           <li className="single-list">
-                            <a href="tour-list.html" className="single">góiDuLịch</a>
+                            <a href="tour-list.html" className="single">gói Du Lịch</a>
                           </li>
                           <li className="single-list">
                             <a href="javascript:void(0)" className="single">trang <i className="ri-arrow-down-s-line" /></a>
                             <ul className="submenu">
                               <li className="single-list">
-                                <a href="tour-details.html" className="single">chuyếnDuLịch
+                                <a href="tour-details.html" className="single"> C huyến Du Lịch
                                   chiTiết</a>
                               </li>
                               <li className="single-list">

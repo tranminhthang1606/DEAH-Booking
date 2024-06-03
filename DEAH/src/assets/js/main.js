@@ -1,25 +1,4 @@
-/*---------------------------------------------------------
-    Index Of Script
------------------------------------------------------------
 
-    @version         : 1.0.0
-    @Template Name   : Travello
-    @Template author : initTheme
-    
-    :: Swiper Slider Active         :: Nice Scroll js             
-    :: Fancy box                    :: Hover Tilt Effect        
-    :: Search box                   :: Select 2                                  
-    :: Mobile Menu                  :: Slick Nav       
-    :: Animation                    :: Wow Animation      
-    :: Sticky And Scroll Up         :: JS Year
-    :: JS for Price Range slider    :: Play video Slider
-    :: Custom click ad remove       :: Custom Dropdown
-    :: Filter side nav              :: Password Show Hide
-    :: Payment Gateway selection    
-    
-------------------------------------------------------------
-    End-of Script
-------------------------------------------------------------*/
 
 (function ($) {
     "use strict";

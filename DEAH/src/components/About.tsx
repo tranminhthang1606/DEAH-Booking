@@ -1,14 +1,9 @@
 import React, { useEffect } from 'react'
 import "../assets/js/main.js"
+// import { initializeStickyAndScrollUp, initializeSwipers, initializeSelect2, initializeFancybox, initializeHoverIcons, initializePriceRangeSlider, initializeCustomDropdown } from './components/initializeScripts';
+// import { useEffect } from 'react';
 const Về = () => {
-  useEffect(() => {
-    const setTheme = (theme?: string) => {
-      theme ??= localStorage.theme || "light";
-      document.documentElement.dataset.theme = theme;
-      localStorage.theme = theme;
-    };
-    setTheme();
-  }, []);
+
   return (
     <div>
       <header>
@@ -100,15 +95,15 @@ const Về = () => {
                               <li className="single-list">
                                 <a href="javascript:void(0)" className="single">Trang chủ <i className="ri-arrow-down-s-line" /></a>
                                 <ul className="submenu">
-                                  <li className="single-list">
+                                  {/* <li className="single-list">
                                     <a href="index.html" className="single">Trang chủ 01</a>
-                                  </li>
+                                  </li> */}
                                   <li className="single-list">
-                                    <a href="index-two.html" className="single">Trang chủ 02</a>
+                                    <a href="index-two.html" className="single">Trang chủ </a>
                                   </li>
-                                  <li className="single-list">
+                                  {/* <li className="single-list">
                                     <a href="index-three.html" className="single">Trang chủ 03</a>
-                                  </li>
+                                  </li> */}
                                 </ul>
                               </li>
                               <li className="single-list ">
@@ -128,46 +123,46 @@ const Về = () => {
                                       Chi tiết</a>
                                   </li>
                                   <li className="single-list">
-                                    <a href="news-details.html" className="single">tinTức
-                                      chiTiết</a>
+                                    <a href="news-details.html" className="single">tin Tức
+                                      chi Tiết</a>
                                   </li>
                                   <li className="single-list">
-                                    <a href="destination-details.html" className="single">Điểm đến chiTiết</a>
+                                    <a href="destination-details.html" className="single">Điểm đến chi Tiết</a>
                                   </li>
                                   <li className="single-list">
-                                    <a href="payment.html" className="single">sựChiTrả</a>
+                                    <a href="payment.html" className="single">sự Chi Trả</a>
                                   </li>
                                   <li className="single-list">
-                                    <a href="javascript:void(0)" className="single">đăngNhập<i className="ri-arrow-right-s-line" /></a>
+                                    <a href="javascript:void(0)" className="single">đăng Nhập<i className="ri-arrow-right-s-line" /></a>
                                     <ul className="submenu">
                                       <li className="single-list">
-                                        <a href="login.html" className="single">đăngNhập</a>
+                                        <a href="login.html" className="single">đăng Nhập</a>
                                       </li>
                                       <li className="single-list">
-                                        <a href="register.html" className="single">sựĐăngKý</a>
+                                        <a href="register.html" className="single">sự Đăng Ký</a>
                                       </li>
                                       <li className="single-list">
                                         <a href="forgot-pass.html" className="single">quên
-                                          mậtKhẩu</a>
+                                          mật Khẩu</a>
                                       </li>
                                       <li className="single-list">
-                                        <a href="verification.html" className="single">xácMinh</a>
+                                        <a href="verification.html" className="single">xác Minh</a>
                                       </li>
                                       <li className="single-list">
                                         <a href="new-password.html" className="single">mới
-                                          mậtKhẩu</a>
+                                          mật Khẩu</a>
                                       </li>
                                     </ul>
                                   </li>
                                   <li className="single-list">
-                                    <a href="faq.html" className="single">câuHỏiThườngGặp</a>
+                                    <a href="faq.html" className="single">câu Hỏi Thường Gặp</a>
                                   </li>
                                   <li className="single-list">
-                                    <a href="privacy-policy.html" className="single">sựRiêngTư
-                                      chínhSách</a>
+                                    <a href="privacy-policy.html" className="single">sự Riêng Tư
+                                      chính Sách</a>
                                   </li>
                                   <li className="single-list">
-                                    <a href="terms-condition.html" className="single">điềuKhoảnĐiềuKiện</a>
+                                    <a href="terms-condition.html" className="single">điều Khoản Điều Kiện</a>
                                   </li>
                                 </ul>
                               </li>
@@ -259,10 +254,10 @@ const Về = () => {
                               Dubai by Night City Tour với Fountain Show
                             </h4>
                             <p className="pera line-clamp-2">
-                              buổiTốiTuyệtVờiEscapadeBắtĐầuTừMadinat
-                              jumeirahĐếnĐàiPhunNướcÂmNhạcĐểXemNgườiKhác.
-                              buổiTốiTuyệtVờiEscapadeBắtĐầuTừMadinat
-                              jumeirahĐếnCácĐàiPhunNướcÂmNhạcĐểXemNgườiKhác
+                              buổi Tối Tuyệt Vời Esc apade Bắt Đầu Từ Madinat
+                              jumeirah Đến Đài Phun Nước Âm Nhạc Để Xem Người Khác.
+                              buổi Tối Tuyệt VờiEscapade Bắt Đầu Từ Madinat
+                              jumeirah Đến Các Đài Phun Nước Âm Nhạc Để Xem Người Khác
                             </p>
                           </div>
                         </div>
@@ -629,9 +624,9 @@ const Về = () => {
             <div className="row justify-content-center">
               <div className="col-xl-7 col-lg-7">
                 <div className="section-title text-center mx-605 mx-auto position-relative">
-                  <span className="highlights-primary">bưuKiện giáCả kếHoạch</span>
+                  <span className="highlights-primary">bưu Kiện giá Cả kế Hoạch</span>
                   <h4 className=" title">
-                    đơnGiảnChỉCầnChọnKếHoạchĐịnhGiáPhùHợpVớiBạnNhất
+                    Đơn Giản Chỉ Cần Chọn  Kế Hoạch Định Giá Phù Hợp Với Bạn Nhất
                   </h4>
                 </div>
               </div>
@@ -853,7 +848,7 @@ const Về = () => {
             <div className="border-section-title">
               <h4 className="title">Chúng tôi đã được đề cập trong các thương hiệu dưới đây</h4>
             </div>
-            <div className="swiper brandSwiper-active">
+            {/* <div className="swiper brandSwiper-active">
               <div className="swiper-wrapper">
                 <div className="swiper-slide">
                   <img src="/src/assets/images/brand/brand-1.jpeg" alt="travello" />
@@ -877,7 +872,7 @@ const Về = () => {
                   <img src="/src/assets/images/brand/brand-2.jpg" alt="travello" />
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
         {/*/ End of Brand */}
@@ -1229,7 +1224,7 @@ const Về = () => {
                 <div className="section-title mx-430 mx-auto text-center">
                   <span className="highlights fancy-font font-400">Ưu đãi đặc biệt</span>
                   <h4 className="title">
-                    mùaĐôngNhữngLờiĐềNghịLớnCủaChúngTôiĐểTruyềnCảmHứngChoBạn
+               mùa Đông Những Lời Đề Nghị Lớn Của Chúng Tôi Để Truyền Cảm Hứng Cho Bạn
                   </h4>
                 </div>
               </div>
@@ -1291,7 +1286,7 @@ const Về = () => {
                         </li>
                         <li className="single-lsit"><a href="faq.html">Câu hỏi thường gặp</a></li>
                         <li className="single-lsit">
-                          <a href="contact.html">liênHệ</a>
+                          <a href="contact.html">liên Hệ</a>
                         </li>
                       </ul>
                     </div>
@@ -1335,8 +1330,8 @@ const Về = () => {
                       <h4 className="title">liênHệ</h4>
                       <ul className="listing">
                         <li className="single-lsit">
-                          <a href="#" className="mb-20 d-block">70/aSloundDivoTowerMelbourne,
-                            châuÚc</a>
+                          <a href="#" className="mb-20 d-block">70/aslounddivotowermelbourne,
+châuúc</a>
                         </li>
                         <li className="single-lsit">
                           <a href="#">
