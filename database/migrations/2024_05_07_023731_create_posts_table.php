@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('body');
-            $table->string('tags');
-            $table->integer('user_id');
+            $table->integer('view');
+            $table->bigInteger('status');
             $table->timestamps();
         });
     }
