@@ -22,8 +22,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::group(['middleware' => 'cors'], function () {
 Route::apiResource('/posts',ApiPostController::class);
 Route::apiResource('/tags',ApiTagController::class);
 Route::apiResource('/banners',ApiBannerController::class);
 Route::apiResource('/images_banner',ApiImage_bannerController::class);
 Route::apiResource('/users',ApiUserController::class);
+});
