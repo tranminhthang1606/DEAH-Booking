@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('images_banner', function (Blueprint $table) {
             $table->id();
-            $table->integer('banner_id');
+            $table->unsignedBigInteger('banner_id');
             $table->string('image');
             $table->timestamps();
+            $table->foreign('banner_id')->references('id')->on('banners');
         });
     }
 
