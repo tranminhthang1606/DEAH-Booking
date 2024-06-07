@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('itineraries', function (Blueprint $table) {
             $table->id();
             $table->integer('tour_id');
+            $table->integer('day');
+            $table->string('title');
             $table->string('itinerary');
             $table->timestamps();
+            $table->foreign('tour_id')->references('id')->on('tours');
         });
     }
 

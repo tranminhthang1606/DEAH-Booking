@@ -15,7 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('comments');
             $table->integer('post_id');
+            $table->integer('user_id');
             $table->timestamps();
+            $table->foreign('post_id')->references('id')->on('posts');
+            $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 

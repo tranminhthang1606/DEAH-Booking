@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('user_voucher', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('body');
-            $table->integer('view');
-            $table->boolean('status');
+            $table->integer('voucher_id');
+            $table->integer('user_id');
+            $table->boolean('using_voucher');
             $table->timestamps();
+            $table->foreign('voucher_id')->references('id')->on('vouchers');
+            $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('user_voucher');
     }
 };
