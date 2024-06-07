@@ -5,6 +5,7 @@ use App\Http\Controllers\ApiImage_bannerController;
 use App\Http\Controllers\ApiPostController;
 use App\Http\Controllers\ApiTagController;
 use App\Http\Controllers\ApiUserController;
+use App\Http\Controllers\Client\HomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,9 +24,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::group(['middleware' => 'cors'], function () {
-Route::apiResource('/posts',ApiPostController::class);
-Route::apiResource('/tags',ApiTagController::class);
-Route::apiResource('/banners',ApiBannerController::class);
-Route::apiResource('/images_banner',ApiImage_bannerController::class);
-Route::apiResource('/users',ApiUserController::class);
+    Route::prefix('client')->group(function () {
+        //trang chủ người dùng
+        Route::get('/get-tours-new', [HomeController::class, 'newTours']);
+        Route::get('/get-tours-feature', [HomeController::class, 'featureTours']);
+        Route::get('/get-posts-new', [HomeController::class, 'newPosts']);
+    });
+    Route::apiResource('/posts', ApiPostController::class);
+    Route::apiResource('/tags', ApiTagController::class);
+    Route::apiResource('/banners', ApiBannerController::class);
+    Route::apiResource('/images_banner', ApiImage_bannerController::class);
+    Route::apiResource('/users', ApiUserController::class);
 });
+

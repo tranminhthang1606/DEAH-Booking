@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Http\Controllers\Client;
+
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\ResponseJson;
+use App\Models\Post;
+use App\Models\Tour;
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    //
+    public $response;
+    public function __construct(ResponseJson $response) {
+        $this->response = $response;
+    }
+    public function newTours(){
+        $tours = Tour::orderByDesc('id')->take(10)->get();
+        if($tours){
+            return $this->response->responseSuccess($tours);
+        }
+        return $this->response->responseFaild();
+    }
+    public function featureTours(){
+        $tours = Tour::orderByDesc('views')->take(10)->get();
+        if($tours){
+            return $this->response->responseSuccess($tours);
+        }
+        return $this->response->responseFaild();
+    }
+    public function newPosts(){
+        $posts = Post::orderByDesc('id')->take(10)->get();
+        if($posts){
+            return $this->response->responseSuccess($posts);
+        }
+        return $this->response->responseFaild();
+    }
+}
