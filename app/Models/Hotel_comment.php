@@ -5,19 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Hotel_comment extends Model
 {
     use HasFactory;
-    protected $table  ='users';
+    protected  $table = 'hotel_comments';
     protected $fillable = [
-      'name',
-      'email',
-      'password',
-      'date_of_birth',
-      'phone',
-      'address',
-      'role'
-
-
+        'comments',
+        'hotel_id',
+        'user_id'
     ];
 }

@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('hotel_comments', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('body');
-            $table->integer('view');
-            $table->boolean('status');
+            $table->string('comments');
+            $table->integer('hotel_id');
+            $table->integer('user_id');
             $table->timestamps();
+            $table->foreign('hotel_id')->references('id')->on('hotels');
+            $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('hotel_comments');
     }
 };

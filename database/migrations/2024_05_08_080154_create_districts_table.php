@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('province_id');
             $table->timestamps();
+            $table->foreign('province_id')->references('id')->on('provinces');
         });
     }
 

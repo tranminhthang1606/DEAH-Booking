@@ -19,8 +19,7 @@ return new class extends Migration
             $table->date('date_of_birth');
             $table->string('phone');
             $table->text('address');
-            $table->integer('role_id');
-
+            $table->integer('role');
             $table->timestamps();
         });
     }

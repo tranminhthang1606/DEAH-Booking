@@ -13,13 +13,25 @@ return new class extends Migration
     {
         Schema::create('tours', function (Blueprint $table) {
             $table->id();
+            $table->integer('type_id');
             $table->string('title');
+            $table->integer('day');
+            $table->text('description');
             $table->string('map');
             $table->string('price');
+            $table->string('promotion');
+            $table->boolean('private');
+            $table->integer('views');
+            $table->integer('rate');
             $table->integer('province_id');
             $table->integer('district_id');
             $table->integer('ward_id');
             $table->timestamps();
+            $table->foreign('province_id')->references('id')->on('provinces');
+            $table->foreign('district_id')->references('id')->on('districts');
+            $table->foreign('ward_id')->references('id')->on('wards');
+
+
         });
     }
 
