@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Slab", serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 !important;
+}
+
+.slick-dots {
+  display: flex !important;
+  flex-direction: column;
+  left: -150px;
+  gap: 8px;
+  bottom: 0 !important;
+}
+.slick-dots li {
+  width: 120px !important;
+  height: 120px !important;
+  padding: 10px !important;
+  border: 1px solid black;
+}
+.slick-dots li div img {
+  height: 100px !important;
+  max-width: unset;
+}
+.slick-dots .slick-active {
+  border: 1px solid red;
+}
+
+.form-group__file {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  min-width: 130px;
+  height: 180px;
+}
+
+.file-label {
+  margin: 10px 0;
+}
+
+.file-input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 130px;
+  height: 180px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.file-preview-background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 130px;
+  height: 140px;
+  background-color: #f7f7f7;
+  border: 2px dashed #dfdfdf;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-align: center;
+  color: #bbb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.file-preview {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 46px;
+  left: 8px;
+  border-radius: 65px;
+  z-index: 10;
+  object-fit: cover;
+
+  transition: opacity 0.4s ease-in;
+}
+
+.product-hover .product-hover-name:hover .dropdownHover {
+  display: block;
+}
+
+.product-hover .dropdownHover {
+  top: 20px;
+  position: absolute;
+  display: none;
+}
+a {
+  text-decoration: none !important;
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import "../assets/js/main.js"
 
 const Indextwo = () => {
   return (
@@ -7,7 +8,7 @@ const Indextwo = () => {
   <header className="header-area-two">
     {/* Header top */}
     <div className="top-header-two">
-      <h4 className="title">Giảm giá Thứ Sáu Đen</h4>
+      <h4 className="title">Giảm giá Black Friday</h4>
       <div className="discount">
         <p className="pera">30%</p>
       </div>
@@ -24,85 +25,73 @@ const Indextwo = () => {
                   <div className="d-flex justify-content-between align-items-center position-relative">
                     {/* Logo*/}
                     <div className="logo">
-                      <a href="index.html"><img src="/src/images/logo/logo.png" alt="logo" className="changeLogo" /></a>
+                      <a href="index"><img src="/src/assets/images/logo/logo.png" alt="logo" className="changeLogo" /></a>
                     </div>
                     <ul className="listing d-none d-lg-block" id="navigation">
                       <li className="single-list">
-                        <a href="javascript:void(0)" className="single link-active"> Nhà
-                          <i className="ri-arrow-down-s-line" /></a>
-                        <ul className="submenu">
-                          {/* <li className="single-list">
-                            <a href="index.html" className="single"> Nhà 01</a>
-                          </li> */}
-                          <li className="single-list">
-                            <a href="index-two.html" className="single"> Trang chủ</a>
-                          </li>
-                          {/* <li className="single-list">
-                            <a href="index-three.html" className="single"> Nhà 03</a>
-                          </li> */}
-                        </ul>
+                        <a href="javascript:void(0)" className="single link-active"> Trang Chủ</a>
                       </li>
                       <li className="single-list">
-                        <a href="about.html" className="single">về</a>
+                        <a href="about" className="single">Về Chúng Tôi</a>
                       </li>
                       <li className="single-list">
-                        <a href="destination.html" className="single">Điểm đến</a>
+                        <a href="destination" className="single">Điểm Đến</a>
                       </li>
                       <li className="single-list">
-                        <a href="tour-list.html" className="single">Gói du lịch</a>
+                        <a href="tour-list" className="single">Gói Du Lịch</a>
                       </li>
                       <li className="single-list">
                         <a href="javascript:void(0)" className="single">Trang <i className="ri-arrow-down-s-line" /></a>
                         <ul className="submenu">
                           <li className="single-list">
-                            <a href="tour-details.html" className="single">Chi tiết tour du lịch</a>
+                            <a href="tour-details" className="single">Chi tiết tour du lịch</a>
                           </li>
                           <li className="single-list">
-                            <a href="destination-details.html" className="single">Điểm đến
+                            <a href="destination-details" className="single">Điểm đến
                               Chi tiết</a>
                           </li>
                           <li className="single-list">
-                            <a href="news-details.html" className="single">Chi tiết tin tức</a>
+                            <a href="news-details" className="single">Chi tiết tin tức</a>
                           </li>
                           <li className="single-list">
-                            <a href="payment.html" className="single">người trả lươngt</a>
+                            <a href="payment" className="single">người trả lươngt</a>
                           </li>
                           <li className="single-list">
                             <a href="javascript:void(0)" className="single">Đăng nhập<i className="ri-arrow-right-s-line" /></a>
                             <ul className="submenu">
                               <li className="single-list">
-                                <a href="login.html" className="single">Đăng nhập</a>
+                                <a href="login" className="single">Đăng nhập</a>
                               </li>
                               <li className="single-list">
-                                <a href="register.html" className="single">Sự đăng ký</a>
+                                <a href="register" className="single">Sự đăng ký</a>
                               </li>
                               <li className="single-list">
-                                <a href="forgot-pass.html" className="single">Quên
+                                <a href="forgot-pass" className="single">Quên
 Mật khẩu</a>
                               </li>
                               <li className="single-list">
-                                <a href="verification.html" className="single">xác minh</a>
+                                <a href="verification" className="single">xác minh</a>
                               </li>
                               <li className="single-list">
-                                <a href="new-password.html" className="single">Mới
+                                <a href="new-password" className="single">Mới
 Mật khẩu</a>
                               </li>
                             </ul>
                           </li>
                           <li className="single-list">
-                            <a href="faq.html" className="single">Câu hỏi thường gặp</a>
+                            <a href="faq" className="single">Câu hỏi thường gặp</a>
                           </li>
                           <li className="single-list">
-                            <a href="privacy-policy.html" className="single">sự riêng tư
+                            <a href="privacy-policy" className="single">sự riêng tư
 chính sách </a>
                           </li>
                           <li className="single-list">
-                            <a href="terms-condition.html" className="single">Điều khoản-Điều kiện</a>
+                            <a href="terms-condition" className="single">Điều khoản-Điều kiện</a>
                           </li>
                         </ul>
                       </li>
                       <li className="single-list">
-                        <a href="contact.html" className="single">Liên hệ</a>
+                        <a href="contact" className="single">Liên hệ</a>
                       </li>
                       <li className="d-block d-lg-none">
                         <div className="header-right pl-15">
@@ -116,7 +105,7 @@ chính sách </a>
                             </div>
                           </div>
                           <div className="sign-btn">
-                            <a href="login.html" className="btn-secondary-sm">Đăng nhập</a>
+                            <a href="login" className="btn-secondary-sm">Đăng nhập</a>
                           </div>
                         </div>
                       </li>
@@ -134,7 +123,7 @@ chính sách </a>
                           </div>
                         </div>
                         <div className="sign-btn">
-                          <a href="login.html" className="btn-secondary-sm">Đăng nhập</a>
+                          <a href="login" className="btn-secondary-sm">Đăng nhập</a>
                         </div>
                         {/* Theme Mode */}
                         <button className="ToggleThemeButton change-theme-mode m-0 p-0 border-0">
@@ -190,10 +179,10 @@ chính sách </a>
                 <h4 className="search-label">Gần đây</h4>
               </li>
               <li className="single-list">
-                <a href="tour-details.html">
+                <a href="tour-details">
                   <div className="search-flex">
                     <div className="content-img">
-                      <img src="/src/images/gallery/search-img-1.jpeg" alt="travello" />
+                      <img src="/src/assets/images/gallery/search-img-1.jpeg" alt="travello" />
                     </div>
                     <div className="content">
                       <h4 className="title line-clamp-1">
@@ -210,10 +199,10 @@ Jumeirah đến các đài phun nước âm nhạc để xem người khác
                 </a>
               </li>
               <li className="single-list">
-                <a href="tour-details.html">
+                <a href="tour-details">
                   <div className="search-flex">
                     <div className="content-img">
-                      <img src="/src/images/gallery/search-img-2.jpeg" alt="travello" />
+                      <img src="/src/assets/images/gallery/search-img-2.jpeg" alt="travello" />
                     </div>
                     <div className="content">
                       <h4 className="title line-clamp-1">
@@ -231,10 +220,10 @@ Safari sa mạc Red Dune.
                 </a>
               </li>
               <li className="single-list">
-                <a href="tour-details.html">
+                <a href="tour-details">
                   <div className="search-flex">
                     <div className="content-img">
-                      <img src="/src/images/gallery/search-img-3.jpeg" alt="travello" />
+                      <img src="/src/assets/images/gallery/search-img-3.jpeg" alt="travello" />
                     </div>
                     <div className="content">
                       <h4 className="title line-clamp-1">
@@ -254,10 +243,10 @@ bản sao của các địa danh mang tính biểu tượng
                 <h4 className="search-label">Recent</h4>
               </li>
               <li className="single-list">
-                <a href="tour-details.html">
+                <a href="tour-details">
                   <div className="search-flex">
                     <div className="content-img">
-                      <img src="/src/images/gallery/search-img-1.jpeg" alt="travello" />
+                      <img src="/src/assets/images/gallery/search-img-1.jpeg" alt="travello" />
                     </div>
                     <div className="content">
                       <h4 className="title line-clamp-1">
@@ -274,10 +263,10 @@ Jumeirah đến các đài phun nước âm nhạc để xem người khác
                 </a>
               </li>
               <li className="single-list">
-                <a href="tour-details.html">
+                <a href="tour-details">
                   <div className="search-flex">
                     <div className="content-img">
-                      <img src="/src/images/gallery/search-img-2.jpeg" alt="travello" />
+                      <img src="/src/assets/images/gallery/search-img-2.jpeg" alt="travello" />
                     </div>
                     <div className="content">
                       <h4 className="title line-clamp-1">
@@ -295,10 +284,10 @@ Safari sa mạc Red Dune.
                 </a>
               </li>
               <li className="single-list">
-                <a href="tour-details.html">
+                <a href="tour-details">
                   <div className="search-flex">
                     <div className="content-img">
-                      <img src="/src/images/gallery/search-img-3.jpeg" alt="travello" />
+                      <img src="/src/assets/images/gallery/search-img-3.jpeg" alt="travello" />
                     </div>
                     <div className="content">
                       <h4 className="title line-clamp-1">
@@ -494,7 +483,7 @@ Phim Minneapolis.Mallis Ullamcorper mềm có mặt
 Nó xấu xí.Tại Dinh dưỡng bóng chuyền của những đứa trẻ
               </p>
               <div className="button-section wow fadeInUp" data-wow-delay="0.5s">
-                <a href="payment.html" className="btn-secondary-sm hero-book-btn">Bắt đầu đặt phòng</a>
+                <a href="payment" className="btn-secondary-sm hero-book-btn">Bắt đầu đặt phòng</a>
               </div>
             </div>
           </div>
@@ -602,7 +591,7 @@ Nó xấu xí.Tại Dinh dưỡng bóng chuyền của những đứa trẻ
                   </div>
                 </div>
                 <div className="sign-btn">
-                  <a href="tour-list.html" className="btn-secondary-lg">Kế hoạch tìm kiếm</a>
+                  <a href="tour-list" className="btn-secondary-lg">Kế hoạch tìm kiếm</a>
                 </div>
               </div>
             </div>
@@ -611,11 +600,11 @@ Nó xấu xí.Tại Dinh dưỡng bóng chuyền của những đứa trẻ
       </div>
       {/* shape 01 */}
       <div className="shape-one d-none d-lg-block">
-        <img src="/src/images/hero/hero-bg-two-shape.png" alt="travello" />
+        <img src="/src/assets/images/hero/hero-bg-two-shape.png" alt="travello" />
       </div>
       {/* shape 02 */}
       <div className="shape-two d-none d-lg-block">
-        <img src="/src/images/hero/hero-bg-two.png" alt="travello" />
+        <img src="/src/assets/images/hero/hero-bg-two.png" alt="travello" />
       </div>
     </section>
     {/*/ End-of Hero*/}
@@ -719,8 +708,8 @@ các doanh nghiệp, thường là trong bán lẻ hoặc khách sạn
         </div>
         <div className="row g-4">
           <div className="col-lg-6 col-md-6">
-            <a href="tour-list.html" className="offer-banner imgEffect4 wow fadeInLeft" data-wow-delay="0.0s">
-              <img src="/src/images/gallery/special-offer.png" alt="travello" />
+            <a href="tour-list" className="offer-banner imgEffect4 wow fadeInLeft" data-wow-delay="0.0s">
+              <img src="/src/assets/assets/images/gallery/special-offer.png" alt="travello" />
               <div className="offer-content">
                 <p className="highlights-text">Tiết kiệm lên đến</p>
                 <h4 className="title">50%</h4>
@@ -734,8 +723,8 @@ các doanh nghiệp, thường là trong bán lẻ hoặc khách sạn
             </a>
           </div>
           <div className="col-lg-6 col-md-6">
-            <a href="tour-list.html" className="offer-banner imgEffect4 wow fadeInRight" data-wow-delay="0.0s">
-              <img src="/src/images/gallery/offercard-3.jpg" alt="travello" />
+            <a href="tour-list" className="offer-banner imgEffect4 wow fadeInRight" data-wow-delay="0.0s">
+              <img src="/src/assets/images/gallery/offercard-3.jpg" alt="travello" />
               <div className="offer-content-two">
                 <h4 className="title">Khách sạn gần đó</h4>
                 <p className="pera">
@@ -837,7 +826,7 @@ Phim hoạt hình lập kế hoạch xấu xí.
         </div>
       </div>
       <div className="shape-about-two">
-        <img src="/src/images/icon/about-shape.png" alt="travello" />
+        <img src="/src/assets/images/icon/about-shape.png" alt="travello" />
       </div>
     </section>
     {/*/ End-of About US*/}
@@ -857,8 +846,8 @@ Phim hoạt hình lập kế hoạch xấu xí.
           </div>
           <div className="row g-4">
             <div className="col-xl-3 col-lg-4 col-sm-6">
-              <a href="destination-details.html" className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
-                <img src="/src/images/destination/destination-6.png" alt="travello" />
+              <a href="destination-details" className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
+                <img src="/src/assets/images/destination/destination-6.png" alt="travello" />
                 <div className="destination-content-two">
                   <div className="ratting-badge">
                     <span>7 Tour</span>
@@ -875,8 +864,8 @@ Phim hoạt hình lập kế hoạch xấu xí.
               </a>
             </div>
             <div className="col-xl-3 col-lg-4 col-sm-6">
-              <a href="destination-details.html" className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.1s">
-                <img src="/src/images/destination/destination-7.png" alt="travello" />
+              <a href="destination-details" className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.1s">
+                <img src="/src/assets/images/destination/destination-7.png" alt="travello" />
                 <div className="destination-content-two">
                   <div className="ratting-badge">
                     <span>7 Tour</span>
@@ -895,8 +884,8 @@ Phim hoạt hình lập kế hoạch xấu xí.
               </a>
             </div>
             <div className="col-xl-3 col-lg-4 col-sm-6">
-              <a href="destination-details.html" className="destination-banner-two  h-calc wow fadeInUp" data-wow-delay="0.2s">
-                <img src="/src/images/destination/destination-8.png" alt="travello" />
+              <a href="destination-details" className="destination-banner-two  h-calc wow fadeInUp" data-wow-delay="0.2s">
+                <img src="/src/assets/images/destination/destination-8.png" alt="travello" />
                 <div className="destination-content-two">
                   <div className="ratting-badge">
                     <span>7 Tour</span>
@@ -919,7 +908,7 @@ Phim hoạt hình lập kế hoạch xấu xí.
                 <div className="destination-content-offer">
                   <span className="highlights">20% off</span>
                   <h4 className="title">Tốt nhất cho ít hơn </h4>
-                  <a href="payment.html" className="btn-secondary-sm"> Đặt chỗ ngay bây giờ</a>
+                  <a href="payment" className="btn-secondary-sm"> Đặt chỗ ngay bây giờ</a>
                 </div>
               </div>
             </div>
@@ -950,7 +939,7 @@ phát triển cá nhân
           </div>
           <div className="col-lg-4">
             <div className="discover-circle ">
-              <a href="about.html" className="discover-btn">Khám phá nhiều hơn<i className="ri-arrow-right-up-line" /></a>
+              <a href="about" className="discover-btn">Khám phá nhiều hơn<i className="ri-arrow-right-up-line" /></a>
             </div>
           </div>
         </div>
@@ -959,12 +948,12 @@ phát triển cá nhân
           <div className="video-section">
             {/* Video */}
             <div className="hero-bg-video">
-              <video className="hero-slider-video video-cover radius-30" poster="/src/images/gallery/about-curve-banner.png" loop autoPlay muted>
-                <source src="/src/images/videos/travel4.mp4" type="video/mp4" />
+              <video className="hero-slider-video video-cover radius-30" poster="/src/assets/images/gallery/about-curve-banner.png" loop autoPlay muted>
+                <source src="/src/assets/images/videos/travel4.mp4" type="video/mp4" />
          Trình duyệt của bạn không hỗ trợ thẻ video.
               </video>
             </div>
-            <img src="/src/images/gallery/about-curve-banner.png" alt="travello" />
+            <img src="/src/assets/images/gallery/about-curve-banner.png" alt="travello" />
             <div className="rectangle-shape d-none d-sm-block">
               <div className="sticky-corner right-corner">
                 <svg xmlns="http://www.w3.org/2000/svg" width={35} height={35} viewBox="0 0 35 35" fill="none">
@@ -1033,8 +1022,8 @@ phát triển cá nhân
               <div className="col-xl-3 col-lg-4 col-sm-6">
                 <div className="package-card">
                   <div className="package-img imgEffect4">
-                    <a href="tour-details.html">
-                      <img src="/src/images/package/package-4.png" alt="travello" />
+                    <a href="tour-details">
+                      <img src="/src/assets/images/package/package-4.png" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1042,7 +1031,7 @@ phát triển cá nhân
                   </div>
                   <div className="package-content">
                     <h4 className="area-name">
-                      <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                      <a href="tour-details">Dusitd2 Samyan Bangkok</a>
                     </h4>
                     <div className="location">
                       <i className="ri-map-pin-line" />
@@ -1074,8 +1063,8 @@ phát triển cá nhân
               <div className="col-xl-3 col-lg-4 col-sm-6">
                 <div className="package-card">
                   <div className="package-img imgEffect4">
-                    <a href="tour-details.html">
-                      <img src="/src/images/package/package-3.png" alt="travello" />
+                    <a href="tour-details">
+                      <img src="/src/assets/images/package/package-3.png" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1083,7 +1072,7 @@ phát triển cá nhân
                   </div>
                   <div className="package-content">
                     <h4 className="area-name">
-                      <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                      <a href="tour-details">Dusitd2 Samyan Bangkok</a>
                     </h4>
                     <div className="location">
                       <i className="ri-map-pin-line" />
@@ -1115,8 +1104,8 @@ phát triển cá nhân
               <div className="col-xl-3 col-lg-4 col-sm-6">
                 <div className="package-card">
                   <div className="package-img imgEffect4">
-                    <a href="tour-details.html">
-                      <img src="/src/images/package/package-2.png" alt="travello" />
+                    <a href="tour-details">
+                      <img src="/src/assets/images/package/package-2.png" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1124,7 +1113,7 @@ phát triển cá nhân
                   </div>
                   <div className="package-content">
                     <h4 className="area-name">
-                      <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                      <a href="tour-details">Dusitd2 Samyan Bangkok</a>
                     </h4>
                     <div className="location">
                       <i className="ri-map-pin-line" />
@@ -1156,8 +1145,8 @@ phát triển cá nhân
               <div className="col-xl-3 col-lg-4 col-sm-6">
                 <div className="package-card">
                   <div className="package-img imgEffect4">
-                    <a href="tour-details.html">
-                      <img src="/src/images/package/package-10.jpg" alt="travello" />
+                    <a href="tour-details">
+                      <img src="/src/assets/images/package/package-10.jpg" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1165,7 +1154,7 @@ phát triển cá nhân
                   </div>
                   <div className="package-content">
                     <h4 className="area-name">
-                      <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
+                      <a href="tour-details">Dusitd2 Samyan Bangkok</a>
                     </h4>
                     <div className="location">
                       <i className="ri-map-pin-line" />
@@ -1201,8 +1190,49 @@ phát triển cá nhân
               <div className="col-xl-3 col-lg-4 col-sm-6">
                 <div className="package-card">
                   <div className="package-img imgEffect4">
-                    <a href="tour-details.html">
-                      <img src="/src/images/package/package-5.jpg" alt="travello" />
+                    <a href="tour-details">
+                      <img src="/src/assets/images/package/package-5.jpg" alt="travello" />
+                    </a>
+                    <div className="image-badge">
+                      <p className="pera">Đặc sắc</p>
+                    </div>
+                  </div>
+                  <div className="package-content">
+                    <h4 className="area-name">
+                      <a href="tour-details">Dusitd2 Samyan Bangkok</a>
+                    </h4>
+                    <div className="location">
+                      <i className="ri-map-pin-line" />
+                      <div className="name">Bangkok, Thailand</div>
+                    </div>
+                    <div className="packages-person">
+                      <div className="count">
+                        <i className="ri-time-line" />
+                        <p className="pera">3 ngày 2 đêm</p>
+                      </div>
+                      <div className="count">
+                        <i className="ri-user-line" />
+                        <p className="pera"> 2 người</p>
+                      </div>
+                    </div>
+                    <div className="price-review">
+                      <div className="d-flex gap-10">
+                        <p className="light-pera">Từ</p>
+                        <p className="pera">$95</p>
+                      </div>
+                      <div className="rating">
+                        <i className="ri-star-s-fill" />
+                        <p className="pera">4.7 (20 đánh giá)</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-xl-3 col-lg-4 col-sm-6">
+                <div className="package-card">
+                  <div className="package-img imgEffect4">
+                    <a href="tour-details">
+                      <img src="/src/assets/images/package/package-6.jpg" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1243,7 +1273,7 @@ phát triển cá nhân
                 <div className="package-card">
                   <div className="package-img imgEffect4">
                     <a href="tour-details.html">
-                      <img src="/src/images/package/package-6.jpg" alt="travello" />
+                      <img src="/src/assets/images/package/package-7.jpg" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1284,48 +1314,7 @@ phát triển cá nhân
                 <div className="package-card">
                   <div className="package-img imgEffect4">
                     <a href="tour-details.html">
-                      <img src="/src/images/package/package-7.jpg" alt="travello" />
-                    </a>
-                    <div className="image-badge">
-                      <p className="pera">Đặc sắc</p>
-                    </div>
-                  </div>
-                  <div className="package-content">
-                    <h4 className="area-name">
-                      <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
-                    </h4>
-                    <div className="location">
-                      <i className="ri-map-pin-line" />
-                      <div className="name">Bangkok, Thailand</div>
-                    </div>
-                    <div className="packages-person">
-                      <div className="count">
-                        <i className="ri-time-line" />
-                        <p className="pera">3 ngày 2 đêm</p>
-                      </div>
-                      <div className="count">
-                        <i className="ri-user-line" />
-                        <p className="pera"> 2 người</p>
-                      </div>
-                    </div>
-                    <div className="price-review">
-                      <div className="d-flex gap-10">
-                        <p className="light-pera">Từ</p>
-                        <p className="pera">$95</p>
-                      </div>
-                      <div className="rating">
-                        <i className="ri-star-s-fill" />
-                        <p className="pera">4.7 (20 đánh giá)</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-3 col-lg-4 col-sm-6">
-                <div className="package-card">
-                  <div className="package-img imgEffect4">
-                    <a href="tour-details.html">
-                      <img src="/src/images/package/package-8.jpg" alt="travello" />
+                      <img src="/src/assets/images/package/package-8.jpg" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1370,7 +1359,7 @@ phát triển cá nhân
                 <div className="package-card">
                   <div className="package-img imgEffect4">
                     <a href="tour-details.html">
-                      <img src="/src/images/package/package-9.jpg" alt="travello" />
+                      <img src="/src/assets/images/package/package-9.jpg" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1411,7 +1400,7 @@ phát triển cá nhân
                 <div className="package-card">
                   <div className="package-img imgEffect4">
                     <a href="tour-details.html">
-                      <img src="/src/images/package/package-10.jpg" alt="travello" />
+                      <img src="/src/assets/images/package/package-10.jpg" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1452,7 +1441,7 @@ phát triển cá nhân
                 <div className="package-card">
                   <div className="package-img imgEffect4">
                     <a href="tour-details.html">
-                      <img src="/src/images/package/package-11.jpg" alt="travello" />
+                      <img src="/src/assets/images/package/package-11.jpg" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1493,7 +1482,7 @@ phát triển cá nhân
                 <div className="package-card">
                   <div className="package-img imgEffect4">
                     <a href="tour-details.html">
-                      <img src="/src/images/package/package-12.jpg" alt="travello" />
+                      <img src="/src/assets/images/package/package-12.jpg" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1538,7 +1527,7 @@ phát triển cá nhân
                 <div className="package-card">
                   <div className="package-img imgEffect4">
                     <a href="tour-details.html">
-                      <img src="/src/images/package/package-13.jpg" alt="travello" />
+                      <img src="/src/assets/images/package/package-13.jpg" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1579,7 +1568,7 @@ phát triển cá nhân
                 <div className="package-card">
                   <div className="package-img imgEffect4">
                     <a href="tour-details.html">
-                      <img src="/src/images/package/package-14.jpg" alt="travello" />
+                      <img src="/src/assets/images/package/package-14.jpg" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1620,7 +1609,7 @@ phát triển cá nhân
                 <div className="package-card">
                   <div className="package-img imgEffect4">
                     <a href="tour-details.html">
-                      <img src="/src/images/package/package-15.jpg" alt="travello" />
+                      <img src="/src/assets/images/package/package-15.jpg" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1661,7 +1650,7 @@ phát triển cá nhân
                 <div className="package-card">
                   <div className="package-img imgEffect4">
                     <a href="tour-details.html">
-                      <img src="/src/images/package/package-16.jpg" alt="travello" />
+                      <img src="/src/assets/images/package/package-16.jpg" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1706,7 +1695,7 @@ phát triển cá nhân
                 <div className="package-card">
                   <div className="package-img imgEffect4">
                     <a href="tour-details.html">
-                      <img src="/src/images/package/package-17.jpg" alt="travello" />
+                      <img src="/src/assets/images/package/package-17.jpg" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1747,7 +1736,7 @@ phát triển cá nhân
                 <div className="package-card">
                   <div className="package-img imgEffect4">
                     <a href="tour-details.html">
-                      <img src="/src/images/package/package-18.jpg" alt="travello" />
+                      <img src="/src/assets/images/package/package-18.jpg" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1788,7 +1777,7 @@ phát triển cá nhân
                 <div className="package-card">
                   <div className="package-img imgEffect4">
                     <a href="tour-details.html">
-                      <img src="/src/images/package/package-19.jpg" alt="travello" />
+                      <img src="/src/assets/images/package/package-19.jpg" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1829,7 +1818,7 @@ phát triển cá nhân
                 <div className="package-card">
                   <div className="package-img imgEffect4">
                     <a href="tour-details.html">
-                      <img src="/src/images/package/package-20.jpg" alt="travello" />
+                      <img src="/src/assets/images/package/package-20.jpg" alt="travello" />
                     </a>
                     <div className="image-badge">
                       <p className="pera">Đặc sắc</p>
@@ -1912,7 +1901,7 @@ Earth ID Vận tải Vận động.Sapien không bỏ lỡ nụ cười
           </div>
           <div className="col-lg-4">
             <div className="hero-banner d-none d-lg-block wow fadeInUp" data-wow-delay="0.2s">
-              <img src="/src/images/gallery/promotion.png" alt="travello" />
+              <img src="/src/assets/images/gallery/promotion.png" alt="travello" />
             </div>
           </div>
         </div>
@@ -1939,7 +1928,7 @@ Earth ID Vận tải Vận động.Sapien không bỏ lỡ nụ cười
                 <div className="swiper-slide testimonial-card-two h-calc">
                   <div className="testimonial-header">
                     <div className="logo">
-                      <img src="/src/images/logo/logo.png" alt="travello" className="changeLogo" />
+                      <img src="/src/assets/images/logo/logo.png" alt="travello" className="changeLogo" />
                     </div>
                   </div>
                   <div className="testimonial-body">
@@ -1956,16 +1945,16 @@ Molestie là lợi thế của bất kỳ phim hoạt hình nào rất nhiều s
                   <div className="testimonial-footer">
                     <div className="all-user">
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-1.jpeg" alt="travello" />
+                        <img src="/src/assets/images/hero/user-1.jpeg" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-2.png" alt="travello" />
+                        <img src="/src/assets/images/hero/user-2.png" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-3.png" alt="travello" />
+                        <img src="/src/assets/images/hero/user-3.png" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-4.jpeg" alt="travello" />
+                        <img src="/src/assets/images/hero/user-4.jpeg" alt="travello" />
                       </div>
                       <div className="happy-user-count">
                         <p className="user-count">D</p>
@@ -1980,7 +1969,7 @@ Molestie là lợi thế của bất kỳ phim hoạt hình nào rất nhiều s
                 <div className="swiper-slide testimonial-card-two h-calc">
                   <div className="testimonial-header">
                     <div className="logo">
-                      <img src="/src/images/logo/logo.png" alt="travello" className="changeLogo" />
+                      <img src="/src/assets/images/logo/logo.png" alt="travello" className="changeLogo" />
                     </div>
                   </div>
                   <div className="testimonial-body">
@@ -1997,16 +1986,16 @@ AC.
                   <div className="testimonial-footer">
                     <div className="all-user">
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-3.png" alt="travello" />
+                        <img src="/src/assets/images/hero/user-3.png" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-4.jpeg" alt="travello" />
+                        <img src="/src/assets/images/hero/user-4.jpeg" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-1.jpeg" alt="travello" />
+                        <img src="/src/assets/images/hero/user-1.jpeg" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-2.png" alt="travello" />
+                        <img src="/src/assets/images/hero/user-2.png" alt="travello" />
                       </div>
                       <div className="happy-user-count">
                         <p className="user-count">D</p>
@@ -2021,7 +2010,7 @@ AC.
                 <div className="swiper-slide testimonial-card-two h-calc">
                   <div className="testimonial-header">
                     <div className="logo">
-                      <img src="/src/images/logo/logo.png" alt="travello" className="changeLogo" />
+                      <img src="/src/assets/images/logo/logo.png" alt="travello" className="changeLogo" />
                     </div>
                   </div>
                   <div className="testimonial-body">
@@ -2038,16 +2027,16 @@ KHÔNG.
                   <div className="testimonial-footer">
                     <div className="all-user">
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-2.png" alt="travello" />
+                        <img src="/src/assets/images/hero/user-2.png" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-1.jpeg" alt="travello" />
+                        <img src="/src/assets/images/hero/user-1.jpeg" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-3.png" alt="travello" />
+                        <img src="/src/assets/images/hero/user-3.png" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-4.jpeg" alt="travello" />
+                        <img src="/src/assets/images/hero/user-4.jpeg" alt="travello" />
                       </div>
                       <div className="happy-user-count">
                         <p className="user-count">D</p>
@@ -2070,7 +2059,7 @@ KHÔNG.
           </div>
           <div className="col-lg-6">
             <div className="testimonial-banner d-none d-lg-block">
-              <img src="/src/images/testimonial/testimonial-banner.png" alt="travello" />
+              <img src="/src/assets/images/testimonial/testimonial-banner.png" alt="travello" />
             </div>
           </div>
         </div>
@@ -2083,25 +2072,25 @@ KHÔNG.
         <div className="swiper brandSwiper-active">
           <div className="swiper-wrapper">
             <div className="swiper-slide">
-              <img src="/src/images/brand/brand-1.jpeg" alt="travello" />
+              <img src="/src/assets/images/brand/brand-1.jpeg" alt="travello" />
             </div>
             <div className="swiper-slide">
-              <img src="/src/images/brand/brand-2.jpg" alt="travello" />
+              <img src="/src/assets/images/brand/brand-2.jpg" alt="travello" />
             </div>
             <div className="swiper-slide">
-              <img src="/src/images/brand/brand-3.jpg" alt="travello" />
+              <img src="/src/assets/images/brand/brand-3.jpg" alt="travello" />
             </div>
             <div className="swiper-slide">
-              <img src="/src/images/brand/brand-4.png" alt="travello" />
+              <img src="/src/assets/images/brand/brand-4.png" alt="travello" />
             </div>
             <div className="swiper-slide">
-              <img src="/src/images/brand/brand-5.png" alt="travello" />
+              <img src="/src/assets/images/brand/brand-5.png" alt="travello" />
             </div>
             <div className="swiper-slide">
-              <img src="/src/images/brand/brand-1.jpeg" alt="travello" />
+              <img src="/src/assets/images/brand/brand-1.jpeg" alt="travello" />
             </div>
             <div className="swiper-slide">
-              <img src="/src/images/brand/brand-2.jpg" alt="travello" />
+              <img src="/src/assets/images/brand/brand-2.jpg" alt="travello" />
             </div>
           </div>
         </div>
@@ -2125,7 +2114,7 @@ KHÔNG.
           <div className="col-xl-4 col-lg-4 col-sm-6">
             <article className="news-card-two wow fadeInUp" data-wow-delay="0.0s">
               <figure className="news-banner-two imgEffect">
-                <a href="news-details.html"><img src="/src/images/news/news-4.png" alt="travello" /></a>
+                <a href="news-details.html"><img src="/src/assets/images/news/news-4.png" alt="travello" /></a>
               </figure>
               <div className="news-content">
                 <div className="heading">
@@ -2140,16 +2129,16 @@ Một trang. </a>
                   <div className="d-flex gap-10 align-items-center">
                     <div className="all-user">
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-1.jpeg" alt="travello" />
+                        <img src="/src/assets/images/hero/user-1.jpeg" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-2.png" alt="travello" />
+                        <img src="/src/assets/images/hero/user-2.png" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-3.png" alt="travello" />
+                        <img src="/src/assets/images/hero/user-3.png" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-4.jpeg" alt="travello" />
+                        <img src="/src/assets/images/hero/user-4.jpeg" alt="travello" />
                       </div>
                     </div>
                   </div>
@@ -2161,7 +2150,7 @@ Một trang. </a>
           <div className="col-xl-4 col-lg-4 col-sm-6">
             <article className="news-card-two wow fadeInUp" data-wow-delay="0.1s">
               <figure className="news-banner-two imgEffect">
-                <a href="news-details.html"><img src="/src/images/news/news-5.png" alt="travello" /></a>
+                <a href="news-details.html"><img src="/src/assets/images/news/news-5.png" alt="travello" /></a>
               </figure>
               <div className="news-content">
                 <div className="heading">
@@ -2176,16 +2165,16 @@ Một trang.</a>
                   <div className="d-flex gap-10 align-items-center">
                     <div className="all-user">
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-1.jpeg" alt="travello" />
+                        <img src="/src/assets/images/hero/user-1.jpeg" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-2.png" alt="travello" />
+                        <img src="/src/assets/images/hero/user-2.png" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-3.png" alt="travello" />
+                        <img src="/src/assets/images/hero/user-3.png" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-4.jpeg" alt="travello" />
+                        <img src="/src/assets/images/hero/user-4.jpeg" alt="travello" />
                       </div>
                     </div>
                   </div>
@@ -2197,7 +2186,7 @@ Một trang.</a>
           <div className="col-xl-4 col-lg-4 col-sm-6">
             <article className="news-card-two wow fadeInUp" data-wow-delay="0.2s">
               <figure className="news-banner-two imgEffect">
-                <a href="news-details.html"><img src="/src/images/news/news-6.png" alt="travello" /></a>
+                <a href="news-details.html"><img src="/src/assets/images/news/news-6.png" alt="travello" /></a>
               </figure>
               <div className="news-content">
                 <div className="heading">
@@ -2212,16 +2201,16 @@ Một trang.</a>
                   <div className="d-flex gap-10 align-items-center">
                     <div className="all-user">
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-1.jpeg" alt="travello" />
+                        <img src="/src/assets/images/hero/user-1.jpeg" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-2.png" alt="travello" />
+                        <img src="/src/assets/images/hero/user-2.png" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-3.png" alt="travello" />
+                        <img src="/src/assets/images/hero/user-3.png" alt="travello" />
                       </div>
                       <div className="happy-user">
-                        <img src="/src/images/hero/user-4.jpeg" alt="travello" />
+                        <img src="/src/assets/images/hero/user-4.jpeg" alt="travello" />
                       </div>
                     </div>
                   </div>
@@ -2254,17 +2243,17 @@ Một trang.</a>
             <div className="col-xl-3 col-lg-4 col-sm-6">
               <div className="single-footer-caption">
                 <div className="footer-tittle">
-                  <h4 className="title">côngTy</h4>
+                  <h4 className="title">Công ty</h4>
                   <ul className="listing">
                     <li className="single-lsit">
-                      <a href="about.html"> Về chúng tôi</a>
+                      <a href="about">Về Chúng tôi</a>
                     </li>
                     <li className="single-lsit">
-                      <a href="news.html">Tin tức</a>
+                      <a href="news">Tin tức</a>
                     </li>
-                    <li className="single-lsit"><a href="faq.html">Câu hỏi thường gặp</a></li>
+                    <li className="single-lsit"><a href="faq">Câu hỏi thường gặp</a></li>
                     <li className="single-lsit">
-                      <a href="contact.html">Liên hệ</a>
+                      <a href="contact">Liên Hệ</a>
                     </li>
                   </ul>
                 </div>
@@ -2273,14 +2262,14 @@ Một trang.</a>
             <div className="col-xl-3 col-lg-4 col-sm-6">
               <div className="single-footer-caption">
                 <div className="footer-tittle">
-                  <h4 className="title">Explore</h4>
+                  <h4 className="title">Khám phá</h4>
                   <ul className="listing">
-                    <li className="single-lsit"><a href="faq.html">Faq</a></li>
+                    <li className="single-lsit"><a href="faq">Câu hỏi thường gặp</a></li>
                     <li className="single-lsit">
-                      <a href="tour-list.html">Tour Listings</a>
+                      <a href="tour-list">Chuyến du lịch Danh sách</a>
                     </li>
                     <li className="single-lsit">
-                      <a href="destination.html">Destination</a>
+                      <a href="destination">Điểm đến</a>
                     </li>
                   </ul>
                 </div>
@@ -2289,14 +2278,14 @@ Một trang.</a>
             <div className="col-xl-3 col-lg-4 col-sm-6">
               <div className="single-footer-caption">
                 <div className="footer-tittle">
-                  <h4 className="title">Nhanh Liên kết</h4>
+                  <h4 className="title">Liên kết nhanh</h4>
                   <ul className="listing">
-                    <li className="single-lsit"><a href="index.html"> Nhà</a></li>
+                    <li className="single-lsit"><a href="index">Trang chủ</a></li>
                     <li className="single-lsit">
-                      <a href="about.html">Về Us</a>
+                      <a href="about">Về Chúng Tôi</a>
                     </li>
                     <li className="single-lsit">
-                      <a href="contact.html">Liên hệ với us</a>
+                      <a href="contact">Liên Hệ với chúng tôi</a>
                     </li>
                   </ul>
                 </div>
@@ -2305,23 +2294,22 @@ Một trang.</a>
             <div className="col-xl-3 col-lg-4 col-sm-6">
               <div className="single-footer-caption">
                 <div className="footer-tittle">
-                  <h4 className="title">Liên hệ</h4>
+                  <h4 className="title">Liên Hệ</h4>
                   <ul className="listing">
                     <li className="single-lsit">
-                      <a href="#" className="mb-20 d-block">70/A Floor Divo Tower Melbourne,
-                        Australia</a>
+                      <a href="#" className="mb-20 d-block">70 Cầu Giấy,châu Úc</a>
                     </li>
                     <li className="single-lsit">
                       <a href="#">
                         <div className="d-flex gap-12">
-                          <i className="ri-phone-line" /> (00) +888 123456 789
+                          <i className="ri-phone-line" />(00) +888 123456 789
                         </div>
                       </a>
                     </li>
                     <li className="single-lsit">
                       <a href="#">
                         <div className="d-flex gap-12">
-                          <i className="ri-mail-line" /> example@gmail.com
+                          <i className="ri-mail-line" />example@gmail.com
                         </div>
                       </a>
                     </li>
@@ -2339,7 +2327,7 @@ Một trang.</a>
                   <img src="/src/assets/images/logo/logo.png" alt="travello" className="changeLogo" />
                 </div>
                 <p className="pera">
-             Du lịch là một trải nghiệm biến đổi và phong phú
+            Du lịch là một trải nghiệm biến đổi và phong phú
 cho phép các cá nhân khám phá các điểm đến, văn hóa mới,
 và phong cảnh.
                 </p>
@@ -2356,13 +2344,13 @@ và phong cảnh.
           <div className="footer-bottom">
             <ul className="listing">
               <li className="single-list">
-                <a href="terms-condition.html" className="single">Điều khoản của Việt Nam</a>
+                <a href="terms-condition" className="single"> Điều khoản của Việt Nam</a>
               </li>
               <li className="single-list">
-                <a href="privacy-policy.html" className="single">Tuyên bố về quyền riêng tư và cookie</a>
+                <a href="privacy-policy" className="single"> Tuyên bố về quyền riêng tư và cookie</a>
               </li>
               <li className="single-list">
-                <a href="contact.html" className="single">Cách thức hoạt động của trang web</a>
+                <a href="contact" className="single"> Cách thức hoạt động của trang web </a>
               </li>
             </ul>
           </div>
@@ -2375,8 +2363,7 @@ và phong cảnh.
             <div className="col-xl-12">
               <div className="d-flex justify-content-between gap-14 flex-wrap">
                 <p className="pera">
-                  © <span className="current-year">2023</span> ban đầu.Tất cả các quyền
-kín đáo
+                  © <span className="current-year">2023</span> initTheme. All rights reserved
                 </p>
                 <p className="pera">Được cung cấp bởi @Travello</p>
               </div>
@@ -2386,18 +2373,12 @@ kín đáo
       </div>
     </div>
   </footer>
-  {/*/ End-of Footer */}
-  {/* Scroll Up  */}
   <div className="progressParent" id="back-top">
     <svg className="backCircle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
       <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
     </svg>
   </div>
-  {/* Add an search-overlay element */}
   <div className="search-overlay" />
-  {/* jquery*/}
-  {/* Plugin */}
-  {/* Main js*/}
 </div>
 
     </div>
