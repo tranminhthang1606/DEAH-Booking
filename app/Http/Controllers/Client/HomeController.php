@@ -16,21 +16,21 @@ class HomeController extends Controller
         $this->response = $response;
     }
     public function newTours(){
-        $tours = Tour::orderByDesc('id')->take(10)->get();
+        $tours = Tour::orderByDesc('id')->take(5)->get();
         if($tours){
             return $this->response->responseSuccess($tours);
         }
         return $this->response->responseFaild();
     }
     public function featureTours(){
-        $tours = Tour::orderByDesc('views')->take(10)->get();
+        $tours = Tour::orderByDesc('views')->take(5)->get();
         if($tours){
             return $this->response->responseSuccess($tours);
         }
         return $this->response->responseFaild();
     }
     public function newPosts(){
-        $posts = Post::orderByDesc('id')->take(10)->get();
+        $posts = Post::orderByDesc('id')->take(5)->get();
         if($posts){
             return $this->response->responseSuccess($posts);
         }
