@@ -5,8 +5,6 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Client\HomeController;
-
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
