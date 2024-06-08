@@ -7,7 +7,7 @@ use App\Http\Controllers\ApiTagController;
 use App\Http\Controllers\ApiUserController;
 
 use App\Http\Controllers\Client\HomeController;
-=======
+
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TourController;
