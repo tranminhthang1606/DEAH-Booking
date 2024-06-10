@@ -19254,7 +19254,8 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 .shape-two img {
   width: 100%;
-  height: 100%;
+  height: 60%;
+  margin-top: 25px;
 }
 
 .hero-caption-two {
