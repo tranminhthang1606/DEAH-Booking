@@ -13,4 +13,7 @@ class Tour_image extends Model
         'tour_id',
         'image'
     ];
+    public function tour(){
+        return $this->belongsTo(Tour::class);
+    }
 }

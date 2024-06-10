@@ -20,20 +20,20 @@ class HomeController extends Controller
         if($tours){
             return $this->response->responseSuccess($tours);
         }
-        return $this->response->responseFaild();
+        return $this->response->responseFailed();
     }
     public function featureTours(){
         $tours = Tour::orderByDesc('views')->take(5)->get();
         if($tours){
             return $this->response->responseSuccess($tours);
         }
-        return $this->response->responseFaild();
+        return $this->response->responseFailed();
     }
     public function newPosts(){
         $posts = Post::orderByDesc('id')->take(5)->get();
         if($posts){
             return $this->response->responseSuccess($posts);
         }
-        return $this->response->responseFaild();
+        return $this->response->responseFailed();
     }
 }

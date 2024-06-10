@@ -7,19 +7,20 @@ use Illuminate\Http\Request;
 class ResponseJson extends Controller
 {
     //
-    public function responseSuccess($data = [])
+    public function responseSuccess($data = [], $message = "Success")
     {
         return response()->json([
-            'data' => $data,
-            'message' => 'Success',
-            'status' => 200
+            'message' => $message,
+            'status' => 200,
+            'data' => $data
+
         ]);
     }
-    public function responseFaild()
+    public function responseFailed($message = "Failed")
     {
         return response()->json([
             'data' => [],
-            'message' => 'Failed',
+            'message' => $message,
             'status' => 400
         ]);
     }
