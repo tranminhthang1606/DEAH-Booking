@@ -93,7 +93,7 @@ const HomePage = (props: Props) => {
                           <div className="d-flex justify-content-between align-items-center">
                             <ul className="listing" id="navigation">
                               <li className="single-list">
-                                <a href="javascript:void(0)" className="single">Trang Chủ </a>
+                                <a href="index-two" className="single">Trang Chủ </a>
                                 
                               </li>
                               <li className="single-list ">

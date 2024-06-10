@@ -1,25 +1,4 @@
-/*----------------------------------------------
-    Index Of Script - RTL
-------------------------------------------------
 
-    @version         : 1.0.0
-    @Template Name   : Travello
-    @Template author : initTheme
-
-
-    :: Home Page One       :: Inner page      
-    :: Home Page Two       :: Responsive Device 
-    :: Home Page Three     :: Landing page             
-             
-------------------------------------------------
-    End-of Script
-------------------------------------------------*/
-
-
-
-/*---------------------------------------------
-    :: Home Page One
------------------------------------------------*/
 .header-area .main-menu .listing .single-list:hover > .submenu .submenu {
 	top: 0;
 	left: auto;

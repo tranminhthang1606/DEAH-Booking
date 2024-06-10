@@ -1,9 +1,14 @@
-import React from 'react'
+
 import "../assets/js/main.js"
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
+import FunctionApp from "../FunctionComponentContext/FunctionApp.js"
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 
 const Indextwo = () => {
+
+  
   let api = 'http://localhost:8000/api/client/get-tours-new'
   const { data, error, isLoading } = useQuery({
     queryKey: ["KEY"],
@@ -20,16 +25,21 @@ const Indextwo = () => {
   if (error) return <div>loi{error.message}</div>
   const tours = Array.isArray(data) ? data : [];
 
+
+
+
   return (
+
     <div>
+
       <div>
         <header className="header-area-two">
 
           {/* Header top */}
           <div className="top-header-two">
             <h4 className="title">Giảm giá Black Friday</h4>
-            <div className="discount">
-              <p className="pera">30%</p>
+            <div className="discount pt-3">
+              <p className="pera ">30%</p>
             </div>
           </div>
           {/* Header menu */}
@@ -59,74 +69,24 @@ const Indextwo = () => {
                             <li className="single-list">
                               <a href="tour-list" className="single">Gói Du Lịch</a>
                             </li>
-                            <li className="single-list">
-                              <a href="javascript:void(0)" className="single">Trang <i className="ri-arrow-down-s-line" /></a>
-                              <ul className="submenu">
-                                <li className="single-list">
-                                  <a href="tour-details" className="single">Chi tiết tour du lịch</a>
-                                </li>
-                                <li className="single-list">
-                                  <a href="destination-details" className="single">Điểm đến
-                                    Chi tiết</a>
-                                </li>
-                                <li className="single-list">
-                                  <a href="news-details" className="single">Chi tiết tin tức</a>
-                                </li>
-                                <li className="single-list">
-                                  <a href="payment" className="single">người trả lươngt</a>
-                                </li>
-                                <li className="single-list">
-                                  <a href="javascript:void(0)" className="single">Đăng nhập<i className="ri-arrow-right-s-line" /></a>
-                                  <ul className="submenu">
-                                    <li className="single-list">
-                                      <a href="login" className="single">Đăng nhập</a>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="register" className="single">Sự đăng ký</a>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="forgot-pass" className="single">Quên
-                                        Mật khẩu</a>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="verification" className="single">xác minh</a>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="new-password" className="single">Mới
-                                        Mật khẩu</a>
-                                    </li>
-                                  </ul>
-                                </li>
-                                <li className="single-list">
-                                  <a href="faq" className="single">Câu hỏi thường gặp</a>
-                                </li>
-                                <li className="single-list">
-                                  <a href="privacy-policy" className="single">sự riêng tư
-                                    chính sách </a>
-                                </li>
-                                <li className="single-list">
-                                  <a href="terms-condition" className="single">Điều khoản-Điều kiện</a>
-                                </li>
-                              </ul>
-                            </li>
+                        
                             <li className="single-list">
                               <a href="contact" className="single">Liên hệ</a>
                             </li>
                             <li className="d-block d-lg-none">
                               <div className="header-right pl-15">
                                 <div className="d-flex align-items-center gap-12">
-                                  <div className="lang search-bar">
-                                    <i className="ri-search-line" />
+                                  <div className="lang search-bar  ">
+                                    <i className="ri-search-line " />
                                   </div>
                                   <div className="divider gradient-divider" />
-                                  <div className="money">
-                                    <p className="pera">VND</p>
-                                  </div>
+                                
                                 </div>
-                                <div className="sign-btn">
+                             
+                              </div>
+                              <div className="sign-btn">
                                   <a href="login" className="btn-secondary-sm">Đăng nhập</a>
                                 </div>
-                              </div>
                             </li>
                           </ul>
                           {/* Header Right */}
@@ -494,12 +454,10 @@ const Indextwo = () => {
               <div className="row  g-4 align-items-center justify-content-between position-relative">
                 <div className="col-xl-7 col-lg-6">
                   <div className="hero-caption-two position-relative">
-                    <span className="highlights wow fadeInUp d-block" data-wow-delay="0.0s">Khám phá từ này</span>
-                    <h4 className="title wow fadeInUp" data-wow-delay="0.1s">  kế Hoạch Chuyến tham quan đến các địa điểm mơ ước chỉ bằng một cú nhấp chuột! </h4>
+                    <span className="highlights wow fadeInUp d-block p-1" data-wow-delay="0.0s">Khám phá từ này</span>
+                    <h4 className="title wow fadeInUp fs-1 p-1 " data-wow-delay="0.1s">  Kế  hoạch  chuyến  tham  quan  đến  các  địa  điểm  mơ  ước  chỉ  bằng  một  cú  nhấp  chuột ! </h4>
                     <p className="pera wow fadeInUp" data-wow-delay="0.3s">
-                      Lorem Ipsum Dolor ngồi ampe, lãnh sự.EU ID nhưng
-                      Phim Minneapolis.Mallis Ullamcorper mềm có mặt
-                      Nó xấu xí.Tại Dinh dưỡng bóng chuyền của những đứa trẻ
+                      Tận hưởng từng khoảnh khắc tại các địa điểm mơ ước, tham gia các hoạt động thú vị và lưu giữ những kỷ niệm đẹp.<br />
                     </p>
                     <div className="button-section wow fadeInUp" data-wow-delay="0.5s">
                       <a href="payment" className="btn-secondary-sm hero-book-btn">Bắt đầu đặt phòng</a>
@@ -510,7 +468,7 @@ const Indextwo = () => {
                   <div className="search-tour-card sidenav-active">
                     <div className="section-title text-center">
                       <h4 className="title">Các tour du lịch tìm kiếm</h4>
-                      <p className="pera">Lorem Ipsum Dolor ngồi ampe, lãnh sự.EU ID nhưng. </p>
+                      <p className="pera">Hãy nhập những thông tin dưới đây .</p>
                     </div>
                     <div className="plan-section-two">
                       <div className="select-dropdown-section">
@@ -535,18 +493,24 @@ const Indextwo = () => {
                           <option value={3}>Pre-book Type</option>
                         </select>
                       </div>
+                    
                       <div className="dropdown-section">
+                      <i className="ri-time-line" /><FunctionApp/> 
                         <div className="d-flex gap-10 align-items-center">
-                          <i className="ri-time-line" />
+                     
+                         
+                      
                           <div className="custom-dropdown custom-date">
-                            <h4 className="title"> Ngày từ</h4>
-                            <div className="arrow">
-                              <i className="ri-arrow-down-s-line" />
-                            </div>
+                     
+                       
+
+                            
                           </div>
                         </div>
-                        <div className="date-result">01/12/2023</div>
+                 
                       </div>
+
+
                       <div className="dropdown-section position-relative user-picker-dropdown">
                         <div className="d-flex gap-10 align-items-center">
                           <i className="ri-user-line" />
@@ -623,7 +587,7 @@ const Indextwo = () => {
             </div>
             {/* shape 02 */}
             <div className="shape-two d-none d-lg-block">
-              <img className='' src="/src/assets/category_tour/hero/taxua.jpg" alt="travello" />
+              {/* <img className='' src="/src/assets/category_tour/taxua.jpg" alt="travello" /> */}
             </div>
           </section>
           {/*/ End-of Hero*/}
@@ -650,8 +614,7 @@ const Indextwo = () => {
                             <div className="why-content">
                               <h4 className="title line-clamp-1">Đảm bảo giá tốt nhất</h4>
                               <p className="pera line-clamp-3">
-                                A "Đảm bảo giá tốt nhất" is a commitment offered by
-                                businesses, typically in the retail or hospitality
+                                Tiết kiệm chi phí: Khách hàng có thể yên tâm không phải tốn thời gian và công sức để so sánh giá giữa các nơi khác nhau.
                               </p>
                             </div>
                           </div>
@@ -729,16 +692,16 @@ const Indextwo = () => {
                 <div className="col-lg-6 col-md-6">
                   <a href="tour-list" className="offer-banner imgEffect4 wow fadeInLeft" data-wow-delay="0.0s">
                     <img src="/src/assets/category_tour/tour miền tây.jpg" alt="travello" />
-                  
+
                     <div className="offer-content">
                       <p className="highlights-text">Tiết kiệm lên đến</p>
                       <h4 className="title">50%</h4>
                       <p className="pera">Hãy cùng khám phá thế giới</p>
                       <div className="location">
                         <i className="ri-map-pin-line" />
-                        <p className="name">Bangkok, Thailand</p>
+                        <p className="name">Tây Hồ , Hà Nội </p>
                       </div>
-                      <div className="btn-secondary-sm radius-30">Đặt phòng ngay</div>
+                      <div className="btn-secondary-sm radius-30 ">Đặt phòng ngay</div>
                     </div>
                   </a>
                 </div>
@@ -753,7 +716,7 @@ const Indextwo = () => {
                       </p>
                       <div className="location">
                         <i className="ri-map-pin-line" />
-                        <p className="name">Bangkok, Thailand</p>
+                        <p className="name">Tây Hồ , Hà Nội </p>
                       </div>
                       <div className="btn-secondary-sm radius-30">Đặt phòng ngay</div>
                     </div>
@@ -964,7 +927,7 @@ const Indextwo = () => {
                 </div>
               </div>
               <div className="about-banner-two">
-                <h4 className="watermark-text ">Hơn 15 năm kinh nghiệm </h4>
+                <h4 className="watermark-text  p-4">Hơn 15 năm kinh nghiệm </h4>
                 <div className="video-section">
                   {/* Video */}
                   <div className="hero-bg-video">
@@ -1058,7 +1021,7 @@ const Indextwo = () => {
                               </h4>
                               <div className="location">
                                 <i className="ri-map-pin-line" />
-                                {/* <div className="name">Bangkok, Thailand</div> */}
+                                {/* <div className="name">Tây Hồ , Hà Nội </div> */}
                               </div>
                               <div className="packages-person">
                                 <div className="count">
@@ -1109,7 +1072,7 @@ const Indextwo = () => {
                           </h4>
                           <div className="location">
                             <i className="ri-map-pin-line" />
-                            <div className="name">Bangkok, Thailand</div>
+                            <div className="name">Tây Hồ , Hà Nội </div>
                           </div>
                           <div className="packages-person">
                             <div className="count">
@@ -1150,7 +1113,7 @@ const Indextwo = () => {
                           </h4>
                           <div className="location">
                             <i className="ri-map-pin-line" />
-                            <div className="name">Bangkok, Thailand</div>
+                            <div className="name">Tây Hồ , Hà Nội </div>
                           </div>
                           <div className="packages-person">
                             <div className="count">
@@ -1191,7 +1154,7 @@ const Indextwo = () => {
                           </h4>
                           <div className="location">
                             <i className="ri-map-pin-line" />
-                            <div className="name">Bangkok, Thailand</div>
+                            <div className="name">Tây Hồ , Hà Nội </div>
                           </div>
                           <div className="packages-person">
                             <div className="count">
@@ -1232,7 +1195,7 @@ const Indextwo = () => {
                           </h4>
                           <div className="location">
                             <i className="ri-map-pin-line" />
-                            <div className="name">Bangkok, Thailand</div>
+                            <div className="name">Tây Hồ , Hà Nội </div>
                           </div>
                           <div className="packages-person">
                             <div className="count">
@@ -1277,7 +1240,7 @@ const Indextwo = () => {
                           </h4>
                           <div className="location">
                             <i className="ri-map-pin-line" />
-                            <div className="name">Bangkok, Thailand</div>
+                            <div className="name">Tây Hồ , Hà Nội </div>
                           </div>
                           <div className="packages-person">
                             <div className="count">
@@ -1318,7 +1281,7 @@ const Indextwo = () => {
                           </h4>
                           <div className="location">
                             <i className="ri-map-pin-line" />
-                            <div className="name">Bangkok, Thailand</div>
+                            <div className="name">Tây Hồ , Hà Nội </div>
                           </div>
                           <div className="packages-person">
                             <div className="count">
@@ -1359,7 +1322,7 @@ const Indextwo = () => {
                           </h4>
                           <div className="location">
                             <i className="ri-map-pin-line" />
-                            <div className="name">Bangkok, Thailand</div>
+                            <div className="name">Tây Hồ , Hà Nội </div>
                           </div>
                           <div className="packages-person">
                             <div className="count">
@@ -1400,7 +1363,7 @@ const Indextwo = () => {
                           </h4>
                           <div className="location">
                             <i className="ri-map-pin-line" />
-                            <div className="name">Bangkok, Thailand</div>
+                            <div className="name">Tây Hồ , Hà Nội </div>
                           </div>
                           <div className="packages-person">
                             <div className="count">
@@ -1445,7 +1408,7 @@ const Indextwo = () => {
                           </h4>
                           <div className="location">
                             <i className="ri-map-pin-line" />
-                            <div className="name">Bangkok, Thailand</div>
+                            <div className="name">Tây Hồ , Hà Nội </div>
                           </div>
                           <div className="packages-person">
                             <div className="count">
@@ -1486,7 +1449,7 @@ const Indextwo = () => {
                           </h4>
                           <div className="location">
                             <i className="ri-map-pin-line" />
-                            <div className="name">Bangkok, Thailand</div>
+                            <div className="name">Tây Hồ , Hà Nội </div>
                           </div>
                           <div className="packages-person">
                             <div className="count">
@@ -1527,7 +1490,7 @@ const Indextwo = () => {
                           </h4>
                           <div className="location">
                             <i className="ri-map-pin-line" />
-                            <div className="name">Bangkok, Thailand</div>
+                            <div className="name">Tây Hồ , Hà Nội </div>
                           </div>
                           <div className="packages-person">
                             <div className="count">
@@ -1568,7 +1531,7 @@ const Indextwo = () => {
                           </h4>
                           <div className="location">
                             <i className="ri-map-pin-line" />
-                            <div className="name">Bangkok, Thailand</div>
+                            <div className="name">Tây Hồ , Hà Nội </div>
                           </div>
                           <div className="packages-person">
                             <div className="count">
@@ -1613,7 +1576,7 @@ const Indextwo = () => {
                           </h4>
                           <div className="location">
                             <i className="ri-map-pin-line" />
-                            <div className="name">Bangkok, Thailand</div>
+                            <div className="name">Tây Hồ , Hà Nội </div>
                           </div>
                           <div className="packages-person">
                             <div className="count">
@@ -1654,7 +1617,7 @@ const Indextwo = () => {
                           </h4>
                           <div className="location">
                             <i className="ri-map-pin-line" />
-                            <div className="name">Bangkok, Thailand</div>
+                            <div className="name">Tây Hồ , Hà Nội </div>
                           </div>
                           <div className="packages-person">
                             <div className="count">
@@ -1695,7 +1658,7 @@ const Indextwo = () => {
                           </h4>
                           <div className="location">
                             <i className="ri-map-pin-line" />
-                            <div className="name">Bangkok, Thailand</div>
+                            <div className="name">Tây Hồ , Hà Nội </div>
                           </div>
                           <div className="packages-person">
                             <div className="count">
@@ -1736,7 +1699,7 @@ const Indextwo = () => {
                           </h4>
                           <div className="location">
                             <i className="ri-map-pin-line" />
-                            <div className="name">Bangkok, Thailand</div>
+                            <div className="name">Tây Hồ , Hà Nội </div>
                           </div>
                           <div className="packages-person">
                             <div className="count">
@@ -1765,23 +1728,29 @@ const Indextwo = () => {
                 </div>
               </div>
               <div className="row">
-                <div className="col-12 text-center">
-                  <div className="section-button d-inline-block">
-                    <a href="tour-list.html">
-                      <div className="btn-primary-icon-sm">
-                        <p className="pera">Xem tất cả các tour du lịch</p>
-                        <i className="ri-arrow-right-up-line" />
+                <div className="col-12 text-center ">
+                  <div className="section-button d-inline-block ">
+                    <a href="tour-list ">
+                      <div className="btn-primary-icon-sm pt-3">
+                        <p className="pera  ">Xem tất cả các tour du lịch</p>
+                        {/* <i className="ri-arrow-right-up-line" /> */}
                       </div>
+
                     </a>
                   </div>
                 </div>
               </div>
+              {/* <div className="mt-30">
+                        <button type="submit" className="btn-primary-fill w-60 ">
+                          <a href="" className="text-white pera ">Sẵn sàng kiểm tra</a>
+                        </button>
+                      </div> */}
             </div>
           </section>
           {/*/ End of Packages */}
           {/* Promotion S t a r t */}
 
-          <section className="platform-area platform-area-bg">
+          {/* <section className="platform-area platform-area-bg">
             <div className="container">
               <div className="row align-items-end">
                 <div className="col-lg-8">
@@ -1797,12 +1766,13 @@ const Indextwo = () => {
                       </p>
                     </div>
                     <div className="hero-footer position-relative">
+                   
                       <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" data-fancybox="video-gallery" className="wow bounceIn" data-wow-delay=".2s">
                         <div className="video-player">
                           <i className="ri-play-fill" />
                         </div>
                       </a>
-           
+
                       <a href="javascript:void(0)" className="pera position-relative">Tải xuống ứng dụng của chúng tôi</a>
                     </div>
                   </div>
@@ -1814,7 +1784,7 @@ const Indextwo = () => {
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
 
           {/*/ End of Promotion */}
           {/* Testimonial S t a r t */}
@@ -2024,14 +1994,14 @@ const Indextwo = () => {
                 <div className="col-xl-4 col-lg-4 col-sm-6">
                   <article className="news-card-two wow fadeInUp" data-wow-delay="0.0s">
                     <figure className="news-banner-two imgEffect">
-                      <a href="news-details.html"><img src="/src/assets/category_tour/Đà Nẵng.jpg" alt="travello" /></a>
+                      <a href="news-details"><img src="/src/assets/category_tour/Đà Nẵng.jpg" alt="travello" /></a>
                     </figure>
                     <div className="news-content">
                       <div className="heading">
                         <span className="heading-pera">Hướng dẫn viên du lịch</span>
                       </div>
                       <h4 className="title line-clamp-2">
-                        <a href="news-details.html">Thế giới là một cuốn sách và những người không đọc
+                        <a href="news-details">Thế giới là một cuốn sách và những người không đọc
                           Chỉ một
                           Một trang. </a>
                       </h4>
@@ -2067,7 +2037,7 @@ const Indextwo = () => {
                         <span className="heading-pera">Hướng dẫn viên du lịch</span>
                       </div>
                       <h4 className="title line-clamp-2">
-                        <a href="news-details.html">Thế giới là một cuốn sách và những người không đọc
+                        <a href="news-details">Thế giới là một cuốn sách và những người không đọc
                           Chỉ một
                           Một trang.</a>
                       </h4>
@@ -2096,14 +2066,14 @@ const Indextwo = () => {
                 <div className="col-xl-4 col-lg-4 col-sm-6">
                   <article className="news-card-two wow fadeInUp" data-wow-delay="0.2s">
                     <figure className="news-banner-two imgEffect">
-                      <a href="news-details.html"><img src="/src/assets/category_tour/tamdao.jpg" alt="travello" /></a>
+                      <a href="news-details"><img src="/src/assets/category_tour/tamdao.jpg" alt="travello" /></a>
                     </figure>
                     <div className="news-content">
                       <div className="heading">
                         <span className="heading-pera">Hướng dẫn viên du lịch</span>
                       </div>
                       <h4 className="title line-clamp-2">
-                        <a href="news-details.html">Thế giới là một cuốn sách và những người không đọc
+                        <a href="news-details">Thế giới là một cuốn sách và những người không đọc
                           Chỉ một
                           Một trang.</a>
                       </h4>
@@ -2133,9 +2103,9 @@ const Indextwo = () => {
               <div className="col-12 text-center">
                 <div className="section-button d-inline-block wow fadeInUp" data-wow-delay="0.3s">
                   <a href="news.html">
-                    <div className="btn-primary-icon-sm">
+                    <div className="btn-primary-icon-sm pt-3">
                       <p className="pera">Xem tất cả các tin tức</p>
-                      <i className="ri-arrow-right-up-line" />
+                      {/* <i className="ri-arrow-right-up-line" /> */}
                     </div>
                   </a>
                 </div>
@@ -2152,18 +2122,20 @@ const Indextwo = () => {
                 <div className="row g-4">
                   <div className="col-xl-3 col-lg-4 col-sm-6">
                     <div className="single-footer-caption">
-                      <div className="footer-tittle">
-                        <h4 className="title">Công ty</h4>
-                        <ul className="listing">
-                          <li className="single-lsit">
+                      <div className="footer-title">
+                        <h4 className="title text-white">Công ty</h4>
+                        <ul className="list-unstyled">
+                          <li className="single-list">
                             <a href="about">Về Chúng tôi</a>
                           </li>
-                          <li className="single-lsit">
-                            <a href="news">Tin tức</a>
+                          <li className="single-list">
+                            <a href="news  text-white">Tin tức</a>
                           </li>
-                          <li className="single-lsit"><a href="faq">Câu hỏi thường gặp</a></li>
-                          <li className="single-lsit">
-                            <a href="contact">Liên Hệ</a>
+                          <li className="single-list">
+                            <a href="faq  text-white">Câu hỏi thường gặp</a>
+                          </li>
+                          <li className="single-list">
+                            <a href="contact  text-white">Liên Hệ</a>
                           </li>
                         </ul>
                       </div>
@@ -2171,14 +2143,16 @@ const Indextwo = () => {
                   </div>
                   <div className="col-xl-3 col-lg-4 col-sm-6">
                     <div className="single-footer-caption">
-                      <div className="footer-tittle">
-                        <h4 className="title">Khám phá</h4>
-                        <ul className="listing">
-                          <li className="single-lsit"><a href="faq">Câu hỏi thường gặp</a></li>
-                          <li className="single-lsit">
+                      <div className="footer-title">
+                        <h4 className="title text-white">Khám phá</h4>
+                        <ul className="list-unstyled">
+                          <li className="single-list">
+                            <a href="faq">Câu hỏi thường gặp</a>
+                          </li>
+                          <li className="single-list">
                             <a href="tour-list">Chuyến du lịch Danh sách</a>
                           </li>
-                          <li className="single-lsit">
+                          <li className="single-list">
                             <a href="destination">Điểm đến</a>
                           </li>
                         </ul>
@@ -2187,14 +2161,16 @@ const Indextwo = () => {
                   </div>
                   <div className="col-xl-3 col-lg-4 col-sm-6">
                     <div className="single-footer-caption">
-                      <div className="footer-tittle">
-                        <h4 className="title">Liên kết nhanh</h4>
-                        <ul className="listing">
-                          <li className="single-lsit"><a href="index">Trang chủ</a></li>
-                          <li className="single-lsit">
+                      <div className="footer-title">
+                        <h4 className="title text-white">Liên kết nhanh</h4>
+                        <ul className="list-unstyled">
+                          <li className="single-list">
+                            <a href="index">Trang chủ</a>
+                          </li>
+                          <li className="single-list">
                             <a href="about">Về Chúng Tôi</a>
                           </li>
-                          <li className="single-lsit">
+                          <li className="single-list">
                             <a href="contact">Liên Hệ với chúng tôi</a>
                           </li>
                         </ul>
@@ -2203,22 +2179,22 @@ const Indextwo = () => {
                   </div>
                   <div className="col-xl-3 col-lg-4 col-sm-6">
                     <div className="single-footer-caption">
-                      <div className="footer-tittle">
-                        <h4 className="title">Liên Hệ</h4>
-                        <ul className="listing">
-                          <li className="single-lsit">
-                            <a href="#" className="mb-20 d-block">70 Cầu Giấy,châu Úc</a>
+                      <div className="footer-title">
+                        <h4 className="title text-white">Liên Hệ</h4>
+                        <ul className="list-unstyled">
+                          <li className="single-list">
+                            <a href="#" className="mb-3 d-block">70 Cầu Giấy, châu Úc</a>
                           </li>
-                          <li className="single-lsit">
+                          <li className="single-list">
                             <a href="#">
-                              <div className="d-flex gap-12">
+                              <div className="d-flex gap-2">
                                 <i className="ri-phone-line" />(00) +888 123456 789
                               </div>
                             </a>
                           </li>
-                          <li className="single-lsit">
+                          <li className="single-list">
                             <a href="#">
-                              <div className="d-flex gap-12">
+                              <div className="d-flex gap-2">
                                 <i className="ri-mail-line" />example@gmail.com
                               </div>
                             </a>
@@ -2266,12 +2242,11 @@ const Indextwo = () => {
                 </div>
               </div>
             </div>
-            {/* footer-bottom area */}
             <div className="footer-bottom-area">
               <div className="container">
                 <div className="row">
                   <div className="col-xl-12">
-                    <div className="d-flex justify-content-between gap-14 flex-wrap">
+                    <div className="d-flex justify-content-between gap-2 flex-wrap">
                       <p className="pera">
                         © <span className="current-year">2023</span> initTheme. All rights reserved
                       </p>
