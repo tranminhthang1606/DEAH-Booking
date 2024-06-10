@@ -16,4 +16,7 @@ class Itinerarie extends Model
         'itinerary'
 
     ];
+    public function tour(){
+        return $this->belongsTo(Tour::class);
+    }
 }

@@ -1,10 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\HotelController;
-use App\Http\Controllers\Admin\PostController;
-use App\Http\Controllers\Admin\TourController;
-use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\Client\PostController;
+use App\Http\Controllers\Client\TourClientController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,16 +25,15 @@ Route::group(['middleware' => 'cors'], function () {
     //route client
     Route::prefix('client')->group(function () {
         //trang chủ người dùng
-        Route::get('/get-tours-new', [HomeController::class, 'newTours']);
-        Route::get('/get-tours-feature', [HomeController::class, 'featureTours']);
-        Route::get('/get-posts-new', [HomeController::class, 'newPosts']);
-    });
-    //route admin
-    Route::prefix('admin')->group(function () {
-        Route::apiResource('/post', PostController::class);
-        Route::apiResource('/hotel', HotelController::class);
-        Route::apiResource('/tour', TourController::class);
-        Route::apiResource('/voucher', VoucherController::class);
+        Route::get('get-tours-new', [HomeController::class, 'newTours']);
+        Route::get('get-tours-feature', [HomeController::class, 'featureTours']);
+        Route::get('get-posts-new', [HomeController::class, 'newPosts']);
+        //tour
+        Route::any('get-tours-list', [TourClientController::class, 'index']);
+        Route::get('get-tour-detail/{id}', [TourClientController::class, 'show']);
+        //post
+        Route::any('get-posts-list', [PostController::class, 'index']);
+        Route::get('get-post-detail/{id}', [PostController::class, 'show']);
     });
 
 

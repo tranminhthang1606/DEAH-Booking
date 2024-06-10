@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Rate extends Model
 {
     use HasFactory;
-    protected $table = 'posts';
+    protected $table = 'rates';
     protected $fillable = [
-      'title','body','view','status'
-
+        'tour_id',
+        'rate'
     ];
-    public function comments(){
-      return $this->hasMany(Post_comment::class);
+    public function tour(){
+        return $this->belongsTo(Tour::class);
     }
 }
