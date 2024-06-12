@@ -3,7 +3,6 @@
 use App\Http\Controllers\Client\TourController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\PostController;
-use App\Http\Controllers\Client\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

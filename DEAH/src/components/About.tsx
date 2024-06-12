@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react'
 import "../assets/js/main.js"
-// import { initializeStickyAndScrollUp, initializeSwipers, initializeSelect2, initializeFancybox, initializeHoverIcons, initializePriceRangeSlider, initializeCustomDropdown } from './components/initializeScripts';
-// import { useEffect } from 'react';
-const Về = () => {
+const About = () => {
 
   return (
     <div>
       <header>
-
         <div className="header-area">
           <div className="main-header">
             {/* Header Top */}
@@ -20,12 +17,12 @@ const Về = () => {
                       <div className="top-header-left d-flex align-items-center">
                         {/* Logo*/}
                         <div className="logo">
-                          <a href="index.html"><img src="/src/assets/images/logo/logo.png" alt="logo" className="changeLogo" /></a>
+                          <a href="index-two"><img src="/src/assets/images/logo/logo.png" alt="logo" className="changeLogo" /></a>
                         </div>
                         {/* search box */}
                         <div className="search-box search-bar d-none d-lg-block">
                           <div className="header-search">
-                            <span className="pera">Điểm đến, thu hút</span>
+                            <span className="pera">Điểm Đến Thu Hút</span>
                             <div className="search-icon">
                               <i className="ri-search-line" />
                             </div>
@@ -93,84 +90,72 @@ const Về = () => {
                           <div className="d-flex justify-content-between align-items-center">
                             <ul className="listing" id="navigation">
                               <li className="single-list">
-                                <a href="javascript:void(0)" className="single">Trang chủ <i className="ri-arrow-down-s-line" /></a>
-                                <ul className="submenu">
-                                  {/* <li className="single-list">
-                                    <a href="index.html" className="single">Trang chủ 01</a>
-                                  </li> */}
-                                  <li className="single-list">
-                                    <a href="index-two.html" className="single">Trang chủ </a>
-                                  </li>
-                                  {/* <li className="single-list">
-                                    <a href="index-three.html" className="single">Trang chủ 03</a>
-                                  </li> */}
-                                </ul>
+                                <a href="javascript:void(0)" className="single">Trang Chủ </a>
+                                
                               </li>
                               <li className="single-list ">
-                                <a href="about.html" className="single link-active">Về</a>
+                                <a href="about" className="single link-active">Về Chúng Tôi</a>
                               </li>
                               <li className="single-list">
-                                <a href="destination.html" className="single">Điểm đến</a>
+                                <a href="destination" className="single">Điểm Đến</a>
                               </li>
                               <li className="single-list">
-                                <a href="tour-list.html" className="single">Gói du lịch</a>
+                                <a href="tour-list" className="single">Gói Du Lịch</a>
                               </li>
                               <li className="single-list">
                                 <a href="javascript:void(0)" className="single">Trang <i className="ri-arrow-down-s-line" /></a>
                                 <ul className="submenu">
                                   <li className="single-list">
-                                    <a href="tour-details.html" className="single">Chuyến du lịch
+                                    <a href="tour-details" className="single">Chuyến Du Lịch
                                       Chi tiết</a>
                                   </li>
                                   <li className="single-list">
-                                    <a href="news-details.html" className="single">tin Tức
-                                      chi Tiết</a>
+                                    <a href="news-details" className="single">Tin Tức</a>
                                   </li>
                                   <li className="single-list">
-                                    <a href="destination-details.html" className="single">Điểm đến chi Tiết</a>
+                                    <a href="destination-details" className="single">Điểm Đến</a>
                                   </li>
                                   <li className="single-list">
-                                    <a href="payment.html" className="single">sự Chi Trả</a>
+                                    <a href="payment" className="single">Thanh Toán</a>
                                   </li>
                                   <li className="single-list">
-                                    <a href="javascript:void(0)" className="single">đăng Nhập<i className="ri-arrow-right-s-line" /></a>
+                                    <a href="javascript:void(0)" className="single">Đăng Nhập<i className="ri-arrow-right-s-line" /></a>
                                     <ul className="submenu">
                                       <li className="single-list">
-                                        <a href="login.html" className="single">đăng Nhập</a>
+                                        <a href="login" className="single">Đăng Nhập</a>
                                       </li>
                                       <li className="single-list">
-                                        <a href="register.html" className="single">sự Đăng Ký</a>
+                                        <a href="register" className="single">Đăng Ký</a>
                                       </li>
                                       <li className="single-list">
-                                        <a href="forgot-pass.html" className="single">quên
-                                          mật Khẩu</a>
+                                        <a href="forgot-pass" className="single">Quên
+                                          Mật Khẩu</a>
                                       </li>
                                       <li className="single-list">
-                                        <a href="verification.html" className="single">xác Minh</a>
+                                        <a href="verification" className="single">Xác Minh</a>
                                       </li>
                                       <li className="single-list">
-                                        <a href="new-password.html" className="single">mới
-                                          mật Khẩu</a>
+                                        <a href="new-password" className="single">Mật Khẩu Mới</a>
                                       </li>
                                     </ul>
                                   </li>
                                   <li className="single-list">
-                                    <a href="faq.html" className="single">câu Hỏi Thường Gặp</a>
+                                    <a href="faq" className="single">Câu Hỏi Thường Gặp</a>
                                   </li>
                                   <li className="single-list">
-                                    <a href="privacy-policy.html" className="single">sự Riêng Tư
-                                      chính Sách</a>
+                                    <a href="privacy-policy" className="single">Sự Riêng Tư
+                                      Chính Sách</a>
                                   </li>
                                   <li className="single-list">
-                                    <a href="terms-condition.html" className="single">điều Khoản Điều Kiện</a>
+                                    <a href="terms-condition" className="single">Điều Khoản Điều Kiện</a>
                                   </li>
                                 </ul>
                               </li>
                               <li className="single-list">
-                                <a href="news.html" className="single">Tin tức</a>
+                                <a href="news" className="single">Tin tức</a>
                               </li>
                               <li className="single-list">
-                                <a href="contact.html" className="single">Liên hệ</a>
+                                <a href="contact" className="single">Liên hệ</a>
                               </li>
                               <li className="d-block d-lg-none">
                                 <div className="header-right pl-15">
@@ -184,7 +169,7 @@ const Về = () => {
                                     </div>
                                   </div>
                                   <div className="sign-btn">
-                                    <a href="login.html" className="btn-secondary-sm">Đăng nhập</a>
+                                    <a href="login" className="btn-secondary-sm">Đăng nhập</a>
 
                                   </div>
                                 </div>
@@ -201,7 +186,7 @@ const Về = () => {
                                 </div>
                               </div>
                               <div className="sign-btn">
-                                <a href="login.html" className="btn-secondary-sm">Đăng nhập</a>
+                                <a href="login" className="btn-secondary-sm">Đăng nhập</a>
                               </div>
                               {/* Theme Mode */}
                               <li className="single-list">
@@ -244,7 +229,7 @@ const Về = () => {
                       <h4 className="search-label">Gần đây</h4>
                     </li>
                     <li className="single-list">
-                      <a href="tour-details.html">
+                      <a href="tour-details">
                         <div className="search-flex">
                           <div className="content-img">
                             <img src="/src/assets/images/gallery/search-img-1.jpeg" alt="travello" />
@@ -264,7 +249,7 @@ const Về = () => {
                       </a>
                     </li>
                     <li className="single-list">
-                      <a href="tour-details.html">
+                      <a href="tour-details">
                         <div className="search-flex">
                           <div className="content-img">
                             <img src="/src/assets/images/gallery/search-img-2.jpeg" alt="travello" />
@@ -285,7 +270,7 @@ const Về = () => {
                       </a>
                     </li>
                     <li className="single-list">
-                      <a href="tour-details.html">
+                      <a href="tour-details">
                         <div className="search-flex">
                           <div className="content-img">
                             <img src="/src/assets/images/gallery/search-img-3.jpeg" alt="travello" />
@@ -308,7 +293,7 @@ const Về = () => {
                       <h4 className="search-label">Gần đây</h4>
                     </li>
                     <li className="single-list">
-                      <a href="tour-details.html">
+                      <a href="tour-details">
                         <div className="search-flex">
                           <div className="content-img">
                             <img src="/src/assets/images/gallery/search-img-1.jpeg" alt="travello" />
@@ -328,7 +313,7 @@ const Về = () => {
                       </a>
                     </li>
                     <li className="single-list">
-                      <a href="tour-details.html">
+                      <a href="tour-details">
                         <div className="search-flex">
                           <div className="content-img">
                             <img src="/src/assets/images/gallery/search-img-2.jpeg" alt="travello" />
@@ -349,7 +334,7 @@ const Về = () => {
                       </a>
                     </li>
                     <li className="single-list">
-                      <a href="tour-details.html">
+                      <a href="tour-details">
                         <div className="search-flex">
                           <div className="content-img">
                             <img src="/src/assets/images/gallery/search-img-3.jpeg" alt="travello" />
@@ -537,13 +522,13 @@ const Về = () => {
       <main>
         <section className="breadcrumbs-area breadcrumb-bg">
           <div className="container">
-            <h1 className="title wow fadeInUp" data-wow-delay="0.0s">Về Chúng ta</h1>
+            <h1 className="title wow fadeInUp" data-wow-delay="0.0s">Về Chúng Tôi</h1>
             <div className="breadcrumb-text">
               <nav aria-label="breadcrumb" className="breadcrumb-nav wow fadeInUp" data-wow-delay="0.1s">
                 <ul className="breadcrumb listing">
-                  <li className="breadcrumb-item single-list"><a href="index.html" className="single">Trang chủ</a></li>
+                  <li className="breadcrumb-item single-list"><a href="index" className="single">Trang chủ</a></li>
                   <li className="breadcrumb-item single-list" aria-current="page">
-                    <a href="javascript:void(0)" className="single active">Về Chúng ta</a></li>
+                    <a href="javascript:void(0)" className="single active">Về Chúng Tôi</a></li>
                 </ul>
               </nav>
             </div>
@@ -557,7 +542,7 @@ const Về = () => {
             <div className="row g-4">
               <div className="col-xl-5 col-lg-6">
                 <div className="section-title mx-430 mb-30 w-md-100">
-                  <span className="highlights fancy-font font-400">Về Chúng ta</span>
+                  <span className="highlights fancy-font font-400">Về Chúng Tôi</span>
                   <h4 className="title">
                     Nhận trải nghiệm du lịch tốt nhất với Travello
                   </h4>
@@ -573,7 +558,7 @@ const Về = () => {
                     Cho phép các cá nhân khám phá các điểm đến mới, văn hóa.
                   </p>
                   <div className="section-button mt-27 d-inline-block">
-                    <a href="about.html" className="btn-primary-icon-sm radius-20">
+                    <a href="about" className="btn-primary-icon-sm radius-20">
                       <p className="pera mt-0">Tìm hiểu thêm</p>
                       <i className="ri-arrow-right-up-line" />
                     </a>
@@ -584,8 +569,8 @@ const Về = () => {
                     </div>
                     <div className="content">
                       <p className="pera font-16">
-                        <span className="font-700">2,500</span> mọiNgườiĐãĐặtTrướcNgàyMai
-                        sựKiệnĐấtĐaiTrong24GiờQua
+                        <span className="font-700">2,500</span> Mọi Người Đã Đặt Trước Ngày Mai
+                        sự Kiện Đất Đai Trong 24 Giờ Qua
                       </p>
                     </div>
                   </div>
@@ -599,17 +584,17 @@ const Về = () => {
                   <div className="all-count-list">
                     <div className="details">
                       <h4 className="count">150k</h4>
-                      <p className="pera">vuiMừng duKhách</p>
+                      <p className="pera">Du Khách Thích</p>
                     </div>
                     <div className="divider" />
                     <div className="details">
                       <h4 className="count">95.7%</h4>
-                      <p className="pera">sựHàiLòng tỷLệ</p>
+                      <p className="pera">Tỷ Lệ Hài Lòng</p>
                     </div>
                     <div className="divider" />
                     <div className="details">
                       <h4 className="count">5000+</h4>
-                      <p className="pera">chuyếnDuLịch hoànThành</p>
+                      <p className="pera">Chuyến DuLịch Hoàn Thành</p>
                     </div>
                   </div>
                 </div>
@@ -617,238 +602,13 @@ const Về = () => {
             </div>
           </div>
         </section>
-        {/*/ End-of Về US*/}
-        {/* Pricing S t a r t */}
-        <section className="pricing-area pb-0 section-bg-before-two">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-xl-7 col-lg-7">
-                <div className="section-title text-center mx-605 mx-auto position-relative">
-                  <span className="highlights-primary">bưu Kiện giá Cả kế Hoạch</span>
-                  <h4 className=" title">
-                    Đơn Giản Chỉ Cần Chọn  Kế Hoạch Định Giá Phù Hợp Với Bạn Nhất
-                  </h4>
-                </div>
-              </div>
-            </div>
-            <div className="position-relative">
-              <div className="row g-4">
-                <div className="col-xl-4 col-lg-6 col-md-6">
-                  <div className="price-card h-calc wow fadeInUp" data-wow-delay="0.0s">
-                    <div className="price-header">
-                      <div className="d-flex gap-7 mb-2">
-                        <h4 className="title">nềnTảng</h4>
-                        <div className="price-badge d-none">phổBiến</div>
-                      </div>
-                      <p className="pera">tốtNhấtChoCácNhuCầuCáNhânVàCơBản</p>
-                    </div>
-                    <div className="price-tag-section">
-                      <div className="price-tag">
-                        <h4 className="title">$10</h4>
-                        <p className="pera">Một-thời gian sự chi trả</p>
-                      </div>
-                    </div>
-                    <ul className="feature-points">
-                      <li className="feature-point">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Hơn 20 đối tác</p>
-                      </li>
-                      <li className="feature-point">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Tin nhắn hàng loạt</p>
-                      </li>
-                      <li className="feature-point">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Lorem rất cà rốt</p>
-                      </li>
-                      <li className="feature-point disable">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Lorem rất thông minh</p>
-                      </li>
-                      <li className="feature-point disable">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Công cụ đặt phòng trực tuyến</p>
-                      </li>
-                      <li className="feature-point disable">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">máyQuétDanhThiếp</p>
-                      </li>
-                    </ul>
-                    <div className="button-section">
-                      <a href="payment.html">
-                        <div className="btn-primary-icon-outline">
-                          <span className="pera">thử hiện Nay</span>
-                          <i className="ri-arrow-right-up-line" />
-                        </div>
-                      </a>
-                    </div>
-                    <div className="imp-note">
-                      <p className="pera">mỗiTháng +2%mỗiLầnĐặtPhòngTrựcTuyến </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-4 col-lg-6 col-md-6">
-                  <div className="price-card h-calc wow fadeInUp" data-wow-delay="0.0s">
-                    <div className="price-header">
-                      <div className="d-flex gap-7 mb-2">
-                        <h4 className="title">Pro</h4>
-                        <div className="price-badge">phổBiến</div>
-                      </div>
-                      <p className="pera">tốtNhất choCácNhuCầuCáNhânVàCơBản </p>
-                    </div>
-                    <div className="price-tag-section">
-                      <div className="price-tag">
-                        <h4 className="title">$77</h4>
-                        <p className="pera">Thanh toán một lần</p>
-                      </div>
-                    </div>
-                    <ul className="feature-points">
-                      <li className="feature-point">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Hơn 20 đối tác</p>
-                      </li>
-                      <li className="feature-point">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Tin nhắn hàng loạt</p>
-                      </li>
-                      <li className="feature-point">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Lorem rất cà rốt</p>
-                      </li>
-                      <li className="feature-point">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Lorem rất thông minh </p>
-                      </li>
-                      <li className="feature-point">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Công cụ đặt phòng trực tuyến</p>
-                      </li>
-                      <li className="feature-point disable">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Máy quét danh thiếp</p>
-                      </li>
-                    </ul>
-                    <div className="button-section">
-                      <a href="payment.html">
-                        <div className="btn-primary-icon-outline">
-                          <span className="pera">Thử ngay bây giờ</span>
-                          <i className="ri-arrow-right-up-line" />
-                        </div>
-                      </a>
-                    </div>
-                    <div className="imp-note">
-                      <p className="pera">Mỗi tháng +1,9% mỗi lần đặt phòng trực tuyến</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-4 col-lg-6 col-md-6">
-                  <div className="price-card h-calc wow fadeInUp" data-wow-delay="0.0s">
-                    <div className="price-header">
-                      <div className="d-flex gap-7 mb-2">
-                        <h4 className="title">phongTục</h4>
-                        <div className="price-badge d-none">phổ biến</div>
-                      </div>
-                      <p className="pera">Tốt nhất cho các nhu cầu cá nhân và cơ bản</p>
-                    </div>
-                    <ul className="feature-points">
-                      <li className="feature-point">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Khối Nhắn tin</p>
-                      </li>
-                      <li className="feature-point">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Lorem rất cà rốt</p>
-                      </li>
-                      <li className="feature-point">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Tất cả mọi thứ không giới hạn</p>
-                      </li>
-                      <li className="feature-point">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Lorem rất thông minh</p>
-                      </li>
-                      <li className="feature-point">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Lorem rất thông minh</p>
-                      </li>
-                      <li className="feature-point">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Lorem rất thông minh</p>
-                      </li>
-                      <li className="feature-point">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera"> Công cụ đặt phòng trực tuyến </p>
-                      </li>
-                      <li className="feature-point">
-                        <div className="tick-icon">
-                          <i className="ri-check-line" />
-                        </div>
-                        <p className="pera">Business Card Scanner</p>
-                      </li>
-                    </ul>
-                    <div className="button-section">
-                      <a href="payment.html">
-                        <div className="btn-primary-icon-outline">
-                          <span className="pera">Liên hệ</span>
-                          <i className="ri-arrow-right-up-line" />
-                        </div>
-                      </a>
-                    </div>
-                    <div className="imp-note">
-                      <p className="pera">Vui lòng liên hệ bất cứ lúc nào</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        {/*/ End of Pricing */}
-        {/* Brand S t a r t */}
+        
         <section className="brand-area">
           <div className="container">
             <div className="border-section-title">
               <h4 className="title">Chúng tôi đã được đề cập trong các thương hiệu dưới đây</h4>
             </div>
-            {/* <div className="swiper brandSwiper-active">
+            <div className="swiper brandSwiper-active">
               <div className="swiper-wrapper">
                 <div className="swiper-slide">
                   <img src="/src/assets/images/brand/brand-1.jpeg" alt="travello" />
@@ -872,11 +632,9 @@ const Về = () => {
                   <img src="/src/assets/images/brand/brand-2.jpg" alt="travello" />
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </section>
-        {/*/ End of Brand */}
-        {/* Testimonial S t a r t */}
         <section className="testimonial-area section-padding">
           <div className="container">
             <div className="row justify-content-center">
@@ -1231,22 +989,22 @@ const Về = () => {
             </div>
             <div className="row g-4">
               <div className="col-lg-6 col-md-6">
-                <a href="tour-list.html" className="offer-banner imgEffect4 wow fadeInLeft" data-wow-delay="0.0s">
+                <a href="tour-list" className="offer-banner imgEffect4 wow fadeInLeft" data-wow-delay="0.0s">
                   <img src="/src/assets/images/gallery/offercard-1.jpg" alt="travello" />
                   <div className="offer-content">
-                    <p className="highlights-text">tiếtKiệmLênĐến</p>
+                    <p className="highlights-text">TiếtKiệmLênĐến</p>
                     <h4 className="title">50%</h4>
-                    <p className="pera">hãyCùngKhámPháThếGiới</p>
+                    <p className="pera">Hãy Cùng Khám Phá Thế Giới</p>
                     <div className="location">
                       <i className="ri-map-pin-line" />
                       <p className="name">Bangkok, Thailand</p>
                     </div>
-                    <div className="btn-secondary-sm radius-30"> đặtPhòngNgay </div>
+                    <div className="btn-secondary-sm radius-30"> Đặt Phòng Ngay </div>
                   </div>
                 </a>
               </div>
               <div className="col-lg-6 col-md-6">
-                <a href="tour-list.html" className="offer-banner imgEffect4 wow fadeInLeft" data-wow-delay="0.0s">
+                <a href="tour-list" className="offer-banner imgEffect4 wow fadeInLeft" data-wow-delay="0.0s">
                   <img src="/src/assets/images/gallery/offercard-2.jpg" alt="travello" />
                   <div className="offer-content-two">
                     <h4 className="title">Khách sạn gần đó</h4>
@@ -1258,7 +1016,7 @@ const Về = () => {
                       <i className="ri-map-pin-line" />
                       <p className="name">Bangkok, Thailand</p>
                     </div>
-                    <div className="btn-secondary-sm radius-30"> đặtPhòngNgay</div>
+                    <div className="btn-secondary-sm radius-30"> Đặt Phòng Ngay</div>
                   </div>
                 </a>
               </div>
@@ -1269,161 +1027,153 @@ const Về = () => {
       </main>
       {/* Footer S t a r t */}
       <footer>
-        <div className="footer-wrapper footer-bg">
-          <div className="container">
-            <div className="footer-area">
-              <div className="row g-4">
-                <div className="col-xl-3 col-lg-4 col-sm-6">
-                  <div className="single-footer-caption">
-                    <div className="footer-tittle">
-                      <h4 className="title">Công ty</h4>
-                      <ul className="listing">
-                        <li className="single-lsit">
-                          <a href="about.html">về Chúng ta</a>
-                        </li>
-                        <li className="single-lsit">
-                          <a href="news.html">Tin tức</a>
-                        </li>
-                        <li className="single-lsit"><a href="faq.html">Câu hỏi thường gặp</a></li>
-                        <li className="single-lsit">
-                          <a href="contact.html">liên Hệ</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-lg-4 col-sm-6">
-                  <div className="single-footer-caption">
-                    <div className="footer-tittle">
-                      <h4 className="title">Khám phá</h4>
-                      <ul className="listing">
-                        <li className="single-lsit"><a href="faq.html">Câu hỏi thường gặp</a></li>
-                        <li className="single-lsit">
-                          <a href="tour-list.html">Chuyến du lịch Danh sách</a>
-                        </li>
-                        <li className="single-lsit">
-                          <a href="destination.html">Điểm đến</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-lg-4 col-sm-6">
-                  <div className="single-footer-caption">
-                    <div className="footer-tittle">
-                      <h4 className="title">Quick Liên kết</h4>
-                      <ul className="listing">
-                        <li className="single-lsit"><a href="index.html">Trang chủ</a></li>
-                        <li className="single-lsit">
-                          <a href="about.html">Về Us</a>
-                        </li>
-                        <li className="single-lsit">
-                          <a href="contact.html">Contact Us</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-lg-4 col-sm-6">
-                  <div className="single-footer-caption">
-                    <div className="footer-tittle">
-                      <h4 className="title">liênHệ</h4>
-                      <ul className="listing">
-                        <li className="single-lsit">
-                          <a href="#" className="mb-20 d-block">70/aslounddivotowermelbourne,
-châuúc</a>
-                        </li>
-                        <li className="single-lsit">
-                          <a href="#">
-                            <div className="d-flex gap-12">
-                              <i className="ri-phone-line" /> (00) +888 123456 789
-                            </div>
-                          </a>
-                        </li>
-                        <li className="single-lsit">
-                          <a href="#">
-                            <div className="d-flex gap-12">
-                              <i className="ri-mail-line" /> example@gmail.com
-                            </div>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+    <div className="footer-wrapper footer-bg">
+      <div className="container">
+        <div className="footer-area">
+          <div className="row g-4">
+            <div className="col-xl-3 col-lg-4 col-sm-6">
+              <div className="single-footer-caption">
+                <div className="footer-tittle">
+                  <h4 className="title">Công ty</h4>
+                  <ul className="listing">
+                    <li className="single-lsit">
+                      <a href="about">Về Chúng tôi</a>
+                    </li>
+                    <li className="single-lsit">
+                      <a href="news">Tin tức</a>
+                    </li>
+                    <li className="single-lsit"><a href="faq">Câu hỏi thường gặp</a></li>
+                    <li className="single-lsit">
+                      <a href="contact">Liên Hệ</a>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-            <div className="footer-middle-area">
-              <div className="footer-body">
-                <div className="footer-content">
-                  <div className="d-flex flex-column gap-20">
-                    <div className="logo">
-                      <img src="/src//images/logo/logo.png" alt="travello" className="changeLogo" />
-                    </div>
-                    <p className="pera">
-                      Du lịch là một trải nghiệm biến đổi và phong phú
-                      cho phép các cá nhân khám phá các điểm đến, văn hóa mới,
-                      và phong cảnh.
-                    </p>
-                  </div>
-                  <div className="footer-right">
-                    <h4 className="title">Đăng ký bản tin của chúng tôi</h4>
-                    <div className="subscribe-wraper">
-                      <input className="footer-search" type="search" name="footer" placeholder="Enter Your Email" />
-                      <button className="subscribe-btn">Đặt mua</button>
-                    </div>
-                  </div>
+            <div className="col-xl-3 col-lg-4 col-sm-6">
+              <div className="single-footer-caption">
+                <div className="footer-tittle">
+                  <h4 className="title">Khám phá</h4>
+                  <ul className="listing">
+                    <li className="single-lsit"><a href="faq">Câu hỏi thường gặp</a></li>
+                    <li className="single-lsit">
+                      <a href="tour-list">Chuyến du lịch Danh sách</a>
+                    </li>
+                    <li className="single-lsit">
+                      <a href="destination">Điểm đến</a>
+                    </li>
+                  </ul>
                 </div>
               </div>
-              <div className="footer-bottom">
-                <ul className="listing">
-                  <li className="single-list">
-                    <a href="terms-condition.html" className="single"> Điều khoản của Hoa Kỳ </a>
-                  </li>
-                  <li className="single-list">
-                    <a href="privacy-policy.html" className="single"> Tuyên bố về quyền riêng tư và cookie</a>
-                  </li>
-                  <li className="single-list">
-                    <a href="contact.html" className="single"> Cách thức hoạt động của trang web </a>
-                  </li>
-                </ul>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-sm-6">
+              <div className="single-footer-caption">
+                <div className="footer-tittle">
+                  <h4 className="title">Liên kết nhanh</h4>
+                  <ul className="listing">
+                    <li className="single-lsit"><a href="index">Trang chủ</a></li>
+                    <li className="single-lsit">
+                      <a href="about">Về Chúng Tôi</a>
+                    </li>
+                    <li className="single-lsit">
+                      <a href="contact">Liên Hệ với chúng tôi</a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-          {/* footer-bottom area */}
-          <div className="footer-bottom-area">
-            <div className="container">
-              <div className="row">
-                <div className="col-xl-12">
-                  <div className="d-flex justify-content-between gap-14 flex-wrap">
-                    <p className="pera">
-                      © <span className="current-year">2023</span> ban đầu.Tất cả các quyền
-                      kín đáo
-                    </p>
-                    <p className="pera">Được cung cấp bởi @Travello</p>
-                  </div>
+            <div className="col-xl-3 col-lg-4 col-sm-6">
+              <div className="single-footer-caption">
+                <div className="footer-tittle">
+                  <h4 className="title">Liên Hệ</h4>
+                  <ul className="listing">
+                    <li className="single-lsit">
+                      <a href="#" className="mb-20 d-block">70 Cầu Giấy,châu Úc</a>
+                    </li>
+                    <li className="single-lsit">
+                      <a href="#">
+                        <div className="d-flex gap-12">
+                          <i className="ri-phone-line" />(00) +888 123456 789
+                        </div>
+                      </a>
+                    </li>
+                    <li className="single-lsit">
+                      <a href="#">
+                        <div className="d-flex gap-12">
+                          <i className="ri-mail-line" />example@gmail.com
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </footer>
-      {/*/ End-of Footer */}
-      {/* Scroll Up  */}
+        <div className="footer-middle-area">
+          <div className="footer-body">
+            <div className="footer-content">
+              <div className="d-flex flex-column gap-20">
+                <div className="logo">
+                  <img src="/src/assets/images/logo/logo.png" alt="travello" className="changeLogo" />
+                </div>
+                <p className="pera">
+            Du lịch là một trải nghiệm biến đổi và phong phú
+cho phép các cá nhân khám phá các điểm đến, văn hóa mới,
+và phong cảnh.
+                </p>
+              </div>
+              <div className="footer-right">
+                <h4 className="title">Đăng ký bản tin của chúng tôi</h4>
+                <div className="subscribe-wraper">
+                  <input className="footer-search" type="search" name="footer" placeholder="Enter Your Email" />
+                  <button className="subscribe-btn">Đặt mua</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <ul className="listing">
+              <li className="single-list">
+                <a href="terms-condition" className="single"> Điều khoản của Việt Nam</a>
+              </li>
+              <li className="single-list">
+                <a href="privacy-policy" className="single"> Tuyên bố về quyền riêng tư và cookie</a>
+              </li>
+              <li className="single-list">
+                <a href="contact" className="single"> Cách thức hoạt động của trang web </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {/* footer-bottom area */}
+      <div className="footer-bottom-area">
+        <div className="container">
+          <div className="row">
+            <div className="col-xl-12">
+              <div className="d-flex justify-content-between gap-14 flex-wrap">
+                <p className="pera">
+                  © <span className="current-year">2023</span> initTheme. All rights reserved
+                </p>
+                <p className="pera">Được cung cấp bởi @Travello</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
       <div className="progressParent" id="back-top">
         <svg className="backCircle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
           <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
         </svg>
       </div>
-      {/* Add an search-overlay element */}
       <div className="search-overlay" />
-      {/* jquery*/}
-      {/* Plugin */}
-      {/* Main js*/}
     </div>
 
 
   )
 }
 
-export default Về
+export default About
