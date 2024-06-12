@@ -10,14 +10,21 @@ class Booking extends Model
     use HasFactory;
     protected $table = 'bookings';
     protected $fillable = [
-        'user_id',
-        'tour_id',
-        'hotel_id',
-        'price',
-        'promotion',
-        'people',
-        'start',
-        'end',
-        'status'
+         'user_name',
+         'email',
+         'tour_name',
+         'tour_price',
+         'address_tour',
+         'hotel_name',
+         'hotel_price',
+         'hotel_address',
+         'book_price',
+         'promotion_price',
+         'total_price',
+         'people',
+         'start',
+         'end',
+         'status'
+
     ];
 }

@@ -13,6 +13,7 @@ class Voucher extends Model
       'voucher',  
       'title',
       'qty',
+      'value',
       'discount_type',  
       'max',
       'start',
