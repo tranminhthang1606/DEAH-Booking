@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\HotelController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TourController;
@@ -32,7 +31,6 @@ Route::group(['middleware' => 'cors'], function () {
     Route::apiResource('/hotel', HotelController::class);
     Route::apiResource('/tour', TourController::class);
     Route::apiResource('/voucher', VoucherController::class);
-    Route::apiResource('/banners', BannerController::class);
 
 
 });

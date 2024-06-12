@@ -5,15 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BannerImages extends Model
+class Images_banner extends Model
 {
     use HasFactory;
-    protected $table = 'banner_images';
+    protected $table = 'image_banner';
     protected $fillable = [
         'banner_id',
         'image'
     ];
-    public function banner(){
-        return $this->belongsTo(Banner::class);
-    }
 }
