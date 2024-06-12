@@ -19,8 +19,12 @@ import TourDetails from './components/TourDetails';
 import TourList from './components/TourList';
 import Verification from './components/Verification';
 import Indextwo from './components/Indextwo';
-import Home3 from './components/Home3';
 import Test from './components/Test';
+import LayoutAdmin from './components/layout/LayoutAdmin';
+import DashBoard from './components/pages/admin/dashboard/DashBoard';
+import AddTour from './components/pages/admin/Tour/AddTour';
+import ListProductAdmin from './components/pages/admin/Tour/ListTour';
+import EditTour from './components/pages/admin/Tour/EditTour';
 
 
 // import { initializeStickyAndScrollUp, initializeSwipers, initializeSelect2, initializeFancybox, initializeHoverIcons, initializePriceRangeSlider, initializeCustomDropdown } from './components/initializeScripts';
@@ -52,6 +56,17 @@ function App() {
         <Route path='/terms-condition.html' Component={TermsCondition}/>
         <Route path='/news.html' Component={New}/>
         <Route path='/contact.html' Component={Contact}/>
+
+        <Route
+            path='/dashboard'
+            element={
+                <LayoutAdmin />
+            }>
+            <Route path='' Component={DashBoard} />
+            <Route path='add_tour' Component={AddTour} />
+            <Route path='list_tour' Component={ListProductAdmin} />
+            <Route path='edit_tour' Component={EditTour} />
+          </Route>
       </Routes>
     </>
   );

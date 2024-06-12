@@ -1,5 +1,6 @@
 import React from 'react'
 import "../assets/js/main.js"
+import "bootstrap/dist/css/bootstrap.min.css";
 
 type Props = {}
 
