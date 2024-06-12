@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\Client\TourController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\PostController;
-use App\Http\Controllers\Client\TourClientController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,8 +29,8 @@ Route::group(['middleware' => 'cors'], function () {
         Route::get('get-tours-feature', [HomeController::class, 'featureTours']);
         Route::get('get-posts-new', [HomeController::class, 'newPosts']);
         //tour
-        Route::any('get-tours-list', [TourClientController::class, 'index']);
-        Route::get('get-tour-detail/{id}', [TourClientController::class, 'show']);
+        Route::any('get-tours-list', [TourController::class, 'index']);
+        Route::get('get-tour-detail/{id}', [TourController::class, 'show']);
         //post
         Route::any('get-posts-list', [PostController::class, 'index']);
         Route::get('get-post-detail/{id}', [PostController::class, 'show']);

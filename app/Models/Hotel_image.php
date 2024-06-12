@@ -13,4 +13,8 @@ class Hotel_image extends Model
         'hotel_id',
         'image'
     ];
+    
+    public function hotel(){
+        return $this->hasMany(Hotel::class,'hotel_images')->with('hotel_id');
+    }
 }
