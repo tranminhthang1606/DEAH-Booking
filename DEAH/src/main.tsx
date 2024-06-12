@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider, useQueryClient } from '@tanstack/reac
 
 const queryclient = new QueryClient();
 
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
 
     <QueryClientProvider client={queryclient}>
