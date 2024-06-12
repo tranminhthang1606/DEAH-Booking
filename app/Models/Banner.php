@@ -9,6 +9,10 @@ class Banner extends Model
 {
     use HasFactory;
     protected $table = 'banners';
-    
+
     protected $fillable = ['title'];
+    public function images()
+    {
+        return $this->hasMany(BannerImages::class);
+    }
 }
