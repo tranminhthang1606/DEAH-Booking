@@ -19,7 +19,11 @@ class Voucher extends Model
       'end',
       'status'
 
-      
+
 
     ];
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_voucher')->withPivot('using_voucher');
+    }
 }

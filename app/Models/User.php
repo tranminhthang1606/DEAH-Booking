@@ -20,4 +20,8 @@ class User extends Model
 
 
     ];
+    public function vouchers()
+    {
+        return $this->belongsToMany(Voucher::class, 'user_voucher')->withPivot('using_voucher');
+    }
 }

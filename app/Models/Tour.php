@@ -20,10 +20,10 @@ class Tour extends Model
     'promotion',
     'private',
     'views',
-    'rate',
     'province_id',
     'district_id',
-    'ward_id'
+    'ward_id',
+    'is_active'
 
   ];
 
@@ -39,4 +39,5 @@ class Tour extends Model
   {
     return $this->hasMany(Itinerarie::class);
   }
+
 }

@@ -22,10 +22,10 @@ return new class extends Migration
             $table->string('promotion');
             $table->boolean('private');
             $table->integer('views');
-            $table->integer('rate');
             $table->integer('province_id');
             $table->integer('district_id');
             $table->integer('ward_id');
+            $table->integer('is_active');
             $table->timestamps();
             $table->foreign('province_id')->references('id')->on('provinces');
             $table->foreign('district_id')->references('id')->on('districts');
