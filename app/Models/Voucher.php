@@ -18,8 +18,9 @@ class Voucher extends Model
       'start',
       'end',
       'status'
-
-      
-
     ];
+    public function users()
+    {
+      return $this->belongsToMany(Voucher::class, 'user_voucher');
+    }
 }

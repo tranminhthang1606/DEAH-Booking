@@ -10,4 +10,8 @@ class Provinces extends Model
     use HasFactory;
     protected $table = 'provinces';
     protected $fillable = ['name'];
+    
+    public function hotel(){
+        return $this->hasMany(Hotel::class,'hotel')->with('id');
+    }
 }

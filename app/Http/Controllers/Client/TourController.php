@@ -9,7 +9,7 @@ use App\Models\Tour_image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Number;
 
-class TourClientController extends Controller
+class TourController extends Controller
 {
     public $response;
     public function __construct(ResponseJson $response)
@@ -23,6 +23,7 @@ class TourClientController extends Controller
         $province = $request->province;
         $rate = $request->rate;
         $sortByPrice = $request->sort;
+        $query->where('is_active', 1);
         if (isset($rate) && $rate !== null) {
             $query->where('rate', $rate);
         }
@@ -39,9 +40,11 @@ class TourClientController extends Controller
             } else {
                 $query->orderBy('price')->get();
             }
+        } else {
+            $query->orderByDesc('id');
         }
-        $tours = $query->orderByDesc('id')->with(['images', 'rates'])->get();
-
+        $tours = $query->with(['images', 'rates','types'])->get();
+        $tours->rates()->avg('rate');
 
         if ($tours) {
             return $this->response->responseSuccess($tours);
@@ -55,7 +58,7 @@ class TourClientController extends Controller
         $itineraries = $query->itineraries()->orderBy('day')->get();
         $rate = $query->rates();
         $tour = Tour::with('images')->find($request->id);
-        $tour_type = Tour::where('is_active',1)->where('type_id',$query->type_id)->where('id','!=',$request->id)->get();
+        $tour_type = Tour::where('is_active', 1)->where('type_id', $query->type_id)->where('id', '!=', $request->id)->get();
         $data = [
             'tour' => $tour,
             'itineraries' => $itineraries,
@@ -63,7 +66,7 @@ class TourClientController extends Controller
                 'rate' => Number::format($rate->avg('rate'), maxPrecision: 1),
                 'qty' => $rate->count('rate')
             ],
-            'tour_type'=>$tour_type
+            'tour_type' => $tour_type
         ];
         if ($data) {
             $query->update(['views' => $tour->views += 1]);
