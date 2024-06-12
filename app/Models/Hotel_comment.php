@@ -14,7 +14,4 @@ class Hotel_comment extends Model
         'hotel_id',
         'user_id'
     ];
-    public function hotel(){
-        return $this->hasMany(Hotel::class,'hotel_comments')->with('hotel_id');
-    }
 }

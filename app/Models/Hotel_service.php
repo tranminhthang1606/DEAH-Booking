@@ -13,8 +13,4 @@ class Hotel_service extends Model
         'hotel_id',
         'service_id'
     ];
-    
-    public function hotel(){
-        return $this->hasMany(Hotel::class,'hotel_service')->with('hotel_id');
-    }
 }
