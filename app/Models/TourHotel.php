@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class TourHotel extends Model
 {
     use HasFactory;
-    protected $table='roles';
-    protected $fillable = ['role'];
+    protected $table = 'tour_hotel';
+    protected $fillable = [
+        'tour_id',
+        'hotel_id',
+    ];
 }

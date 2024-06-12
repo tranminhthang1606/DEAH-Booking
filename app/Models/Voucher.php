@@ -13,13 +13,15 @@ class Voucher extends Model
       'voucher',  
       'title',
       'qty',
+      'value',
       'discount_type',  
       'max',
       'start',
       'end',
       'status'
-
-      
-
     ];
+    public function users()
+    {
+      return $this->belongsToMany(Voucher::class, 'user_voucher');
+    }
 }

@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post_comment extends Model
+class PostComment extends Model
 {
     use HasFactory;
-    protected $table = 'comment_post';
-    protected $fillable = ['comment','post_id','user_id'];
+    protected $table = 'post_comments';
+    protected $fillable = ['comments','post_id','user_id'];
     public function post(){
         return $this->belongsTo(Post::class);
       }}
