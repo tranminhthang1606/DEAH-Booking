@@ -14,20 +14,17 @@ return new class extends Migration
         Schema::create('hotels', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('room');
-            $table->string('price');
+            $table->integer('price');
             $table->string('promotion');
-            $table->string('name');
             $table->string('description');
-            $table->string('services');
-            $table->string('status');
-            $table->integer('owner_id');
-            $table->integer('province_id');
-            $table->integer('district_id');
-            $table->integer('ward_id');
+            $table->foreignId('provincce_id')->constrained()->on('provinces');
+            $table->foreignId('district_id')->constrained()->on('districts');
+            $table->foreignId('ward_id')->constrained()->on('wards');
             $table->string('address');
-            $table->integer('rate');
+            $table->boolean('status');
+            $table->boolean('is_active');
             $table->timestamps();
+
         });
     }
 

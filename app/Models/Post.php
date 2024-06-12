@@ -13,4 +13,7 @@ class Post extends Model
       'title','body','view','status'
 
     ];
+    public function comments(){
+      return $this->hasMany(PostComment::class);
+    }
 }

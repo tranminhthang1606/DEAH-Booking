@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('body');
             $table->integer('view');
-            $table->bigInteger('status');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('districts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('province_id');
+            $table->foreignId('province_id')->constrained()->on('provinces');
             $table->timestamps();
         });
     }

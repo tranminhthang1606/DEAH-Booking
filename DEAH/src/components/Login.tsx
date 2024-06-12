@@ -17,12 +17,12 @@ const Login = () => {
                         <div className="top-header-left d-flex align-items-center">
                           {/* Logo*/}
                           <div className="logo">
-                            <a href="index.html"><img src="/src/assets/images/logo/logo.png" alt="logo" className="changeLogo" /></a>
+                            <a href="index-two"><img src="/src/assets/images/logo/logo.png" alt="logo" className="changeLogo" /></a>
                           </div>
                           {/* search box */}
                           <div className="search-box search-bar d-none d-lg-block">
                             <div className="header-search">
-                              <span className="pera">Điểm đến, thu hút</span>
+                              <span className="pera">Điểm Đến Thu Hút</span>
                               <div className="search-icon">
                                 <i className="ri-search-line" />
                               </div>
@@ -66,7 +66,7 @@ const Login = () => {
                               <i className="ri-phone-line" />
                             </div>
                             <div className="info">
-                              <p className="pera"> Gọi bất cứ lúc nào</p>
+                              <p className="pera">Gọi bất cứ lúc nào</p>
                               <h4 className="title">
                                 <a href="javascript:void(0)">00 (888) +123456</a>
                               </h4>
@@ -90,82 +90,24 @@ const Login = () => {
                             <div className="d-flex justify-content-between align-items-center">
                               <ul className="listing" id="navigation">
                                 <li className="single-list">
-                                  <a href="javascript:void(0)" className="single">Trang chủ <i className="ri-arrow-down-s-line" /></a>
-                                  <ul className="submenu">
-                                    {/* <li className="single-list">
-                                      <a href="index.html" className="single">Trang chủ 01</a>
-                                    </li> */}
-                                    <li className="single-list">
-                                      <a href="index-two.html" className="single">Trang chủ </a>
-                                    </li>
-                                    {/* <li className="single-list">
-                                      <a href="index-three.html" className="single">Trang chủ 03</a>
-                                    </li> */}
-                                  </ul>
+                                  <a href="index-two" className="single">Trang Chủ </a>
+
                                 </li>
                                 <li className="single-list ">
-                                  <a href="about.html" className="single">về</a>
+                                  <a href="about" className="single link-active">Về Chúng Tôi</a>
                                 </li>
                                 <li className="single-list">
-                                  <a href="destination.html" className="single">Điểm đến</a>
+                                  <a href="destination" className="single">Điểm Đến</a>
                                 </li>
                                 <li className="single-list">
-                                  <a href="tour-list.html" className="single">Gói du lịch </a>
+                                  <a href="tour-list" className="single">Gói Du Lịch</a>
+                                </li>
+                          
+                                <li className="single-list">
+                                  <a href="news" className="single">Tin tức</a>
                                 </li>
                                 <li className="single-list">
-                                  <a href="javascript:void(0)" className="single link-active">Trang <i className="ri-arrow-down-s-line" /></a>
-                                  <ul className="submenu">
-                                    <li className="single-list">
-                                      <a href="tour-details.html" className="single">Chi tiết du lịch </a>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="news-details.html" className="single">Chi tiết tin tức </a>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="destination-details.html" className="single">Chi tiết điểm đến </a>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="payment.html" className="single">sự chi trả</a>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="javascript:void(0)" className="single">Đăng nhập<i className="ri-arrow-right-s-line" /></a>
-                                      <ul className="submenu">
-                                        <li className="single-list">
-                                          <a href="login.html" className="single">Đăng nhập</a>
-                                        </li>
-                                        <li className="single-list">
-                                          <a href="register.html" className="single">Sự đăng ký</a>
-                                        </li>
-                                        <li className="single-list">
-                                          <a href="forgot-pass.html" className="single">Quên
-                                            Mật khẩu </a>
-                                        </li>
-                                        <li className="single-list">
-                                          <a href="verification.html" className="single">Xác minh </a>
-                                        </li>
-                                        <li className="single-list">
-                                          <a href="new-password.html" className="single">Mới
-                                            Mật khẩu </a>
-                                        </li>
-                                      </ul>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="faq.html" className="single">Câu hỏi thường gặp</a>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="privacy-policy.html" className="single">sự riêng tư
-                                        Chính sách </a>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="terms-condition.html" className="single">Điều kiện điều kiện </a>
-                                    </li>
-                                  </ul>
-                                </li>
-                                <li className="single-list">
-                                  <a href="news.html" className="single">Tin tức</a>
-                                </li>
-                                <li className="single-list">
-                                  <a href="contact.html" className="single">Liên hệ</a>
+                                  <a href="contact" className="single">Liên hệ</a>
                                 </li>
                                 <li className="d-block d-lg-none">
                                   <div className="header-right pl-15">
@@ -179,7 +121,7 @@ const Login = () => {
                                       </div>
                                     </div>
                                     <div className="sign-btn">
-                                      <a href="login.html" className="btn-secondary-sm">Đăng nhập</a>
+                                      <a href="login" className="btn-secondary-sm">Đăng nhập</a>
 
                                     </div>
                                   </div>
@@ -196,7 +138,7 @@ const Login = () => {
                                   </div>
                                 </div>
                                 <div className="sign-btn">
-                                  <a href="login.html" className="btn-secondary-sm">Đăng nhập</a>
+                                  <a href="login" className="btn-secondary-sm">Đăng nhập</a>
                                 </div>
                                 {/* Theme Mode */}
                                 <li className="single-list">
@@ -225,7 +167,7 @@ const Login = () => {
                   <i className="ri-search-line" />
                 </div>
                 <div className="modal-search-box">
-                  <input type="text" id="searchField" className="search-field" placeholder="Destination, Agency, Country" />
+                  <input type="text" id="searchField" className="search-field" placeholder="Điểm đến, Agency, Country" />
                   <button id="closeSearch" className="close-search-btn">
                     <kbd className="light-text"> THOÁT </kbd>
                   </button>
@@ -239,30 +181,30 @@ const Login = () => {
                         <h4 className="search-label">Gần đây</h4>
                       </li>
                       <li className="single-list">
-                        <a href="tour-details.html">
+                        <a href="tour-details">
                           <div className="search-flex">
                             <div className="content-img">
-                              <img src="/src/images/gallery/search-img-1.jpeg" alt="travello" />
+                              <img src="/src/assets/images/gallery/search-img-1.jpeg" alt="travello" />
                             </div>
                             <div className="content">
                               <h4 className="title line-clamp-1">
                                 Dubai by Night City Tour với Fountain Show
                               </h4>
                               <p className="pera line-clamp-2">
-                                Buổi tối tuyệt vời Escapade bắt đầu từ Madinat
-                                Jumeirah đến đài phun nước âm nhạc để xem người khác.
-                                Buổi tối tuyệt vời Escapade bắt đầu từ Madinat
-                                Jumeirah đến các đài phun nước âm nhạc để xem người khác
+                                buổi Tối Tuyệt Vời Esc apade Bắt Đầu Từ Madinat
+                                jumeirah Đến Đài Phun Nước Âm Nhạc Để Xem Người Khác.
+                                buổi Tối Tuyệt VờiEscapade Bắt Đầu Từ Madinat
+                                jumeirah Đến Các Đài Phun Nước Âm Nhạc Để Xem Người Khác
                               </p>
                             </div>
                           </div>
                         </a>
                       </li>
                       <li className="single-list">
-                        <a href="tour-details.html">
+                        <a href="tour-details">
                           <div className="search-flex">
                             <div className="content-img">
-                              <img src="/src/images/gallery/search-img-2.jpeg" alt="travello" />
+                              <img src="/src/assets/images/gallery/search-img-2.jpeg" alt="travello" />
                             </div>
                             <div className="content">
                               <h4 className="title line-clamp-1">
@@ -280,20 +222,20 @@ const Login = () => {
                         </a>
                       </li>
                       <li className="single-list">
-                        <a href="tour-details.html">
+                        <a href="tour-details">
                           <div className="search-flex">
                             <div className="content-img">
-                              <img src="/src/images/gallery/search-img-3.jpeg" alt="travello" />
+                              <img src="/src/assets/images/gallery/search-img-3.jpeg" alt="travello" />
                             </div>
                             <div className="content">
                               <h4 className="title line-clamp-1">
-                                Nhập học vào làng toàn cầu ở Dubai
+                                Admission to Global Village in Dubai
                               </h4>
                               <p className="pera line-clamp-2">
-                                Nhập học vào lễ hội đa văn hóa lớn nhất Dubai Dubai
-                                Công viên với bản sao của các địa danh mang tính biểu tượng.Nhập vào
-                                Công viên lễ hội đa văn hóa lớn nhất Dubai với
-                                bản sao của các địa danh mang tính biểu tượng
+                                Admission to Dubai’s biggest, multicultural festival
+                                park with replicas of iconic landmarks. Admission to
+                                Dubai’s biggest, multicultural festival park with
+                                replicas of iconic landmarks
                               </p>
                             </div>
                           </div>
@@ -303,10 +245,10 @@ const Login = () => {
                         <h4 className="search-label">Gần đây</h4>
                       </li>
                       <li className="single-list">
-                        <a href="tour-details.html">
+                        <a href="tour-details">
                           <div className="search-flex">
                             <div className="content-img">
-                              <img src="/src/images/gallery/search-img-1.jpeg" alt="travello" />
+                              <img src="/src/assets/images/gallery/search-img-1.jpeg" alt="travello" />
                             </div>
                             <div className="content">
                               <h4 className="title line-clamp-1">
@@ -323,10 +265,10 @@ const Login = () => {
                         </a>
                       </li>
                       <li className="single-list">
-                        <a href="tour-details.html">
+                        <a href="tour-details">
                           <div className="search-flex">
                             <div className="content-img">
-                              <img src="/src/images/gallery/search-img-2.jpeg" alt="travello" />
+                              <img src="/src/assets/images/gallery/search-img-2.jpeg" alt="travello" />
                             </div>
                             <div className="content">
                               <h4 className="title line-clamp-1">
@@ -344,10 +286,10 @@ const Login = () => {
                         </a>
                       </li>
                       <li className="single-list">
-                        <a href="tour-details.html">
+                        <a href="tour-details">
                           <div className="search-flex">
                             <div className="content-img">
-                              <img src="/src/images/gallery/search-img-3.jpeg" alt="travello" />
+                              <img src="/src/assets/images/gallery/search-img-3.jpeg" alt="travello" />
                             </div>
                             <div className="content">
                               <h4 className="title line-clamp-1">
@@ -367,11 +309,11 @@ const Login = () => {
                   </div>
                   <div className="col-md-4">
                     <div className="right-section" id="filterMenu">
-                      <h4 className="title">Tùy chọn lọc</h4>
+                      <h4 className="title">tùyChọnLọc</h4>
                       {/* List of Filter */}
                       <ul className="listing">
                         <li>
-                          <h4 className="search-label">Loại thư</h4>
+                          <h4 className="search-label">Loại bài </h4>
                         </li>
                         <li className="single-list">
                           <div className="d-flex align-items-center gap-8">
@@ -413,7 +355,7 @@ const Login = () => {
                               <span className="checkmark-style" />
                             </label>
                             <div className="content">
-                              <p className="pera">Blogs (23)</p>
+                              <p className="pera">Blog (23)</p>
                             </div>
                           </div>
                         </li>
@@ -463,7 +405,7 @@ const Login = () => {
                               <span className="checkmark-style" />
                             </label>
                             <div className="content">
-                              <p className="pera">Blogs (23)</p>
+                              <p className="pera">Blog (23)</p>
                             </div>
                           </div>
                         </li>
@@ -513,7 +455,7 @@ const Login = () => {
                               <span className="checkmark-style" />
                             </label>
                             <div className="content">
-                              <p className="pera">Blogs (23)</p>
+                              <p className="pera">Blog (23)</p>
                             </div>
                           </div>
                         </li>
@@ -537,7 +479,7 @@ const Login = () => {
               <div className="breadcrumb-text">
                 <nav aria-label="breadcrumb" className="breadcrumb-nav wow fadeInUp" data-wow-delay="0.1s">
                   <ul className="breadcrumb listing">
-                    <li className="breadcrumb-item single-list"><a href="index.html" className="single">Trang chủ</a></li>
+                    <li className="breadcrumb-item single-list"><a href="index" className="single">Trang chủ</a></li>
                     <li className="breadcrumb-item single-list" aria-current="page">
                       <a href="javascript:void(0)" className="single active">Đăng nhập</a>
                     </li>
@@ -555,8 +497,8 @@ const Login = () => {
                   <div className="login-card">
                     {/* Logo */}
                     <div className="logo mb-40">
-                      <a href="index.html" className="mb-30 d-block">
-                        <img src="/src/images/logo/logo.png" alt="logo" className="changeLogo" />
+                      <a href="index" className="mb-30 d-block">
+                        <img src="/src/assets/images/logo/logo.png" alt="logo" className="changeLogo" />
                       </a>
                     </div>
                     {/* Form */}
@@ -569,7 +511,7 @@ const Login = () => {
                         <div className="position-relative ">
                           <div className="d-flex justify-content-between aligin-items-center">
                             <label className="contact-label">Mật khẩu</label>
-                            <a href="forgot-pass.html"><span className="text-primary text-15"> Quên
+                            <a href="forgot-pass"><span className="text-primary text-15"> Quên
                               mật khẩu?</span></a>
                           </div>
                           <input type="password" className="form-control contact-input password-input" id="txtPasswordLogin" placeholder="Enter Password" />
@@ -586,13 +528,13 @@ const Login = () => {
                       <div className="create-account">
                         <p>
                           Bạn có tài khoản không?
-                          <a href="register.html">
+                          <a href="register">
                             <span className="text-primary">Đăng ký</span>
                           </a>
                         </p>
                       </div>
                       <a href="javascript:void(0)" className="login-btn d-flex align-items-center justify-content-center gap-10">
-                        <img src="/src/images/icon/google-icon.png" alt="img" className="m-0" />
+                        <img src="/src/assets/images/icon/google-icon.png" alt="img" className="m-0" />
                         <span> Đăng nhập với Google </span>
                       </a>
                     </div>
@@ -611,34 +553,20 @@ const Login = () => {
                 <div className="row g-4">
                   <div className="col-xl-3 col-lg-4 col-sm-6">
                     <div className="single-footer-caption">
-                      <div className="footer-tittle">
-                        <h4 className="title">côngTy</h4>
-                        <ul className="listing">
-                          <li className="single-lsit">
-                            <a href="about.html"> Về chúng tôi</a>
+                      <div className="footer-title">
+                        <h4 className="title text-white">Công ty</h4>
+                        <ul className="list-unstyled">
+                          <li className="single-list">
+                            <a href="about">Về Chúng tôi</a>
                           </li>
-                          <li className="single-lsit">
-                            <a href="news.html">Tin tức</a>
+                          <li className="single-list">
+                            <a href="news  text-white">Tin tức</a>
                           </li>
-                          <li className="single-lsit"><a href="faq.html">Câu hỏi thường gặp</a></li>
-                          <li className="single-lsit">
-                            <a href="contact.html">Liên hệ</a>
+                          <li className="single-list">
+                            <a href="faq  text-white">Câu hỏi thường gặp</a>
                           </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-sm-6">
-                    <div className="single-footer-caption">
-                      <div className="footer-tittle">
-                        <h4 className="title">Explore</h4>
-                        <ul className="listing">
-                          <li className="single-lsit"><a href="faq.html">Faq</a></li>
-                          <li className="single-lsit">
-                            <a href="tour-list.html">Tour Listings</a>
-                          </li>
-                          <li className="single-lsit">
-                            <a href="destination.html">Destination</a>
+                          <li className="single-list">
+                            <a href="contact  text-white">Liên Hệ</a>
                           </li>
                         </ul>
                       </div>
@@ -646,15 +574,17 @@ const Login = () => {
                   </div>
                   <div className="col-xl-3 col-lg-4 col-sm-6">
                     <div className="single-footer-caption">
-                      <div className="footer-tittle">
-                        <h4 className="title">Nhanh Liên kết</h4>
-                        <ul className="listing">
-                          <li className="single-lsit"><a href="index.html"> Nhà</a></li>
-                          <li className="single-lsit">
-                            <a href="about.html">Về Us</a>
+                      <div className="footer-title">
+                        <h4 className="title text-white">Khám phá</h4>
+                        <ul className="list-unstyled">
+                          <li className="single-list">
+                            <a href="faq">Câu hỏi thường gặp</a>
                           </li>
-                          <li className="single-lsit">
-                            <a href="contact.html">Liên hệ với us</a>
+                          <li className="single-list">
+                            <a href="tour-list">Chuyến du lịch Danh sách</a>
+                          </li>
+                          <li className="single-list">
+                            <a href="destination">Điểm đến</a>
                           </li>
                         </ul>
                       </div>
@@ -662,24 +592,41 @@ const Login = () => {
                   </div>
                   <div className="col-xl-3 col-lg-4 col-sm-6">
                     <div className="single-footer-caption">
-                      <div className="footer-tittle">
-                        <h4 className="title">Liên hệ</h4>
-                        <ul className="listing">
-                          <li className="single-lsit">
-                            <a href="#" className="mb-20 d-block">70/A Floor Divo Tower Melbourne,
-                              Australia</a>
+                      <div className="footer-title">
+                        <h4 className="title text-white">Liên kết nhanh</h4>
+                        <ul className="list-unstyled">
+                          <li className="single-list">
+                            <a href="index">Trang chủ</a>
                           </li>
-                          <li className="single-lsit">
+                          <li className="single-list">
+                            <a href="about">Về Chúng Tôi</a>
+                          </li>
+                          <li className="single-list">
+                            <a href="contact">Liên Hệ với chúng tôi</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-xl-3 col-lg-4 col-sm-6">
+                    <div className="single-footer-caption">
+                      <div className="footer-title">
+                        <h4 className="title text-white">Liên Hệ</h4>
+                        <ul className="list-unstyled">
+                          <li className="single-list">
+                            <a href="#" className="mb-3 d-block">70 Cầu Giấy, châu Úc</a>
+                          </li>
+                          <li className="single-list">
                             <a href="#">
-                              <div className="d-flex gap-12">
-                                <i className="ri-phone-line" /> (00) +888 123456 789
+                              <div className="d-flex gap-2">
+                                <i className="ri-phone-line" />(00) +888 123456 789
                               </div>
                             </a>
                           </li>
-                          <li className="single-lsit">
+                          <li className="single-list">
                             <a href="#">
-                              <div className="d-flex gap-12">
-                                <i className="ri-mail-line" /> example@gmail.com
+                              <div className="d-flex gap-2">
+                                <i className="ri-mail-line" />example@gmail.com
                               </div>
                             </a>
                           </li>
@@ -714,27 +661,25 @@ const Login = () => {
                 <div className="footer-bottom">
                   <ul className="listing">
                     <li className="single-list">
-                      <a href="terms-condition.html" className="single">Điều khoản của Việt Nam</a>
+                      <a href="terms-condition" className="single"> Điều khoản của Việt Nam</a>
                     </li>
                     <li className="single-list">
-                      <a href="privacy-policy.html" className="single">Tuyên bố về quyền riêng tư và cookie</a>
+                      <a href="privacy-policy" className="single"> Tuyên bố về quyền riêng tư và cookie</a>
                     </li>
                     <li className="single-list">
-                      <a href="contact.html" className="single">Cách thức hoạt động của trang web</a>
+                      <a href="contact" className="single"> Cách thức hoạt động của trang web </a>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
-            {/* footer-bottom area */}
             <div className="footer-bottom-area">
               <div className="container">
                 <div className="row">
                   <div className="col-xl-12">
-                    <div className="d-flex justify-content-between gap-14 flex-wrap">
+                    <div className="d-flex justify-content-between gap-2 flex-wrap">
                       <p className="pera">
-                        © <span className="current-year">2023</span> ban đầu.Tất cả các quyền
-                        kín đáo
+                        © <span className="current-year">2023</span> initTheme. All rights reserved
                       </p>
                       <p className="pera">Được cung cấp bởi @Travello</p>
                     </div>
@@ -744,18 +689,12 @@ const Login = () => {
             </div>
           </div>
         </footer>
-        {/*/ End-of Footer */}
-        {/* Scroll Up  */}
         <div className="progressParent" id="back-top">
           <svg className="backCircle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
           </svg>
         </div>
-        {/* Add an search-overlay element */}
         <div className="search-overlay" />
-        {/* jquery*/}
-        {/* Plugin */}
-        {/* Main js*/}
       </div>
 
     </div>
