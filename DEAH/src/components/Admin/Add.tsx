@@ -1,11 +1,11 @@
 import React from 'react'
 
-const AddTour = () => {
+const Add = () => {
   return (
     <div>
-      add product
+      <h1>addd</h1>
     </div>
   )
 }
 
-export default AddTour
+export default Add
