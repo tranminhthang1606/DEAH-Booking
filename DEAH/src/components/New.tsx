@@ -1,9 +1,31 @@
-import React from 'react'
+
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 const New = () => {
+
+ let api = 'http://127.0.0.1:8000/api/client/get-posts-list'
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["POST"],
+    queryFn: async () => {
+      const { data } = await axios.get(api)
+      console.log(data.data.posts);
+      return data.data.posts
+
+    }
+  })
+  // console.log(data.data);
+
+  if (isLoading) return <div>Loading.....</div>
+  if (error) return <div>loi{error.message}</div>
+  const posts = Array.isArray(data) ? data : [];
   return (
+
     <div>
       <div>
+
         <header>
           <div className="header-area">
             <div className="main-header">
@@ -17,12 +39,12 @@ const New = () => {
                         <div className="top-header-left d-flex align-items-center">
                           {/* Logo*/}
                           <div className="logo">
-                            <a href="index.html"><img src="/src/assets/images/logo/logo.png" alt="logo" className="changeLogo" /></a>
+                            <a href="index-two"><img src="/src/assets/images/logo/logo.png" alt="logo" className="changeLogo" /></a>
                           </div>
                           {/* search box */}
                           <div className="search-box search-bar d-none d-lg-block">
                             <div className="header-search">
-                              <span className="pera">Điểm đến, thu hút</span>
+                              <span className="pera">Điểm Đến Thu Hút</span>
                               <div className="search-icon">
                                 <i className="ri-search-line" />
                               </div>
@@ -90,84 +112,24 @@ const New = () => {
                             <div className="d-flex justify-content-between align-items-center">
                               <ul className="listing" id="navigation">
                                 <li className="single-list">
-                                  <a href="javascript:void(0)" className="single">Trang chủ <i className="ri-arrow-down-s-line" /></a>
-                                  <ul className="submenu">
-                                    {/* <li className="single-list">
-                                      <a href="index.html" className="single">Trang chủ 01</a>
-                                    </li> */}
-                                    <li className="single-list">
-                                      <a href="index-two.html" className="single">Trang chủ </a>
-                                    </li>
-                                    {/* <li className="single-list">
-                                      <a href="index-three.html" className="single">Trang chủ 03</a>
-                                    </li> */}
-                                  </ul>
+                                  <a href="index-two" className="single">Trang Chủ </a>
+
                                 </li>
                                 <li className="single-list ">
-                                  <a href="about.html" className="single">về</a>
+                                  <a href="about" className="single link-active">Về Chúng Tôi</a>
                                 </li>
                                 <li className="single-list">
-                                  <a href="destination.html" className="single">Điểm đến</a>
+                                  <a href="destination" className="single">Điểm Đến</a>
                                 </li>
                                 <li className="single-list">
-                                  <a href="tour-list.html" className="single">Gói du lịch </a>
+                                  <a href="tour-list" className="single">Gói Du Lịch</a>
+                                </li>
+
+                                <li className="single-list">
+                                  <a href="news" className="single">Tin tức</a>
                                 </li>
                                 <li className="single-list">
-                                  <a href="javascript:void(0)" className="single">Trang <i className="ri-arrow-down-s-line" /></a>
-                                  <ul className="submenu">
-                                    <li className="single-list">
-                                      <a href="tour-details.html" className="single">Chuyến du lịch
-Chi tiết </a>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="news-details.html" className="single">Tin tức
-Chi tiết </a>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="destination-details.html" className="single">Chi tiết điểm đến</a>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="payment.html" className="single">sự chi trả</a>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="javascript:void(0)" className="single">Đăng nhập<i className="ri-arrow-right-s-line" /></a>
-                                      <ul className="submenu">
-                                        <li className="single-list">
-                                          <a href="login.html" className="single">Đăng nhập</a>
-                                        </li>
-                                        <li className="single-list">
-                                          <a href="register.html" className="single">Sự đăng ký</a>
-                                        </li>
-                                        <li className="single-list">
-                                          <a href="forgot-pass.html" className="single">Quên
-Mật khẩu </a>
-                                        </li>
-                                        <li className="single-list">
-                                          <a href="verification.html" className="single">xác minh</a>
-                                        </li>
-                                        <li className="single-list">
-                                          <a href="new-password.html" className="single">Mới
-Mật khẩu </a>
-                                        </li>
-                                      </ul>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="faq.html" className="single">Câu hỏi thường gặp</a>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="privacy-policy.html" className="single"> Quyền riêng tư
-Chính sách </a>
-                                    </li>
-                                    <li className="single-list">
-                                      <a href="terms-condition.html" className="single">Điều khoản-Điều kiện</a>
-                                    </li>
-                                  </ul>
-                                </li>
-                                <li className="single-list">
-                                  <a href="news.html" className="single link-active">Tin tức</a>
-                                </li>
-                                <li className="single-list">
-                                  <a href="contact.html" className="single">Liên hệ</a>
+                                  <a href="contact" className="single">Liên hệ</a>
                                 </li>
                                 <li className="d-block d-lg-none">
                                   <div className="header-right pl-15">
@@ -181,8 +143,8 @@ Chính sách </a>
                                       </div>
                                     </div>
                                     <div className="sign-btn">
-                                      <a href="login.html" className="btn-secondary-sm">Đăng nhập</a>
-                                  
+                                      <a href="login" className="btn-secondary-sm">Đăng nhập</a>
+
                                     </div>
                                   </div>
                                 </li>
@@ -198,7 +160,7 @@ Chính sách </a>
                                   </div>
                                 </div>
                                 <div className="sign-btn">
-                                  <a href="login.html" className="btn-secondary-sm">Đăng nhập</a>
+                                  <a href="login" className="btn-secondary-sm">Đăng nhập</a>
                                 </div>
                                 {/* Theme Mode */}
                                 <li className="single-list">
@@ -227,7 +189,7 @@ Chính sách </a>
                   <i className="ri-search-line" />
                 </div>
                 <div className="modal-search-box">
-                  <input type="text" id="searchField" className="search-field" placeholder="Destination, Agency, Country" />
+                  <input type="text" id="searchField" className="search-field" placeholder="Điểm đến, Agency, Country" />
                   <button id="closeSearch" className="close-search-btn">
                     <kbd className="light-text"> THOÁT </kbd>
                   </button>
@@ -241,126 +203,126 @@ Chính sách </a>
                         <h4 className="search-label">Gần đây</h4>
                       </li>
                       <li className="single-list">
-                        <a href="tour-details.html">
+                        <a href="tour-details">
                           <div className="search-flex">
                             <div className="content-img">
-                              <img src="/src/images/gallery/search-img-1.jpeg" alt="travello" />
+                              <img src="/src/assets/images/gallery/search-img-1.jpeg" alt="travello" />
                             </div>
                             <div className="content">
                               <h4 className="title line-clamp-1">
-             Dubai by Night City Tour với Fountain Show
+                                Dubai by Night City Tour với Fountain Show
                               </h4>
                               <p className="pera line-clamp-2">
-                            Buổi tối tuyệt vời Escapade bắt đầu từ Madinat
-Jumeirah đến đài phun nước âm nhạc để xem người khác.
-Buổi tối tuyệt vời Escapade bắt đầu từ Madinat
-Jumeirah đến các đài phun nước âm nhạc để xem người khác
+                                buổi Tối Tuyệt Vời Esc apade Bắt Đầu Từ Madinat
+                                jumeirah Đến Đài Phun Nước Âm Nhạc Để Xem Người Khác.
+                                buổi Tối Tuyệt VờiEscapade Bắt Đầu Từ Madinat
+                                jumeirah Đến Các Đài Phun Nước Âm Nhạc Để Xem Người Khác
                               </p>
                             </div>
                           </div>
                         </a>
                       </li>
                       <li className="single-list">
-                        <a href="tour-details.html">
+                        <a href="tour-details">
                           <div className="search-flex">
                             <div className="content-img">
-                              <img src="/src/images/gallery/search-img-2.jpeg" alt="travello" />
+                              <img src="/src/assets/images/gallery/search-img-2.jpeg" alt="travello" />
                             </div>
                             <div className="content">
                               <h4 className="title line-clamp-1">
-                            Dubai: cồn cát đỏ cao cấp, lạc đà, Stargazing & amp;5*
-BBQ tại Al Khayma Camp ™
+                                Dubai: cồn cát đỏ cao cấp, lạc đà, Stargazing & amp;5*
+                                BBQ tại Al Khayma Camp ™
                               </h4>
                               <p className="pera line-clamp-2">
-                           Kết thúc tuyệt vời cho ngày của bạn ở Dubai với
-buổi tối cao cấp red dune sa mạc safari.Cho một tuyệt vời
-Kết thúc một ngày của bạn ở Dubai với buổi tối cao cấp của chúng tôi
-Safari sa mạc Red Dune.
+                                Kết thúc tuyệt vời cho ngày của bạn ở Dubai với
+                                buổi tối cao cấp red dune sa mạc safari.Cho một tuyệt vời
+                                Kết thúc một ngày của bạn ở Dubai với buổi tối cao cấp của chúng tôi
+                                Safari sa mạc Red Dune.
                               </p>
                             </div>
                           </div>
                         </a>
                       </li>
                       <li className="single-list">
-                        <a href="tour-details.html">
+                        <a href="tour-details">
                           <div className="search-flex">
                             <div className="content-img">
-                              <img src="/src/images/gallery/search-img-3.jpeg" alt="travello" />
+                              <img src="/src/assets/images/gallery/search-img-3.jpeg" alt="travello" />
                             </div>
                             <div className="content">
                               <h4 className="title line-clamp-1">
-                    Nhập học vào làng toàn cầu ở Dubai
+                                Admission to Global Village in Dubai
                               </h4>
                               <p className="pera line-clamp-2">
-                        Nhập học vào lễ hội đa văn hóa lớn nhất Dubai Dubai
-Công viên với bản sao của các địa danh mang tính biểu tượng.Nhập vào
-Công viên lễ hội đa văn hóa lớn nhất Dubai với
-bản sao của các địa danh mang tính biểu tượng
-</p>
+                                Admission to Dubai’s biggest, multicultural festival
+                                park with replicas of iconic landmarks. Admission to
+                                Dubai’s biggest, multicultural festival park with
+                                replicas of iconic landmarks
+                              </p>
                             </div>
                           </div>
                         </a>
                       </li>
                       <li>
-                        <h4 className="search-label">Recent</h4>
+                        <h4 className="search-label">Gần đây</h4>
                       </li>
                       <li className="single-list">
-                        <a href="tour-details.html">
+                        <a href="tour-details">
                           <div className="search-flex">
                             <div className="content-img">
-                              <img src="/src/images/gallery/search-img-1.jpeg" alt="travello" />
+                              <img src="/src/assets/images/gallery/search-img-1.jpeg" alt="travello" />
                             </div>
                             <div className="content">
                               <h4 className="title line-clamp-1">
-                                Dubai by Night City Tour with Fountain show
+                                Dubai by Night City Tour với Fountain Show
                               </h4>
                               <p className="pera line-clamp-2">
-                            Buổi tối tuyệt vời Escapade bắt đầu từ Madinat
-Jumeirah đến đài phun nước âm nhạc để xem người khác.
-Buổi tối tuyệt vời Escapade bắt đầu từ Madinat
-Jumeirah đến các đài phun nước âm nhạc để xem người khác
+                                Buổi tối tuyệt vời Escapade bắt đầu từ Madinat
+                                Jumeirah đến đài phun nước âm nhạc để xem người khác.
+                                Buổi tối tuyệt vời Escapade bắt đầu từ Madinat
+                                Jumeirah đến các đài phun nước âm nhạc để xem người khác
                               </p>
                             </div>
                           </div>
                         </a>
                       </li>
                       <li className="single-list">
-                        <a href="tour-details.html">
+                        <a href="tour-details">
                           <div className="search-flex">
                             <div className="content-img">
-                              <img src="/src/images/gallery/search-img-2.jpeg" alt="travello" />
+                              <img src="/src/assets/images/gallery/search-img-2.jpeg" alt="travello" />
                             </div>
                             <div className="content">
                               <h4 className="title line-clamp-1">
-                            Dubai: cồn cát đỏ cao cấp, lạc đà, Stargazing & amp;5*
-BBQ tại Al Khayma Camp ™
+                                Dubai: cồn cát đỏ cao cấp, lạc đà, Stargazing & amp;5*
+                                BBQ tại Al Khayma Camp ™
                               </h4>
                               <p className="pera line-clamp-2">
-                           Kết thúc tuyệt vời cho ngày của bạn ở Dubai với
-buổi tối cao cấp red dune sa mạc safari.Cho một tuyệt vời
-Kết thúc một ngày của bạn ở Dubai với buổi tối cao cấp của chúng tôi
-Safari sa mạc Red Dune.
+                                Kết thúc tuyệt vời cho ngày của bạn ở Dubai với
+                                buổi tối cao cấp red dune sa mạc safari.Cho một tuyệt vời
+                                Kết thúc một ngày của bạn ở Dubai với buổi tối cao cấp của chúng tôi
+                                Safari sa mạc Red Dune.
                               </p>
                             </div>
                           </div>
                         </a>
                       </li>
                       <li className="single-list">
-                        <a href="tour-details.html">
+                        <a href="tour-details">
                           <div className="search-flex">
                             <div className="content-img">
-                              <img src="/src/images/gallery/search-img-3.jpeg" alt="travello" />
+                              <img src="/src/assets/images/gallery/search-img-3.jpeg" alt="travello" />
                             </div>
                             <div className="content">
                               <h4 className="title line-clamp-1">
-                    Nhập học vào làng toàn cầu ở Dubai
+                                Nhập học vào làng toàn cầu ở Dubai
                               </h4>
                               <p className="pera line-clamp-2">
-                        Nhập học vào lễ hội đa văn hóa lớn nhất Dubai Dubai
-Công viên với bản sao của các địa danh mang tính biểu tượng.Nhập vào
-Công viên lễ hội đa văn hóa lớn nhất Dubai với
-bản sao của các địa danh mang tính biểu tượng
-</p>
+                                Nhập học vào lễ hội đa văn hóa lớn nhất Dubai Dubai
+                                Công viên với bản sao của các địa danh mang tính biểu tượng.Nhập vào
+                                Công viên lễ hội đa văn hóa lớn nhất Dubai với
+                                bản sao của các địa danh mang tính biểu tượng
+                              </p>
                             </div>
                           </div>
                         </a>
@@ -369,11 +331,11 @@ bản sao của các địa danh mang tính biểu tượng
                   </div>
                   <div className="col-md-4">
                     <div className="right-section" id="filterMenu">
-                      <h4 className="title">Tùy chọn lọc </h4>
+                      <h4 className="title">tùyChọnLọc</h4>
                       {/* List of Filter */}
                       <ul className="listing">
                         <li>
-                          <h4 className="search-label"> Loại bài</h4>
+                          <h4 className="search-label">Loại bài </h4>
                         </li>
                         <li className="single-list">
                           <div className="d-flex align-items-center gap-8">
@@ -415,7 +377,7 @@ bản sao của các địa danh mang tính biểu tượng
                               <span className="checkmark-style" />
                             </label>
                             <div className="content">
-                              <p className="pera">Blogs (23)</p>
+                              <p className="pera">Blog (23)</p>
                             </div>
                           </div>
                         </li>
@@ -465,7 +427,7 @@ bản sao của các địa danh mang tính biểu tượng
                               <span className="checkmark-style" />
                             </label>
                             <div className="content">
-                              <p className="pera">Blogs (23)</p>
+                              <p className="pera">Blog (23)</p>
                             </div>
                           </div>
                         </li>
@@ -515,7 +477,7 @@ bản sao của các địa danh mang tính biểu tượng
                               <span className="checkmark-style" />
                             </label>
                             <div className="content">
-                              <p className="pera">Blogs (23)</p>
+                              <p className="pera">Blog (23)</p>
                             </div>
                           </div>
                         </li>
@@ -539,7 +501,7 @@ bản sao của các địa danh mang tính biểu tượng
               <div className="breadcrumb-text">
                 <nav aria-label="breadcrumb" className="breadcrumb-nav wow fadeInUp" data-wow-delay="0.1s">
                   <ul className="breadcrumb listing">
-                    <li className="breadcrumb-item single-list"><a href="index.html" className="single">Trang chủ</a></li>
+                    <li className="breadcrumb-item single-list"><a href="index" className="single">Trang chủ</a></li>
                     <li className="breadcrumb-item single-list" aria-current="page"><a href="javascript:void(0)" className="single active">Tin tức</a></li>
                   </ul>
                 </nav>
@@ -555,430 +517,117 @@ bản sao của các địa danh mang tính biểu tượng
                   <div className="tab-content" id="v-pills-tabContent-two">
                     <div className="tab-pane  fade show active" id="pills-news-one" role="tabpanel" aria-labelledby="pills-news-one">
                       <div className="about-banner imgEffect4">
-                        <img src="/src/images/news/news-banner.png" alt="travello" />
+                        <img src="/src/assets/category_tour/Nha trang.jpg" alt="travello" />
                       </div>
                     </div>
                     <div className="tab-pane fade" id="pills-news-two" role="tabpanel" aria-labelledby="pills-news-two">
                       <div className="about-banner imgEffect4">
-                        <img src="/src/images/news/banner-1.png" alt="travello" />
+                        <img src="/src/assets/images/news/banner-1.png" alt="travello" />
                       </div>
                     </div>
                     <div className="tab-pane fade" id="pills-news-three" role="tabpanel" aria-labelledby="pills-news-three">
                       <div className="about-banner imgEffect4">
-                        <img src="/src/images/news/banner-2.png" alt="travello" />
+                        <img src="/src/assets/images/news/banner-2.png" alt="travello" />
                       </div>
                     </div>
                   </div>
                 </div>
+
                 <div className="col-xl-5 col-lg-5">
-                  <div className="all-contents" id="v-pills-tab-two" role="tablist" aria-orientation="vertical">
-                    <div className="news-content active" id="pills-news-one-tab" data-bs-toggle="pill" data-bs-target="#pills-news-one" role="tab" aria-controls="pills-news-one" aria-selected="true">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title">
-                        <a href="javascript:void(0)">Thế giới là một cuốn sách và những người không đọc
-Chỉ một
-Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="author-img">
-                            <img src="/src/images/news/news-1.jpeg" alt="travello" />
-                          </div>
-                          <p className="name">Chris Earth</p>
+                  {posts.map((post, index) => (
+                    <div className="all-contents" id="v-pills-tab-two" role="tablist" aria-orientation="vertical" key={index}>
+                      <div className="news-content active" id="pills-news-one-tab" data-bs-toggle="pill" data-bs-target="#pills-news-one" role="tab" aria-controls="pills-news-one" aria-selected="true">
+                        <div className="heading">
+                          <span className="heading-pera">{post.title}</span>
                         </div>
-                        <p className="time"> 10 phút Đọc </p>
+                        <h4 className="title">
+                          <a href="javascript:void(0)"> </a>
+                        </h4>
+                        <div className="news-info">
+                          <div className="d-flex gap-10 align-items-center">
+                            <div className="author-img">
+                              <img src="/src/assets/images/news/news-1.jpeg" alt="travello" />
+                            </div>
+                            <p className="name">Thiếu Tên Người</p>
+                          </div>
+                          <p className="time"> 10 phút Đọc </p>
+                        </div>
+                      </div>
+
+                      <div className="news-content" id="pills-news-three-tab" data-bs-toggle="pill" data-bs-target="#pills-news-three" role="tab" aria-controls="pills-news-three" aria-selected="true">
+
+
+                        <div className="news-info">
+                          <div className="d-flex gap-10 align-items-center">
+                            <div className="author-img">
+                              <img src="/src/assets/images/news/news-3.jpeg" alt="travello" />
+                            </div>
+                            <p className="name">Thiếu tên Người </p>
+                          </div>
+                          <p className="time">10 phút đọc </p>
+                        </div>
                       </div>
                     </div>
-                    <div className="news-content" id="pills-news-two-tab" data-bs-toggle="pill" data-bs-target="#pills-news-two" role="tab" aria-controls="pills-news-two" aria-selected="true">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn viên </span>
-                      </div>
-                      <h4 className="title">
-                        <a href="javascript:void(0)">Một khách du lịch giỏi không có kế hoạch cố định và không có ý định
-Đến. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="author-img">
-                            <img src="/src/images/news/news-2.jpeg" alt="travello" />
-                          </div>
-                          <p className="name">David Warner</p>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                    <div className="news-content" id="pills-news-three-tab" data-bs-toggle="pill" data-bs-target="#pills-news-three" role="tab" aria-controls="pills-news-three" aria-selected="true">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn viên du lịch</span>
-                      </div>
-                      <h4 className="title">
-                        <a href="javascript:void(0)">Chúng tôi du lịch, một số người trong chúng tôi mãi mãi, để tìm kiếm các tiểu bang khác,
-Cuộc sống khác, những linh hồn khác. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="author-img">
-                            <img src="/src/images/news/news-3.jpeg" alt="travello" />
-                          </div>
-                          <p className="name">David Malan</p>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
+
+
               </div>
               <div className="row g-4">
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details.html">
-                        <img src="/src/images/news/news-4.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details.html">Thế giới là một cuốn sách và những người không đọc
-Chỉ một
-Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-4.jpeg" alt="image" />
+
+
+                {posts.map((post, index) => (
+
+                  <div className="col-xl-4 col-lg-4 col-sm-6" key={post.id} >
+
+                    <article className="news-card-two">
+                      <figure className="news-banner-two imgEffect">
+                        <a href="news-details">
+                          <img src="/src/assets/category_tour/phú quốc.jpg" alt="travello" />
+                        </a>
+                      </figure>
+                      <div className="news-content">
+                        <div className="heading">
+                          <span className="heading-pera">{post.title}</span>
+                      
+                        </div>
+                        <h4 className="title line-clamp-2">
+                        <Link to={`/news-details/${post.id}`}>{post.body}</Link>
+                         
+                        </h4>
+                        <div className="news-info">
+                          <div className="d-flex gap-10 align-items-center">
+                            <div className="all-user">
+                              <div className="happy-user">
+                                <img src="/src/assets/images/hero/user-1.jpeg" alt="image" />
+                              </div>
+                              <div className="happy-user">
+                                <img src="/src/assets/images/hero/user-2.png" alt="image" />
+                              </div>
+                              <div className="happy-user">
+                                <img src="/src/assets/images/hero/user-3.png" alt="image" />
+                              </div>
+                              <div className="happy-user">
+                                <img src="/src/assets/images/hero/user-4.jpeg" alt="image" />
+                              </div>
                             </div>
                           </div>
+                          <p className="time">10 phút đọc </p>
                         </div>
-                        <p className="time">10 phút đọc </p>
                       </div>
-                    </div>
-                  </article>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details.html">
-                        <img src="/src/images/news/news-5.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details.html">Thế giới là một cuốn sách và những người không đọc
-Chỉ một
-Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-4.jpeg" alt="image" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details.html">
-                        <img src="/src/images/news/news-6.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details.html">Thế giới là một cuốn sách và những người không đọc
-Chỉ một
-Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-4.jpeg" alt="image" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details.html">
-                        <img src="/src/images/news/news-7.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details.html">Thế giới là một cuốn sách và những người không đọc
-Chỉ một
-Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-4.jpeg" alt="image" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details.html">
-                        <img src="/src/images/news/news-8.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details.html">Thế giới là một cuốn sách và những người không đọc
-Chỉ một
-Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-4.jpeg" alt="image" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details.html">
-                        <img src="/src/images/news/news-9.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details.html">Thế giới là một cuốn sách và những người không đọc
-Chỉ một
-Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-4.jpeg" alt="image" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details.html">
-                        <img src="/src/images/news/news-10.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details.html">Thế giới là một cuốn sách và những người không đọc
-Chỉ một
-Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-4.jpeg" alt="image" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details.html">
-                        <img src="/src/images/news/news-11.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details.html">Thế giới là một cuốn sách và những người không đọc
-Chỉ một
-Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-4.jpeg" alt="image" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details.html">
-                        <img src="/src/images/news/news-12.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details.html">Thế giới là một cuốn sách và những người không đọc
-Chỉ một
-Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-4.jpeg" alt="image" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
+                    </article>
+
+                  </div>
+
+                ))}
+
+
                 <div className="col-12 text-center">
                   <div className="section-button d-inline-block">
                     <a href="javascript:void(0)">
                       <div className="btn-primary-icon-sm">
                         <i className="ri-loader-2-line" />
-                        <p className="pera">Đang tải</p>
+                        <p className="pera mt-3 ml-2">Đang tải</p>
                       </div>
                     </a>
                   </div>
@@ -996,34 +645,20 @@ Một trang. </a>
                 <div className="row g-4">
                   <div className="col-xl-3 col-lg-4 col-sm-6">
                     <div className="single-footer-caption">
-                      <div className="footer-tittle">
-                        <h4 className="title">Công ty</h4>
-                        <ul className="listing">
-                          <li className="single-lsit">
-                            <a href="about.html">về Chúng ta</a>
+                      <div className="footer-title">
+                        <h4 className="title text-white">Công ty</h4>
+                        <ul className="list-unstyled">
+                          <li className="single-list">
+                            <a href="about">Về Chúng tôi</a>
                           </li>
-                          <li className="single-lsit">
-                            <a href="news.html">Tin tức</a>
+                          <li className="single-list">
+                            <a href="news  text-white">Tin tức</a>
                           </li>
-                          <li className="single-lsit"><a href="faq.html">Câu hỏi thường gặp</a></li>
-                          <li className="single-lsit">
-                            <a href="contact.html">liênHệ</a>
+                          <li className="single-list">
+                            <a href="faq  text-white">Câu hỏi thường gặp</a>
                           </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-sm-6">
-                    <div className="single-footer-caption">
-                      <div className="footer-tittle">
-                        <h4 className="title">Khám phá</h4>
-                        <ul className="listing">
-                          <li className="single-lsit"><a href="faq.html">Câu hỏi thường gặp</a></li>
-                          <li className="single-lsit">
-                            <a href="tour-list.html">Chuyến du lịch Danh sách</a>
-                          </li>
-                          <li className="single-lsit">
-                            <a href="destination.html">Điểm đến</a>
+                          <li className="single-list">
+                            <a href="contact  text-white">Liên Hệ</a>
                           </li>
                         </ul>
                       </div>
@@ -1031,15 +666,17 @@ Một trang. </a>
                   </div>
                   <div className="col-xl-3 col-lg-4 col-sm-6">
                     <div className="single-footer-caption">
-                      <div className="footer-tittle">
-                        <h4 className="title">Quick Liên kết</h4>
-                        <ul className="listing">
-                          <li className="single-lsit"><a href="index.html">Trang chủ</a></li>
-                          <li className="single-lsit">
-                            <a href="about.html">Về Us</a>
+                      <div className="footer-title">
+                        <h4 className="title text-white">Khám phá</h4>
+                        <ul className="list-unstyled">
+                          <li className="single-list">
+                            <a href="faq">Câu hỏi thường gặp</a>
                           </li>
-                          <li className="single-lsit">
-                            <a href="contact.html">Liên hệ Us</a>
+                          <li className="single-list">
+                            <a href="tour-list">Chuyến du lịch Danh sách</a>
+                          </li>
+                          <li className="single-list">
+                            <a href="destination">Điểm đến</a>
                           </li>
                         </ul>
                       </div>
@@ -1047,24 +684,41 @@ Một trang. </a>
                   </div>
                   <div className="col-xl-3 col-lg-4 col-sm-6">
                     <div className="single-footer-caption">
-                      <div className="footer-tittle">
-                        <h4 className="title">liênHệ</h4>
-                        <ul className="listing">
-                          <li className="single-lsit">
-                            <a href="#" className="mb-20 d-block">70/aSloundDivoTowerMelbourne,
-                              châuÚc</a>
+                      <div className="footer-title">
+                        <h4 className="title text-white">Liên kết nhanh</h4>
+                        <ul className="list-unstyled">
+                          <li className="single-list">
+                            <a href="index">Trang chủ</a>
                           </li>
-                          <li className="single-lsit">
+                          <li className="single-list">
+                            <a href="about">Về Chúng Tôi</a>
+                          </li>
+                          <li className="single-list">
+                            <a href="contact">Liên Hệ với chúng tôi</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-xl-3 col-lg-4 col-sm-6">
+                    <div className="single-footer-caption">
+                      <div className="footer-title">
+                        <h4 className="title text-white">Liên Hệ</h4>
+                        <ul className="list-unstyled">
+                          <li className="single-list">
+                            <a href="#" className="mb-3 d-block">70 Cầu Giấy, châu Úc</a>
+                          </li>
+                          <li className="single-list">
                             <a href="#">
-                              <div className="d-flex gap-12">
-                                <i className="ri-phone-line" /> (00) +888 123456 789
+                              <div className="d-flex gap-2">
+                                <i className="ri-phone-line" />(00) +888 123456 789
                               </div>
                             </a>
                           </li>
-                          <li className="single-lsit">
+                          <li className="single-list">
                             <a href="#">
-                              <div className="d-flex gap-12">
-                                <i className="ri-mail-line" /> example@gmail.com
+                              <div className="d-flex gap-2">
+                                <i className="ri-mail-line" />example@gmail.com
                               </div>
                             </a>
                           </li>
@@ -1079,7 +733,7 @@ Một trang. </a>
                   <div className="footer-content">
                     <div className="d-flex flex-column gap-20">
                       <div className="logo">
-                        <img src="/src//images/logo/logo.png" alt="travello" className="changeLogo" />
+                        <img src="/src/assets/images/logo/logo.png" alt="travello" className="changeLogo" />
                       </div>
                       <p className="pera">
                         Du lịch là một trải nghiệm biến đổi và phong phú
@@ -1099,27 +753,25 @@ Một trang. </a>
                 <div className="footer-bottom">
                   <ul className="listing">
                     <li className="single-list">
-                      <a href="terms-condition.html" className="single"> Điều khoản của Hoa Kỳ </a>
+                      <a href="terms-condition" className="single"> Điều khoản của Việt Nam</a>
                     </li>
                     <li className="single-list">
-                      <a href="privacy-policy.html" className="single"> Tuyên bố về quyền riêng tư và cookie</a>
+                      <a href="privacy-policy" className="single"> Tuyên bố về quyền riêng tư và cookie</a>
                     </li>
                     <li className="single-list">
-                      <a href="contact.html" className="single"> Cách thức hoạt động của trang web </a>
+                      <a href="contact" className="single"> Cách thức hoạt động của trang web </a>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
-            {/* footer-bottom area */}
             <div className="footer-bottom-area">
               <div className="container">
                 <div className="row">
                   <div className="col-xl-12">
-                    <div className="d-flex justify-content-between gap-14 flex-wrap">
+                    <div className="d-flex justify-content-between gap-2 flex-wrap">
                       <p className="pera">
-                        © <span className="current-year">2023</span> ban đầu.Tất cả các quyền
-                        kín đáo
+                        © <span className="current-year">2023</span> initTheme. All rights reserved
                       </p>
                       <p className="pera">Được cung cấp bởi @Travello</p>
                     </div>
@@ -1129,18 +781,12 @@ Một trang. </a>
             </div>
           </div>
         </footer>
-        {/*/ End-of Footer */}
-        {/* Scroll Up  */}
         <div className="progressParent" id="back-top">
           <svg className="backCircle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
           </svg>
         </div>
-        {/* Add an search-overlay element */}
         <div className="search-overlay" />
-        {/* jquery*/}
-        {/* Plugin */}
-        {/* Main js*/}
       </div>
 
     </div>

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('district_id');
             $table->timestamps();
+            $table->foreign('district_id')->references('id')->on('districts');
         });
     }
 
