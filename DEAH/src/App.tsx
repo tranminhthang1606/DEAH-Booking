@@ -19,44 +19,42 @@ import TourList from './components/TourList';
 import Verification from './components/Verification';
 import Indextwo from './components/Indextwo';
 import LayoutAdmin from './components/Admin/LayoutAdmin';
-import DashBoard from './components/Admin/DashBoard';
-import AddTour from './components/Admin/AddProduct';
-import ListTour from './components/Admin/ListTour';
-import EditTour from './components/Admin/EditTour';
-import "./App.css";
+import LayoutStatic from './components/Admin/LayoutStatic';
+import { Table } from 'react-bootstrap';
+import Add from './components/Admin/Add';
+import List from './components/Admin/List';
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Indextwo />} />
-        <Route path='/index-two' element={<Indextwo />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/destination' element={<Destination />} />
-        <Route path='/tour-list' element={<TourList />} />
-        <Route path='/tour-details' element={<TourDetails />} />
-        <Route path='/news-details' element={<NewsDetails />} />
-        <Route path='/destination-details' element={<DestinationDetail />} />
-        <Route path='/payment' element={<Payment />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/forgot-pass' element={<Forgot />} />
-        <Route path='/verification' element={<Verification />} />
-        <Route path='/new-password' element={<NewPassword />} />
-        <Route path='/faq' element={<Faq />} />
-        <Route path='/privacy-policy' element={<PrivacyPolicy />} />
-        <Route path='/terms-condition' element={<TermsCondition />} />
-        <Route path='/news' element={<New />} />
-        <Route path='/contact' element={<Contact />} />
-
-        <Route path='admin' element={<LayoutAdmin />}>
-          <Route path='dashboard' element={<DashBoard />} />
-          <Route path='add-product' element={<AddTour />} />
-          <Route path='list-product' element={<ListTour />} />
-          <Route path='edit-product/:id' element={<EditTour />} />
+        <Route path="/" element={<Indextwo />} />
+        <Route path="/index-two" element={<Indextwo />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/destination" element={<Destination />} />
+        <Route path="/tour-list" element={<TourList />} />
+        <Route path="/tour-details" element={<TourDetails />} />
+        <Route path="/news-details/:id" element={<NewsDetails />} />
+        <Route path="/destination-details" element={<DestinationDetail />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-pass" element={<Forgot />} />
+        <Route path="/verification" element={<Verification />} />
+        <Route path="/new-password" element={<NewPassword />} />
+        <Route path="/faq" element={<Faq />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-condition" element={<TermsCondition />} />
+        <Route path="/news" element={<New />} />
+        <Route path="/contact" element={<Contact />} />
+        
+        <Route path="index.html" element={<LayoutAdmin />}>
+        <Route path="add" element={<Add />} />
+        <Route path="list" element={<List/>} />
+          <Route path="layoutstatic" element={<LayoutStatic />} />
+          <Route path="tables.html" element={<Table />} />
         </Route>
       </Routes>
-   
     </>
   );
 }

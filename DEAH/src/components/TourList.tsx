@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import React from 'react'
-
+import FunctionApp from "../FunctionComponentContext/FunctionApp.js"
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 const TourList = () => {
-
-  let api = 'http://localhost:8000/api/client/get-tours-new'
+  let api = 'http://127.0.0.1:8000/api/client/get-tours-list'
   const { data, error, isLoading } = useQuery({
     queryKey: ["KEY_LIST"],
     queryFn: async () => {
@@ -543,18 +544,21 @@ const TourList = () => {
                           <option value={2}>Advance Type</option>
                           <option value={3}>Pre-book Type</option>
                         </select>
+                        
                       </div>
-                      <div className="dropdown-section">
-                        <div className="d-flex gap-10 align-items-center">
-                          <i className="dropdown-icon ri-time-line" />
+                  
+                      <div className="dropdown-section z-3 rounded-3 position-relative  ">
+                      <FunctionApp/>
+                        <div className="    ">
+                  
+                          
+                        
                           <div className="custom-dropdown custom-date">
-                            <h4 className="title">Ngày từ </h4>
-                            <div className="arrow">
-                              <i className="ri-arrow-down-s-line" />
-                            </div>
+                         
+                         
                           </div>
                         </div>
-                        <div className="date-result">01/12/2023</div>
+                  
                       </div>
                       <div className="dropdown-section position-relative user-picker-dropdown">
                         <div className="d-flex gap-10 align-items-center">
@@ -799,55 +803,59 @@ const TourList = () => {
                     </div>
                   </div>
                   <div className="all-tour-list">
+                  <div className="row g-4">
+{data?.map((tour:any, index:number)=>{
+  return(
+
+    <div className="col-xl-4 col-lg-4 col-sm-6" key={index}>
+      <div className="package-card">
+        <div className="package-img imgEffect4">
+          <a href="tour-details">
+            <img src="/src/assets/category_tour/quảng bình.jpg" alt="travello" />
+          </a>
+        
+        </div>
+        <div className="package-content">
+          <h4 className="area-name">
+            <a href="tour-details">{tour.title}</a>
+          </h4>
+          <div className="location">
+            <i className="ri-map-pin-line" />
+            <div className="name"></div>
+          </div>
+          <div className="packages-person">
+            <div className="count">
+              <i className="ri-time-line" />
+              <p className="pera mt-3 ml-2">Lịch Trình {tour.day} Ngày</p>
+            </div>
+          
+          </div>
+          <div className="price-review">
+            <div className="d-flex gap-10">
+              <p className="light-pera">Từ</p>
+              <p className="pera text-danger">{tour.price}.VND</p>
+            </div>
+            <div className="rating">
+            
+              <p className="pera"> {tour.views}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+
+
+  )
+   
+  })}
+  </div>
 
 
 
                     {/* nsdkjasn */}
-                    <div className="row g-4">
-                      <div className="col-xl-4 col-lg-4 col-sm-6">
-                        <div className="package-card">
-                          <div className="package-img imgEffect4">
-                            <a href="tour-details">
-                              <img src="/src/assets/images/package/package-4.png" alt="travello" />
-                            </a>
-                            <div className="image-badge">
-                              <p className="pera">Đặc sắc</p>
-                            </div>
-                          </div>
-                          <div className="package-content">
-                            <h4 className="area-name">
-                              <a href="tour-details">Dusitd2 Samyan Bangkok</a>
-                            </h4>
-                            <div className="location">
-                              <i className="ri-map-pin-line" />
-                              <div className="name">Bangkok, Thailand</div>
-                            </div>
-                            <div className="packages-person">
-                              <div className="count">
-                                <i className="ri-time-line" />
-                                <p className="pera">3 ngày 2 đêm</p>
-                              </div>
-                              <div className="count">
-                                <i className="ri-user-line" />
-                                <p className="pera">2 người</p>
-                              </div>
-                            </div>
-                            <div className="price-review">
-                              <div className="d-flex gap-10">
-                                <p className="light-pera">Từ</p>
-                                <p className="pera">$95</p>
-                              </div>
-                              <div className="rating">
-                                <i className="ri-star-s-fill" />
-                                <p className="pera">4.7 (20 đánh giá)</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                 
-               
-                    </div>
+                  
                     <div className="row">
                       <div className="col-12 text-center">
                         <div className="section-button d-inline-block">

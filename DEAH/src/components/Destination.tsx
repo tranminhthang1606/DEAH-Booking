@@ -536,68 +536,8 @@ const Destination = () => {
                       </div>
                     </a>
                   </div>
-                  <div className="col-lg-4 col-sm-6">
-                    <a
-                      href="destination-details"
-                      className="destination-banner h-calc"
-                    >
-                      <img
-                        src="/src/assets/images/destination/destination-8.png"
-                        alt="travello"
-                      />
-                      <div className="destination-content">
-                        <div className="ratting-badge">
-                          <i className="ri-star-s-fill" />
-                          <span>4.5</span>
-                        </div>
-                        <div className="destination-info">
-                          <div className="destination-name">
-                            <p className="pera">Spain</p>
-                            <div className="location">
-                              <i className="ri-map-pin-line" />
-                              <p className="name">Malaga View</p>
-                            </div>
-                          </div>
-                          <div className="button-section">
-                            <div className="arrow-btn">
-                              <i className="ri-arrow-right-line" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-lg-4 col-sm-6">
-                    <a
-                      href="destination-details"
-                      className="destination-banner h-calc"
-                    >
-                      <img
-                        src="/src/assets/images/destination/destination-6.png"
-                        alt="travello"
-                      />
-                      <div className="destination-content">
-                        <div className="ratting-badge">
-                          <i className="ri-star-s-fill" />
-                          <span>4.5</span>
-                        </div>
-                        <div className="destination-info">
-                          <div className="destination-name">
-                            <p className="pera">Spain</p>
-                            <div className="location">
-                              <i className="ri-map-pin-line" />
-                              <p className="name">Malaga View</p>
-                            </div>
-                          </div>
-                          <div className="button-section">
-                            <div className="arrow-btn">
-                              <i className="ri-arrow-right-line" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
+                
+             
                   <div className="col-lg-8 col-sm-6">
                     <a
                       href="destination-details"
