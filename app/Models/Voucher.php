@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use app/Models/User;
+use App\Models\User;
 class Voucher extends Model
 {
     use HasFactory;
@@ -13,6 +13,7 @@ class Voucher extends Model
       'voucher',  
       'title',
       'qty',
+      'value',
       'discount_type',  
       'max',
       'start',
