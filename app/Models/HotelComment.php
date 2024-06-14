@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tour_comment extends Model
+class HotelComment extends Model
 {
     use HasFactory;
-    protected $table = 'tour_comments';
+    protected  $table = 'hotel_comments';
     protected $fillable = [
-        'comments',
-        'tour_id',
+        'comments', 
+        'hotel_id',
         'user_id'
     ];
 }
