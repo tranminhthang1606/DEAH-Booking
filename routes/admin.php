@@ -31,7 +31,5 @@ Route::group(['middleware' => 'cors'], function () {
     Route::apiResource('/hotel', HotelController::class);
     Route::apiResource('/tour', TourController::class);
     Route::apiResource('/voucher', VoucherController::class);
-
-
 });
 
