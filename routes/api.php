@@ -26,7 +26,6 @@ Route::group(['middleware' => 'cors'], function () {
     Route::prefix('client')->group(function () {
         //trang chủ người dùng
         Route::get('get-tours-new', [HomeController::class, 'newTours']);
-        Route::get('get-destinations', [HomeController::class, 'getDestination']);
         Route::get('get-tours-feature', [HomeController::class, 'featureTours']);
         Route::get('get-posts-new', [HomeController::class, 'newPosts']);
         //tour

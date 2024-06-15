@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ResponseJson;
 use App\Models\Post;
-use App\Models\Province;
 use App\Models\Tour;
 use Illuminate\Http\Request;
 
@@ -17,7 +16,7 @@ class HomeController extends Controller
         $this->response = $response;
     }
     public function newTours(){
-        $tours = Tour::with('images')->get();
+        $tours = Tour::orderByDesc('id')->take(8)->get();
         if($tours){
             return $this->response->responseSuccess($tours);
         }
@@ -34,14 +33,6 @@ class HomeController extends Controller
         $posts = Post::orderByDesc('id')->take(5)->get();
         if($posts){
             return $this->response->responseSuccess($posts);
-        }
-        return $this->response->responseFailed();
-    }
-
-    public function getDestination(){
-        $tours = Province::all()->random(4);
-        if($tours){
-            return $this->response->responseSuccess($tours);
         }
         return $this->response->responseFailed();
     }

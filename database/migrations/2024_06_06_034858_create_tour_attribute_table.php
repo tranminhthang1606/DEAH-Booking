@@ -12,8 +12,6 @@ return new class extends Migration {
     {
 
             Schema::create('tour_attribute', function (Blueprint $table) {
-
-                $table->id();
                 $table->foreignId('tour_id')->constrained()->on('tours');
                 $table->foreignId('attribute_id')->constrained()->on('attributes');
                 $table->timestamps();
