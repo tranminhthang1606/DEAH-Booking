@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('wards', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('district_id')->constrained()->on('districts');
-
+            $table->integer('district_id');
             $table->timestamps();
+            $table->foreign('district_id')->references('id')->on('districts');
         });
     }
 

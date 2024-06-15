@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('voucher');
             $table->string('title');
             $table->integer('qty');
-            $table->integer('value');
             $table->string('discount_type');
             $table->string('max');
             $table->date('start');

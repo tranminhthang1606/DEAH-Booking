@@ -13,24 +13,20 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->string('user_name');
-            $table->string('email');
-            $table->string('tour_name');
-            $table->integer('tour_price');
-            $table->string('tour_address');
-            $table->string('hotel_name');
-            $table->integer('hotel_price');
-            $table->text('hotel_address');
-            $table->integer('book_price');
-            $table->integer('promotion_price');
-            $table->integer('total_price');
+            $table->integer('user_id');
+            $table->integer('tour_id');
+            $table->integer('hotel_id');
+            $table->string('price');
+            $table->string('promotion');
             $table->integer('people');
             $table->date('start');
             $table->date('end');
-            $table->enum('status_tour',['Chờ xác nhận','Đã xác nhận','Hoàn thành','Đã hủy']);
-            $table->enum('status_payment',['Chờ thanh toán','Đã Thanh toán','Hoàn tiền','Đã hủy']);
+            $table->boolean('status');
             $table->timestamps();
-           
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('tour_id')->references('id')->on('tours');
+            $table->foreign('hotel_id')->references('id')->on('hotels');
+
         });
     }
 

@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user_voucher', function (Blueprint $table) {
-
             $table->id();
-
-            $table->foreignId('voucher_id')->constrained()->on('vouchers');
-            $table->foreignId('user_id')->constrained()->on('users');
+            $table->integer('voucher_id');
+            $table->integer('user_id');
             $table->boolean('using_voucher');
             $table->timestamps();
+            $table->foreign('voucher_id')->references('id')->on('vouchers');
+            $table->foreign('user_id')->references('id')->on('users');
 
         });
     }

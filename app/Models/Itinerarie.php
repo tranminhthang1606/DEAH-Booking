@@ -5,13 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rate extends Model
+class Itinerarie extends Model
 {
     use HasFactory;
-    protected $table = 'rates';
+    protected $table ='itineraries';
     protected $fillable = [
         'tour_id',
-        'rate'
+        'day',
+        'title',
+        'itinerary'
+
     ];
     public function tour(){
         return $this->belongsTo(Tour::class);
