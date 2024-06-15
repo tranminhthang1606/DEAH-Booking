@@ -8,7 +8,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 
 const Indextwo = () => {
 
-  
+
   let api = 'http://localhost:8000/api/client/get-tours-new'
   const { data, error, isLoading } = useQuery({
     queryKey: ["KEY"],
@@ -19,6 +19,8 @@ const Indextwo = () => {
 
     }
   })
+
+  
   // console.log(data.data);
 
   if (isLoading) return <div>Loading.....</div>
@@ -69,7 +71,7 @@ const Indextwo = () => {
                             <li className="single-list">
                               <a href="tour-list" className="single">Gói Du Lịch</a>
                             </li>
-                        
+
                             <li className="single-list">
                               <a href="contact" className="single">Liên hệ</a>
                             </li>
@@ -80,13 +82,13 @@ const Indextwo = () => {
                                     <i className="ri-search-line " />
                                   </div>
                                   <div className="divider gradient-divider" />
-                                
+
                                 </div>
-                             
+
                               </div>
                               <div className="sign-btn">
-                                  <a href="login" className="btn-secondary-sm">Đăng nhập</a>
-                                </div>
+                                <a href="login" className="btn-secondary-sm">Đăng nhập</a>
+                              </div>
                             </li>
                           </ul>
                           {/* Header Right */}
@@ -493,21 +495,21 @@ const Indextwo = () => {
                           <option value={3}>Pre-book Type</option>
                         </select>
                       </div>
-                    
-                      <div className="dropdown-section">
-                      <i className="ri-time-line" /><FunctionApp/> 
-                        <div className="d-flex gap-10 align-items-center">
-                     
-                         
-                      
-                          <div className="custom-dropdown custom-date">
-                     
-                       
 
-                            
+                      <div className="dropdown-section">
+                        <i className="ri-time-line" /><FunctionApp />
+                        <div className="d-flex gap-10 align-items-center">
+
+
+
+                          <div className="custom-dropdown custom-date">
+
+
+
+
                           </div>
                         </div>
-                 
+
                       </div>
 
 
@@ -1009,7 +1011,7 @@ const Indextwo = () => {
                           <div className="package-card">
                             <div className="package-img imgEffect4">
                               <a href="tour-details">
-                                <img src="/src/assets/category_tour/hội an.jpg" alt="travello" />
+                                <img src={"./src/assets/storage/" + (tour.images.length>0 ? tour.images[0].image : '')} alt="travello" />
                               </a>
                               <div className="image-badge">
                                 <p className="pera">Đặc sắc</p>

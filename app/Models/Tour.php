@@ -23,13 +23,17 @@ class Tour extends Model
     'rate',
     'province_id',
     'district_id',
-    'ward_id'
-
+    'ward_id',
+    'is_active'
   ];
 
   public function images()
   {
-    return $this->hasMany(Tour_image::class);
+    return $this->hasMany(TourImage::class);
+  }
+  public function types()
+  {
+    return $this->belongsTo(TourType::class,'type_id');
   }
   public function rates()
   {
@@ -37,6 +41,19 @@ class Tour extends Model
   }
   public function itineraries()
   {
-    return $this->hasMany(Itinerarie::class);
+    return $this->hasMany(Itinerary::class);
   }
+  public function province()
+  {
+    return $this->belongsTo(Province::class,'province_id');
+  }
+  public function district()
+  {
+    return $this->belongsTo(District::class,'district_id');
+  }
+  public function ward()
+  {
+    return $this->belongsTo(Ward::class,'ward_id');
+  }
+
 }
