@@ -7,8 +7,6 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
 const Indextwo = () => {
-
-
   let api = 'http://localhost:8000/api/client/get-tours-new'
   const { data, error, isLoading } = useQuery({
     queryKey: ["KEY"],
@@ -830,73 +828,34 @@ const Indextwo = () => {
                   </div>
                 </div>
                 <div className="row g-4">
-                  <div className="col-xl-3 col-lg-4 col-sm-6">
-                    <a href="destination-details" className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
-                      <img src="/src/assets/category_tour/TREKKING TÀ XÙA.jpg" alt="travello" />
-                      <div className="destination-content-two">
-                        <div className="ratting-badge">
-                          <span>7 Tour</span>
-                        </div>
-                        <div className="destination-info-two">
-                          <div className="destination-name">
-                            <p className="pera">srilanka</p>
+
+                  {data?.map((tours: any, index: any) => {
+                    return (
+                    <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
+                      <a href="destination-details" className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
+                        <img src="/src/assets/category_tour/TREKKING TÀ XÙA.jpg" alt="travello" />
+                        <div className="destination-content-two">
+                          <div className="ratting-badge">
+                            <span>7 Tour</span>
                           </div>
-                          <div className="button-section">
-                            <div className="arrow"><i className="ri-arrow-right-line" /></div>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-sm-6">
-                    <a href="destination-details" className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.1s">
-                      <img src="/src/assets/category_tour/tamdao.jpg" alt="travello" />
-                      <div className="destination-content-two">
-                        <div className="ratting-badge">
-                          <span>7 Tour</span>
-                        </div>
-                        <div className="destination-info-two">
-                          <div className="destination-name">
-                            <p className="pera">Srilanka</p>
-                          </div>
-                          <div className="button-section">
-                            <div className="arrow">
-                              <i className="ri-arrow-right-line" />
+                          <div className="destination-info-two">
+                            <div className="destination-name">
+                              <p className="pera">{tours.title}</p>
+                            </div>
+                            <div className="button-section">
+                              <div className="arrow"><i className="ri-arrow-right-line" /></div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-sm-6">
-                    <a href="destination-details" className="destination-banner-two  h-calc wow fadeInUp" data-wow-delay="0.2s">
-                      <img src="/src/assets/category_tour/Sapa.jpg" alt="travello" />
-                      <div className="destination-content-two">
-                        <div className="ratting-badge">
-                          <span>7 Tour</span>
-                        </div>
-                        <div className="destination-info-two">
-                          <div className="destination-name">
-                            <p className="pera">Srilanka</p>
-                          </div>
-                          <div className="button-section">
-                            <div className="arrow">
-                              <i className="ri-arrow-right-line" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-sm-6">
-                    <div className="destination-offer-two h-calc wow fadeInUp" data-wow-delay="0.3s">
-                      <div className="destination-content-offer">
-                        <span className="highlights">20% off</span>
-                        <h4 className="title">Tốt nhất cho ít hơn </h4>
-                        <a href="payment" className="btn-secondary-sm"> Đặt chỗ ngay bây giờ</a>
-                      </div>
+                      </a>
                     </div>
-                  </div>
+                    )
+                  })}
+
+
+
+
+
                 </div>
               </div>
             </div>
@@ -1013,9 +972,7 @@ const Indextwo = () => {
                               <a href="tour-details">
                                 <img src={"./src/assets/storage/" + (tour.images.length>0 ? tour.images[0].image : '')} alt="travello" />
                               </a>
-                              <div className="image-badge">
-                                <p className="pera">Đặc sắc</p>
-                              </div>
+                         
                             </div>
                             <div className="package-content">
                               <h4 className="area-name">
@@ -1028,22 +985,16 @@ const Indextwo = () => {
                               <div className="packages-person">
                                 <div className="count">
                                   <i className="ri-time-line" />
-                                  <p className="pera">{tour.day} Ngày</p>
+                                  <p className="pera mt-3 ml-2">{tour.day} Ngày</p>
                                 </div>
-                                <div className="count">
-                                  <i className="ri-user-line" />
-                                  <p className="pera"> 2 người</p>
-                                </div>
+                          
                               </div>
                               <div className="price-review">
                                 <div className="d-flex gap-10">
                                   <p className="light-pera">Từ</p>
-                                  <p className="pera">{tour.price} VND</p>
+                                  <p className="pera text-danger" >{tour.price}. VND</p>
                                 </div>
-                                <div className="rating">
-                                  <i className="ri-star-s-fill" />
-                                  <p className="pera">4.7 (20 đánh giá)</p>
-                                </div>
+                              
                               </div>
                             </div>
                           </div>

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PostComment extends Model
 {
+
   use HasFactory;
   protected $table = 'post_comments';
   protected $fillable = ['comments', 'post_id', 'user_id'];
@@ -19,3 +20,4 @@ class PostComment extends Model
     return $this->belongsTo(User::class);
   }
 }
+

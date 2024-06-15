@@ -18,8 +18,8 @@ setOpenDate((prev)=>!prev)
     }
   return (
     <div>
-        <span className=' select2-title' onClick={handleClick}>
-            {`${format(date.stardate, 'MMM,dd,yyyy')} To ${format(date.endDate, 'MMM,dd,yyyy')}`}
+        <span className=' select2-title ' onClick={handleClick}>
+            {`${format(date.stardate, 'MMM,dd,yyyy')} Ngày ${format(date.endDate, 'MMM,dd,yyyy')}`}
         </span>
      { openDate && <DateRangePicker  
      className='dateRanger' 

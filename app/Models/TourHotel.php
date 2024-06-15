@@ -14,6 +14,7 @@ class TourHotel extends Model
         'hotel_id',
     ];
 
+
     public function tour(){
         return $this->belongsTo(Tour::class,'tour_id','id');
     }
@@ -21,4 +22,5 @@ class TourHotel extends Model
     public function hotel(){
         return $this->belongsTo(Hotel::class,'hotel_id','id');
     }
+
 }

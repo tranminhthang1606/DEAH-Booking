@@ -1,9 +1,31 @@
-import React from 'react'
+
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 const New = () => {
+
+ let api = 'http://127.0.0.1:8000/api/client/get-posts-list'
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["POST"],
+    queryFn: async () => {
+      const { data } = await axios.get(api)
+      console.log(data.data.posts);
+      return data.data.posts
+
+    }
+  })
+  // console.log(data.data);
+
+  if (isLoading) return <div>Loading.....</div>
+  if (error) return <div>loi{error.message}</div>
+  const posts = Array.isArray(data) ? data : [];
   return (
+
     <div>
       <div>
+
         <header>
           <div className="header-area">
             <div className="main-header">
@@ -102,7 +124,7 @@ const New = () => {
                                 <li className="single-list">
                                   <a href="tour-list" className="single">Gói Du Lịch</a>
                                 </li>
-                             
+
                                 <li className="single-list">
                                   <a href="news" className="single">Tin tức</a>
                                 </li>
@@ -495,7 +517,7 @@ const New = () => {
                   <div className="tab-content" id="v-pills-tabContent-two">
                     <div className="tab-pane  fade show active" id="pills-news-one" role="tabpanel" aria-labelledby="pills-news-one">
                       <div className="about-banner imgEffect4">
-                        <img src="/src/assets/images/news/news-banner.png" alt="travello" />
+                        <img src="/src/assets/category_tour/Nha trang.jpg" alt="travello" />
                       </div>
                     </div>
                     <div className="tab-pane fade" id="pills-news-two" role="tabpanel" aria-labelledby="pills-news-two">
@@ -510,415 +532,102 @@ const New = () => {
                     </div>
                   </div>
                 </div>
+
                 <div className="col-xl-5 col-lg-5">
-                  <div className="all-contents" id="v-pills-tab-two" role="tablist" aria-orientation="vertical">
-                    <div className="news-content active" id="pills-news-one-tab" data-bs-toggle="pill" data-bs-target="#pills-news-one" role="tab" aria-controls="pills-news-one" aria-selected="true">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title">
-                        <a href="javascript:void(0)">Thế giới là một cuốn sách và những người không đọc
-                          Chỉ một
-                          Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="author-img">
-                            <img src="/src/assets/images/news/news-1.jpeg" alt="travello" />
-                          </div>
-                          <p className="name">Chris Earth</p>
+                  {posts.map((post, index) => (
+                    <div className="all-contents" id="v-pills-tab-two" role="tablist" aria-orientation="vertical" key={index}>
+                      <div className="news-content active" id="pills-news-one-tab" data-bs-toggle="pill" data-bs-target="#pills-news-one" role="tab" aria-controls="pills-news-one" aria-selected="true">
+                        <div className="heading">
+                          <span className="heading-pera">{post.title}</span>
                         </div>
-                        <p className="time"> 10 phút Đọc </p>
+                        <h4 className="title">
+                          <a href="javascript:void(0)"> </a>
+                        </h4>
+                        <div className="news-info">
+                          <div className="d-flex gap-10 align-items-center">
+                            <div className="author-img">
+                              <img src="/src/assets/images/news/news-1.jpeg" alt="travello" />
+                            </div>
+                            <p className="name">Thiếu Tên Người</p>
+                          </div>
+                          <p className="time"> 10 phút Đọc </p>
+                        </div>
+                      </div>
+
+                      <div className="news-content" id="pills-news-three-tab" data-bs-toggle="pill" data-bs-target="#pills-news-three" role="tab" aria-controls="pills-news-three" aria-selected="true">
+
+
+                        <div className="news-info">
+                          <div className="d-flex gap-10 align-items-center">
+                            <div className="author-img">
+                              <img src="/src/assets/images/news/news-3.jpeg" alt="travello" />
+                            </div>
+                            <p className="name">Thiếu tên Người </p>
+                          </div>
+                          <p className="time">10 phút đọc </p>
+                        </div>
                       </div>
                     </div>
-                    <div className="news-content" id="pills-news-two-tab" data-bs-toggle="pill" data-bs-target="#pills-news-two" role="tab" aria-controls="pills-news-two" aria-selected="true">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn viên </span>
-                      </div>
-                      <h4 className="title">
-                        <a href="javascript:void(0)">Một khách du lịch giỏi không có kế hoạch cố định và không có ý định
-                          Đến. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="author-img">
-                            <img src="/src/assets/images/news/news-2.jpeg" alt="travello" />
-                          </div>
-                          <p className="name">David Warner</p>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                    <div className="news-content" id="pills-news-three-tab" data-bs-toggle="pill" data-bs-target="#pills-news-three" role="tab" aria-controls="pills-news-three" aria-selected="true">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn viên du lịch</span>
-                      </div>
-                      <h4 className="title">
-                        <a href="javascript:void(0)">Chúng tôi du lịch, một số người trong chúng tôi mãi mãi, để tìm kiếm các tiểu bang khác,
-                          Cuộc sống khác, những linh hồn khác. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="author-img">
-                            <img src="/src/assets/images/news/news-3.jpeg" alt="travello" />
-                          </div>
-                          <p className="name">David Malan</p>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
+
+
               </div>
               <div className="row g-4">
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details">
-                        <img src="/src/assets/images/news/news-4.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details">Thế giới là một cuốn sách và những người không đọc
-                          Chỉ một
-                          Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-4.jpeg" alt="image" />
+
+
+                {posts.map((post, index) => (
+
+                  <div className="col-xl-4 col-lg-4 col-sm-6" key={post.id} >
+
+                    <article className="news-card-two">
+                      <figure className="news-banner-two imgEffect">
+                        <a href="news-details">
+                          <img src="/src/assets/category_tour/phú quốc.jpg" alt="travello" />
+                        </a>
+                      </figure>
+                      <div className="news-content">
+                        <div className="heading">
+                          <span className="heading-pera">{post.title}</span>
+                      
+                        </div>
+                        <h4 className="title line-clamp-2">
+                        <Link to={`/news-details/${post.id}`}>{post.body}</Link>
+                         
+                        </h4>
+                        <div className="news-info">
+                          <div className="d-flex gap-10 align-items-center">
+                            <div className="all-user">
+                              <div className="happy-user">
+                                <img src="/src/assets/images/hero/user-1.jpeg" alt="image" />
+                              </div>
+                              <div className="happy-user">
+                                <img src="/src/assets/images/hero/user-2.png" alt="image" />
+                              </div>
+                              <div className="happy-user">
+                                <img src="/src/assets/images/hero/user-3.png" alt="image" />
+                              </div>
+                              <div className="happy-user">
+                                <img src="/src/assets/images/hero/user-4.jpeg" alt="image" />
+                              </div>
                             </div>
                           </div>
+                          <p className="time">10 phút đọc </p>
                         </div>
-                        <p className="time">10 phút đọc </p>
                       </div>
-                    </div>
-                  </article>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details">
-                        <img src="/src/assets/images/news/news-5.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details">Thế giới là một cuốn sách và những người không đọc
-                          Chỉ một
-                          Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/assets/assets/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-4.jpeg" alt="image" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details">
-                        <img src="/src/assets/images/news/news-6.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details">Thế giới là một cuốn sách và những người không đọc
-                          Chỉ một
-                          Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-4.jpeg" alt="image" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details">
-                        <img src="/src/assets/images/news/news-7.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details">Thế giới là một cuốn sách và những người không đọc
-                          Chỉ một
-                          Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-4.jpeg" alt="image" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details">
-                        <img src="/src/assets/images/news/news-8.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details">Thế giới là một cuốn sách và những người không đọc
-                          Chỉ một
-                          Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-4.jpeg" alt="image" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details">
-                        <img src="/src/assets/images/news/news-9.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details">Thế giới là một cuốn sách và những người không đọc
-                          Chỉ một
-                          Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-4.jpeg" alt="image" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details">
-                        <img src="/src/assets/images/news/news-10.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details">Thế giới là một cuốn sách và những người không đọc
-                          Chỉ một
-                          Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-4.jpeg" alt="image" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details">
-                        <img src="/src/assets/images/news/news-11.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details">Thế giới là một cuốn sách và những người không đọc
-                          Chỉ một
-                          Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-4.jpeg" alt="image" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-sm-6">
-                  <article className="news-card-two">
-                    <figure className="news-banner-two imgEffect">
-                      <a href="news-details">
-                        <img src="/src/assets/images/news/news-12.png" alt="travello" />
-                      </a>
-                    </figure>
-                    <div className="news-content">
-                      <div className="heading">
-                        <span className="heading-pera">Hướng dẫn du lịch </span>
-                      </div>
-                      <h4 className="title line-clamp-2">
-                        <a href="news-details">Thế giới là một cuốn sách và những người không đọc
-                          Chỉ một
-                          Một trang. </a>
-                      </h4>
-                      <div className="news-info">
-                        <div className="d-flex gap-10 align-items-center">
-                          <div className="all-user">
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-1.jpeg" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-2.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-3.png" alt="image" />
-                            </div>
-                            <div className="happy-user">
-                              <img src="/src/assets/images/hero/user-4.jpeg" alt="image" />
-                            </div>
-                          </div>
-                        </div>
-                        <p className="time">10 phút đọc </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
+                    </article>
+
+                  </div>
+
+                ))}
+
+
                 <div className="col-12 text-center">
                   <div className="section-button d-inline-block">
                     <a href="javascript:void(0)">
                       <div className="btn-primary-icon-sm">
                         <i className="ri-loader-2-line" />
-                        <p className="pera">Đang tải</p>
+                        <p className="pera mt-3 ml-2">Đang tải</p>
                       </div>
                     </a>
                   </div>
