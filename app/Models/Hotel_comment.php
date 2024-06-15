@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Hotel_comment extends Model
 {
     use HasFactory;
-    protected $table = 'posts';
+    protected  $table = 'hotel_comments';
     protected $fillable = [
-      'title','body','view','status'
-
+        'comments',
+        'hotel_id',
+        'user_id'
     ];
-    public function comments(){
-      return $this->hasMany(Post_comment::class);
-    }
 }
