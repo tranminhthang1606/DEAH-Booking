@@ -18,8 +18,6 @@ class User extends Model implements Authenticatable
     'phone',
     'address',
     'role'
-
-
   ];
   public function vouchers()
   {

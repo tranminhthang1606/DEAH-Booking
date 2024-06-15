@@ -17,6 +17,8 @@ const Indextwo = () => {
 
     }
   })
+
+  
   // console.log(data.data);
 
   if (isLoading) return <div>Loading.....</div>
@@ -968,7 +970,7 @@ const Indextwo = () => {
                           <div className="package-card">
                             <div className="package-img imgEffect4">
                               <a href="tour-details">
-                                <img src="/src/assets/category_tour/hội an.jpg" alt="travello" />
+                                <img src={"./src/assets/storage/" + (tour.images.length>0 ? tour.images[0].image : '')} alt="travello" />
                               </a>
                          
                             </div>

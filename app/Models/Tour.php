@@ -23,8 +23,8 @@ class Tour extends Model
     'rate',
     'province_id',
     'district_id',
-    'ward_id'
-
+    'ward_id',
+    'is_active'
   ];
 
   public function images()

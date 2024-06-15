@@ -14,6 +14,8 @@ class TourImage extends Model
         'image'
     ];
     public function tour(){
-        return $this->belongsTo(Tour::class);
+
+        return $this->belongsTo(Tour::class,'tour_id','id');
+
     }
 }

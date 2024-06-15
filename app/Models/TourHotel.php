@@ -13,4 +13,14 @@ class TourHotel extends Model
         'tour_id',
         'hotel_id',
     ];
+
+
+    public function tour(){
+        return $this->belongsTo(Tour::class,'tour_id','id');
+    }
+
+    public function hotel(){
+        return $this->belongsTo(Hotel::class,'hotel_id','id');
+    }
+
 }

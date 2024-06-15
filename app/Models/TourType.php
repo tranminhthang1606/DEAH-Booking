@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class TourType extends Model
 {
     use HasFactory;
-    protected $table = 'tour_type';
+    protected $table = 'tour_types';
+
     protected $fillable =[
           'name_type'
     ];
