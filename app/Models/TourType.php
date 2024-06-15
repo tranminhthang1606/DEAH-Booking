@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tour_image extends Model
+class TourType extends Model
 {
     use HasFactory;
-    protected $table = 'tour_images';
-    protected $fillable = [
-        'tour_id',
-        'image'
+    protected $table = 'tour_type';
+    protected $fillable =[
+          'name_type'
     ];
     public function tour(){
-        return $this->belongsTo(Tour::class);
+        return $this->hasMany(Tour::class);
+
     }
 }
