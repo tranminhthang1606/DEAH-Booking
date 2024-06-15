@@ -12,9 +12,7 @@ return new class extends Migration {
     {
 
             Schema::create('rates', function (Blueprint $table) {
-                $table->id();
                 $table->foreignId('tour_id')->constrained()->on('tours');
-                $table->foreignId('tour_id')->constrained()->on('users');
                 $table->integer('rate');
                 $table->timestamps();
             });

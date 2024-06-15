@@ -13,14 +13,4 @@ class HotelService extends Model
         'hotel_id',
         'service_id'
     ];
-
-
-    public function hotel(){
-        return $this->belongsTo(Hotel::class,'hotel_id','id');
-    }
-
-    public function service(){
-        return $this->belongsTo(Service::class,'service_id','id');
-    }
-
 }
