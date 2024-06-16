@@ -22,6 +22,7 @@ return new class extends Migration {
             $table->foreignId('district_id')->constrained()->on('districts');
             $table->foreignId('ward_id')->constrained()->on('wards');
             $table->boolean('is_active');
+            $table->softDeletes();
             $table->timestamps();
 
 

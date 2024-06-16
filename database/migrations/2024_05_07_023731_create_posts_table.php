@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('body');
             $table->integer('view');
             $table->boolean('status');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

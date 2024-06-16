@@ -29,6 +29,7 @@ return new class extends Migration
             $table->date('end');
             $table->enum('status_tour',['Chờ xác nhận','Đã xác nhận','Hoàn thành','Đã hủy']);
             $table->enum('status_payment',['Chờ thanh toán','Đã Thanh toán','Hoàn tiền','Đã hủy']);
+            $table->softDeletes();
             $table->timestamps();
            
         });

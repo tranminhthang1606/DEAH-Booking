@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('address');
             $table->integer('role');
             $table->boolean('is_active');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

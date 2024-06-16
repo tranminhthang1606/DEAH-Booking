@@ -16,6 +16,7 @@ return new class extends Migration {
                 $table->string('comment');
                 $table->foreignId('tour_id')->constrained()->on('tours');
                 $table->foreignId('user_id')->constrained()->on('users');
+                $table->softDeletes();
                 $table->timestamps();
 
             });

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('tour_types', function (Blueprint $table) {
             $table->id();
             $table->string('name_type');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
