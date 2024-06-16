@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DashBoardController;
+use App\Http\Controllers\Admin\TourTypeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix'=>'admin'],function(){
+    Route::get("/",function(){
+        return view('admin.dashboard',['title'=>"Dashboard"]);
+    })->name('admin.index');
+    Route::resource('tour_types',TourTypeController::class);
 });
-

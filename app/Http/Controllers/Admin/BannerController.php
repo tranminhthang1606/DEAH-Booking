@@ -40,7 +40,7 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         //
-        $banner = $this->query->create($request->all()s);
+        $banner = $this->query->create($request->all());
         if ($banner) {
             foreach ($request->images as $image) {
                 BannerImages::create([
