@@ -5,7 +5,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>{{$title}}</title>
+    <title>{{ $title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -17,7 +17,8 @@
 
     <!--Swiper slider css-->
     <link href="{{ url('assets/libs/swiper/swiper-bundle.min.css') }} " rel="stylesheet" type="text/css" />
-
+    <!-- Sweet Alert css-->
+    <link href="{{ url('assets/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- Layout config Js -->
     <script src="{{ url('assets/js/layout.js') }} "></script>
     <!-- Bootstrap Css -->
@@ -242,26 +243,26 @@
                                     <li class="nav-item">
                                         <a href="apps-chat.html" class="nav-link" data-key="t-chat"> Services </a>
                                     </li>
-                              
+
 
                                 </ul>
                             </div>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="" 
-                                role="button" aria-expanded="false" aria-controls="sidebarHotels">
+                            <a class="nav-link menu-link" href="" role="button" aria-expanded="false"
+                                aria-controls="sidebarHotels">
                                 <i class="ri-add-box-line"></i> <span data-key="t-apps">Vouchers</span>
                             </a>
-                           
+
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="" 
-                                role="button" aria-expanded="false" aria-controls="sidebarHotels">
+                            <a class="nav-link menu-link" href="" role="button" aria-expanded="false"
+                                aria-controls="sidebarHotels">
                                 <i class="ri-user-2-line"></i> <span data-key="t-apps">Accounts</span>
                             </a>
-                            
+
                         </li>
                     </ul>
                 </div>
@@ -1122,28 +1123,37 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="assets/libs/node-waves/waves.min.js"></script>
-    <script src="assets/libs/feather-icons/feather.min.js"></script>
-    <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
-    <script src="assets/js/plugins.js"></script>
+    <script src="{{ url('assets/libs/bootstrap/js/bootstrap.bundle.min.js', []) }} "></script>
+    <script src="{{ url('assets/libs/simplebar/simplebar.min.js', []) }} "></script>
+    <script src="{{ url('assets/libs/node-waves/waves.min.js', []) }} "></script>
+    <script src="{{ url('assets/libs/feather-icons/feather.min.js', []) }} "></script>
+    <script src="{{ url('assets/js/pages/plugins/lord-icon-2.1.0.js', []) }} "></script>
+    <script src="{{ url('assets/js/plugins.js', []) }} "></script>
+    <!-- prismjs plugin -->
+    <script src="{{ url('assets/libs/prismjs/prism.js', []) }} "></script>
+    <script src="{{ url('assets/libs/list.js/list.min.js', []) }}"></script>
+    <script src="{{ url('assets/libs/list.pagination.js/list.pagination.min.js', []) }} "></script>
 
+    <!-- listjs init -->
+    <script src="{{ url('assets/js/pages/listjs.init.js', []) }} "></script>
+
+    <!-- Sweet Alerts js -->
+    <script src="{{ url('assets/libs/sweetalert2/sweetalert2.min.js', []) }} "></script>
     <!-- apexcharts -->
-    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+    <script src="{{ url('assets/libs/apexcharts/apexcharts.min.js', []) }} "></script>
 
     <!-- Vector map-->
-    <script src="assets/libs/jsvectormap/js/jsvectormap.min.js"></script>
-    <script src="assets/libs/jsvectormap/maps/world-merc.js"></script>
+    <script src="{{ url('assets/libs/jsvectormap/js/jsvectormap.min.js', []) }} "></script>
+    <script src="{{ url('assets/libs/jsvectormap/maps/world-merc.js', []) }} "></script>
 
     <!--Swiper slider js-->
-    <script src="assets/libs/swiper/swiper-bundle.min.js"></script>
+    <script src="{{ url('assets/libs/swiper/swiper-bundle.min.js', []) }} "></script>
 
     <!-- Dashboard init -->
-    <script src="assets/js/pages/dashboard-ecommerce.init.js"></script>
+    <script src="{{ url('assets/js/pages/dashboard-ecommerce.init.js', []) }} "></script>
 
     <!-- App js -->
-    <script src="assets/js/app.js"></script>
+    <script src="{{ url('assets/js/app.js', []) }} "></script>
 </body>
 
 </html>
