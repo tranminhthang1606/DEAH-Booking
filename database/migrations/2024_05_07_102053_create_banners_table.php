@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->boolean('is_active');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('body');
-            $table->integer('view');
-            $table->boolean('status');
+            $table->integer('views');
+            $table->boolean('is_active');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

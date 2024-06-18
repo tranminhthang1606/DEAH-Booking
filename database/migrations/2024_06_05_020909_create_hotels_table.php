@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('address');
             $table->boolean('status');
             $table->boolean('is_active');
+            $table->softDeletes();
             $table->timestamps();
 
         });
