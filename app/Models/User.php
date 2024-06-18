@@ -5,12 +5,13 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
-use app/Models/Voucher;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Model implements Authenticatable
 {
   use AuthenticableTrait;
   use HasFactory;
+  use SoftDeletes;
   protected $table = 'users';
   protected $fillable = [
     'name',
@@ -21,10 +22,10 @@ class User extends Model implements Authenticatable
     'address',
     'role'
 
-    ];
-    public function vouchers()
-    {
-        return $this->belongsToMany(Voucher::class, 'user_voucher')->withPivot('using_voucher');
-    }
 
+  ];
+  public function vouchers()
+  {
+    return $this->belongsToMany(Voucher::class, 'user_voucher');
+  }
 }

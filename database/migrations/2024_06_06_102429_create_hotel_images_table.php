@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('hotel_images', function (Blueprint $table) {
             $table->id();
-            $table->integer('hotel_id');
-            $table->string('image');
+            $table->text('image');
+            $table->foreignId('hotel_id')->constrained()->on('hotels');
+            $table->softDeletes();
             $table->timestamps();
-            $table->foreign('hotel_id')->references('id')->on('hotels');
+       
         });
     }
 

@@ -6,16 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Post extends Model
+class TourType extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $table = 'posts';
-    protected $fillable = [
-      'title','body','view','status'
 
+    protected $table = 'tour_types';
+    protected $fillable =[
+          'name_type'
     ];
-    public function comments(){
-      return $this->hasMany(PostComment::class);
+    public function tour(){
+        return $this->hasMany(Tour::class);
+
     }
 }

@@ -2,10 +2,12 @@
 import "../assets/js/main.js"
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-import FunctionApp from "../FunctionComponentContext/FunctionApp.js"
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
+// import { useState } from "react";
+// import { Calendar } from "react-date-range";
+// import 'react-calendar/dist/Calendar.css';
 const Indextwo = () => {
   let api = 'http://localhost:8000/api/client/get-tours-new'
   const { data, error, isLoading } = useQuery({
@@ -17,8 +19,6 @@ const Indextwo = () => {
 
     }
   })
-  // console.log(data.data);
-
   if (isLoading) return <div>Loading.....</div>
   if (error) return <div>loi{error.message}</div>
   const tours = Array.isArray(data) ? data : [];
@@ -493,16 +493,19 @@ const Indextwo = () => {
                       </div>
 
                       <div className="dropdown-section">
-                        <i className="ri-time-line" /><FunctionApp />
-                        <div className="d-flex gap-10 align-items-center">
-
-
+                        <i className="ri-time-line" />
+                        <div className="z-index">
 
                           <div className="custom-dropdown custom-date">
+                            <div>
+                              <label htmlFor="">Ngày bắt đầu </label>
+                              <input type="date" />
 
-
-
-
+                            </div>
+                            <div>
+                              <label htmlFor="">Ngày kết thúc </label>
+                              <input type="date" />
+                            </div>
                           </div>
                         </div>
 
@@ -511,15 +514,8 @@ const Indextwo = () => {
 
                       <div className="dropdown-section position-relative user-picker-dropdown">
                         <div className="d-flex gap-10 align-items-center">
-                          <i className="ri-user-line" />
-                          <div className="custom-dropdown">
-                            <h4 className="title">Khách</h4>
-                            <div className="arrow">
-                              <i className="ri-arrow-down-s-line" />
-                            </div>
-                          </div>
                         </div>
-                        <div className="user-result">02</div>
+
                         <div className="user-picker dropdown-shadow">
                           <div className="user-category">
                             <div className="category-name">
@@ -829,24 +825,24 @@ const Indextwo = () => {
 
                   {data?.map((tours: any, index: any) => {
                     return (
-                    <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
-                      <a href="destination-details" className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
-                        <img src="/src/assets/category_tour/TREKKING TÀ XÙA.jpg" alt="travello" />
-                        <div className="destination-content-two">
-                          <div className="ratting-badge">
-                            <span>7 Tour</span>
-                          </div>
-                          <div className="destination-info-two">
-                            <div className="destination-name">
-                              <p className="pera">{tours.title}</p>
+                      <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
+                        <a href="destination-details" className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
+                          <img src="/src/assets/category_tour/TREKKING TÀ XÙA.jpg" alt="travello" />
+                          <div className="destination-content-two">
+                            <div className="ratting-badge">
+                              <span>7 Tour</span>
                             </div>
-                            <div className="button-section">
-                              <div className="arrow"><i className="ri-arrow-right-line" /></div>
+                            <div className="destination-info-two">
+                              <div className="destination-name">
+                                <p className="pera">{tours.title}</p>
+                              </div>
+                              <div className="button-section">
+                                <div className="arrow"><i className="ri-arrow-right-line" /></div>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </a>
-                    </div>
+                        </a>
+                      </div>
                     )
                   })}
 
@@ -970,7 +966,7 @@ const Indextwo = () => {
                               <a href="tour-details">
                                 <img src="/src/assets/category_tour/hội an.jpg" alt="travello" />
                               </a>
-                         
+
                             </div>
                             <div className="package-content">
                               <h4 className="area-name">
@@ -985,14 +981,14 @@ const Indextwo = () => {
                                   <i className="ri-time-line" />
                                   <p className="pera mt-3 ml-2">{tour.day} Ngày</p>
                                 </div>
-                          
+
                               </div>
                               <div className="price-review">
                                 <div className="d-flex gap-10">
                                   <p className="light-pera">Từ</p>
                                   <p className="pera text-danger" >{tour.price}. VND</p>
                                 </div>
-                              
+
                               </div>
                             </div>
                           </div>
@@ -2053,7 +2049,7 @@ const Indextwo = () => {
               </div>
               <div className="col-12 text-center">
                 <div className="section-button d-inline-block wow fadeInUp" data-wow-delay="0.3s">
-                  <a href="news.html">
+                  <a href="news">
                     <div className="btn-primary-icon-sm pt-3">
                       <p className="pera">Xem tất cả các tin tức</p>
                       {/* <i className="ri-arrow-right-up-line" /> */}

@@ -18,11 +18,9 @@ import TourDetails from './components/TourDetails';
 import TourList from './components/TourList';
 import Verification from './components/Verification';
 import Indextwo from './components/Indextwo';
-import LayoutAdmin from './components/Admin/LayoutAdmin';
-import LayoutStatic from './components/Admin/LayoutStatic';
-import { Table } from 'react-bootstrap';
-import Add from './components/Admin/Add';
-import List from './components/Admin/List';
+import FunctionApp from './FunctionComponentContext/FunctionApp';
+import SlideShow from './FunctionComponentContext/SlideShow';
+
 
 function App() {
   return (
@@ -47,13 +45,10 @@ function App() {
         <Route path="/terms-condition" element={<TermsCondition />} />
         <Route path="/news" element={<New />} />
         <Route path="/contact" element={<Contact />} />
-        
-        <Route path="index.html" element={<LayoutAdmin />}>
-        <Route path="add" element={<Add />} />
-        <Route path="list" element={<List/>} />
-          <Route path="layoutstatic" element={<LayoutStatic />} />
-          <Route path="tables.html" element={<Table />} />
-        </Route>
+
+
+        <Route path="/slide" element={<SlideShow />} />
+    
       </Routes>
     </>
   );

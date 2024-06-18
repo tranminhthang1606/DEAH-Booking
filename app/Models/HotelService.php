@@ -4,14 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Tour_comment extends Model
+class HotelService extends Model
 {
     use HasFactory;
-    protected $table = 'tour_comments';
+    use SoftDeletes;
+    protected $table = 'hotel_service';
     protected $fillable = [
-        'comments',
-        'tour_id',
-        'user_id'
+        'hotel_id',
+        'service_id'
     ];
 }
