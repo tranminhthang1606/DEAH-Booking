@@ -1,6 +1,26 @@
 import React from 'react'
-
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
+import { useParams } from 'react-router-dom';
+interface RouteParams {
+  id: string;
+}
 const TourDetails = () => {
+  const { id } = useParams<Record<string, string>>();
+  let api = `http://127.0.0.1:8000/api/client/get-tour-detail/${id}`
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["KEY_LIST"],
+    queryFn: async () => {
+      const { data } = await axios.get(api)
+      console.log(data.data);
+      return data.data
+    }
+  })
+  // console.log(data.data);
+
+  if (isLoading) return <div>Loading.....</div>
+  if (error) return <div>loi{error.message}</div>
+  const tours = Array.isArray(data) ? data : [];
   return (
     <div>
       <div>
@@ -90,24 +110,24 @@ const TourDetails = () => {
                             <div className="d-flex justify-content-between align-items-center">
                               <ul className="listing" id="navigation">
                                 <li className="single-list">
-                                  <a href="index-two" className="single">Trang Chủ </a>
+                                  <a href="/index-two" className="single">Trang Chủ </a>
 
                                 </li>
                                 <li className="single-list ">
-                                  <a href="about" className="single link-active">Về Chúng Tôi</a>
+                                  <a href="/about" className="single link-active">Về Chúng Tôi</a>
                                 </li>
                                 <li className="single-list">
-                                  <a href="destination" className="single">Điểm Đến</a>
+                                  <a href="/destination" className="single">Điểm Đến</a>
                                 </li>
                                 <li className="single-list">
-                                  <a href="tour-list" className="single">Gói Du Lịch</a>
+                                  <a href="/tour-list" className="single">Gói Du Lịch</a>
                                 </li>
-                             
+
                                 <li className="single-list">
-                                  <a href="news" className="single">Tin tức</a>
+                                  <a href="/news" className="single">Tin tức</a>
                                 </li>
                                 <li className="single-list">
-                                  <a href="contact" className="single">Liên hệ</a>
+                                  <a href="/contact" className="single">Liên hệ</a>
                                 </li>
                                 <li className="d-block d-lg-none">
                                   <div className="header-right pl-15">
@@ -497,22 +517,7 @@ const TourDetails = () => {
                 <div className="swiper tourSwiper-active">
                   <div className="swiper-wrapper">
                     <div className="swiper-slide">
-                      <img src="/src/assets/images/gallery/tour-details-banner-three.png" alt="travello" />
-                    </div>
-                    <div className="swiper-slide">
-                      <img src="/src/assets/images/gallery/tour-details-banner.png" alt="travello" />
-                    </div>
-                    <div className="swiper-slide">
-                      <img src="/src/assets/images/gallery/tour-details-banner-two.png" alt="travello" />
-                    </div>
-                    <div className="swiper-slide">
-                      <img src="/src/assets/images/gallery/tour-details-banner-three.png" alt="travello" />
-                    </div>
-                    <div className="swiper-slide">
-                      <img src="/src/assets/images/gallery/tour-details-banner.png" alt="travello" />
-                    </div>
-                    <div className="swiper-slide">
-                      <img src="/src/assets/images/gallery/tour-details-banner-two.png" alt="travello" />
+                      <img src={'http://127.0.0.1:8000/' + (data.tour.images ? data.tour.images[0].image : '')} alt="travello" />
                     </div>
                   </div>
                   <div className="swiper-button-next"><i className="ri-arrow-right-s-line" /></div>
@@ -525,17 +530,17 @@ const TourDetails = () => {
                   {/* Details Heading */}
                   <div className="details-heading">
                     <div className="d-flex flex-column">
-                      <h4 className="title">Travello Tour - Best Of Samyan Bangkok</h4>
+                      <h4 className="title">{data.tour.title}</h4>
                       <div className="d-flex flex-wrap align-items-center gap-30 mt-16">
                         <div className="location">
                           <i className="ri-map-pin-line" />
-                          <div className="name">Bangkok, Thailand</div>
+                          <div className="name">{data.address.province}, Việt Nam</div>
                         </div>
                         <div className="divider" />
                         <div className="d-flex align-items-center flex-wrap gap-20">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera"> 3 ngày 2 đêm</p>
+                            <p className="pera"> {data.tour.day} Ngày {data.tour.day - 1} Đêm</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
@@ -547,11 +552,11 @@ const TourDetails = () => {
                     <div className="price-review">
                       <div className="d-flex gap-10 align-items-end">
                         <p className="light-pera">Từ</p>
-                        <p className="pera">$95</p>
+                        <p className="pera">{data.tour.promotion ? data.tour.promotion : data.tour.price} VND</p>
                       </div>
                       <div className="rating">
                         <i className="ri-star-s-fill" />
-                        <p className="pera">4.7 (20 đánh giá)</p>
+                        <p className="pera">{data.rates.rate} ({data.rates.qty} đánh giá)</p>
                       </div>
                     </div>
                   </div>
@@ -563,43 +568,7 @@ const TourDetails = () => {
                         {/* About tour */}
                         <div className="tour-details-content">
                           <h4 className="title">Về</h4>
-                          <p className="pera">Lorem rất cà rốt, nhà phát triển đại học cà chua, nhưng làm
-                            inique
-                            sự cố
-                            để làm việc hoặc đau đớn.Làm thế nào để bạn làm một sự tha thứ kỳ lạ, người đã
-                            Tập thể dục Ullamco
-                            thuê người làm
-                            Ngoại trừ việc yêu cầu từ cô ấy xin vui lòng công thức.Bài tập về nhà tự động trong một irre
-                            bị chỉ trích trong niềm vui xin vui lòng
-                            được
-                            Cura Pain Football không chạy nữa.Ngoại trừ là người da đen
-                            Không ủng hộ
-                            lỗi
-                            Các dịch vụ đó từ bỏ việc làm mềm là một món ăn nhẹ. "</p>
-                          <p className="pera">Nhưng tôi phải gặp phải sai lầm rằng mọi người đều là một niềm vui
-                            Công tố viên
-                            nỗi đau
-                            Ca ngợi, toàn bộ điều cần mở, và những điều từ người phát minh ra sự thật đó
-                            Và là một kiến ​​trúc sư
-                            Hạnh phúc
-                            Cuộc sống đã được nói để giải thích.Không ai là niềm vui của niềm vui
-                            từ chối hoặc ghét hoặc
-                            chạy trốn,
-                            Nhưng bởi vì họ dẫn đến những nỗi đau lớn, những người có niềm vui để theo dõi
-                            không biết.Hoặc hơn nữa
-                            bất cứ ai;
-                            Chính nỗi đau vì cà rốt, cà chua muốn, nhưng bởi vì
-                            Tôi chưa bao giờ có chế độ của nó
-                            Thời gian sự cố để làm việc và đau đớn để tìm kiếm một số niềm vui.ĐẾN
-                            Đối với người nhỏ bé tôi sẽ đến
-                            Ai
-                            Việc đào tạo của chúng tôi là một sự nhạy cảm về thể chất của một sự dữ dội trừ khi họ làm điều gì đó
-                            của lợi thế
-                            hậu quả?
-                            Một hoặc quyền của cô ấy để chỉ trích niềm vui là nhiều hơn
-                            Không khó chịu
-                            Hậu quả
-                            Hay đó là nỗi đau của anh ta để chạy trốn mà niềm vui của số 0 được chuẩn bị?"</p>
+                          <p className="pera">{data.tour.description}</p>
                         </div>
                         {/* / About tour */}
                         {/* Tour Include Loại trừ */}
@@ -612,15 +581,6 @@ const TourDetails = () => {
                               <li className="list">Ăn trưa</li>
                               <li className="list">Đồ ăn nhẹ buổi tối</li>
                               <li className="list">Bộ dụng cụ sơ cứu (trong trường hợp khẩn cấp)</li>
-                            </ul>
-                          </div>
-                          <div className="divider" />
-                          <div className="includ-exclude-point">
-                            <h4 className="title">Loại trừ</h4>
-                            <ul className="expect-list">
-                              <li className="list">Chi phí cá nhân </li>
-                              <li className="list">Bất cứ điều gì khác không được đề cập trên các vùi</li>
-                              <li className="list">Dịch vụ bổ sung</li>
                             </ul>
                           </div>
                         </div>
@@ -667,83 +627,7 @@ const TourDetails = () => {
                                     </ul>
                                   </div>
                                 </div>
-                              </div>
-                              <div className="accordion-item">
-                                <h2 className="accordion-header" id="panelsStayOpen-headingTwo">
-                                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                    Day 2 - Samyan Bangkok
-                                  </button>
-                                </h2>
-                                <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                                  <div className="accordion-body">
-                                    <p className="pera mb-16">Lorem ipsum dolor sit amet,
-                                      consectetur adipiscing elit, sed do
-                                      eiusmod tempor incididunt ut labore et dolore magna
-                                      aliqua. Ut enim ad minim veniam,
-                                      quis nostrud exercitation ullamco laboris nisi ut
-                                      aliquip ex ea commodo consequat. Duis
-                                      aute irure dolor in reprehenderit in voluptate velit
-                                      esse cillum dolore eu fugiat nulla
-                                      pariatur. Excepteur sint occaecat cupidatat non
-                                      proident, sunt in culpa qui officia
-                                      deserunt mollit anim id est laborum."</p>
-                                    <ul className="listing">
-                                      <li className="list">
-                                        “Cuộc sống là một cuộc phiêu lưu táo bạo hoặc không có gì ở
-                                        tất cả."...
-                                      </li>
-                                      <li className="list">
-                                        Du lịch đủ xa, bạn gặp chính mình....
-                                      </li>
-                                      <li className="list">
-                                        Bất cứ nơi nào bạn đi trở thành một phần của bạn bằng cách nào đó....
-                                      </li>
-                                      <li className="list">
-                                        “Mỗi năm một lần, đi đâu đó bạn chưa từng đến
-                                        trước."
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="accordion-item">
-                                <h2 className="accordion-header" id="panelsStayOpen-headingThree">
-                                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                                    Day 3 - Samyan Bangkok
-                                  </button>
-                                </h2>
-                                <div id="panelsStayOpen-collapseThree" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                                  <div className="accordion-body">
-                                    <p className="pera mb-16">Lorem ipsum dolor sit amet,
-                                      consectetur adipiscing elit, sed do
-                                      eiusmod tempor incididunt ut labore et dolore magna
-                                      aliqua. Ut enim ad minim veniam,
-                                      quis nostrud exercitation ullamco laboris nisi ut
-                                      aliquip ex ea commodo consequat. Duis
-                                      aute irure dolor in reprehenderit in voluptate velit
-                                      esse cillum dolore eu fugiat nulla
-                                      pariatur. Excepteur sint occaecat cupidatat non
-                                      proident, sunt in culpa qui officia
-                                      deserunt mollit anim id est laborum."</p>
-                                    <ul className="listing">
-                                      <li className="list">
-                                        “Cuộc sống là một cuộc phiêu lưu táo bạo hoặc không có gì ở
-                                        tất cả."...
-                                      </li>
-                                      <li className="list">
-                                        Du lịch đủ xa, bạn gặp chính mình....
-                                      </li>
-                                      <li className="list">
-                                        Bất cứ nơi nào bạn đi trở thành một phần của bạn bằng cách nào đó....
-                                      </li>
-                                      <li className="list">
-                                        “Mỗi năm một lần, đi đâu đó bạn chưa từng đến
-                                        trước."
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
+                              </div>                    
                             </div>
                           </div>
                         </div>
@@ -806,7 +690,7 @@ const TourDetails = () => {
                           <div className="price-review">
                             <div className="d-flex gap-10 align-items-end">
                               <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
+                              <p className="pera">{data.tour.price} VND</p>
                             </div>
                             <div className="rating">
                               <p className="pera">Giá thay đổi theo quy mô nhóm</p>

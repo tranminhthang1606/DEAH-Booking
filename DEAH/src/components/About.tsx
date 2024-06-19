@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react'
 import "../assets/js/main.js"
+import SlideShow from '../FunctionComponentContext/SlideShow.js'
+import 'react-slideshow-image/dist/styles.css';
+import { Slide } from 'react-slideshow-image';
+import '../App.css';
 const About = () => {
 
   return (
@@ -561,7 +565,7 @@ const About = () => {
               <h4 className="title">Chúng tôi đã được đề cập trong các thương hiệu dưới đây</h4>
             </div>
             <div className="swiper brandSwiper-active">
-              <div className="swiper-wrapper">
+              {/* <div className="swiper-wrapper">
                 <div className="swiper-slide">
                   <img src="/src/assets/images/brand/brand-1.jpeg" alt="travello" />
                 </div>
@@ -583,7 +587,7 @@ const About = () => {
                 <div className="swiper-slide">
                   <img src="/src/assets/images/brand/brand-2.jpg" alt="travello" />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
@@ -600,8 +604,10 @@ const About = () => {
               </div>
             </div>
           </div>
+          <SlideShow/>
+          {/* slide show */}
           <div className="d-flex flex-wrap gap-24">
-            <div className="swiper bulletLeftSwiper-active">
+            {/* <div className="swiper bulletLeftSwiper-active">
               <div className="swiper-wrapper">
                 <div className="swiper-slide testimonial-card">
                   <div className="testimonial-header">
@@ -754,162 +760,12 @@ const About = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="swiper bulletRightSwiper-active">
-              <div className="swiper-wrapper">
-                <div className="swiper-slide testimonial-card">
-                  <div className="testimonial-header">
-                    <div className="user-img">
-                      <img src="/src/assets/images/testimonial/testimonial-1.jpeg" alt="travello" />
-                    </div>
-                    <div className="user-info">
-                      <p className="name">David Malan</p>
-                      <p className="designation">Traveler</p>
-                    </div>
-                  </div>
-                  <div className="testimonial-body">
-                    <p className="pera">
-                      Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
-                      Hộp.Tincidunt DUI hoặc đại học là xấu xí
-                      hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
-                      mạng sống.
-                    </p>
-                  </div>
-                  <div className="testimonial-footer">
-                    <div className="logo">
-                      <img src="/src/assets/images/logo/logo.png" alt="travello" className="changeLogo" />
-                    </div>
-                    <p className="date">Jan 20, 2025</p>
-                  </div>
-                </div>
-                <div className="swiper-slide testimonial-card">
-                  <div className="testimonial-header">
-                    <div className="user-img">
-                      <img src="/src/assets/images/testimonial/testimonial-1.jpeg" alt="travello" />
-                    </div>
-                    <div className="user-info">
-                      <p className="name">David Malan</p>
-                      <p className="designation">Traveler</p>
-                    </div>
-                  </div>
-                  <div className="testimonial-body">
-                    <p className="pera">
-                      Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
-                      Hộp.Tincidunt DUI hoặc đại học là xấu xí
-                      hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
-                      mạng sống.
-                    </p>
-                  </div>
-                  <div className="testimonial-footer">
-                    <div className="logo">
-                      <img src="/src/assets/images/logo/logo.png" alt="travello" className="changeLogo" />
-                    </div>
-                    <p className="date">Jan 20, 2025</p>
-                  </div>
-                </div>
-                <div className="swiper-slide testimonial-card">
-                  <div className="testimonial-header">
-                    <div className="user-img">
-                      <img src="/src/assets/images/testimonial/testimonial-1.jpeg" alt="travello" />
-                    </div>
-                    <div className="user-info">
-                      <p className="name">David Malan</p>
-                      <p className="designation">Traveler</p>
-                    </div>
-                  </div>
-                  <div className="testimonial-body">
-                    <p className="pera">
-                      Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
-                      Hộp.Tincidunt DUI hoặc đại học là xấu xí
-                      hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
-                      mạng sống.
-                    </p>
-                  </div>
-                  <div className="testimonial-footer">
-                    <div className="logo">
-                      <img src="/src/assets/images/logo/logo.png" alt="travello" className="changeLogo" />
-                    </div>
-                    <p className="date">Jan 20, 2025</p>
-                  </div>
-                </div>
-                <div className="swiper-slide testimonial-card">
-                  <div className="testimonial-header">
-                    <div className="user-img">
-                      <img src="/src/assets/images/testimonial/testimonial-1.jpeg" alt="travello" />
-                    </div>
-                    <div className="user-info">
-                      <p className="name">David Malan</p>
-                      <p className="designation">Traveler</p>
-                    </div>
-                  </div>
-                  <div className="testimonial-body">
-                    <p className="pera">
-                      Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
-                      Hộp.Tincidunt DUI hoặc đại học là xấu xí
-                      hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
-                      mạng sống.
-                    </p>
-                  </div>
-                  <div className="testimonial-footer">
-                    <div className="logo">
-                      <img src="/src/assets/images/logo/logo.png" alt="travello" className="changeLogo" />
-                    </div>
-                    <p className="date">Jan 20, 2025</p>
-                  </div>
-                </div>
-                <div className="swiper-slide testimonial-card">
-                  <div className="testimonial-header">
-                    <div className="user-img">
-                      <img src="/src/assets/images/testimonial/testimonial-1.jpeg" alt="travello" />
-                    </div>
-                    <div className="user-info">
-                      <p className="name">David Malan</p>
-                      <p className="designation">Traveler</p>
-                    </div>
-                  </div>
-                  <div className="testimonial-body">
-                    <p className="pera">
-                      Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
-                      Hộp.Tincidunt DUI hoặc đại học là xấu xí
-                      hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
-                      mạng sống.
-                    </p>
-                  </div>
-                  <div className="testimonial-footer">
-                    <div className="logo">
-                      <img src="/src/assets/images/logo/logo.png" alt="travello" className="changeLogo" />
-                    </div>
-                    <p className="date">Jan 20, 2025</p>
-                  </div>
-                </div>
-                <div className="swiper-slide testimonial-card">
-                  <div className="testimonial-header">
-                    <div className="user-img">
-                      <img src="/src/assets/images/testimonial/testimonial-1.jpeg" alt="travello" />
-                    </div>
-                    <div className="user-info">
-                      <p className="name">David Malan</p>
-                      <p className="designation">Traveler</p>
-                    </div>
-                  </div>
-                  <div className="testimonial-body">
-                    <p className="pera">
-                      Lorem Ipsum Dolor ngồi ampe, lãnh sự.Và rất nhiều số không trong
-                      Hộp.Tincidunt DUI hoặc đại học là xấu xí
-                      hoặc tại khóa học.Sô cô la bóng đá Mattis Ultricies
-                      mạng sống.
-                    </p>
-                  </div>
-                  <div className="testimonial-footer">
-                    <div className="logo">
-                      <img src="/src/assets/images/logo/logo.png" alt="travello" className="changeLogo" />
-                    </div>
-                    <p className="date">Jan 20, 2025</p>
-                  </div>
-                </div>
-              </div>
+     
             </div>
           </div>
+          {/* slide show and */}
           <div className="mt-30">
             <button type="submit" className="btn-primary-fill w-100">
               Sẵn sàng kiểm tra
