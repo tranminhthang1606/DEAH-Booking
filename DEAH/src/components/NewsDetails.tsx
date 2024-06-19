@@ -6,15 +6,15 @@ import { useParams } from 'react-router-dom';
 const NewsDetails = () => {
 
   const { id } = useParams();
-console.log(id);
+  console.log(id);
   const { data, isLoading, error } = useQuery({
     queryKey: ['KEY_POST', id],
     queryFn: async () => {
-      const {data} = await axios.get(`http://127.0.0.1:8000/api/client/get-post-detail/${id}`);
+      const { data } = await axios.get(`http://127.0.0.1:8000/api/client/get-post-detail/${id}`);
       console.log(data);
       return data.data;
-  
-      
+
+
     }
   });
 
@@ -124,7 +124,7 @@ console.log(id);
                                 <li className="single-list">
                                   <a href="tour-list" className="single">Gói Du Lịch</a>
                                 </li>
-                                
+
                                 <li className="single-list">
                                   <a href="news" className="single">Tin tức</a>
                                 </li>

@@ -1,6 +1,30 @@
-import React from 'react'
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { useParams } from 'react-router-dom'
+import SlideshowDetail from '../FunctionComponentContext/SlideshowDetail';
+import TravelCard from '../FunctionComponentContext/DetailFunciton';
+import '../App.css'
 
 const TourDetails = () => {
+  const { id } = useParams();
+  console.log(id);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['KEY_POST', id],
+    queryFn: async () => {
+      const { data } = await axios.get(`http://127.0.0.1:8000/api/client/get-tour-detail/${id}`);
+      console.log(data.data.tour);
+      return data.data.tour;
+
+
+    }
+  });
+
+  if (isLoading) return <div>Loading.....</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  // Ensure data is defined and is an array
+  const tourDetail = data ? (Array.isArray(data) ? data : [data]) : [];
+
   return (
     <div>
       <div>
@@ -102,7 +126,7 @@ const TourDetails = () => {
                                 <li className="single-list">
                                   <a href="tour-list" className="single">Gói Du Lịch</a>
                                 </li>
-                             
+
                                 <li className="single-list">
                                   <a href="news" className="single">Tin tức</a>
                                 </li>
@@ -493,8 +517,8 @@ const TourDetails = () => {
           <section className="tour-details-section section-padding2">
             <div className="tour-details-area">
               {/* Details Banner Slider */}
-              <div className="tour-details-banner">
-                <div className="swiper tourSwiper-active">
+              <div className="tour-details-banner ">
+                {/* <div className="swiper tourSwiper-active">
                   <div className="swiper-wrapper">
                     <div className="swiper-slide">
                       <img src="/src/assets/images/gallery/tour-details-banner-three.png" alt="travello" />
@@ -517,44 +541,51 @@ const TourDetails = () => {
                   </div>
                   <div className="swiper-button-next"><i className="ri-arrow-right-s-line" /></div>
                   <div className="swiper-button-prev"><i className="ri-arrow-left-s-line" /></div>
-                </div>
+                </div> */}
+                <SlideshowDetail />
               </div>
               {/* / Slider*/}
               <div className="tour-details-container">
                 <div className="container">
                   {/* Details Heading */}
-                  <div className="details-heading">
-                    <div className="d-flex flex-column">
-                      <h4 className="title">Travello Tour - Best Of Samyan Bangkok</h4>
-                      <div className="d-flex flex-wrap align-items-center gap-30 mt-16">
-                        <div className="location">
-                          <i className="ri-map-pin-line" />
-                          <div className="name">Bangkok, Thailand</div>
-                        </div>
-                        <div className="divider" />
-                        <div className="d-flex align-items-center flex-wrap gap-20">
-                          <div className="count">
-                            <i className="ri-time-line" />
-                            <p className="pera"> 3 ngày 2 đêm</p>
+                  {tourDetail?.map((tourDetai: any, index: any) => {
+                    return (
+                      <div className="details-heading" key={index}>
+                        <div className="d-flex flex-column">
+                          <h4 className="title">{tourDetai.title}</h4>
+                          <div className="d-flex flex-wrap align-items-center gap-30 mt-16">
+                            <div className="location">
+                              <i className="ri-map-pin-line" />
+                              <div className="name"></div>
+                            </div>
+                            <div className="divider" />
+                            <div className="d-flex align-items-center flex-wrap gap-20">
+                              <div className="count">
+                                <i className="ri-time-line" />
+                                <p className="pera mt-3">{tourDetai.day} Ngày</p>
+                              </div>
+                              <div className="count">
+                                <i className="ri-user-line" />
+                                <p className="pera"></p>
+                              </div>
+                            </div>
                           </div>
-                          <div className="count">
-                            <i className="ri-user-line" />
-                            <p className="pera">2 người </p>
+                        </div>
+                        <div className="price-review">
+                          <div className="d-flex gap-10 align-items-end">
+                            <p className="light-pera ">Từ</p>
+                            <p className="pera mt-2 text-danger">{tourDetai.price} VND</p>
+                          </div>
+                          <div className="rating">
+
+                            <p className="pera mr-5">Đánh giá: {tourDetai.rates ? tourDetai.rates.qty : 0}</p> <p className="pera"> {tourDetai.rates ? tourDetai.rates.rate : 0}   </p> <i className="ri-star-s-fill  mb-3"></i>
+
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="price-review">
-                      <div className="d-flex gap-10 align-items-end">
-                        <p className="light-pera">Từ</p>
-                        <p className="pera">$95</p>
-                      </div>
-                      <div className="rating">
-                        <i className="ri-star-s-fill" />
-                        <p className="pera">4.7 (20 đánh giá)</p>
-                      </div>
-                    </div>
-                  </div>
+                    )
+                  })}
+
                   {/* / Details Heading */}
                   <div className="mt-30">
                     <div className="row g-4">
@@ -630,123 +661,44 @@ const TourDetails = () => {
                           <h4 className="title">Kế hoạch du lịch</h4>
                           <div className="destination-accordion">
                             <div className="accordion" id="accordionPanelsStayOpenExample">
-                              <div className="accordion-item">
-                                <h2 className="accordion-header" id="panelsStayOpen-headingOne">
-                                  <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                    Day 1 - Samyan Bangkok
-                                  </button>
-                                </h2>
-                                <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                                  <div className="accordion-body">
-                                    <p className="pera mb-16">Lorem rất cà rốt
-                                      Nhà phát triển đại học của Người theo dõi, nhưng làm
-                                      một IUSMOD Long-công việc hoặc đau đớn
-                                      thứ gì đó.Trong những năm qua, tôi sẽ đến,
-                                      Bất kỳ ai có thể tập thể dục Ullamco chỉ làm việc như
-                                      Aliquip từ sự tiện lợi của hậu quả.Bài tập về nhà
-                                      Xin vui lòng tự động đau đớn trong niềm vui bị chỉ trích
-                                      để trở thành một cặp đau và khoai tây chiên chạy đi không
-                                      được chuẩn bị.Ngoại trừ những người rèm là háo hức hay không
-                                      Proider, họ có lỗi với các dịch vụ
-                                      từ bỏ linh hồn được làm mềm là đồ ăn nhẹ. "</p>
-                                    <ul className="listing">
-                                      <li className="list">
-                                        “Cuộc sống là một cuộc phiêu lưu táo bạo hoặc không có gì ở
-                                        tất cả."...
-                                      </li>
-                                      <li className="list">
-                                        Du lịch đủ xa, bạn gặp chính mình....
-                                      </li>
-                                      <li className="list">
-                                        Bất cứ nơi nào bạn đi trở thành một phần của bạn bằng cách nào đó....
-                                      </li>
-                                      <li className="list">
-                                        “Mỗi năm một lần, đi đâu đó bạn chưa từng đến
-                                        trước."
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
+                              {'Ngày 1'}
+                              <div className="dropdown">
+                                <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                               
+                                </button>
+                                <ul className="dropdown-menu">
+                                  <li><a className="dropdown-item" href="#">Action</a></li>
+                                  <li><a className="dropdown-item" href="#">Another action</a></li>
+                                  <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
                               </div>
-                              <div className="accordion-item">
-                                <h2 className="accordion-header" id="panelsStayOpen-headingTwo">
-                                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                    Day 2 - Samyan Bangkok
-                                  </button>
-                                </h2>
-                                <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                                  <div className="accordion-body">
-                                    <p className="pera mb-16">Lorem ipsum dolor sit amet,
-                                      consectetur adipiscing elit, sed do
-                                      eiusmod tempor incididunt ut labore et dolore magna
-                                      aliqua. Ut enim ad minim veniam,
-                                      quis nostrud exercitation ullamco laboris nisi ut
-                                      aliquip ex ea commodo consequat. Duis
-                                      aute irure dolor in reprehenderit in voluptate velit
-                                      esse cillum dolore eu fugiat nulla
-                                      pariatur. Excepteur sint occaecat cupidatat non
-                                      proident, sunt in culpa qui officia
-                                      deserunt mollit anim id est laborum."</p>
-                                    <ul className="listing">
-                                      <li className="list">
-                                        “Cuộc sống là một cuộc phiêu lưu táo bạo hoặc không có gì ở
-                                        tất cả."...
-                                      </li>
-                                      <li className="list">
-                                        Du lịch đủ xa, bạn gặp chính mình....
-                                      </li>
-                                      <li className="list">
-                                        Bất cứ nơi nào bạn đi trở thành một phần của bạn bằng cách nào đó....
-                                      </li>
-                                      <li className="list">
-                                        “Mỗi năm một lần, đi đâu đó bạn chưa từng đến
-                                        trước."
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
+
+                              {'Ngày 2'}
+                              <div className="dropdown">
+                                <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                
+                                </button>
+                                <ul className="dropdown-menu">
+                                  <li><a className="dropdown-item" href="#">Action</a></li>
+                                  <li><a className="dropdown-item" href="#">Another action</a></li>
+                                  <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
                               </div>
-                              <div className="accordion-item">
-                                <h2 className="accordion-header" id="panelsStayOpen-headingThree">
-                                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                                    Day 3 - Samyan Bangkok
-                                  </button>
-                                </h2>
-                                <div id="panelsStayOpen-collapseThree" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                                  <div className="accordion-body">
-                                    <p className="pera mb-16">Lorem ipsum dolor sit amet,
-                                      consectetur adipiscing elit, sed do
-                                      eiusmod tempor incididunt ut labore et dolore magna
-                                      aliqua. Ut enim ad minim veniam,
-                                      quis nostrud exercitation ullamco laboris nisi ut
-                                      aliquip ex ea commodo consequat. Duis
-                                      aute irure dolor in reprehenderit in voluptate velit
-                                      esse cillum dolore eu fugiat nulla
-                                      pariatur. Excepteur sint occaecat cupidatat non
-                                      proident, sunt in culpa qui officia
-                                      deserunt mollit anim id est laborum."</p>
-                                    <ul className="listing">
-                                      <li className="list">
-                                        “Cuộc sống là một cuộc phiêu lưu táo bạo hoặc không có gì ở
-                                        tất cả."...
-                                      </li>
-                                      <li className="list">
-                                        Du lịch đủ xa, bạn gặp chính mình....
-                                      </li>
-                                      <li className="list">
-                                        Bất cứ nơi nào bạn đi trở thành một phần của bạn bằng cách nào đó....
-                                      </li>
-                                      <li className="list">
-                                        “Mỗi năm một lần, đi đâu đó bạn chưa từng đến
-                                        trước."
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
+                              {'Ngày 3'}
+                              <div className="dropdown">
+                                <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              
+                                </button>
+                                <ul className="dropdown-menu">
+                                  <li><a className="dropdown-item" href="#">Action</a></li>
+                                  <li><a className="dropdown-item" href="#">Another action</a></li>
+                                </ul>
                               </div>
                             </div>
                           </div>
                         </div>
+
+
                         {/* / Tour Plan accordion*/}
                         {/* Tour Privacy Policy */}
                         <div className="tour-details-content">
@@ -801,7 +753,7 @@ const TourDetails = () => {
                         {/* / Tour Privacy Policy */}
                       </div>
                       {/* Right content */}
-                      <div className="col-xl-4 col-lg-5">
+                      {/* <div className="col-xl-4 col-lg-5">
                         <div className="date-travel-card position-sticky top-0">
                           <div className="price-review">
                             <div className="d-flex gap-10 align-items-end">
@@ -887,7 +839,9 @@ const TourDetails = () => {
                             <p className="pera">Lên đến 24 giờ trước</p>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
+                      <TravelCard />
+
                     </div>
                   </div>
                 </div>
