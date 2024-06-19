@@ -13,7 +13,7 @@ class HotelController extends Controller
     public function index()
     {
         $data = Hotel::all();
-        return response()->json($data);
+        return view('admin.Hotel.index');
     }
     
     public function show(string $id)

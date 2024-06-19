@@ -1,6 +1,28 @@
-import React from 'react'
+
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const NewsDetails = () => {
+
+  const { id } = useParams();
+console.log(id);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['KEY_POST', id],
+    queryFn: async () => {
+      const {data} = await axios.get(`http://127.0.0.1:8000/api/client/get-post-detail/${id}`);
+      console.log(data);
+      return data.data;
+  
+      
+    }
+  });
+
+  if (isLoading) return <div>Loading.....</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  // Ensure data is defined and is an array
+  const postDetail = data ? (Array.isArray(data) ? data : [data]) : [];
   return (
     <div>
       <div>

@@ -9,5 +9,21 @@ class District extends Model
 {
     use HasFactory;
     protected $table = 'districts';
-    protected $fillable = ['name','province_id'];
+    public $timestamps = false;
+    protected $fillable = ['name','province_id','ward'];
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
+
+    }
+    public function wards()
+    {
+        return $this->hasMany(Ward::class);
+
+    }
+    public function tour()
+    {
+        return $this->hasMany(Tour::class);
+
+    }
 }

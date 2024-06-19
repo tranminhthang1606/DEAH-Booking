@@ -1,36 +1,56 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use App\Models\Tour;
-use App\Models\Tour_image;
+use App\Models\TourImage;
+use App\Models\Rate;
+use App\Models\Itinerary;
+use App\Models\TourType;
+use App\Models\Province;
+use App\Models\District;
+use App\Models\Ward;
 use Illuminate\Http\Request;
 
 class TourController extends Controller
 {
     public function index()
-    {
-        // Lấy tất cả tours cùng với các hình ảnh, đánh giá và lịch trình của chúng
-        $tours = Tour::with('images', 'rates', 'itinerary')->get();
-        return response()->json($tours);
-    }
+{
+    $tours = Tour::with(['types', 'province', 'districts', 'ward'])->get();
+    return view('admin.tours.index', compact('tours'));
+}
 
-    public function show($id)
+
+
+    public function create()
     {
-        // Lấy một tour cụ thể cùng với các hình ảnh, đánh giá và lịch trình của nó
-        $tour = Tour::with('images', 'rates', 'itinerary')->findOrFail($id);
-        return response()->json($tour);
+        $tourTypes = TourType::all();
+        $provinces = Province::all();
+        $districts = District::all();
+        $wards = Ward::all();
+        return view('admin.tours.create', compact('tourTypes', 'provinces','districts','wards'));
     }
 
     public function store(Request $request)
     {
-        // Tạo một tour mới
-        $tour = Tour::create($request->all());
+        // Validate input
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'type_id' => 'required|exists:tour_types,id',
+            'province_id' => 'required|exists:provinces,id',
+            'district_id' => 'required|exists:provinces,id',
+            'ward_id' => 'required|exists:provinces,id',
+            // Add more validation rules as needed
+        ]);
+
+        // Tạo một tour mới từ dữ liệu được gửi lên từ form
+        $tour = Tour::create($validatedData);
 
         // Xử lý lưu các hình ảnh nếu có
         if ($request->has('images')) {
             foreach ($request->input('images') as $image) {
-                Tour_image::create([
+                TourImage::create([
                     'tour_id' => $tour->id,
                     'image' => $image
                 ]);
@@ -57,16 +77,44 @@ class TourController extends Controller
             ]);
         }
 
-        return response()->json($tour, 201);
+        return redirect()->route('admin.tours.index')->with('success', 'Tour created successfully.');
+    }
+
+    public function show($id)
+    {
+        // Lấy thông tin chi tiết của một tour cụ thể
+        $tour = Tour::with('images', 'rates', 'itineraries', 'types', 'province', 'districts', 'wards')->findOrFail($id);
+        return view('admin.tours.show', compact('tour'));
+    }
+
+    public function edit($id)
+    {
+        // Hiển thị form chỉnh sửa tour
+        $tour = Tour::findOrFail($id);
+        $tourTypes = TourType::all();
+        $provinces = Province::all();
+        $districts = District::all();
+        $wards = Ward::all();
+        return view('admin.tours.edit', compact('tour', 'tourTypes', 'provinces','districts','wards'));
     }
 
     public function update(Request $request, $id)
     {
-        // Cập nhật thông tin của một tour
-        $tour = Tour::findOrFail($id);
-        $tour->update($request->all());
+        // Validate input
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'type_id' => 'required|exists:tour_types,id',
+            'province_id' => 'required|exists:provinces,id',
+            'district_id' => 'required|exists:districts,id',
+            'ward_id' => 'required|exists:wards,id'
+            // Add more validation rules as needed
+        ]);
 
-        // Xử lý cập nhật các hình ảnh
+        // Cập nhật thông tin của tour
+        $tour = Tour::findOrFail($id);
+        $tour->update($validatedData);
+
+        // Xử lý cập nhật hình ảnh
         if ($request->has('images')) {
             TourImage::where('tour_id', $id)->delete(); // Xóa hết các hình ảnh cũ của tour
             foreach ($request->input('images') as $image) {
@@ -77,7 +125,7 @@ class TourController extends Controller
             }
         }
 
-        // Xử lý cập nhật các đánh giá
+        // Xử lý cập nhật đánh giá
         if ($request->has('rates')) {
             Rate::where('tour_id', $id)->delete(); // Xóa hết các đánh giá cũ của tour
             foreach ($request->input('rates') as $rate) {
@@ -107,8 +155,7 @@ class TourController extends Controller
             }
         }
 
-        $updatedTour = Tour::with('images', 'rates', 'itinerary')->findOrFail($id);
-        return response()->json($updatedTour);
+        return redirect()->route('admin.tours.index')->with('success', 'Tour updated successfully.');
     }
 
     public function destroy($id)
@@ -118,6 +165,6 @@ class TourController extends Controller
         Rate::where('tour_id', $id)->delete();
         Itinerary::where('tour_id', $id)->delete();
         Tour::findOrFail($id)->delete();
-        return response()->json(null, 204);
+        return redirect()->route('admin.tours.index')->with('success', 'Tour deleted successfully.');
     }
 }
