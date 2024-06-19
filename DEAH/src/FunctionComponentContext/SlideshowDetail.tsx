@@ -15,7 +15,7 @@ const SlideshowDetail = () => {
       },
     });
   
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <div>Loading ......</div>;
     if (error) return <div>Error loading images</div>;
   
     const groupImages = (images:any, groupSize:any) => {
