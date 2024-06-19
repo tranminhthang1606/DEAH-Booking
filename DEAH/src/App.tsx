@@ -31,7 +31,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/destination" element={<Destination />} />
         <Route path="/tour-list" element={<TourList />} />
-        <Route path="/tour-details" element={<TourDetails />} />
+        <Route path="/tour-details/:id" element={<TourDetails />} />
         <Route path="/news-details/:id" element={<NewsDetails />} />
         <Route path="/destination-details" element={<DestinationDetail />} />
         <Route path="/payment" element={<Payment />} />
@@ -45,10 +45,7 @@ function App() {
         <Route path="/terms-condition" element={<TermsCondition />} />
         <Route path="/news" element={<New />} />
         <Route path="/contact" element={<Contact />} />
-
-
-        <Route path="/slide" element={<SlideShow />} />
-    
+        <Route path="/slide" element={<SlideShow />} /> 
       </Routes>
     </>
   );
