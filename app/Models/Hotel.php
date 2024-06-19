@@ -25,4 +25,16 @@ class Hotel extends Model
            'rate',
 
     ];
+    public function province()
+    {
+        return $this->hasMany(Province::class);
+    }
+    public function district()
+    {
+        return $this->hasMany(District::class);
+    }
+    public function ward()
+    {
+        return $this->hasMany(Ward::class);
+    }
 }
