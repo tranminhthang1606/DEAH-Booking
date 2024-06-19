@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->integer('price');
             $table->integer('promotion');
             $table->integer('views');
-            $table->foreignId('provincce_id')->constrained()->on('provinces');
+            $table->foreignId('province_id')->constrained()->on('provinces');
             $table->foreignId('district_id')->constrained()->on('districts');
             $table->foreignId('ward_id')->constrained()->on('wards');
             $table->boolean('is_active');
