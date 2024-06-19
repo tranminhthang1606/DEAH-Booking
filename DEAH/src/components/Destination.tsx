@@ -113,15 +113,15 @@ const Destination = () => {
 
                                 </li>
                                 <li className="single-list ">
-                                  <a href="about" className="single link-active">Về Chúng Tôi</a>
+                                  <a href="about" className="single">Về Chúng Tôi</a>
                                 </li>
                                 <li className="single-list">
-                                  <a href="destination" className="single">Điểm Đến</a>
+                                  <a href="destination" className="single link-active">Điểm Đến</a>
                                 </li>
                                 <li className="single-list">
                                   <a href="tour-list" className="single">Gói Du Lịch</a>
                                 </li>
-                           
+
                                 <li className="single-list">
                                   <a href="news" className="single">Tin tức</a>
                                 </li>
@@ -524,9 +524,9 @@ const Destination = () => {
             <div className="destination-area">
 
               {/* code */}
-            
-    
-   <div className="container">
+
+
+              <div className="container">
                 <div className="row g-4">
                   <div className="col-lg-4 col-sm-6">
                     <a
@@ -559,8 +559,6 @@ const Destination = () => {
                       </div>
                     </a>
                   </div>
-                
-             
                   <div className="col-lg-8 col-sm-6">
                     <a
                       href="destination-details"
@@ -592,6 +590,7 @@ const Destination = () => {
                       </div>
                     </a>
                   </div>
+
                   <div className="col-lg-4 col-sm-6">
                     <div className="destination-offer-three h-calc">
                       <div className="destination-content-offer">
@@ -634,6 +633,7 @@ const Destination = () => {
                       </div>
                     </a>
                   </div>
+
                   <div className="col-lg-7 col-sm-6">
                     <a
                       href="destination-details"
@@ -760,8 +760,8 @@ const Destination = () => {
                   </div>
                 </div>
               </div>
-        
-           
+
+
             </div>
           </section>
           {/*/ End-of Destination */}
