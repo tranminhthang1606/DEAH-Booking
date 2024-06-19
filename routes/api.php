@@ -4,6 +4,7 @@ use App\Http\Controllers\Client\TourController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\PostController;
 use Illuminate\Http\Request;
+use App\Models\Provinces;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,7 +36,11 @@ Route::group(['middleware' => 'cors'], function () {
         Route::any('get-posts-list', [PostController::class, 'index']);
         Route::get('get-post-detail/{id}', [PostController::class, 'show']);
     });
-
+    Route::get('get-province', function () {
+        $data = Provinces::with(['districts.wards'])->get();
+        return response()->json($data);
+    });
 
 });
+
 

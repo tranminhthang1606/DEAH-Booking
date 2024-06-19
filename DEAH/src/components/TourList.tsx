@@ -565,6 +565,7 @@ const TourList = () => {
                           <i className="dropdown-icon ri-user-line" />
                           <div className="custom-dropdown">
                             <h4 className="title">Khách</h4>
+                            {/* <input type="text" placeholder='Nhập số lượng khách' /> */}
                             <div className="arrow">
                               <i className="ri-arrow-down-s-line" />
                             </div>
@@ -635,7 +636,7 @@ const TourList = () => {
                         <div className="range-value">
                           <p className="pera">giá: </p> <input type="text" id="amount" readOnly />
                           <div className="button-section">
-                            <a href="javascript:void(0)" className="apply-btn">Áp dụng</a>
+                            <a href="" className="apply-btn ">Áp dụng</a>
                           </div>
                         </div>
                       </div>
@@ -837,8 +838,10 @@ const TourList = () => {
             </div>
             <div className="rating">
             
-              <p className="pera"> {tour.views}</p>
+              <p className="pera"> {tour.rates?tour.rates.rate:0}</p>
+              <p className="pera"> {tour.rates?tour.rates.qty:0}</p>
             </div>
+              
           </div>
         </div>
       </div>

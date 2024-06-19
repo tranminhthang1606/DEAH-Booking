@@ -43,8 +43,17 @@ class TourController extends Controller
         } else {
             $query->orderByDesc('id');
         }
-        $tours = $query->with(['images', 'rates','types'])->get();
-        $tours->rates()->avg('rate');
+        $tours = $query->with(['images', 'types'])->get();
+        foreach ($tours as $tour) {
+         
+                $tour->rates = [
+                    'rate' => number_format($tour->rates()->avg('rate'), 1),
+                    'qty' => $tour->rates()->count('rate')
+                ];
+    
+
+        }
+
 
         if ($tours) {
             return $this->response->responseSuccess($tours);
@@ -63,7 +72,7 @@ class TourController extends Controller
             'tour' => $tour,
             'itineraries' => $itineraries,
             'rates' => [
-                'rate' => Number::format($rate->avg('rate'), maxPrecision: 1),
+                'rate' => number_format($tour->rates()->avg('rate'), 1),
                 'qty' => $rate->count('rate')
             ],
             'tour_type' => $tour_type

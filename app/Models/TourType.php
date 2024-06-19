@@ -11,7 +11,8 @@ class TourType extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $table = 'tour_type';
+    protected $table = 'tour_types';
+
     protected $fillable =[
           'name_type'
     ];

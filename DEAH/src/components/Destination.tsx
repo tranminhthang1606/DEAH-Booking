@@ -1,6 +1,25 @@
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
 import React from 'react'
 
 const Destination = () => {
+  // let api = 'http://127.0.0.1:8000/api/client/get-tours-list'
+
+  // const { data, error, isLoading } = useQuery({
+  //   queryKey: ["KEY"],
+  //   queryFn: async () => {
+  //     const { data } = await axios.get(api)
+  //     console.log(data.data);
+  //     return data.data
+
+  //   }
+  // })
+  // // console.log(data.data);
+
+  // if (isLoading) return <div>Loading.....</div>
+  // if (error) return <div>loi{error.message}</div>
+  // const listtours = Array.isArray(data) ? data : [];
+
   return (
     <div>
       <div>
@@ -503,7 +522,11 @@ const Destination = () => {
           {/* Destination area S t a r t */}
           <section className="destination-section bottom-padding1">
             <div className="destination-area">
-              <div className="container">
+
+              {/* code */}
+            
+    
+   <div className="container">
                 <div className="row g-4">
                   <div className="col-lg-4 col-sm-6">
                     <a
@@ -737,6 +760,8 @@ const Destination = () => {
                   </div>
                 </div>
               </div>
+        
+           
             </div>
           </section>
           {/*/ End-of Destination */}
