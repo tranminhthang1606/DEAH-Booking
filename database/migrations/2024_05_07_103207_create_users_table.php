@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->date('date_of_birth');
             $table->string('phone');
-            $table->text('address');
+            $table->text('address')->nullable();
             $table->integer('role');
             $table->boolean('is_active');
             $table->softDeletes();

@@ -824,10 +824,12 @@ const Indextwo = () => {
                 <div className="row g-4">
 
                   {data?.map((tours: any, index: any) => {
+                    
+                    
                     return (
                       <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
                         <a href="destination-details" className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
-                          <img src="/src/assets/category_tour/TREKKING TÀ XÙA.jpg" alt="travello" />
+                          <img src={'http://127.0.0.1:8000/'+(tours.images?tours.images[0].image:'')} alt="travello" />
                           <div className="destination-content-two">
                             <div className="ratting-badge">
                               <span>7 Tour</span>

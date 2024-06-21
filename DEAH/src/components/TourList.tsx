@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-import React from 'react'
 import FunctionApp from "../FunctionComponentContext/FunctionApp.js"
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -13,7 +12,6 @@ const TourList = () => {
       const { data } = await axios.get(api)
       console.log(data.data);
       return data.data
-
     }
   })
   // console.log(data.data);
@@ -530,9 +528,11 @@ const TourList = () => {
                           <h4 className="select2-title">Điểm đến</h4>
                         </div>
                         <select className="destination-dropdown">
-                          <option value={1}>Sydney, Australia</option>
-                          <option value={2}>USA, Turkish </option>
-                          <option value={3}>Chittagong, Turkish </option>
+                          {data.provinces?.map((province: any, index: number) => {
+                            return (
+                              <option key={index} value={province.id}>{province.name}</option>
+                            )
+                          })}
                         </select>
                       </div>
                       <div className="select-dropdown-section">
@@ -541,9 +541,11 @@ const TourList = () => {
                           <h4 className="select2-title">Loại du lịch </h4>
                         </div>
                         <select className="destination-dropdown">
-                          <option value={1}>Booking Type</option>
-                          <option value={2}>Advance Type</option>
-                          <option value={3}>Pre-book Type</option>
+                        {data.types?.map((type: any, index: number) => {
+                            return (
+                              <option key={index} value={type.id}>{type.name_type}</option>
+                            )
+                          })}
                         </select>
 
                       </div>
@@ -736,7 +738,7 @@ const TourList = () => {
                 </div>
                 <div className="col-xl-9">
                   <div className="showing-result">
-                    <h4 className="title">Hiển thị 6 trong số 10 kết quả</h4>
+                    <h4 className="title">Hiển thị  trong số 10 kết quả</h4>
                     <div className="d-flex gap-10 align-items-center">
                       <div className="expand-icon hamburger block d-xl-none" id="hamburger">
                         <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none">
@@ -755,15 +757,50 @@ const TourList = () => {
                   </div>
                   <div className="all-tour-list">
                     <div className="row g-4">
-                      {data?.map((tour: any, index: number) => {
+
+                      {data.tours?.map((tour: any, index: number) => {
+
                         return (
 
                           <div className="col-xl-4 col-lg-4 col-sm-6" key={index}>
                             <div className="package-card">
                               <div className="package-img imgEffect4">
-                                <a href="tour-details">
+
+                                <a href={'tour-details/'+(tour.id)}>
                                   <img src="/src/assets/category_tour/quảng bình.jpg" alt="travello" />
                                 </a>
+
+                              </div>
+                              <div className="package-content">
+                                <h4 className="area-name">
+                                  <a href={'tour-details/'+(tour.id)}>{tour.title}</a>
+                                </h4>
+                                <div className="location">
+                                  <i className="ri-map-pin-line" />
+                                  <div className="name"></div>
+                                </div>
+                                <div className="packages-person">
+                                  <div className="count">
+                                    <i className="ri-time-line" />
+                                    <p className="pera mt-3 ml-2">Lịch Trình {tour.day} Ngày</p>
+                                  </div>
+
+                                </div>
+                                <div className="price-review">
+                                  <div className="d-flex gap-10">
+                                    <p className="light-pera">Từ</p>
+                                    <p className="pera text-danger">{tour.price}.VND</p>
+                                  </div>
+                                  <div className="rating">
+
+                                    <p className="pera"> {tour.rates ? tour.rates.rate : 0}</p>
+                                    <p className="pera"> {tour.rates ? tour.rates.qty : 0}</p>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
 
                               </div>
                               <div className="package-content">
@@ -780,27 +817,6 @@ const TourList = () => {
                                     <i className="ri-time-line" />
                                     <p className="pera mt-3 ml-2">Lịch Trình {tour.day} Ngày</p>
                                   </div>
-
-                                </div>
-                                <div className="price-review">
-                                  <div className="d-flex gap-10">
-                                    <p className="light-pera mt-1">Từ</p>
-                                    <p className="pera text-danger">{tour.price}.VND</p>
-                                  </div>
-                                  <div className="rating">
-
-
-                                    <p className="pera mr-5">Đánh giá: {tour.rates ? tour.rates.qty : 0}</p> <p className="pera"> {tour.rates ? tour.rates.rate : 0}   </p> <i className="ri-star-s-fill  mb-3"></i>
-                                  </div>
-
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-
-
-
                         )
 
                       })}

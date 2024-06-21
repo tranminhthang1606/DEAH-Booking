@@ -12,6 +12,7 @@ class TourType extends Model
     use SoftDeletes;
 
     protected $table = 'tour_types';
+
     protected $fillable =[
           'name_type'
     ];

@@ -45,10 +45,7 @@ function App() {
         <Route path="/terms-condition" element={<TermsCondition />} />
         <Route path="/news" element={<New />} />
         <Route path="/contact" element={<Contact />} />
-
-
-        <Route path="/slide" element={<SlideShow />} />
-    
+        <Route path="/slide" element={<SlideShow />} /> 
       </Routes>
     </>
   );

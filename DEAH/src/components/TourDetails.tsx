@@ -1,30 +1,27 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-import { useParams } from 'react-router-dom'
-import SlideshowDetail from '../FunctionComponentContext/SlideshowDetail';
-import TravelCard from '../FunctionComponentContext/DetailFunciton';
-import '../App.css'
 
+import React from 'react'
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
+import { useParams } from 'react-router-dom';
+interface RouteParams {
+  id: string;
+}
 const TourDetails = () => {
-  const { id } = useParams();
-  console.log(id);
-  const { data, isLoading, error } = useQuery({
-    queryKey: ['KEY_POST', id],
+  const { id } = useParams<Record<string, string>>();
+  let api = `http://127.0.0.1:8000/api/client/get-tour-detail/${id}`
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["KEY_LIST"],
     queryFn: async () => {
-      const { data } = await axios.get(`http://127.0.0.1:8000/api/client/get-tour-detail/${id}`);
-      console.log(data.data.tour);
-      return data.data.tour;
-
-
+      const { data } = await axios.get(api)
+      console.log(data.data);
+      return data.data
     }
-  });
+  })
+  // console.log(data.data);
 
-  if (isLoading) return <div>Loading.....</div>;
-  if (error) return <div>Error: {error.message}</div>;
-
-  // Ensure data is defined and is an array
-  const tourDetail = data ? (Array.isArray(data) ? data : [data]) : [];
-
+  if (isLoading) return <div>Loading.....</div>
+  if (error) return <div>loi{error.message}</div>
+  const tours = Array.isArray(data) ? data : [];
   return (
     <div>
       <div>
@@ -114,24 +111,24 @@ const TourDetails = () => {
                             <div className="d-flex justify-content-between align-items-center">
                               <ul className="listing" id="navigation">
                                 <li className="single-list">
-                                  <a href="index-two" className="single">Trang Chủ </a>
+                                  <a href="/index-two" className="single">Trang Chủ </a>
 
                                 </li>
                                 <li className="single-list ">
-                                  <a href="about" className="single link-active">Về Chúng Tôi</a>
+                                  <a href="/about" className="single link-active">Về Chúng Tôi</a>
                                 </li>
                                 <li className="single-list">
-                                  <a href="destination" className="single">Điểm Đến</a>
+                                  <a href="/destination" className="single">Điểm Đến</a>
                                 </li>
                                 <li className="single-list">
-                                  <a href="tour-list" className="single">Gói Du Lịch</a>
+                                  <a href="/tour-list" className="single">Gói Du Lịch</a>
                                 </li>
 
                                 <li className="single-list">
-                                  <a href="news" className="single">Tin tức</a>
+                                  <a href="/news" className="single">Tin tức</a>
                                 </li>
                                 <li className="single-list">
-                                  <a href="contact" className="single">Liên hệ</a>
+                                  <a href="/contact" className="single">Liên hệ</a>
                                 </li>
                                 <li className="d-block d-lg-none">
                                   <div className="header-right pl-15">
@@ -521,22 +518,7 @@ const TourDetails = () => {
                 {/* <div className="swiper tourSwiper-active">
                   <div className="swiper-wrapper">
                     <div className="swiper-slide">
-                      <img src="/src/assets/images/gallery/tour-details-banner-three.png" alt="travello" />
-                    </div>
-                    <div className="swiper-slide">
-                      <img src="/src/assets/images/gallery/tour-details-banner.png" alt="travello" />
-                    </div>
-                    <div className="swiper-slide">
-                      <img src="/src/assets/images/gallery/tour-details-banner-two.png" alt="travello" />
-                    </div>
-                    <div className="swiper-slide">
-                      <img src="/src/assets/images/gallery/tour-details-banner-three.png" alt="travello" />
-                    </div>
-                    <div className="swiper-slide">
-                      <img src="/src/assets/images/gallery/tour-details-banner.png" alt="travello" />
-                    </div>
-                    <div className="swiper-slide">
-                      <img src="/src/assets/images/gallery/tour-details-banner-two.png" alt="travello" />
+                      <img src={'http://127.0.0.1:8000/' + (data.tour.images ? data.tour.images[0].image : '')} alt="travello" />
                     </div>
                   </div>
                   <div className="swiper-button-next"><i className="ri-arrow-right-s-line" /></div>
@@ -548,33 +530,21 @@ const TourDetails = () => {
               <div className="tour-details-container">
                 <div className="container">
                   {/* Details Heading */}
-                  {tourDetail?.map((tourDetai: any, index: any) => {
-                    return (
-                      <div className="details-heading" key={index}>
-                        <div className="d-flex flex-column">
-                          <h4 className="title">{tourDetai.title}</h4>
-                          <div className="d-flex flex-wrap align-items-center gap-30 mt-16">
-                            <div className="location">
-                              <i className="ri-map-pin-line" />
-                              <div className="name"></div>
-                            </div>
-                            <div className="divider" />
-                            <div className="d-flex align-items-center flex-wrap gap-20">
-                              <div className="count">
-                                <i className="ri-time-line" />
-                                <p className="pera mt-3">{tourDetai.day} Ngày</p>
-                              </div>
-                              <div className="count">
-                                <i className="ri-user-line" />
-                                <p className="pera"></p>
-                              </div>
-                            </div>
-                          </div>
+
+                  <div className="details-heading">
+                    <div className="d-flex flex-column">
+                      <h4 className="title">{data.tour.title}</h4>
+                      <div className="d-flex flex-wrap align-items-center gap-30 mt-16">
+                        <div className="location">
+                          <i className="ri-map-pin-line" />
+                          <div className="name">{data.address.province}, Việt Nam</div>
                         </div>
-                        <div className="price-review">
-                          <div className="d-flex gap-10 align-items-end">
-                            <p className="light-pera ">Từ</p>
-                            <p className="pera mt-2 text-danger">{tourDetai.price} VND</p>
+                        <div className="divider" />
+                        <div className="d-flex align-items-center flex-wrap gap-20">
+                          <div className="count">
+                            <i className="ri-time-line" />
+                            <p className="pera"> {data.tour.day} Ngày {data.tour.day - 1} Đêm</p>
+
                           </div>
                           <div className="rating">
 
@@ -583,8 +553,18 @@ const TourDetails = () => {
                           </div>
                         </div>
                       </div>
-                    )
-                  })}
+                    </div>
+                    <div className="price-review">
+                      <div className="d-flex gap-10 align-items-end">
+                        <p className="light-pera">Từ</p>
+                        <p className="pera">{data.tour.promotion ? data.tour.promotion : data.tour.price} VND</p>
+                      </div>
+                      <div className="rating">
+                        <i className="ri-star-s-fill" />
+                        <p className="pera">{data.rates.rate} ({data.rates.qty} đánh giá)</p>
+                      </div>
+                    </div>
+                  </div>
 
                   {/* / Details Heading */}
                   <div className="mt-30">
@@ -594,43 +574,7 @@ const TourDetails = () => {
                         {/* About tour */}
                         <div className="tour-details-content">
                           <h4 className="title">Về</h4>
-                          <p className="pera">Lorem rất cà rốt, nhà phát triển đại học cà chua, nhưng làm
-                            inique
-                            sự cố
-                            để làm việc hoặc đau đớn.Làm thế nào để bạn làm một sự tha thứ kỳ lạ, người đã
-                            Tập thể dục Ullamco
-                            thuê người làm
-                            Ngoại trừ việc yêu cầu từ cô ấy xin vui lòng công thức.Bài tập về nhà tự động trong một irre
-                            bị chỉ trích trong niềm vui xin vui lòng
-                            được
-                            Cura Pain Football không chạy nữa.Ngoại trừ là người da đen
-                            Không ủng hộ
-                            lỗi
-                            Các dịch vụ đó từ bỏ việc làm mềm là một món ăn nhẹ. "</p>
-                          <p className="pera">Nhưng tôi phải gặp phải sai lầm rằng mọi người đều là một niềm vui
-                            Công tố viên
-                            nỗi đau
-                            Ca ngợi, toàn bộ điều cần mở, và những điều từ người phát minh ra sự thật đó
-                            Và là một kiến ​​trúc sư
-                            Hạnh phúc
-                            Cuộc sống đã được nói để giải thích.Không ai là niềm vui của niềm vui
-                            từ chối hoặc ghét hoặc
-                            chạy trốn,
-                            Nhưng bởi vì họ dẫn đến những nỗi đau lớn, những người có niềm vui để theo dõi
-                            không biết.Hoặc hơn nữa
-                            bất cứ ai;
-                            Chính nỗi đau vì cà rốt, cà chua muốn, nhưng bởi vì
-                            Tôi chưa bao giờ có chế độ của nó
-                            Thời gian sự cố để làm việc và đau đớn để tìm kiếm một số niềm vui.ĐẾN
-                            Đối với người nhỏ bé tôi sẽ đến
-                            Ai
-                            Việc đào tạo của chúng tôi là một sự nhạy cảm về thể chất của một sự dữ dội trừ khi họ làm điều gì đó
-                            của lợi thế
-                            hậu quả?
-                            Một hoặc quyền của cô ấy để chỉ trích niềm vui là nhiều hơn
-                            Không khó chịu
-                            Hậu quả
-                            Hay đó là nỗi đau của anh ta để chạy trốn mà niềm vui của số 0 được chuẩn bị?"</p>
+                          <p className="pera">{data.tour.description}</p>
                         </div>
                         {/* / About tour */}
                         {/* Tour Include Loại trừ */}
@@ -643,15 +587,6 @@ const TourDetails = () => {
                               <li className="list">Ăn trưa</li>
                               <li className="list">Đồ ăn nhẹ buổi tối</li>
                               <li className="list">Bộ dụng cụ sơ cứu (trong trường hợp khẩn cấp)</li>
-                            </ul>
-                          </div>
-                          <div className="divider" />
-                          <div className="includ-exclude-point">
-                            <h4 className="title">Loại trừ</h4>
-                            <ul className="expect-list">
-                              <li className="list">Chi phí cá nhân </li>
-                              <li className="list">Bất cứ điều gì khác không được đề cập trên các vùi</li>
-                              <li className="list">Dịch vụ bổ sung</li>
                             </ul>
                           </div>
                         </div>
@@ -758,7 +693,7 @@ const TourDetails = () => {
                           <div className="price-review">
                             <div className="d-flex gap-10 align-items-end">
                               <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
+                              <p className="pera">{data.tour.price} VND</p>
                             </div>
                             <div className="rating">
                               <p className="pera">Giá thay đổi theo quy mô nhóm</p>

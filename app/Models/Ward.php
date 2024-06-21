@@ -22,4 +22,9 @@ class Ward extends Model
         return $this->hasMany(Tour::class);
 
     }
+    public function hotel()
+    {
+        return $this->hasMany(Hotel::class);
+
+    }
 }
