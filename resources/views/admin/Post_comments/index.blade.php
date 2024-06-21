@@ -21,8 +21,8 @@
                 <tr>
                     <td>{{ $postComment->id }}</td>
                     <td>{{ $postComment->comments }}</td>
-                    <td>{{ $postComment->post_id }}</td>
-                    <td>{{ $postComment->user_id }}</td>
+                    <td>{{ $postComment->post->title }}</td>
+                    <td>{{ $postComment->user->name }}</td>
                     <td>
                         <a href="{{ route('post_comments.edit', $postComment->id) }}">Edit</a>
                         <form action="{{ route('post_comments.destroy', $postComment->id) }}" method="POST"

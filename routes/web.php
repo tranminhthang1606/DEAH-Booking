@@ -25,6 +25,7 @@ use App\Http\Controllers\Admin\WardController;
 use App\Models\BannerImages;
 use App\Models\Province;
 use App\Http\Controllers\Admin\DashBoardController;
+use App\Http\Controllers\LocationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,7 +66,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('vouchers', VoucherController::class);
     Route::resource('wards', WardController::class);
 });
-
+Route::get('/get-districts/{province_id}', [LocationController::class, 'getDistricts'])->name('districts');
+Route::get('/get-wards/{district_id}', [LocationController::class, 'getWards'])->name('wards');
 
 
 // Route::resource('/rates', RateController::class);
