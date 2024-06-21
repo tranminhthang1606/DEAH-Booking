@@ -3,6 +3,7 @@ import axios from 'axios'
 import FunctionApp from "../FunctionComponentContext/FunctionApp.js"
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
+import { Link } from 'react-router-dom';
 const TourList = () => {
   let api = 'http://127.0.0.1:8000/api/client/get-tours-list'
   const { data, error, isLoading } = useQuery({
@@ -562,12 +563,12 @@ const TourList = () => {
                         </div>
 
                       </div>
-                      <div className="dropdown-section position-relative user-picker-dropdown">
+                      {/* <div className="dropdown-section position-relative user-picker-dropdown">
                         <div className="d-flex gap-10 align-items-center">
                           <i className="dropdown-icon ri-user-line" />
                           <div className="custom-dropdown">
                             <h4 className="title">Khách</h4>
-                            {/* <input type="text" placeholder='Nhập số lượng khách' /> */}
+                            <input type="text" placeholder='Nhập số lượng khách' />
                             <div className="arrow">
                               <i className="ri-arrow-down-s-line" />
                             </div>
@@ -624,23 +625,13 @@ const TourList = () => {
                             <a href="javascript:void(0)" className="done-btn">Xong</a>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
-                    <div className="heading">
-                      <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none">
-                        <path d="M13.656 5.33333C14.3532 5.334 15.0217 5.60357 15.5147 6.08289C16.0078 6.56222 16.285 7.21213 16.2857 7.89C16.2857 8.11101 16.376 8.32298 16.5368 8.47926C16.6975 8.63554 16.9155 8.72333 17.1429 8.72333C17.3702 8.72333 17.5882 8.63554 17.7489 8.47926C17.9097 8.32298 18 8.11101 18 7.89V7.83333C18 7.8175 18 7.80333 18 7.7875C17.9714 6.68561 17.5013 5.63815 16.6898 4.86838C15.8783 4.09861 14.7897 3.6674 13.656 3.66667H12.8571V2.83333C12.8571 2.61232 12.7668 2.40036 12.6061 2.24408C12.4453 2.0878 12.2273 2 12 2C11.7727 2 11.5547 2.0878 11.3939 2.24408C11.2332 2.40036 11.1429 2.61232 11.1429 2.83333V3.66667H10.344C9.31313 3.66774 8.31625 4.02519 7.53154 4.67515C6.74683 5.3251 6.22544 6.22519 6.06056 7.21452C5.89568 8.20385 6.09807 9.21795 6.63154 10.0755C7.16501 10.9331 7.99479 11.5784 8.97257 11.8958L11.1429 12.6V18.6667H10.344C9.64677 18.666 8.97828 18.3964 8.48526 17.9171C7.99224 17.4378 7.71497 16.7879 7.71429 16.11C7.71429 15.889 7.62398 15.677 7.46323 15.5207C7.30249 15.3645 7.08447 15.2767 6.85714 15.2767C6.62981 15.2767 6.4118 15.3645 6.25105 15.5207C6.09031 15.677 6 15.889 6 16.11V16.1667C6 16.1825 6 16.1967 6 16.2125C6.02861 17.3144 6.49874 18.3618 7.3102 19.1316C8.12166 19.9014 9.21026 20.3326 10.344 20.3333H11.1429V21.1667C11.1429 21.3877 11.2332 21.5996 11.3939 21.7559C11.5547 21.9122 11.7727 22 12 22C12.2273 22 12.4453 21.9122 12.6061 21.7559C12.7668 21.5996 12.8571 21.3877 12.8571 21.1667V20.3333H13.656C14.6869 20.3323 15.6838 19.9748 16.4685 19.3249C17.2532 18.6749 17.7746 17.7748 17.9394 16.7855C18.1043 15.7961 17.9019 14.7821 17.3685 13.9245C16.835 13.0669 16.0052 12.4216 15.0274 12.1042L12.8571 11.4V5.33333H13.656ZM14.4874 13.6842C15.0801 13.8759 15.5832 14.2665 15.9066 14.786C16.2301 15.3055 16.3528 15.92 16.2527 16.5194C16.1527 17.1189 15.8365 17.6641 15.3607 18.0575C14.8849 18.451 14.2806 18.6669 13.656 18.6667H12.8571V13.1558L14.4874 13.6842ZM11.1429 10.8442L9.51429 10.3158C8.92178 10.1241 8.41878 9.73364 8.09532 9.21432C7.77185 8.695 7.64903 8.08071 7.74883 7.4814C7.84863 6.88208 8.16454 6.33685 8.64003 5.94329C9.11551 5.54972 9.71953 5.3335 10.344 5.33333H11.1429V10.8442Z" fill="#071516" />
-                      </svg>
-                      <h4 className="title">Lọc theo giá </h4>
-                    </div>
+
                     <div className="price-range-slider">
                       <div id="slider-range" className="range-bar" />
                       <div className="d-flex justify-content-between align-items-center">
-                        <div className="range-value">
-                          <p className="pera">giá: </p> <input type="text" id="amount" readOnly />
-                          <div className="button-section">
-                            <a href="" className="apply-btn ">Áp dụng</a>
-                          </div>
-                        </div>
+
                       </div>
                     </div>
                     <div className="heading">
@@ -739,52 +730,11 @@ const TourList = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="heading">
-                      <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none">
-                        <path d="M15.5556 2H15.44C15.0422 2.00354 14.6569 2.13084 14.3446 2.36192C14.0323 2.59299 13.8108 2.91474 13.7147 3.27667C13.6118 3.62903 13.3882 3.93994 13.0784 4.16155C12.7686 4.38316 12.3897 4.5032 12 4.5032C11.6103 4.5032 11.2314 4.38316 10.9216 4.16155C10.6118 3.93994 10.3882 3.62903 10.2853 3.27667C10.1892 2.91474 9.96766 2.59299 9.65538 2.36192C9.3431 2.13084 8.95781 2.00354 8.56 2H8.44444C7.26614 2.00132 6.1365 2.44073 5.30331 3.22185C4.47012 4.00296 4.00141 5.062 4 6.16667V19.5C4 20.163 4.28095 20.7989 4.78105 21.2678C5.28115 21.7366 5.95942 22 6.66667 22H8.56C8.95781 21.9965 9.3431 21.8692 9.65538 21.6381C9.96766 21.407 10.1892 21.0853 10.2853 20.7233C10.3882 20.371 10.6118 20.0601 10.9216 19.8385C11.2314 19.6168 11.6103 19.4968 12 19.4968C12.3897 19.4968 12.7686 19.6168 13.0784 19.8385C13.3882 20.0601 13.6118 20.371 13.7147 20.7233C13.8108 21.0853 14.0323 21.407 14.3446 21.6381C14.6569 21.8692 15.0422 21.9965 15.44 22H17.3333C18.0406 22 18.7189 21.7366 19.219 21.2678C19.719 20.7989 20 20.163 20 19.5V6.16667C19.9986 5.062 19.5299 4.00296 18.6967 3.22185C17.8635 2.44073 16.7339 2.00132 15.5556 2V2ZM17.3333 20.3333L15.4284 20.2808C15.2197 19.5737 14.7678 18.9509 14.143 18.509C13.5182 18.0671 12.7554 17.8308 11.9727 17.8368C11.1901 17.8428 10.4315 18.0907 9.81442 18.5421C9.19738 18.9934 8.75645 19.6231 8.56 20.3333H6.66667C6.43092 20.3333 6.20483 20.2455 6.03813 20.0893C5.87143 19.933 5.77778 19.721 5.77778 19.5V16.1667H7.55556C7.7913 16.1667 8.0174 16.0789 8.18409 15.9226C8.35079 15.7663 8.44444 15.5543 8.44444 15.3333C8.44444 15.1123 8.35079 14.9004 8.18409 14.7441C8.0174 14.5878 7.7913 14.5 7.55556 14.5H5.77778V6.16667C5.77778 5.50363 6.05873 4.86774 6.55883 4.3989C7.05892 3.93006 7.7372 3.66667 8.44444 3.66667L8.57156 3.71917C8.77975 4.42202 9.22755 5.0417 9.84659 5.48363C10.4656 5.92555 11.2219 6.16543 12 6.16667C12.7886 6.16038 13.5534 5.91275 14.178 5.46147C14.8027 5.01019 15.253 4.37995 15.4604 3.66667H15.5556C16.2628 3.66667 16.9411 3.93006 17.4412 4.3989C17.9413 4.86774 18.2222 5.50363 18.2222 6.16667V14.5H16.4444C16.2087 14.5 15.9826 14.5878 15.8159 14.7441C15.6492 14.9004 15.5556 15.1123 15.5556 15.3333C15.5556 15.5543 15.6492 15.7663 15.8159 15.9226C15.9826 16.0789 16.2087 16.1667 16.4444 16.1667H18.2222V19.5C18.2222 19.721 18.1286 19.933 17.9619 20.0893C17.7952 20.2455 17.5691 20.3333 17.3333 20.3333Z" fill="#071516" />
-                      </svg>
-                      <h4 className="title">Ngôn ngữ</h4>
-                    </div>
-                    <div className="offer-list">
-                      <div className="d-flex align-items-center gap-12 mb-12">
-                        <label className="checkbox-label">
-                          <input className="checkbox-style" type="checkbox" defaultValue="remember" name="remember" />
-                          <span className="checkmark-style" />
-                        </label>
-                        <div className="content">
-                          <p className="pera">Tiếng Anh</p>
-                        </div>
-                      </div>
-                      <div className="d-flex align-items-center gap-12 mb-12">
-                        <label className="checkbox-label">
-                          <input className="checkbox-style" type="checkbox" defaultValue="remember" name="remember" />
-                          <span className="checkmark-style" />
-                        </label>
-                        <div className="content">
-                          <p className="pera"></p>
-                        </div>
-                      </div>
-                      <div className="d-flex align-items-center gap-12 mb-12">
-                        <label className="checkbox-label">
-                          <input className="checkbox-style" type="checkbox" defaultValue="remember" name="remember" />
-                          <span className="checkmark-style" />
-                        </label>
-                        <div className="content">
-                          <p className="pera">French</p>
-                        </div>
-                      </div>
-                      <div className="d-flex align-items-center gap-12">
-                        <label className="checkbox-label">
-                          <input className="checkbox-style" type="checkbox" defaultValue="remember" name="remember" />
-                          <span className="checkmark-style" />
-                        </label>
-                        <div className="content">
-                          <p className="pera">Bangla</p>
-                        </div>
-                      </div>
-                    </div>
+
+
                   </div>
                   <div className="cover" />
+
                 </div>
                 <div className="col-xl-9">
                   <div className="showing-result">
@@ -807,12 +757,15 @@ const TourList = () => {
                   </div>
                   <div className="all-tour-list">
                     <div className="row g-4">
+
                       {data.tours?.map((tour: any, index: number) => {
+
                         return (
 
                           <div className="col-xl-4 col-lg-4 col-sm-6" key={index}>
                             <div className="package-card">
                               <div className="package-img imgEffect4">
+
                                 <a href={'tour-details/'+(tour.id)}>
                                   <img src="/src/assets/category_tour/quảng bình.jpg" alt="travello" />
                                 </a>
@@ -849,9 +802,21 @@ const TourList = () => {
                             </div>
                           </div>
 
-
-
-
+                              </div>
+                              <div className="package-content">
+                                <h4 className="area-name">
+                            
+                                  <Link to={`/tour-details/${tour.id}`}>{tour.title}</Link>
+                                </h4>
+                                <div className="location">
+                                  <i className="ri-map-pin-line" />
+                                  <div className="name"></div>
+                                </div>
+                                <div className="packages-person">
+                                  <div className="count">
+                                    <i className="ri-time-line" />
+                                    <p className="pera mt-3 ml-2">Lịch Trình {tour.day} Ngày</p>
+                                  </div>
                         )
 
                       })}
