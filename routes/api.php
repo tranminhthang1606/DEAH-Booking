@@ -36,10 +36,6 @@ Route::group(['middleware' => 'cors'], function () {
         Route::any('get-posts-list', [PostController::class, 'index']);
         Route::get('get-post-detail/{id}', [PostController::class, 'show']);
     });
-    Route::get('get-province', function () {
-        $data = Province::with(['districts.wards'])->get();
-        return response()->json($data);
-    });
 
 });
 
