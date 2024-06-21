@@ -12,8 +12,10 @@ class Attribute extends Model
     use SoftDeletes;
     protected $table = 'attributes';
     protected $fillable = ['attribute'];
+
     public function tours()
     {
         return $this->belongsToMany(Tour::class, 'tour_attribute');
+
     }
 }

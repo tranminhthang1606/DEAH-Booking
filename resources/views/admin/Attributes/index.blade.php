@@ -1,4 +1,4 @@
-@extends('admin.layout.admin')
+@extends('admin.layout.master')
 @section('content')
 <table class="table">
    <thead>

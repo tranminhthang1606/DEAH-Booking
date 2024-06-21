@@ -1,4 +1,4 @@
-@extends('admin.layout.adminlayout')
+@extends('admin.layout.master')
 @section('content')
     <div class="container-fluid">
 

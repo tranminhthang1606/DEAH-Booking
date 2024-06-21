@@ -91,6 +91,6 @@ class Hotel_ImageController extends Controller
             }
             $data->delete();
         }
-        return back();
+        return back()->with('success','Hotel is deleted.');;
     }
 }

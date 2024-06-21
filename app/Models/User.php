@@ -28,4 +28,10 @@ class User extends Model implements Authenticatable
   {
     return $this->belongsToMany(Voucher::class, 'user_voucher');
   }
+  public function post_comment()
+  {
+    return $this->belongsTo(PostComment::class, 'post_id');
+  }
+  
+
 }

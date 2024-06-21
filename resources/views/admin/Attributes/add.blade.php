@@ -1,4 +1,4 @@
-@extends('admin.layout.admin')
+@extends('admin.layout.master')
 @section('content')
     <form action="{{ route('attributes.store') }}" enctype="multipart/form-data" method="post">
         @csrf

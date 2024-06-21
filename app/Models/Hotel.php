@@ -19,16 +19,16 @@ class Hotel extends Model
            'description',
            'services',
            'status',
-           'owner_id',
            'province_id',
            'district_id',
            'ward_id',
            'address',
-           'rate',
+           'status',
 
     ];
     public function province()
     {
+
         return $this->belongsTo(Province::class);
     }
     public function district()

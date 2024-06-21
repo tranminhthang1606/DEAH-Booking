@@ -16,6 +16,7 @@ class HomeController extends Controller
     {
         $this->response = $response;
     }
+
     public function newTours()
     {
         $tours = Tour::where('is_active', 1)->orderByDesc('created_at')->take(8)->get();

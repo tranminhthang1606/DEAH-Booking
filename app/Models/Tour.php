@@ -28,7 +28,9 @@ class Tour extends Model
     'ward_id'
 
   ];
-
+  public function attributes(){
+    return $this->belongsToMany(Attribute::class,'tour_attribute');
+}
   public function images()
   {
     return $this->hasMany(TourImage::class);
