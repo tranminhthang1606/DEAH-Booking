@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Ward extends Model
 {
     use HasFactory;
-
     protected $table = 'wards';
     protected $fillable = ['name', 'district_id'];
     public function district()

@@ -1,6 +1,6 @@
 <!-- resources/views/admin/users/create.blade.php -->
 
-@extends('layout.admin')
+@extends('admin.layout.master')
 
 @section('content')
     <div class="container">

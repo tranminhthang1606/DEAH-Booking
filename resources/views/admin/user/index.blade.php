@@ -1,6 +1,6 @@
 <!-- resources/views/admin/users/index.blade.php -->
 
-@extends('layout.admin')
+@extends('admin.layout.master')
 
 @section('content')
     <div class="container">
@@ -21,10 +21,10 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>password</th>
                                     <th>date_of_birth</th>
                                     <th>phone</th>
                                     <th>address</th>
+                                    <th>Active</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -34,17 +34,27 @@
                                         <td>{{ $user->id }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td>{{ $user->password }}</td>
                                         <td>{{ $user->date_of_birth }}</td>
                                         <td>{{ $user->phone }}</td>
                                         <td>{{ $user->address }}</td>
                                         <td>
-                                            <a href="{{ route('users.show', $user->id) }}" class="btn btn-primary btn-sm">View</a>
-                                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                            <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: inline-block;">
+                                            @php
+                                                echo $user->is_active == 1
+                                                    ? '<span class="badge bg-success-subtle text-success text-uppercase">Active</span>'
+                                                    : '<span class="badge bg-success-subtle text-danger text-uppercase">Block</span>';
+                                            @endphp
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('users.show', $user->id) }}"
+                                                class="btn btn-primary btn-sm">View</a>
+                                            <a href="{{ route('users.edit', $user->id) }}"
+                                                class="btn btn-warning btn-sm">Edit</a>
+                                            <form action="{{ route('users.destroy', $user->id) }}" method="POST"
+                                                style="display: inline-block;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
                                             </form>
                                         </td>
                                     </tr>

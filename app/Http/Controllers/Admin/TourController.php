@@ -16,10 +16,10 @@ use Illuminate\Http\Request;
 class TourController extends Controller
 {
     public function index()
-{
-    $tours = Tour::with(['types', 'province', 'districts', 'ward'])->get();
-    return view('admin.tours.index', compact('tours'));
-}
+    {
+        $tours = Tour::orderByDesc('created_at')->paginate(10);
+        return view('admin.tours.index', compact('tours'));
+    }
 
 
 
@@ -29,7 +29,7 @@ class TourController extends Controller
         $provinces = Province::all();
         $districts = District::all();
         $wards = Ward::all();
-        return view('admin.tours.create', compact('tourTypes', 'provinces','districts','wards'));
+        return view('admin.tours.create', compact('tourTypes', 'provinces', 'districts', 'wards'));
     }
 
     public function store(Request $request)
@@ -95,7 +95,7 @@ class TourController extends Controller
         $provinces = Province::all();
         $districts = District::all();
         $wards = Ward::all();
-        return view('admin.tours.edit', compact('tour', 'tourTypes', 'provinces','districts','wards'));
+        return view('admin.tours.edit', compact('tour', 'tourTypes', 'provinces', 'districts', 'wards'));
     }
 
     public function update(Request $request, $id)
