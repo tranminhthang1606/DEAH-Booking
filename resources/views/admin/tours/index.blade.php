@@ -1,5 +1,5 @@
 <!-- resources/views/admin/tours/index.blade.php -->
-@extends('layout.admin')
+@extends('admin.layout.master')
 
 @section('content')
     <div class="container">
@@ -31,6 +31,7 @@
                                     <th>Description</th>
                                     <th>Price</th>
                                     <th>Promotion</th>
+                                    <th>Active</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -39,13 +40,20 @@
                                     <tr>
                                         <td>{{ $tour->id }}</td>
                                         <td>{{ $tour->title }}</td>
-                                        <td>{{ $tour->types ? $tour->types->name_type : 'N/A' }}</td>
-                                        <td>{{ $tour->province ? $tour->province->name : 'N/A' }}</td>
-                                        <td>{{ $tour->districts ? $tour->districts->name : 'N/A' }}</td>
-                                        <td>{{ $tour->ward ? $tour->ward->name : 'N/A' }}</td>
+                                        <td>{{ $tour->types->name_type }}</td>
+                                        <td>{{ $tour->province->name }}</td>
+                                        <td>{{ $tour->district->name }}</td>
+                                        <td>{{ $tour->ward->name }}</td>
                                         <td>{{ $tour->description }}</td>
                                         <td>{{ $tour->price }}</td>
                                         <td>{{ $tour->promotion }}</td>
+                                        <td>
+                                            @php
+                                                echo $tour->is_active == 1
+                                                    ? '<span class="badge bg-success-subtle text-success text-uppercase">Active</span>'
+                                                    : '<span class="badge bg-success-subtle text-danger text-uppercase">Block</span>';
+                                            @endphp
+                                        </td>
                                         <td>
                                             <a href="{{ route('tours.show', $tour->id) }}"
                                                 class="btn btn-primary btn-sm">View</a>
@@ -63,6 +71,8 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{ $tours->links() }}
+
                     </div>
                 </div>
             </div>

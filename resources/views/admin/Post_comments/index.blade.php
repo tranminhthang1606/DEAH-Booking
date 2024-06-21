@@ -1,9 +1,12 @@
-@extends('admin.layout.admin')
+@extends('admin.layout.master')
 
 @section('content')
     <h1>Post Comments</h1>
 
-    <table>
+    <table class="table table-striped">
+
+        <a href="{{ route('posts.create') }}" class="btn btn-primary btn-sm">View</a>
+
         <thead>
             <tr>
                 <th>ID</th>
@@ -22,7 +25,8 @@
                     <td>{{ $postComment->user_id }}</td>
                     <td>
                         <a href="{{ route('post_comments.edit', $postComment->id) }}">Edit</a>
-                        <form action="{{ route('post_comments.destroy', $postComment->id) }}" method="POST" style="display: inline;">
+                        <form action="{{ route('post_comments.destroy', $postComment->id) }}" method="POST"
+                            style="display: inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit">Delete</button>
@@ -32,6 +36,8 @@
             @endforeach
         </tbody>
     </table>
+
+
 
     <a href="{{ route('post_comments.create') }}">Create New Comment</a>
 @endsection

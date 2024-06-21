@@ -1,210 +1,137 @@
- <!-- Main Sidebar Container -->
- <aside class="main-sidebar sidebar-dark-primary elevation-4">
-     <!-- Brand Logo -->
-     <a href="index3.html" class="brand-link">
-         <span class="brand-text font-weight-light">Vũ Vũ Trụ</span>
-     </a>
+<div id="scrollbar">
+    <div class="container-fluid">
 
-     <!-- Sidebar -->
-     <div class="sidebar">
-         <!-- Sidebar user panel (optional) -->
-         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-             <div class="image">
-             </div>
-             <div class="info">
-             </div>
-         </div>
+        <div id="two-column-menu">
+        </div>
+        <ul class="navbar-nav" id="navbar-nav">
+            <li class="menu-title"><span data-key="t-menu">Menu</span></li>
+            <li class="nav-item">
+                <a class="nav-link menu-link" href="{{ route('admin.index') }}" role="button" aria-expanded="false"
+                    aria-controls="sidebarDashboards">
+                    <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
+                </a>
 
-         <!-- SidebarSearch Form -->
-         <div class="form-inline">
-             <div class="input-group" data-widget="sidebar-search">
-                 <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                     aria-label="Search">
-                 <div class="input-group-append">
-                     <button class="btn btn-sidebar">
-                         <i class="fas fa-search fa-fw"></i>
-                     </button>
-                 </div>
-             </div>
-         </div>
+            </li> <!-- end Dashboard Menu -->
+            <li class="nav-item">
+                <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse" role="button"
+                    aria-expanded="false" aria-controls="sidebarApps">
+                    <i class="ri-apps-2-line"></i> <span data-key="t-apps">Tours</span>
+                </a>
+                <div class="collapse menu-dropdown" id="sidebarApps">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a href="{{ route('tours.index') }}" class="nav-link" data-key="t-chat"> Tours </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('itineraries.index') }}" class="nav-link">
+                                Itineraries
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('tourTypes.index') }}" class="nav-link">
+                                Tour types
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('tourHotels.index') }}" class="nav-link">
+                                Tour hotels
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('tourAttributes.index') }}" class="nav-link">
+                                Tour Attributes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('tourComments.index') }}" class="nav-link" data-key="t-chat">Tour Comments
+                            </a>
+                        </li>
 
-         <!-- Sidebar Menu -->
-         <nav class="mt-2">
-             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                 data-accordion="false">
-                 <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+                        <li class="nav-item">
+                            <a href="{{ route('attributes.index') }}" class="nav-link" data-key="t-chat"> Attributes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('rates.index') }}" class="nav-link" data-key="t-chat"> Rates </a>
+                        </li>
 
-                 <li class="nav-item">
-                     {{-- <a href="{{route('attributes.index')}}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Danh sách Attribute
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a> --}}
-                     <div class="menu">
-                         <button class="accordion">Tour</button>
-                         <div class="panel">
-                             <p>
-                             <ul>
-                                 <li>Tour_types</li>
-                                 <li>Tour_hotel</li>
-                                 <li>Tour_attribute</li>
-                                 <li>Tour_attribute</li>
-                                 <li>Tour_comments</li>
-                             </ul>
-                             </p>
-                         </div>
-                         <button class="accordion">Hotel</button>
-                        <div class="panel">
-                            <p>
-                            <ul>
-                                <li>Hotel_images</li>
-                                <li>Hotel_comments</li>
-                                <li>Hotel_service</li>
-                              
-                            </ul>
-                            </p>
-                        </div>
-                         <button class="accordion">Banner</button>
-                         <div class="panel">
-                             <p>
-                             <ul>
-                                 <li>banner_images</li>
-                             </ul>
-                             </p>
-                         </div>
-                         <button class="accordion">Post</button>
-                         <div class="panel">
-                             <p>
-                             <ul>
-                                 <li>Post_Comment</li>
-                             </ul>
-                             </p>
-                         </div>
-                         <button class="accordion">Province</button>
-                    
+                    </ul>
+                </div>
+            </li>
 
-                         <button class="accordion">Districts</button>
-
-                         <button class="accordion">Wards</button>
-                         <button class="accordion">Itineraries</button>
-                          <a href="{{route('attributes.index')}}"> <button class="accordion">Attributes</button>
-                          </a>
-
-                      
+            <li class="nav-item">
+                <a class="nav-link menu-link" href="#sidebarHotels" data-bs-toggle="collapse" role="button"
+                    aria-expanded="false" aria-controls="sidebarHotels">
+                    <i class="ri-home-2-line"></i> <span data-key="t-apps">Hotels</span>
+                </a>
+                <div class="collapse menu-dropdown" id="sidebarHotels">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a href="{{ route('hotels.index') }}" class="nav-link" role="button"
+                                aria-expanded="false" aria-controls="sidebarCalendar" data-key="t-calender">
+                                Hotels
+                            </a>
+                        </li>
 
 
-                         <button class="accordion">Vouchers</button>
-                         <button class="accordion">User_voucher</button>
-                         <button class="accordion">Services</button>
-                         <button class="accordion">Bookings</button>
-                         <button class="accordion">Users</button>
+                        <li class="nav-item">
+                            <a href="{{ route('hotel_images.index') }}" class="nav-link" data-key="t-chat"> Hotels Images </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('hotel_comments.index') }}" class="nav-link" data-key="t-chat"> Hotel
+                                comments </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('services.index') }}" class="nav-link" data-key="t-chat"> Services </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link menu-link" href="#sidebarPost" data-bs-toggle="collapse" role="button"
+                    aria-expanded="false" aria-controls="sidebarHotels">
+                    <i class="ri-pages-line"></i> <span data-key="t-apps">Posts</span>
+                </a>
+                <div class="collapse menu-dropdown" id="sidebarPost">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a href="{{ route('posts.index') }}" class="nav-link" role="button"
+                                aria-expanded="false" aria-controls="sidebarCalendar" data-key="t-calender">
+                                Posts
+                            </a>
+                        </li>
 
 
 
-
-                     </div>
-
-                 </li>
-                 <style>
-                     /* Style the buttons that are used to open and close the accordion panel */
-                     .accordion {
-                         background-color: #eee;
-                         color: #444;
-                         cursor: pointer;
-                         padding: 18px;
-                         width: 100%;
-                         text-align: left;
-                         border: none;
-                         outline: none;
-                         transition: 0.4s;
-                     }
-
-                     /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-                     .active,
-                     .accordion:hover {
-                         background-color: #ccc;
-                     }
-
-                     /* Style the accordion panel. Note: hidden by default */
-                     .panel {
-                         padding: 0 18px;
-                         background-color: white;
-                         display: none;
-                         overflow: hidden;
-                     }
-
-                     .panel ul li {
-                         transition: all 0.3s ease-in-out;
-                     }
-
-                     .panel ul li:hover {
-                         color: #333;
-                         /* Màu chữ khi hover */
-                         background-color: #f1f1f1;
-                         /* Màu nền khi hover */
-                     }
-
-                     .panel ul {
-                         list-style-type: none;
-                         /* Loại bỏ dấu chấm ở đầu */
-                         padding: 0;
-                     }
-
-                     .panel ul li {
-                         margin-right: 10px;/ padding: 8px 16px;
-                         background-color: #f1f1f1;
-                         border: none;
-                         border-radius: 4px;
-                         cursor: pointer;
-                         transition: background-color 0.3s ease-in-out;
-                     }
-
-                     .panel ul li:hover {
-                         background-color: #150a0a;
-                         color: white;
-                         /* Màu nền khi hover */
-                     }
-                 </style>
-                 <script>
-                     //  const menus = document.querySelectorAll('.menu');
-                     //  let activeMenu = null;
-
-                     //  menus.forEach(menu => {
-                     //      menu.addEventListener('click', () => {
-                     //          if (activeMenu && activeMenu !== menu) {
-                     //              activeMenu.classList.remove('active');
-                     //          }
-                     //          menu.classList.toggle('active');
-                     //          activeMenu = menu.classList.contains('active') ? menu : null;
-                     //      });
-                     //  });
+                        <li class="nav-item">
+                            <a href="{{ route('post_comments.index') }}" class="nav-link" data-key="t-chat"> Post
+                                comments </a>
+                        </li>
 
 
-                     var acc = document.getElementsByClassName("accordion");
-                     var i;
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link menu-link" href="{{ route('vouchers.index') }}" role="button"
+                    aria-expanded="false" aria-controls="sidebarHotels">
+                    <i class="ri-add-box-line"></i> <span data-key="t-apps">Vouchers</span>
+                </a>
 
-                     for (i = 0; i < acc.length; i++) {
-                         acc[i].addEventListener("click", function() {
-                             /* Toggle between adding and removing the "active" class,
-                             to highlight the button that controls the panel */
-                             this.classList.toggle("active");
+            </li>
 
-                             /* Toggle between hiding and showing the active panel */
-                             var panel = this.nextElementSibling;
-                             if (panel.style.display === "block") {
-                                 panel.style.display = "none";
-                             } else {
-                                 panel.style.display = "block";
-                             }
-                         });
-                     }
-                 </script>
+            <li class="nav-item">
+                <a class="nav-link menu-link" href="{{ route('users.index') }}" role="button"
+                    aria-expanded="false" aria-controls="sidebarHotels">
+                    <i class="ri-user-2-line"></i> <span data-key="t-apps">Accounts</span>
+                </a>
 
-             </ul>
-         </nav>
-     </div>
- </aside>
+            </li>
+        </ul>
+    </div>
+    <!-- Sidebar -->
+</div>
 
+<div class="sidebar-background"></div>
+</div>

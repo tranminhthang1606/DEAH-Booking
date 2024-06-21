@@ -1,4 +1,4 @@
-@extends('admin.layout.admin')
+@extends('admin.layout.master')
 @section('content')
 
                     <form method="POST" action="{{ route('hotels.store') }}" enctype="multipart/form-data">

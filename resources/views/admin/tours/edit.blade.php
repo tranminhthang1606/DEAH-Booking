@@ -1,5 +1,5 @@
 <!-- resources/views/admin/tours/edit.blade.php -->
-@extends('layout.admin')
+@extends('admin.layout.master')
 
 @section('content')
     <div class="container">
