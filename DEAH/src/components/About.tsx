@@ -101,7 +101,7 @@ const About = () => {
                                 <a href="about" className="single link-active">Về Chúng Tôi</a>
                               </li>
                               <li className="single-list">
-                                <a href="destination" className="single ">Điểm Đến</a>
+                                <a href="destination-details" className="single ">Điểm Đến</a>
                               </li>
                               <li className="single-list">
                                 <a href="tour-list" className="single">Gói Du Lịch</a>
@@ -789,7 +789,7 @@ const About = () => {
             <div className="row g-4">
               <div className="col-lg-6 col-md-6">
                 <a href="tour-list" className="offer-banner imgEffect4 wow fadeInLeft" data-wow-delay="0.0s">
-                  <img src="/src/assets/category_tour/cao bằng.jpg" alt="travello" />
+                  <img src="/src/assets/images/gallery/offercard-1.jpg" alt="travello" />
                   <div className="offer-content">
                     <p className="highlights-text">TiếtKiệmLênĐến</p>
                     <h4 className="title">50%</h4>
@@ -804,7 +804,7 @@ const About = () => {
               </div>
               <div className="col-lg-6 col-md-6">
                 <a href="tour-list" className="offer-banner imgEffect4 wow fadeInLeft" data-wow-delay="0.0s">
-                  <img src="/src/assets/category_tour/đà lạt.jpg" alt="travello" />
+                  <img src="/src/assets/images/gallery/offercard-2.jpg" alt="travello" />
                   <div className="offer-content-two">
                     <h4 className="title">Khách sạn gần đó</h4>
                     <p className="pera">

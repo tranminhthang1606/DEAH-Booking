@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
@@ -514,8 +513,8 @@ const TourDetails = () => {
           <section className="tour-details-section section-padding2">
             <div className="tour-details-area">
               {/* Details Banner Slider */}
-              <div className="tour-details-banner ">
-                {/* <div className="swiper tourSwiper-active">
+              <div className="tour-details-banner">
+                <div className="swiper tourSwiper-active">
                   <div className="swiper-wrapper">
                     <div className="swiper-slide">
                       <img src={'http://127.0.0.1:8000/' + (data.tour.images ? data.tour.images[0].image : '')} alt="travello" />
@@ -523,14 +522,12 @@ const TourDetails = () => {
                   </div>
                   <div className="swiper-button-next"><i className="ri-arrow-right-s-line" /></div>
                   <div className="swiper-button-prev"><i className="ri-arrow-left-s-line" /></div>
-                </div> */}
-                <SlideshowDetail />
+                </div>
               </div>
               {/* / Slider*/}
               <div className="tour-details-container">
                 <div className="container">
                   {/* Details Heading */}
-
                   <div className="details-heading">
                     <div className="d-flex flex-column">
                       <h4 className="title">{data.tour.title}</h4>
@@ -544,12 +541,10 @@ const TourDetails = () => {
                           <div className="count">
                             <i className="ri-time-line" />
                             <p className="pera"> {data.tour.day} Ngày {data.tour.day - 1} Đêm</p>
-
                           </div>
-                          <div className="rating">
-
-                            <p className="pera mr-5">Đánh giá: {tourDetai.rates ? tourDetai.rates.qty : 0}</p> <p className="pera"> {tourDetai.rates ? tourDetai.rates.rate : 0}   </p> <i className="ri-star-s-fill  mb-3"></i>
-
+                          <div className="count">
+                            <i className="ri-user-line" />
+                            <p className="pera">2 người </p>
                           </div>
                         </div>
                       </div>
@@ -565,7 +560,6 @@ const TourDetails = () => {
                       </div>
                     </div>
                   </div>
-
                   {/* / Details Heading */}
                   <div className="mt-30">
                     <div className="row g-4">
@@ -596,44 +590,47 @@ const TourDetails = () => {
                           <h4 className="title">Kế hoạch du lịch</h4>
                           <div className="destination-accordion">
                             <div className="accordion" id="accordionPanelsStayOpenExample">
-                              {'Ngày 1'}
-                              <div className="dropdown">
-                                <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                               
-                                </button>
-                                <ul className="dropdown-menu">
-                                  <li><a className="dropdown-item" href="#">Action</a></li>
-                                  <li><a className="dropdown-item" href="#">Another action</a></li>
-                                  <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                              </div>
-
-                              {'Ngày 2'}
-                              <div className="dropdown">
-                                <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                
-                                </button>
-                                <ul className="dropdown-menu">
-                                  <li><a className="dropdown-item" href="#">Action</a></li>
-                                  <li><a className="dropdown-item" href="#">Another action</a></li>
-                                  <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                              </div>
-                              {'Ngày 3'}
-                              <div className="dropdown">
-                                <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              
-                                </button>
-                                <ul className="dropdown-menu">
-                                  <li><a className="dropdown-item" href="#">Action</a></li>
-                                  <li><a className="dropdown-item" href="#">Another action</a></li>
-                                </ul>
-                              </div>
+                              <div className="accordion-item">
+                                <h2 className="accordion-header" id="panelsStayOpen-headingOne">
+                                  <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                    Day 1 - Samyan Bangkok
+                                  </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                                  <div className="accordion-body">
+                                    <p className="pera mb-16">Lorem rất cà rốt
+                                      Nhà phát triển đại học của Người theo dõi, nhưng làm
+                                      một IUSMOD Long-công việc hoặc đau đớn
+                                      thứ gì đó.Trong những năm qua, tôi sẽ đến,
+                                      Bất kỳ ai có thể tập thể dục Ullamco chỉ làm việc như
+                                      Aliquip từ sự tiện lợi của hậu quả.Bài tập về nhà
+                                      Xin vui lòng tự động đau đớn trong niềm vui bị chỉ trích
+                                      để trở thành một cặp đau và khoai tây chiên chạy đi không
+                                      được chuẩn bị.Ngoại trừ những người rèm là háo hức hay không
+                                      Proider, họ có lỗi với các dịch vụ
+                                      từ bỏ linh hồn được làm mềm là đồ ăn nhẹ. "</p>
+                                    <ul className="listing">
+                                      <li className="list">
+                                        “Cuộc sống là một cuộc phiêu lưu táo bạo hoặc không có gì ở
+                                        tất cả."...
+                                      </li>
+                                      <li className="list">
+                                        Du lịch đủ xa, bạn gặp chính mình....
+                                      </li>
+                                      <li className="list">
+                                        Bất cứ nơi nào bạn đi trở thành một phần của bạn bằng cách nào đó....
+                                      </li>
+                                      <li className="list">
+                                        “Mỗi năm một lần, đi đâu đó bạn chưa từng đến
+                                        trước."
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>                    
                             </div>
                           </div>
                         </div>
-
-
                         {/* / Tour Plan accordion*/}
                         {/* Tour Privacy Policy */}
                         <div className="tour-details-content">
@@ -688,7 +685,7 @@ const TourDetails = () => {
                         {/* / Tour Privacy Policy */}
                       </div>
                       {/* Right content */}
-                      {/* <div className="col-xl-4 col-lg-5">
+                      <div className="col-xl-4 col-lg-5">
                         <div className="date-travel-card position-sticky top-0">
                           <div className="price-review">
                             <div className="d-flex gap-10 align-items-end">
@@ -774,9 +771,7 @@ const TourDetails = () => {
                             <p className="pera">Lên đến 24 giờ trước</p>
                           </div>
                         </div>
-                      </div> */}
-                      <TravelCard />
-
+                      </div>
                     </div>
                   </div>
                 </div>
