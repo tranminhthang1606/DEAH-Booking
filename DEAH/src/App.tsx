@@ -18,8 +18,8 @@ import TourDetails from './components/TourDetails';
 import TourList from './components/TourList';
 import Verification from './components/Verification';
 import Indextwo from './components/Indextwo';
-import FunctionApp from './FunctionComponentContext/FunctionApp';
 import SlideShow from './FunctionComponentContext/SlideShow';
+import SlideShowpost from './FunctionComponentContext/SlideShowpost';
 
 
 function App() {
@@ -45,9 +45,9 @@ function App() {
         <Route path="/terms-condition" element={<TermsCondition />} />
         <Route path="/news" element={<New />} />
         <Route path="/contact" element={<Contact />} />
-
-
         <Route path="/slide" element={<SlideShow />} />
+
+        <Route path="/slidepost" element={<SlideShowpost />} />
     
       </Routes>
     </>

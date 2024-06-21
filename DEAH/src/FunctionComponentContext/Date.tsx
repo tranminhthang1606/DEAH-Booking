@@ -5,7 +5,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import '../App.css'
 import { format } from 'date-fns';
 
-const FunctionApp = () => {
+const DateApp = () => {
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState({
     startDate: new Date(),
@@ -38,4 +38,4 @@ const FunctionApp = () => {
   );
 };
 
-export default FunctionApp;
+export default DateApp;
