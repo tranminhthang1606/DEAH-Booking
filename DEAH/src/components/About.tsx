@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
+
 import "../assets/js/main.js"
 import SlideShow from '../FunctionComponentContext/SlideShow.js'
-import 'react-slideshow-image/dist/styles.css';
-import { Slide } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css'
 import '../App.css';
 import Header from './Header.js';
 import Footer from './Footer.js';
