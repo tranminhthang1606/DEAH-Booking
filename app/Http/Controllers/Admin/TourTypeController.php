@@ -3,64 +3,53 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\TourType;
 use Illuminate\Http\Request;
 
 class TourTypeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
-        return view('admin.pages.tour_types.index',['title'=>'Tour types']);
+        $tourTypes = TourType::all();
+        return view('admin.tour_types.index', compact('tourTypes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.tour_types.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate(['name_type' => 'required']);
+        TourType::create($request->all());
+        return redirect()->route('admin.tour_types.index')->with('success', 'Tour type created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $tourType = TourType::findOrFail($id);
+        return view('admin.tour_types.show', compact('tourType'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $tourType = TourType::findOrFail($id);
+        return view('admin.tour_types.edit', compact('tourType'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate(['name_type' => 'required']);
+        $tourType = TourType::findOrFail($id);
+        $tourType->update($request->all());
+        return redirect()->route('tour_types.index')->with('success', 'Tour type updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        TourType::findOrFail($id)->delete();
+        return redirect()->route('tour_types.index')->with('success', 'Tour type deleted successfully.');
     }
 }
+

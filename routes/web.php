@@ -44,8 +44,8 @@ Route::group(['prefix'=>'admin'],function(){
     })->name('admin.index');
     Route::resource('tour_types',TourTypeController::class);
 });
-
-Route::resource('/attributes',AttributeController::class);
+Route::prefix('/')->group(function () {
+ Route::resource('/attributes',AttributeController::class);
 Route::resource('/bannerimage',BannerImageController::class);
 Route::resource('/bookings',BookingController::class);
 Route::resource('/provinces',ProvinceController::class);
@@ -56,17 +56,34 @@ Route::resource('/hotel_images',Hotel_ImageController::class);
 Route::resource('/posts',PostController::class);
 Route::resource('/post_comments',Post_CommentController::class);
 Route::resource('/districts', DistrictController::class);
-Route::resource('/rates', RateController::class);
-Route::resource('/services', ServiceController::class);
-Route::resource('/tourAttributes', TourAttributeController::class);
-Route::resource('/itineraries', ItineraryController::class);
-Route::resource('/tourComments', TourCommentController::class);
-Route::resource('/tours', TourController::class);
-Route::resource('/tourHotels', TourHotelController::class);
-Route::resource('/tourTypes', TourTypeController::class);
-Route::resource('/users', UserController::class);
-Route::resource('/vouchers', VoucherController::class);
-Route::resource('/wards', WardController::class);
+
+
+
+    Route::resource('rates', RateController::class);
+    Route::resource('services', ServiceController::class);
+    Route::resource('tourAttributes', TourAttributeController::class);
+    Route::resource('itineraries', ItineraryController::class);
+    Route::resource('tourComments', TourCommentController::class);
+    Route::resource('tours', TourController::class);
+    Route::resource('tourHotels', TourHotelController::class);
+    Route::resource('tourTypes', TourTypeController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('vouchers', VoucherController::class);
+    Route::resource('wards', WardController::class);
+});
+
+
+// Route::resource('/rates', RateController::class);
+// Route::resource('/services', ServiceController::class);
+// Route::resource('/tourAttributes', TourAttributeController::class);
+// Route::resource('/itineraries', ItineraryController::class);
+// Route::resource('/tourComments', TourCommentController::class);
+// Route::resource('/tours', TourController::class);
+// Route::resource('/tourHotels', TourHotelController::class);
+// Route::resource('/tourTypes', TourTypeController::class);
+// Route::resource('/users', UserController::class);
+// Route::resource('/vouchers', VoucherController::class);
+// Route::resource('/wards', WardController::class);
 
 
 
