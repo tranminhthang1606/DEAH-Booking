@@ -37,7 +37,7 @@ const SlideShow = () => {
             <div className="image-group">
               {group.map((image:any, subIndex:any) => (
                 <div className="image-item" key={subIndex}>
-                  <h4>{image.title}</h4>
+                  <h1>{image.title}</h1>
                   <img src={image.img} alt={image.title} />
                   <p>{image.description}</p>
                   <button className='btn btn-success'>Detai</button>

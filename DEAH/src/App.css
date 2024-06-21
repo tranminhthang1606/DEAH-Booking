@@ -237,13 +237,13 @@ a {
 .image-item img {
   max-width: 100%;
   height: auto;
-  margin-left: 10px;
+  margin-left: 70px;
 }
 
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .image-item {
-    width: 40%;
+    width: 30%;
   }
 }
 
@@ -257,11 +257,4 @@ a {
   .image-item {
     width: 100%;
   }
-}
-/* dropdow */
-.dropdown-toggle{
-    width: 850px;
-}
-.dropdown-menu{
-  width: 850px;
 }
