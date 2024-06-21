@@ -836,3 +836,4 @@
 
 </div>
 @include('admin.layout.footer')
+@yield('scripts')
