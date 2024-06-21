@@ -15,13 +15,19 @@ class PostController extends Controller
     public function __construct(ResponseJson $response)
     {
         $this->response = $response;
-        $this->query = Post::where('status',1);
+        $this->query = Post::where('is_active', 1);
 
     }
     public function index(Request $request)
     {
-        $posts = $this->query->orderByDesc('id')->get();
-        $posts_feature = $this->query->orderBy('views','desc')->get();
+        $posts = $this->query->orderByDesc('created_at')->get();
+        $posts_feature = $this->query->orderBy('views', 'desc')->get();
+        foreach ($posts as $post) {
+            $post->comments = $post->comments()->count('comments');
+        }
+        foreach ($posts_feature as $post) {
+            $post->comments = $post->comments()->count('comments');
+        }
         $data = [
             'posts' => $posts,
             'posts_feature' => $posts_feature
@@ -35,14 +41,11 @@ class PostController extends Controller
     public function show(Request $request)
     {
         $post = $this->query->find($request->id);
-        $comments = $this->query->find($request->id)->comments()->orderByDesc('id')->get();
-        $data = [
-            'post' => $post,
-            'comments' => $comments
-        ];
-        if ($data) {
+        $post->comments = $post->comments()->orderByDesc('created_at')->get('comments');
+
+        if ($post) {
             $this->query->update(['views' => $post->views += 1]);
-            return $this->response->responseSuccess($data);
+            return $this->response->responseSuccess($post);
         }
         return $this->response->responseFailed();
     }

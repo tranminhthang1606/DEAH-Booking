@@ -22,7 +22,7 @@ class Tour extends Model
     'promotion',
     'private',
     'views',
-    'rate',
+    'location',
     'province_id',
     'district_id',
     'ward_id'
@@ -35,9 +35,9 @@ class Tour extends Model
   {
     return $this->hasMany(TourImage::class);
   }
-  public function types()
+  public function type()
   {
-    return $this->belongsTo(TourType::class,'type_id');
+    return $this->belongsTo(TourType::class, 'type_id');
   }
   public function rates()
   {
@@ -47,17 +47,24 @@ class Tour extends Model
   {
     return $this->hasMany(Itinerary::class);
   }
+  public function comments()
+  {
+    return $this->hasMany(TourComment::class);
+  }
   public function province()
   {
-    return $this->belongsTo(Province::class,'province_id');
+    return $this->belongsTo(Province::class, 'province_id');
   }
   public function district()
   {
-    return $this->belongsTo(District::class,'district_id');
+    return $this->belongsTo(District::class, 'district_id');
   }
   public function ward()
   {
-    return $this->belongsTo(Ward::class,'ward_id');
+    return $this->belongsTo(Ward::class, 'ward_id');
   }
-
+  public function attributes()
+  {
+    return $this->belongsToMany(Attribute::class, 'tour_attribute');
+  }
 }

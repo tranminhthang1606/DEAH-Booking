@@ -16,4 +16,8 @@ class TourComment extends Model
         'tour_id',
         'user_id'
     ];
+    public function tour()
+    {
+        return $this->belongsTo(Tour::class);
+    }
 }
