@@ -1,29 +1,32 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import FunctionApp from "../FunctionComponentContext/Date.js"
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-import { Link } from 'react-router-dom';
 import Header from './Header.js';
 import Footer from './Footer.js';
+import CurrencyFormatter from '../FunctionComponentContext/CurrencyFormatter.js';
 const TourList = () => {
+  const [selectedProvince, setSelectedProvince] = useState<any>(null);
+  const [selectedType, setSelectedType] = useState<any>(null);
+  const [tour, setTour] = useState<any>([]);
   let api = 'http://127.0.0.1:8000/api/client/get-tours-list'
-  const { data, error, isLoading } = useQuery({
-    queryKey: ["KEY_LIST"],
-    queryFn: async () => {
-      const { data } = await axios.get(api)
-      console.log(data.data);
-      return data.data
 
-    }
-  })
-  // console.log(data.data);
-
-  if (isLoading) return <div>Loading.....</div>
-  if (error) return <div>loi{error.message}</div>
-  const tours = Array.isArray(data) ? data : [];
-
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.post('http://127.0.0.1:8000/api/client/get-tours-list', {
+          type_id: selectedType,
+          province: selectedProvince
+        });
+        setTour(response.data.data);
+      } catch (error) {
+        if (error) return <div>loi...</div>
+      }
+    };
+    fetchData();
+  }, [selectedProvince, selectedType]);
   return (
     <div>
       <div>
@@ -66,10 +69,13 @@ const TourList = () => {
                           <i className="ri-map-pin-line" />
                           <h4 className="select2-title">Điểm đến</h4>
                         </div>
-                        <select className="destination-dropdown">
-                          <option value={1}>Sydney, Australia</option>
-                          <option value={2}>USA, Turkish </option>
-                          <option value={3}>Chittagong, Turkish </option>
+                        <select className="destination-dropdown" onChange={(e) => setSelectedProvince(e.target.value)}>
+                          <option value=''>-- Lọc theo điểm đến --</option>
+                          {tour.provinces?.map((province) => {
+                            return (
+                              <option value={province.id}>{province.name}</option>
+                            )
+                          })}
                         </select>
                       </div>
                       <div className="select-dropdown-section">
@@ -77,10 +83,14 @@ const TourList = () => {
                           <i className="ri-flight-takeoff-fill" />
                           <h4 className="select2-title">Loại du lịch </h4>
                         </div>
-                        <select className="destination-dropdown">
-                          <option value={1}>Booking Type</option>
-                          <option value={2}>Advance Type</option>
-                          <option value={3}>Pre-book Type</option>
+                        <select className="destination-dropdown" onChange={(e) => setSelectedType(e.target.value)}>
+                          <option value=''>-- Lọc theo loại du lịch --</option>
+                          {tour.types?.map((type) => {
+                            return (
+                              <option value={type.id}>{type.name_type}</option>
+                            )
+                          })}
+
                         </select>
 
                       </div>
@@ -230,26 +240,23 @@ const TourList = () => {
                   </div>
                   <div className="all-tour-list">
                     <div className="row g-4">
-                      {data.tours?.map((tour: any, index: number) => {
+                      {tour.tours?.map((tour: any, index: number) => {
                         return (
 
                           <div className="col-xl-4 col-lg-4 col-sm-6" key={index}>
                             <div className="package-card">
                               <div className="package-img imgEffect4">
                                 <a href="tour-details">
-                                  <img src={'http://127.0.0.1:8000/' + (tour.images ? tour.images[0].image : '')} alt="travello" />
+                                  <img src={'http://127.0.0.1:8000/' + (tour?.images ? tour.images[0].image : '')} alt="travello" />
                                 </a>
 
                               </div>
                               <div className="package-content">
-                                <h4 className="area-name">
+                                <h4 className="area-name mb-3">
 
-                                  <Link to={`/tour-details/${tour.id}`}>{tour.title}</Link>
+                                  <a href={`/tour-details/${tour.id}`}>{tour.title}</a>
                                 </h4>
-                                <div className="location">
-                                  <i className="ri-map-pin-line" />
-                                  <div className="name"></div>
-                                </div>
+
                                 <div className="packages-person">
                                   <div className="count">
                                     <i className="ri-time-line" />
@@ -260,7 +267,7 @@ const TourList = () => {
                                 <div className="price-review">
                                   <div className="d-flex gap-10">
                                     <p className="light-pera mt-1">Từ</p>
-                                    <p className="pera text-danger">{tour.price}.VND</p>
+                                    <p className="pera text-danger"><CurrencyFormatter amount={tour.price} /></p>
                                   </div>
                                   <div className="rating">
 

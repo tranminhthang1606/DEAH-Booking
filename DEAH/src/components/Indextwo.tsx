@@ -6,6 +6,7 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import Header from "./Header.js";
 import Footer from "./Footer.js";
+import CurrencyFormatter from "../FunctionComponentContext/CurrencyFormatter.js";
 
 // import { useState } from "react";
 // import { Calendar } from "react-date-range";
@@ -410,8 +411,6 @@ const Indextwo = () => {
                 <div className="row g-4">
 
                   {data?.map((tours: any, index: any) => {
-
-
                     return (
                       <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
                         <a href="destination-details" className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
@@ -433,11 +432,6 @@ const Indextwo = () => {
                       </div>
                     )
                   })}
-
-
-
-
-
                 </div>
               </div>
             </div>
@@ -562,19 +556,19 @@ const Indextwo = () => {
                               </h4>
                               <div className="location">
                                 <i className="ri-map-pin-line" />
-                                {/* <div className="name">Tây Hồ , Hà Nội </div> */}
+                                {tour.province.name}
                               </div>
                               <div className="packages-person">
                                 <div className="count">
                                   <i className="ri-time-line" />
-                                  <p className="pera mt-3 ml-2">{tour.day} Ngày</p>
+                                  <p className="pera mt-3 ml-2">{tour.day} Ngày {(tour.day-1)==0?'':tour.day-1+' Đêm'}</p>
                                 </div>
 
                               </div>
                               <div className="price-review">
                                 <div className="d-flex gap-10">
                                   <p className="light-pera">Từ</p>
-                                  <p className="pera text-danger" >{tour.price}. VND</p>
+                                  <p className="pera text-danger" ><CurrencyFormatter amount={tour.price}/></p>
                                 </div>
 
                               </div>

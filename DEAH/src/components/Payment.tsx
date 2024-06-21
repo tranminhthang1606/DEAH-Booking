@@ -1,12 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import CurrencyFormatter from '../FunctionComponentContext/CurrencyFormatter';
 
 const Payment = () => {
+
+  const tourString = localStorage.getItem('tour');
+  const tour = tourString ? JSON.parse(tourString) : null;
+  console.log(tour);
+
+  const [startDate, setStartDate] = useState<string>('');
+  const [endDate, setEndDate] = useState<string>('');
+
+  
+
+  const handleStartDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedStartDate = e.target.value;
+    setStartDate(selectedStartDate);
+
+    // Calculate end date
+    const startDateObj = new Date(selectedStartDate);
+    const endDateObj = new Date(startDateObj);
+    endDateObj.setDate(startDateObj.getDate() + tour.tour.day);
+
+    // Format end date as YYYY-MM-DD
+    const formattedEndDate = endDateObj.toISOString().split('T')[0];
+    setEndDate(formattedEndDate);
+  };
+
   return (
     <div>
       <div>
-     <Header/>
+        <Header />
         <main>
           {/* Breadcrumbs S t a r t */}
           <section className="breadcrumbs-area breadcrumb-bg">
@@ -30,17 +55,17 @@ const Payment = () => {
                 <div className="container">
                   <div className="details-heading mb-30">
                     <div className="d-flex flex-column">
-                      <h4 className="title">Travello Tour - Best Of Samyan Bangkok</h4>
+                      <h4 className="title">{tour.tour.title}</h4>
                       <div className="d-flex flex-wrap align-items-center gap-30 mt-16">
                         <div className="location">
                           <i className="ri-map-pin-line" />
-                          <div className="name">Bangkok, Thailand</div>
+                          <div className="name">{tour.address.province}</div>
                         </div>
                         <div className="divider" />
                         <div className="d-flex align-items-center flex-wrap gap-20">
                           <div className="count">
                             <i className="ri-time-line" />
-                            <p className="pera">3 ngày 2 đêm</p>
+                            <p className="pera">{tour.tour.day} ngày {tour.tour.day - 1 == 0 ? '' : (tour.tour.day - 1 + ' đêm')}</p>
                           </div>
                           <div className="count">
                             <i className="ri-user-line" />
@@ -51,12 +76,8 @@ const Payment = () => {
                     </div>
                     <div className="price-review">
                       <div className="d-flex gap-10 align-items-end">
-                        <p className="light-pera">Từ</p>
-                        <p className="pera">$95</p>
-                      </div>
-                      <div className="rating">
-                        <i className="ri-star-s-fill" />
-                        <p className="pera">4.7 (20 Reviews)</p>
+                        <p className="light-pera">Thành Tiền</p>
+                        <p className="pera"><CurrencyFormatter amount={tour.tour.price} /></p>
                       </div>
                     </div>
                   </div>
@@ -73,16 +94,6 @@ const Payment = () => {
                             <li className="list"> Bộ sơ cứu (trong trường hợp khẩn cấp) </li>
                           </ul>
                         </div>
-                        <div className="divider" />
-                        <div className="includ-exclude-point">
-                          <h4 className="title">Loại trừ </h4>
-                          <ul className="expect-list">
-                            <li className="list">Chi phí cá nhân </li>
-                            <li className="list">Bất cứ điều gì khác không được đề cập trên các vùi </li>
-                            <li className="list"> Dịch vụ bổ sung </li>
-                            <li className="list"> những người khác và vv </li>
-                          </ul>
-                        </div>
                       </div>
                       {/*/ Included Exclude*/}
                       {/* Payment S t a r t */}
@@ -91,17 +102,62 @@ const Payment = () => {
                         <div className="card-style box-shadow border-0">
                           <form action="#">
                             <div className="row">
-                              <div className="col-lg-6">
-                                <div className="contact-form mb-24">
-                                  <label className="contact-label">Tên</label>
-                                  <input className="form-control contact-input" type="text" placeholder="e.g Alex" />
-                                </div>
+                              <div className="col mb-4">
+                                <label htmlFor="firstName">Họ</label>
+                                <input type="text" className="form-control" placeholder="First name" aria-label="First name" />
                               </div>
-                              <div className="col-lg-6">
-                                <div className="contact-form mb-24">
-                                  <label className="contact-label">Email</label>
-                                  <input className="form-control contact-input" type="email" placeholder="e.g example@gmail.com" />
-                                </div>
+                              <div className="col mb-4">
+                                <label htmlFor="lastName">Tên</label>
+                                <input type="text" className="form-control" placeholder="Last name" aria-label="Last name" />
+                              </div>
+                            </div>
+                            <div className="input-group col mb-4">
+                              <div className="input-group-text">+84</div>
+                              <input type="text" className="form-control" placeholder="Số điện thoại" />
+                            </div>
+
+                            <div className="mb-4">
+                              <label htmlFor="email">Email (Bắt Buộc)</label>
+                              <input type="email" className="form-control" placeholder="you@example.com" aria-label="email" />
+                            </div>
+
+                            <div className="mb-4">
+                              <label htmlFor="address">Địa chỉ</label>
+                              <input type="text" className="form-control" placeholder="1234 Main St" aria-label="Address" />
+                            </div>
+
+                            <div className="mb-4">
+                              <label htmlFor="address2">Địa chỉ 2 (Tuỳ Chọn)</label>
+                              <input type="text" className="form-control" placeholder="Apartment or suite" aria-label="Address2" />
+                            </div>
+
+                            <div className="row">
+                              <div className="col">
+                                <label htmlFor="country">Thành Phố</label>
+                                <select className="form-select">
+                                  <option selected>Choose...</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
+                              </div>
+                              <div className="col">
+                                <label htmlFor="state">Quận</label>
+                                <select className="form-select">
+                                  <option selected>Choose...</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
+                              </div>
+                              <div className="col mb-4">
+                                <label htmlFor="state">Phường</label>
+                                <select className="form-select">
+                                  <option selected>Choose...</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
                               </div>
                             </div>
                             <div className="form-group col-12 payment-gateway-wrapper mt-10">
@@ -132,7 +188,7 @@ const Payment = () => {
                                   <span className="checkmark-style" />
                                 </label>
                               </div>
-                              <a href="javascript:void(0)" className="btn-primary-submit">Payment Now</a>
+                              <a href="javascript:void(0)" className="btn-primary-submit">Thanh Toán</a>
                             </div>
                           </form>
                         </div>
@@ -143,8 +199,8 @@ const Payment = () => {
                       <div className="date-travel-card position-sticky top-0">
                         <div className="price-review">
                           <div className="d-flex gap-10 align-items-end">
-                            <p className="light-pera">Từ</p>
-                            <p className="pera">$95</p>
+                            <p className="light-pera">Tổng</p>
+                            <p className="pera"><CurrencyFormatter amount={tour.tour.price} /></p>
                           </div>
                           <div className="rating">
                             <p className="pera">Giá thay đổi theo quy mô nhóm</p>
@@ -152,14 +208,16 @@ const Payment = () => {
                         </div>
                         <h4 className="heading-card">Chọn Ngày và Khách du lịch </h4>
                         <div className="date-time-dropdown">
-                            <div>
-                              <input type="date"/> bắt đầu
-                              <input type="date"/> kết thúc
-                            </div>
+                          <div>
+                            <input type="date" value={startDate}
+                              onChange={handleStartDateChange} /> bắt đầu
+                            <input type="date" value={endDate}
+                              readOnly /> kết thúc
+                          </div>
                         </div>
                         <div className="dropdown-section position-relative user-picker-dropdown">
                           <div className="d-flex gap-12 align-items-center">
-                          <input type="text" placeholder=' Nhập số lượng người tại .... '/>
+                            <input type="text" placeholder=' Nhập số lượng người tại .... ' />
                           </div>
                           <div className="user-result" />
                           <div className="user-picker dropdown-shadow">
@@ -213,9 +271,6 @@ const Payment = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="mt-30">
-                          <button type="submit" className="send-btn w-100">Sẵn sàng kiểm tra</button>
-                        </div>
                         <div className="footer bg-transparent">
                           <h4 className="title">Hủy bỏ miễn phí</h4>
                           <p className="pera"> Lên đến 24 giờ trước</p>
@@ -230,7 +285,7 @@ const Payment = () => {
           {/*/ End-of Destination */}
         </main>
         {/* Footer S t a r t */}
-      <Footer/>
+        <Footer />
         <div className="progressParent" id="back-top">
           <svg className="backCircle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
