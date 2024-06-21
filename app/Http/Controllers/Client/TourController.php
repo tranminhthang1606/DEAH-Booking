@@ -59,7 +59,7 @@ class TourController extends Controller
                 'rate' => number_format($tour->rates()->avg('rate'), 1),
                 'qty' => $tour->rates()->count('rate')
             ];
-            $tour->images = $tour->images()->get('image');
+            $tour->images = $tour->images()->value('image');
             $tour->location = [
                 'province' => $tour->province()->value('name'),
                 'district' => $tour->district()->value('name'),
@@ -102,9 +102,22 @@ class TourController extends Controller
         $tour_same_type = Tour::where('is_active', 1)
             ->where('type_id', $this->query->type->id)->whereNot('id', $request->id)
             ->take(8)->get();
+        foreach ($tour_same_type as $tour) {
+            $tour->type = $tour->type()->value('name_type');
+            $tour->rates = [
+                'rate' => number_format($tour->rates()->avg('rate'), 1),
+                'qty' => $tour->rates()->count('rate')
+            ];
+            $tour->images = $tour->images()->value('image');
+            $tour->location = [
+                'province' => $tour->province()->value('name'),
+                'district' => $tour->district()->value('name'),
+                'ward' => $tour->ward()->value('name')
+            ];
+        }
         $data = [
             'tour' => $tour,
-            // 'tour_type' => $tour_type
+            'tour_same_type' => $tour_same_type
         ];
         if ($data) {
             $this->query->update(['views' => $tour->views += 1]);
