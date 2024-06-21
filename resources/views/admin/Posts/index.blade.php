@@ -17,7 +17,7 @@
             @foreach ($posts as $post)
                 <tr>
                     <td>{{ $post->title }}</td>
-                    <td><img src="{{ $post->thumbnail }}" width="100" height="50" alt=""></td>
+                    <td>  <img src="{{ Storage::url($post->thumbnail) }}" width="100" height="50"  Thumbnail"></td>
                     <td>{{ $post->views }}</td>
                     <td> @php
                         echo $post->is_active == 1

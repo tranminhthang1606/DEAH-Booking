@@ -19,24 +19,23 @@ class Hotel extends Model
            'description',
            'services',
            'status',
-           'owner_id',
            'province_id',
            'district_id',
            'ward_id',
            'address',
-           'rate',
+           'status',
 
     ];
     public function province()
     {
-        return $this->hasMany(Province::class);
+        return $this->belongsTo(Province::class,'province_id');
     }
     public function district()
     {
-        return $this->hasMany(District::class);
+        return $this->belongsTo(District::class,'district_id');
     }
     public function ward()
     {
-        return $this->hasMany(Ward::class);
+        return $this->belongsTo(Ward::class,'ward_id');
     }
 }
