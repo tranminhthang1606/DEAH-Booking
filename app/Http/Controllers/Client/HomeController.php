@@ -16,7 +16,8 @@ class HomeController extends Controller
         $this->response = $response;
     }
     public function newTours(){
-        $tours = Tour::orderByDesc('id')->with('images')->take(8)->get();
+        $tours = Tour::orderByDesc('id')->with('images','province')->take(8)->get();
+        
         if($tours){
             return $this->response->responseSuccess($tours);
         }
