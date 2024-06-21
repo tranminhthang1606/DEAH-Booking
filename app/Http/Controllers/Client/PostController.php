@@ -23,10 +23,10 @@ class PostController extends Controller
         $posts = $this->query->orderByDesc('created_at')->get();
         $posts_feature = $this->query->orderBy('views', 'desc')->get();
         foreach ($posts as $post) {
-            $post->comments = $post->comments()->count('comment');
+            $post->comments = $post->comments()->count('comments');
         }
         foreach ($posts_feature as $post) {
-            $post->comments = $post->comments()->count('comment');
+            $post->comments = $post->comments()->count('comments');
         }
         $data = [
             'posts' => $posts,
@@ -41,7 +41,7 @@ class PostController extends Controller
     public function show(Request $request)
     {
         $post = $this->query->find($request->id);
-        $post->comments = $post->comments()->orderByDesc('created_at')->get('comment');
+        $post->comments = $post->comments()->orderByDesc('created_at')->get('comments');
 
         if ($post) {
             $this->query->update(['views' => $post->views += 1]);

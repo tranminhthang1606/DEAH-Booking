@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('post_comments', function (Blueprint $table) {
             $table->id();
-            $table->text('comment');
+            $table->text('comments');
             $table->foreignId('post_id')->constrained()->on('posts');
             $table->foreignId('user_id')->constrained()->on('users');
             $table->softDeletes();

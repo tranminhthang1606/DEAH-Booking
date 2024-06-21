@@ -66,7 +66,7 @@ class HomeController extends Controller
     {
         $posts = Post::where('is_active', 1)->orderByDesc('created_at')->take(8)->get();
         foreach ($posts as $post) {
-            $post->comments = $post->comments()->count('comment');
+            $post->comments = $post->comments()->count('comments');
         }
         if ($posts) {
             return $this->response->responseSuccess($posts);

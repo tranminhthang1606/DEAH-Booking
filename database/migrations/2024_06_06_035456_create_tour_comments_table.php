@@ -13,7 +13,7 @@ return new class extends Migration {
 
             Schema::create('tour_comments', function (Blueprint $table) {
                 $table->id();
-                $table->string('comment');
+                $table->string('comments');
                 $table->foreignId('tour_id')->constrained()->on('tours');
                 $table->foreignId('user_id')->constrained()->on('users');
                 $table->softDeletes();

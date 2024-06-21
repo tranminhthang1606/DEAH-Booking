@@ -97,7 +97,7 @@ class TourController extends Controller
             'qty' => $rate->count('rate')
         ];
         //Đánh giá của tour
-        $tour->comments = $tour->comments()->orderByDesc('created_at')->get('comment');
+        $tour->comments = $tour->comments()->orderByDesc('created_at')->get('comments');
         //Các tour cùng kiểu du lịch
         $tour_same_type = Tour::where('is_active', 1)
             ->where('type_id', $this->query->type->id)->whereNot('id', $request->id)
