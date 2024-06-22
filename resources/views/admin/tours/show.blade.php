@@ -10,7 +10,7 @@
                     <div class="card-header">{{ $tour->title }}</div>
                     <div class="card-body">
                         <p><strong>Type:</strong> {{ $tour->types->name }}</p>
-                        <p><strong>Province:</strong> {{ $tour->province->name }}</p>
+                        <p><strong>Province:</strong> {{ $tour->provinces->name }}</p>
                         <!-- Add more details as needed -->
                     </div>
                 </div>

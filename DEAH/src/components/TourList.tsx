@@ -20,6 +20,8 @@ const TourList = () => {
           type_id: selectedType,
           province: selectedProvince
         });
+        console.log(response.data.data);
+        
         setTour(response.data.data);
       } catch (error) {
         if (error) return <div>loi...</div>
@@ -247,7 +249,7 @@ const TourList = () => {
                             <div className="package-card">
                               <div className="package-img imgEffect4">
                                 <a href="tour-details">
-                                  <img src={'http://127.0.0.1:8000/' + (tour?.images ? tour.images[0].image : '')} alt="travello" />
+                                  <img src={'http://127.0.0.1:8000/' + (tour.images ? tour.images: '')} alt="travello" />
                                 </a>
 
                               </div>

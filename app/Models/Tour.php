@@ -35,7 +35,7 @@ class Tour extends Model
   {
     return $this->hasMany(TourImage::class);
   }
-  public function type()
+  public function types()
   {
     return $this->belongsTo(TourType::class, 'type_id');
   }
@@ -51,20 +51,17 @@ class Tour extends Model
   {
     return $this->hasMany(TourComment::class);
   }
-  public function province()
+  public function provinces()
   {
     return $this->belongsTo(Province::class, 'province_id');
   }
-  public function district()
+  public function districts()
   {
     return $this->belongsTo(District::class, 'district_id');
   }
-  public function ward()
+  public function wards()
   {
     return $this->belongsTo(Ward::class, 'ward_id');
   }
-  public function attributes()
-  {
-    return $this->belongsToMany(Attribute::class, 'tour_attribute');
-  }
+  
 }

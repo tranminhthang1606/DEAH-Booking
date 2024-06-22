@@ -23,7 +23,7 @@
                             <label for="tour_id">Tour:</label>
                             <select class="form-control" id="tour_id" name="tour_id" required>
                                 @foreach ($tours as $tour)
-                                    <option value="{{ $tour->id }}">{{ $tour->name }}</option>
+                                    <option value="{{ $tour->id }}">{{ $tour->title }}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -11,9 +11,12 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::all();
-        return response()->json($services);
+        return view('admin.services.index',compact('services'));
     }
 
+    public function create(){
+        return view('admin.services.create');
+    }
     // Lấy thông tin chi tiết của một dịch vụ
     public function show($id)
     {

@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 
 class VoucherController extends Controller
 {
-    //
+    
     public function index()
 {
-    $data = Voucher::all();
-    return response()->json($data);
+    $vouchers = Voucher::all();
+    return view('admin.vouchers.index',compact('vouchers'));
 }
 
 public function show(string $id)

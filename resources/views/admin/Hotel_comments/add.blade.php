@@ -3,7 +3,7 @@
 @section('content')
 
 
-        <form action="{{ route('hote_comments.store') }}" method="POST">
+        <form action="{{ route('hotel_comments.store') }}" method="POST">
             @csrf
 
             <div class="row">
@@ -24,7 +24,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                     <div class="form-group">
                         <strong>User:</strong>
                         <select class="form-control" name="user_id">

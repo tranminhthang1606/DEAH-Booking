@@ -125,6 +125,19 @@
             </div>
         </div>
 
+        <div class="form-group row">
+            <label for="is_active" class="col-md-4 col-form-label text-md-right">{{ __('is_active') }}</label>
+            <div class="col-md-6">
+                <input id="is_active" type="text" class="form-control @error('is_active') is-invalid @enderror"
+                    name="is_active" value="{{ old('is_active') }}" required autocomplete="is_active" autofocus>
+                @error('is_active')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+
         <button type="submit">Gửi</button>
     </form>
 @section('scripts')

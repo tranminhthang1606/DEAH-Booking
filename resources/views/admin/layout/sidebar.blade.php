@@ -23,11 +23,6 @@
                             <a href="{{ route('tours.index') }}" class="nav-link" data-key="t-chat"> Tours </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('itineraries.index') }}" class="nav-link">
-                                Itineraries
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="{{ route('tourTypes.index') }}" class="nav-link">
                                 Tour types
                             </a>
@@ -37,16 +32,6 @@
                                 Tour hotels
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('tourAttributes.index') }}" class="nav-link">
-                                Tour Attributes
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('tourComments.index') }}" class="nav-link" data-key="t-chat">Tour Comments
-                            </a>
-                        </li>
-
                         <li class="nav-item">
                             <a href="{{ route('attributes.index') }}" class="nav-link" data-key="t-chat"> Attributes
                             </a>

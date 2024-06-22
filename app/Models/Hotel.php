@@ -9,22 +9,22 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Hotel extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+
     protected $table = 'hotels';
     protected $fillable = [
-           'name',
-           'room',
-           'price',
-           'promotion',
-           'description',
-           'services',
-           'status',
-           'province_id',
-           'district_id',
-           'ward_id',
-           'address',
-           'status',
-
+        'name',
+        'room',
+        'price',
+        'promotion',
+        'description',
+        'services',
+        'status',
+        'province_id',
+        'district_id',
+        'ward_id',
+        'address',
+        'status',
+        'is_active'
     ];
     public function province()
     {

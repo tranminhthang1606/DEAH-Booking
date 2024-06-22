@@ -32,17 +32,19 @@ class ItineraryController extends Controller
 
         Itinerary::create($request->all());
 
-        return redirect()->route('itineraries.index')->with('success', 'Itinerary created successfully.');
+        return redirect()->route('itineraries.show',$request->tour_id)->with('success', 'Itinerary created successfully.');
     }
 
-    public function show(Itinerary $itinerary)
+    public function show($id)
     {
-        return view('admin.itineraries.show', compact('itinerary'));
+        $itineraries = Itinerary::where('tour_id',$id)->get();
+        return view('admin.itineraries.show', compact('itineraries'));
     }
 
     public function edit(Itinerary $itinerary)
     {
         $tours = Tour::all();
+        
         return view('admin.itineraries.edit', compact('itinerary', 'tours'));
     }
 
@@ -57,13 +59,13 @@ class ItineraryController extends Controller
 
         $itinerary->update($request->all());
 
-        return redirect()->route('itineraries.index')->with('success', 'Itinerary updated successfully.');
+        return redirect()->route('itineraries.show',$request->tour_id)->with('success', 'Itinerary updated successfully.');
     }
 
     public function destroy(Itinerary $itinerary)
     {
         $itinerary->delete();
 
-        return redirect()->route('itineraries.index')->with('success', 'Itinerary deleted successfully.');
+        return redirect()->back()->with('success', 'Itinerary deleted successfully.');
     }
 }

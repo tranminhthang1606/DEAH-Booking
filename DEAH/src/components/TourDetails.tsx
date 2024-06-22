@@ -94,7 +94,7 @@ const TourDetails = () => {
                       <div className="d-flex flex-wrap align-items-center gap-30 mt-16">
                         <div className="location">
                           <i className="ri-map-pin-line" />
-                          <div className="name">{data.address.province}</div>
+                          <div className="name">{data.tour.location.province}</div>
                         </div>
                         <div className="divider" />
                         <div className="d-flex align-items-center flex-wrap gap-20">

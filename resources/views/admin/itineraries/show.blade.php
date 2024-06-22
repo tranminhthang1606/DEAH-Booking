@@ -1,25 +1,50 @@
 @extends('admin.layout.master')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Tour Attribute Details</h1>
-                <div class="card">
-                    <div class="card-header">Tour Attribute Details</div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="attribute_id">Attribute ID:</label>
-                            <input type="text" class="form-control" id="attribute_id" name="attribute_id" value="{{ $tourAttribute->attribute_id }}" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="tour_id">Tour ID:</label>
-                            <input type="text" class="form-control" id="tour_id" name="tour_id" value="{{ $tourAttribute->tour_id }}" readonly>
-                        </div>
-                        <a href="{{ route('tour-attributes.index') }}" class="btn btn-secondary">Back</a>
-                    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ route('itineraries.create') }}" class="btn btn-primary mb-3">Add New Itinerary</a>
+            <h1>Manage Itineraries</h1>
+            <div class="card">
+                <div class="card-header">Itineraries List</div>
+                <div class="card-body">
+                    @if (session('success'))
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                    @endif
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tour</th>
+                                <th>Day</th>
+                                <th>Title</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($itineraries as $itinerary)
+                                <tr>
+                                    <td>{{ $itinerary->id }}</td>
+                                    <td>{{ $itinerary->tour->title }}</td>
+                                    <td>{{ $itinerary->day }}</td>
+                                    <td>{{ $itinerary->title }}</td>
+                                    <td>
+                                        <a href="{{ route('itineraries.show', $itinerary->id) }}" class="btn btn-primary btn-sm">View</a>
+                                        <a href="{{ route('itineraries.edit', $itinerary->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                        <form action="{{ route('itineraries.destroy', $itinerary->id) }}" method="POST" style="display: inline-block;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this itinerary?')">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+</div>
 @endsection

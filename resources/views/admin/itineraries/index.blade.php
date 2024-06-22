@@ -26,7 +26,7 @@
                             @foreach ($itineraries as $itinerary)
                                 <tr>
                                     <td>{{ $itinerary->id }}</td>
-                                    <td>{{ $itinerary->tour->name }}</td>
+                                    <td>{{ $itinerary->tour->title }}</td>
                                     <td>{{ $itinerary->day }}</td>
                                     <td>{{ $itinerary->title }}</td>
                                     <td>

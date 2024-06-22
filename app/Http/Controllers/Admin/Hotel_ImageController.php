@@ -23,6 +23,11 @@ class Hotel_ImageController extends Controller
         return view('admin.Hotel_images.add', compact('hotels'));
     }
 
+    public function show($id){
+        $hotelImages = HotelImage::where('hotel_id',$id)->get();
+        return view('admin.Hotel_images.show', compact('hotelImages'));
+    }
+
   
     public function store(Request $request)
     {
@@ -43,7 +48,7 @@ class Hotel_ImageController extends Controller
 
         $hotelImage->save();
 
-        return redirect()->route('hotel_images.index')
+        return redirect()->route('hotel_images.show',$request->hotel_id)
                         ->with('success','Hotel Image created successfully.');
     }
 
@@ -76,7 +81,7 @@ class Hotel_ImageController extends Controller
 
         $hotelImage->save();
 
-        return redirect()->route('hotel_images.index')
+        return redirect()->route('hotel_images.show',$request->hotel_id)
                         ->with('success','Hotel Image updated successfully');
     }
 

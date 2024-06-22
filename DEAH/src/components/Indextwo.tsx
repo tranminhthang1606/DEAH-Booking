@@ -414,7 +414,7 @@ const Indextwo = () => {
                     return (
                       <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
                         <a href="destination-details" className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
-                          <img src={'http://127.0.0.1:8000/' + (tours.images ? tours.images[0].image : '')} alt="travello" />
+                          <img src={'http://127.0.0.1:8000/' + (tours.images ? tours.images : '')} alt="travello" />
                           <div className="destination-content-two">
                             <div className="ratting-badge">
                               <span>7 Tour</span>
@@ -546,7 +546,7 @@ const Indextwo = () => {
                           <div className="package-card">
                             <div className="package-img imgEffect4">
                               <a href="tour-details">
-                                <img src="/src/assets/category_tour/hội an.jpg" alt="travello" />
+                                <img src={'http://127.0.0.1:8000/' + (tour.images ? tour.images : '')} alt="travello" />
                               </a>
 
                             </div>
@@ -556,7 +556,7 @@ const Indextwo = () => {
                               </h4>
                               <div className="location">
                                 <i className="ri-map-pin-line" />
-                                {tour.province.name}
+                                {tour.location.province}
                               </div>
                               <div className="packages-person">
                                 <div className="count">

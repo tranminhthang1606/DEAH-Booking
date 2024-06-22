@@ -22,7 +22,7 @@ class Hotel_CommentController extends Controller
     {
         $hotels = Hotel::all();
         $users = User::all();
-        return view('admin.Hotel_comment.add', compact('hotels', 'users'));
+        return view('admin.Hotel_comments.add', compact('hotels', 'users'));
     }
 
   

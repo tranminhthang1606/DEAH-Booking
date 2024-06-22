@@ -41,9 +41,9 @@
                                         <td>{{ $tour->id }}</td>
                                         <td>{{ $tour->title }}</td>
                                         <td>{{ $tour->types->name_type }}</td>
-                                        <td>{{ $tour->province->name }}</td>
-                                        <td>{{ $tour->district->name }}</td>
-                                        <td>{{ $tour->ward->name }}</td>
+                                        <td>{{ $tour->provinces->name }}</td>
+                                        <td>{{ $tour->districts->name }}</td>
+                                        <td>{{ $tour->wards->name }}</td>
                                         <td>{{ $tour->description }}</td>
                                         <td>{{ $tour->price }}</td>
                                         <td>{{ $tour->promotion }}</td>
@@ -55,8 +55,19 @@
                                             @endphp
                                         </td>
                                         <td>
-                                            <a href="{{ route('tours.show', $tour->id) }}"
-                                                class="btn btn-primary btn-sm">View</a>
+                                            <a class="btn btn-primary btn-sm dropdownButton"
+                                                data-target="dropdownMenu{{ $tour->id }}">View</a>
+                                            <div id="dropdownMenu{{ $tour->id }}" class="dropdown-menu"
+                                                style="display: none;">
+                                                <a class="dropdown-item"
+                                                    href="{{ route('tourAttributes.show', $tour->id) }}">Attributes</a>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('tourHotels.show', $tour->id) }}">Hotels</a>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('tourComments.show', $tour->id) }}">Comments</a>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('itineraries.show', $tour->id) }}">Itineraries</a>
+                                            </div>
                                             <a href="{{ route('tours.edit', $tour->id) }}"
                                                 class="btn btn-warning btn-sm">Edit</a>
                                             <form action="{{ route('tours.destroy', $tour->id) }}" method="POST"
@@ -78,4 +89,23 @@
             </div>
         </div>
     </div>
+@endsection
+@section('scripts')
+    <script>
+        document.querySelectorAll('.dropdownButton').forEach(button => {
+            button.addEventListener('click', function() {
+                var hideAll = document.querySelectorAll('.dropdown-menu');
+                var targetId = this.getAttribute('data-target');
+                var dropdownMenu = document.getElementById(targetId);
+                if (dropdownMenu.style.display === 'none' || dropdownMenu.style.display === '') {
+                    hideAll.forEach(item => {
+                        item.style.display = 'none';
+                    });
+                    dropdownMenu.style.display = 'block';
+                } else {
+                    dropdownMenu.style.display = 'none';
+                }
+            });
+        });
+    </script>
 @endsection

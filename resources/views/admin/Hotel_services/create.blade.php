@@ -4,9 +4,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Create Tour Attribute</h1>
+                <h1>Create Hotel Services</h1>
                 <div class="card">
-                    <div class="card-header">Create Tour Attribute</div>
+                    <div class="card-header">Create Hotel Services</div>
                     <div class="card-body">
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -17,25 +17,25 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="{{ route('tourAttributes.store') }}" method="POST">
+                        <form action="{{ route('hotel_services.store') }}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label for="attribute_id">Attribute:</label>
-                                <select class="form-control" id="attribute_id" name="attribute_id" required>
-                                    @foreach ($attributes as $attribute)
-                                        <option value="{{ $attribute->id }}">{{ $attribute->attribute }}</option>
+                                <label for="service_id">Service:</label>
+                                <select class="form-control" id="service_id" name="service_id" required>
+                                    @foreach ($services as $service)
+                                        <option value="{{ $service->id }}">{{ $service->service }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="tour_id">Tour:</label>
-                                <select class="form-control" id="tour_id" name="tour_id" required>
-                                    @foreach ($tours as $tour)
-                                        <option value="{{ $tour->id }}">{{ $tour->title }}</option>
+                                <label for="hotel_id">Hotel:</label>
+                                <select class="form-control" id="hotel_id" name="hotel_id" required>
+                                    @foreach ($hotels as $hotel)
+                                        <option value="{{ $hotel->id }}">{{ $hotel->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">Create Tour Attribute</button>
+                            <button type="submit" class="btn btn-primary">Create Hotel Service</button>
                         </form>
                     </div>
                 </div>

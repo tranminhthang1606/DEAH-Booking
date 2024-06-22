@@ -83,7 +83,7 @@ class TourController extends Controller
     public function show($id)
     {
         // Lấy thông tin chi tiết của một tour cụ thể
-        $tour = Tour::with('images', 'rates', 'itineraries', 'types', 'province', 'districts', 'wards')->findOrFail($id);
+        $tour = Tour::with('images', 'rates', 'itineraries', 'types', 'provinces', 'districts', 'wards')->findOrFail($id);
         return view('admin.tours.show', compact('tour'));
     }
 

@@ -54,16 +54,16 @@ class TourController extends Controller
         $provinces = Province::whereIn('id', $provinces_id)->get();
         $tour_type = TourType::whereIn('id', $types_id)->get();
         foreach ($tours as $tour) {
-            $tour->type = $tour->type()->value('name_type');
+            $tour->type = $tour->types()->value('name_type');
             $tour->rates = [
                 'rate' => number_format($tour->rates()->avg('rate'), 1),
                 'qty' => $tour->rates()->count('rate')
             ];
             $tour->images = $tour->images()->value('image');
             $tour->location = [
-                'province' => $tour->province()->value('name'),
-                'district' => $tour->district()->value('name'),
-                'ward' => $tour->ward()->value('name')
+                'province' => $tour->provinces()->value('name'),
+                'district' => $tour->districts()->value('name'),
+                'ward' => $tour->wards()->value('name')
             ];
         }
 
@@ -80,16 +80,16 @@ class TourController extends Controller
         $rate = $this->query->rates();
         $tour = Tour::find($request->id);
         //Kiểu du lịch của tour
-        $tour->type = $tour->type()->value('name_type');
+        $tour->type = $tour->types()->value('name_type');
         //Lịch trình tour
         $tour->itineraries = $tour->itineraries()->orderBy('day')->get(['day', 'title', 'itinerary']);
         //Ảnh của tour
         $tour->images = $tour->images()->get('image');
         //Địa điểm tour
         $tour->location = [
-            'province' => $this->query->province()->value('name'),
-            'district' => $this->query->district()->value('name'),
-            'ward' => $this->query->ward()->value('name')
+            'province' => $this->query->provinces()->value('name'),
+            'district' => $this->query->districts()->value('name'),
+            'ward' => $this->query->wards()->value('name')
         ];
         //Đánh giá của tour
         $tour->rate = [
@@ -97,27 +97,27 @@ class TourController extends Controller
             'qty' => $rate->count('rate')
         ];
         //Đánh giá của tour
-        $tour->comments = $tour->comments()->orderByDesc('created_at')->get('comments');
+        $tour->comments = $tour->comments()->orderByDesc('created_at')->get('comment');
         //Các tour cùng kiểu du lịch
-        $tour_same_type = Tour::where('is_active', 1)
-            ->where('type_id', $this->query->type->id)->whereNot('id', $request->id)
-            ->take(8)->get();
-        foreach ($tour_same_type as $tour) {
-            $tour->type = $tour->type()->value('name_type');
-            $tour->rates = [
-                'rate' => number_format($tour->rates()->avg('rate'), 1),
-                'qty' => $tour->rates()->count('rate')
-            ];
-            $tour->images = $tour->images()->value('image');
-            $tour->location = [
-                'province' => $tour->province()->value('name'),
-                'district' => $tour->district()->value('name'),
-                'ward' => $tour->ward()->value('name')
-            ];
-        }
+        // $tour_same_type = Tour::where('is_active', 1)
+        //     ->where('type_id', $this->query->type->id)->whereNot('id', $request->id)
+        //     ->take(8)->get();
+        // foreach ($tour_same_type as $tour) {
+        //     $tour->type = $tour->types()->value('name_type');
+        //     $tour->rates = [
+        //         'rate' => number_format($tour->rates()->avg('rate'), 1),
+        //         'qty' => $tour->rates()->count('rate')
+        //     ];
+        //     $tour->images = $tour->images()->value('image');
+        //     $tour->location = [
+        //         'province' => $tour->provinces()->value('name'),
+        //         'district' => $tour->districts()->value('name'),
+        //         'ward' => $tour->wards()->value('name')
+        //     ];
+        // }
         $data = [
             'tour' => $tour,
-            'tour_same_type' => $tour_same_type
+            
         ];
         if ($data) {
             $this->query->update(['views' => $tour->views += 1]);

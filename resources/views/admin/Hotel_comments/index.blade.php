@@ -31,11 +31,10 @@
             <tr>
                 <td>{{ $hotelComment->id }}</td>
                 <td>{{ $hotelComment->comments }}</td>
-                <td>{{ $hotelComment->hotel_id }}</td>
-                <td>{{ $hotelComment->user_id }}</td>
+                <td>{{ $hotelComment->hotel->name }}</td>
+                <td>{{ $hotelComment->user->name }}</td>
                 <td>
                     <form action="{{ route('hotel_comments.destroy',$hotelComment->id) }}" method="POST">
-                        <a class="btn btn-info" href="{{ route('hotel_comments.show',$hotelComment->id) }}">Show</a>
                         <a class="btn btn-primary" href="{{ route('hotel_comments.edit',$hotelComment->id) }}">Edit</a>
                         @csrf
                         @method('DELETE')

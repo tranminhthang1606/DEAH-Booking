@@ -59,7 +59,7 @@ const Payment = () => {
                       <div className="d-flex flex-wrap align-items-center gap-30 mt-16">
                         <div className="location">
                           <i className="ri-map-pin-line" />
-                          <div className="name">{tour.address.province}</div>
+                          <div className="name">{tour.tour.location.province}</div>
                         </div>
                         <div className="divider" />
                         <div className="d-flex align-items-center flex-wrap gap-20">
