@@ -43,4 +43,12 @@ class Hotel extends Model
     {
         return $this->belongsToMany(Service::class, 'hotel_service');
     }
+    public function images()
+    {
+        return $this->hasMany(HotelImage::class);
+    }
+    public function comments()
+    {
+        return $this->hasMany(HotelComment::class);
+    }
 }

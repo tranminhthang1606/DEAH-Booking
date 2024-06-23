@@ -72,7 +72,7 @@ class Hotel_CommentController extends Controller
     {
         $hotelComment->delete();
 
-        return redirect()->route('hotel_comments.index')
+        return redirect()->back()
                         ->with('success','Hotel comment deleted successfully');
     }
 

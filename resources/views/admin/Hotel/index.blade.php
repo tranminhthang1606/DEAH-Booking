@@ -3,6 +3,21 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0">Hotels</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Hotels</a></li>
+                                <li class="breadcrumb-item active"><a href="javascript: void(0);">list</a></li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">{{ __('Hotels') }}</div>
@@ -52,8 +67,9 @@
                                         </td>
                                         <td>
                                             <a class="btn btn-primary btn-sm dropdownButton"
+                                                href="{{ route('hotels.show', ['hotel' => $hotel->id]) }}"
                                                 data-target="dropdownMenu{{ $hotel->id }}">View</a>
-                                            <div id="dropdownMenu{{ $hotel->id }}" class="dropdown-menu"
+                                            {{-- <div id="dropdownMenu{{ $hotel->id }}" class="dropdown-menu"
                                                 style="display: none;">
                                                 <a class="dropdown-item"
                                                     href="{{ route('hotel_images.show', $hotel->id) }}">Images</a>
@@ -62,7 +78,7 @@
                                                 <a class="dropdown-item"
                                                     href="{{ route('hotel_comments.show', $hotel->id) }}">Comments</a>
 
-                                            </div>
+                                            </div> --}}
                                             <a href="{{ route('hotels.edit', $hotel) }}"
                                                 class="btn btn-primary btn-sm">Edit</a>
                                             <form action="{{ route('hotels.destroy', $hotel) }}" method="POST"
