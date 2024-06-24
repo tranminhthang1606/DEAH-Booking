@@ -48,8 +48,8 @@ class HotelController extends Controller
 
     public function show($id)
     {
-        $hotel = Hotel::with(['province', 'district', 'ward'])->findOrFail($id);
-        return view('hotels.show', compact('hotel'));
+        $hotel = Hotel::findOrFail($id);
+        return view('admin.Hotel.show', compact('hotel'));
     }
 
  
