@@ -8,6 +8,7 @@ use App\Models\HotelService;
 use App\Models\Service;
 use App\Models\Tour;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class HotelServiceController extends Controller
@@ -36,18 +37,28 @@ class HotelServiceController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        // dd($request->services[0]);
+        $validator = Validator::make($request->all(), [
             'hotel_id' => 'required|exists:hotels,id',
-            'service_id' => [
+            'services.*' => [
                 'required',
-                Rule::unique('hotel_service')->where(function ($query) use ($request) {
+                Rule::exists('services', 'id'),
+                Rule::unique('hotel_service', 'service_id')->where(function ($query) use ($request) {
                     return $query->where('hotel_id', $request->hotel_id);
-                }),
+                })
             ],
         ]);
-
-        HotelService::create($request->all());
-        return redirect()->route('hotel_services.show', $request->hotel_id)->with('success', 'Hotel service created successfully.');
+        if ($validator->fails()) {
+            // dd($validator->errors()->messages());
+            return redirect()->back()->with('error', $validator->errors()->first());
+        }
+        foreach ($request->services as $service) {
+            HotelService::create([
+                'hotel_id' => $request->hotel_id,
+                'service_id' => $service,
+            ]);
+        }
+        return redirect()->back()->with('success', 'Hotel service added successfully.');
     }
 
     /**
@@ -84,9 +95,12 @@ class HotelServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        HotelService::find($id)->delete();
+        // dd($request->all());
+        HotelService::where('hotel_id', $request->hotel_id)
+            ->where('service_id', $request->service_id)
+            ->delete();
         return redirect()->back()->with('success', 'Hotel service deleted successfully.');
     }
 }

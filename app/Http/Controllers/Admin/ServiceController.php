@@ -3,29 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\HotelService;
 use Illuminate\Http\Request;
 use App\Models\Service;
+
 class ServiceController extends Controller
 {
     // Lấy danh sách các dịch vụ
     public function index()
     {
-        $services = Service::all();
-        return view('admin.services.index',compact('services'));
-    }
-
-    public function create(){
-        return view('admin.services.create');
-    }
-    // Lấy thông tin chi tiết của một dịch vụ
-    public function show($id)
-    {
-        $service = Service::find($id);
-        if ($service) {
-            return response()->json($service);
-        } else {
-            return response()->json(['message' => 'Service not found'], 404);
-        }
+        $services = Service::orderByDesc('created_at')->paginate(10);
+        $title = "Services list";
+        return view('admin.services.index', compact('services','title'));
     }
 
     // Tạo mới một dịch vụ
@@ -36,22 +25,26 @@ class ServiceController extends Controller
         ]);
 
         $service = Service::create($validatedData);
-        return response()->json($service, 201);
+        if ($service) {
+            return redirect()->back()->with('success', 'Add service successfully');
+        }
+        return redirect()->back()->with('error', 'Add service faild');
+
     }
 
     // Cập nhật một dịch vụ
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $validatedData = $request->validate([
             'service' => 'required|string|max:255'
         ]);
 
-        $service = Service::find($id);
+        $service = Service::find($request->id);
         if ($service) {
             $service->update($validatedData);
-            return response()->json($service);
+            return redirect()->back()->with('success', 'Update service successfully');
         } else {
-            return response()->json(['message' => 'Service not found'], 404);
+            return redirect()->back()->with('error', 'Update service faild');
         }
     }
 
@@ -60,10 +53,11 @@ class ServiceController extends Controller
     {
         $service = Service::find($id);
         if ($service) {
+            HotelService::where('service_id',$id);
             $service->delete();
-            return response()->json(['message' => 'Service deleted']);
-        } else {
-            return response()->json(['message' => 'Service not found'], 404);
-        }
+            return redirect()->back()->with('success', 'Delete service successfully');
+        } 
+            return redirect()->back()->with('error', 'Delete service faild');
+        
     }
 }

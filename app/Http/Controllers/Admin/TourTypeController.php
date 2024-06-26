@@ -10,47 +10,46 @@ class TourTypeController extends Controller
 {
     public function index()
     {
-        $tourTypes = TourType::all();
-        return view('admin.tour_types.index', compact('tourTypes'));
+        $types = TourType::orderByDesc('created_at')->paginate(10);
+        $title = "Tour types list";
+        return view('admin.tour_types.index', compact('types', 'title'));
     }
 
-    public function create()
-    {
 
-        return view('admin.tour_types.create');
-    }
 
     public function store(Request $request)
     {
         $request->validate(['name_type' => 'required']);
         TourType::create($request->all());
-        return redirect()->route('tourTypes.index')->with('success', 'Tour type created successfully.');
+        return redirect()->route('types.index')->with('success', 'Tour type created successfully.');
     }
 
-    public function show($id)
-    {
-        $tourType = TourType::findOrFail($id);
-        return view('admin.tour_types.show', compact('tourType'));
-    }
 
-    public function edit($id)
-    {
-        $tourType = TourType::findOrFail($id);
-        return view('admin.tour_types.edit', compact('tourType'));
-    }
 
-    public function update(Request $request, $id)
+
+
+    public function updateType(Request $request)
     {
         $request->validate(['name_type' => 'required']);
-        $tourType = TourType::findOrFail($id);
-        $tourType->update($request->all());
-        return redirect()->route('tourTypes.index')->with('success', 'Tour type updated successfully.');
+        $tourType = TourType::findOrFail($request->id);
+        if ($tourType) {
+            $tourType->update($request->all());
+            return redirect()->route('types.index')->with('success', 'Tour type updated successfully.');
+        }
+        return redirect()->route('types.index')->with('error', 'Tour type updated faild.');
+
     }
+
 
     public function destroy($id)
     {
-        TourType::findOrFail($id)->delete();
-        return redirect()->route('tourTypes.index')->with('success', 'Tour type deleted successfully.');
+        try {
+            TourType::find($id)->delete();
+            return redirect()->route('types.index')->with('success', 'Tour type deleted successfully.');
+
+        } catch (\Exception $e) {
+            return redirect()->route('types.index')->with('error', 'Tour type can not be deleted');
+        }
     }
 }
 

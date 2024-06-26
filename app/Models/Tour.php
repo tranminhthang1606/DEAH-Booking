@@ -17,15 +17,14 @@ class Tour extends Model
     'title',
     'day',
     'description',
-    'map',
     'price',
     'promotion',
-    'private',
     'views',
     'location',
     'province_id',
     'district_id',
-    'ward_id'
+    'ward_id',
+    'is_active'
 
   ];
   public function attributes(){
@@ -63,5 +62,8 @@ class Tour extends Model
   {
     return $this->belongsTo(Ward::class, 'ward_id');
   }
-  
+  public function hotels()
+    {
+        return $this->belongsToMany(Hotel::class, 'tour_hotel');
+    }
 }

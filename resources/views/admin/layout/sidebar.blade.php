@@ -20,26 +20,18 @@
                 <div class="collapse menu-dropdown" id="sidebarApps">
                     <ul class="nav nav-sm flex-column">
                         <li class="nav-item">
-                            <a href="{{ route('tours.index') }}" class="nav-link" data-key="t-chat"> Tours </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('tourTypes.index') }}" class="nav-link">
+                            <a href="{{ route('types.index') }}" class="nav-link">
                                 Tour types
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('tourHotels.index') }}" class="nav-link">
-                                Tour hotels
-                            </a>
+                            <a href="{{ route('tours.index') }}" class="nav-link" data-key="t-chat"> Tours </a>
                         </li>
+
                         <li class="nav-item">
                             <a href="{{ route('attributes.index') }}" class="nav-link" data-key="t-chat"> Attributes
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('rates.index') }}" class="nav-link" data-key="t-chat"> Rates </a>
-                        </li>
-
                     </ul>
                 </div>
             </li>
@@ -52,19 +44,10 @@
                 <div class="collapse menu-dropdown" id="sidebarHotels">
                     <ul class="nav nav-sm flex-column">
                         <li class="nav-item">
-                            <a href="{{ route('hotels.index') }}" class="nav-link" role="button"
-                                aria-expanded="false" aria-controls="sidebarCalendar" data-key="t-calender">
+                            <a href="{{ route('hotels.index') }}" class="nav-link" role="button" aria-expanded="false"
+                                aria-controls="sidebarCalendar" data-key="t-calender">
                                 Hotels
                             </a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a href="{{ route('hotel_images.index') }}" class="nav-link" data-key="t-chat"> Hotels Images </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('hotel_comments.index') }}" class="nav-link" data-key="t-chat"> Hotel
-                                comments </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('services.index') }}" class="nav-link" data-key="t-chat"> Services </a>
@@ -81,34 +64,31 @@
                 <div class="collapse menu-dropdown" id="sidebarPost">
                     <ul class="nav nav-sm flex-column">
                         <li class="nav-item">
-                            <a href="{{ route('posts.index') }}" class="nav-link" role="button"
-                                aria-expanded="false" aria-controls="sidebarCalendar" data-key="t-calender">
+                            <a href="{{ route('posts.index') }}" class="nav-link" role="button" aria-expanded="false"
+                                aria-controls="sidebarCalendar" data-key="t-calender">
                                 Posts
                             </a>
                         </li>
 
 
 
-                        <li class="nav-item">
-                            <a href="{{ route('post_comments.index') }}" class="nav-link" data-key="t-chat"> Post
-                                comments </a>
-                        </li>
+
 
 
                     </ul>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link menu-link" href="{{ route('vouchers.index') }}" role="button"
-                    aria-expanded="false" aria-controls="sidebarHotels">
+                <a class="nav-link menu-link" href="{{ route('vouchers.index') }}" role="button" aria-expanded="false"
+                    aria-controls="sidebarHotels">
                     <i class="ri-add-box-line"></i> <span data-key="t-apps">Vouchers</span>
                 </a>
 
             </li>
 
             <li class="nav-item">
-                <a class="nav-link menu-link" href="{{ route('users.index') }}" role="button"
-                    aria-expanded="false" aria-controls="sidebarHotels">
+                <a class="nav-link menu-link" href="{{ route('users.index') }}" role="button" aria-expanded="false"
+                    aria-controls="sidebarHotels">
                     <i class="ri-user-2-line"></i> <span data-key="t-apps">Accounts</span>
                 </a>
 

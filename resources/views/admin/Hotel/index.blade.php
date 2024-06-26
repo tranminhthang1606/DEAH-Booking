@@ -10,8 +10,8 @@
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Hotels</a></li>
-                                <li class="breadcrumb-item active"><a href="javascript: void(0);">list</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('hotels.index') }}">Hotels</a></li>
+                                <li class="breadcrumb-item active"><a href="{{ route('hotels.index') }}">List</a></li>
                             </ol>
                         </div>
 
@@ -19,45 +19,40 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">{{ __('Hotels') }}</div>
-                    <a href="{{ route('hotels.create') }}" class="btn btn-info btn-sm">Create Hotel</a>
+                <h3 class="card-header">{{ $title }}</h3>
+                <a href="{{ route('hotels.create') }}" class="btn btn-primary mb-3">Add New Hotel</a>
 
-                    <div class="card-body">
-                        @if (session('success'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-
-                        <table class="table table-bordered table-striped">
+                <div class="card-body">
+                    <div class="table-responsive card">
+                        <table class="table">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>#</th>
                                     <th>Name</th>
                                     <th>Price</th>
                                     <th>Promotion</th>
                                     <th>Province</th>
-                                    <th>District</th>
-                                    <th>Ward</th>
-                                    <th>Address</th>
                                     <th>Status</th>
-                                    <th>Is_active</th>
+                                    <th>Active</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($hotels as $hotel)
+                                @foreach ($hotels as $index => $hotel)
                                     <tr>
-                                        <td>{{ $hotel->id }}</td>
+                                        <td>{{ $index + 1 }}</td>
                                         <td>{{ $hotel->name }}</td>
-                                        <td>{{ $hotel->price }}</td>
-                                        <td>{{ $hotel->promotion }}</td>
+                                        <td>{{ number_format($hotel->price, 0, '.', '.') }} VND</td>
+                                        <td>{{ number_format($hotel->promotion, 0, '.', '.') }} VND</td>
                                         <td>{{ $hotel->province->name }}</td>
-                                        <td>{{ $hotel->district->name }}</td>
-                                        <td>{{ $hotel->ward->name }}</td>
-                                        <td>{{ $hotel->address }}</td>
-                                        <td>{{ $hotel->status }}</td>
+
+                                        <td>
+                                            @php
+                                                echo $hotel->status == 1
+                                                    ? '<span class="badge bg-success-subtle text-success text-uppercase">Available</span>'
+                                                    : '<span class="badge bg-success-subtle text-danger text-uppercase">Full</span>';
+                                            @endphp
+                                        </td>
                                         <td>
                                             @php
                                                 echo $hotel->is_active == 1
@@ -70,18 +65,16 @@
                                                 href="{{ route('hotels.show', ['hotel' => $hotel->id]) }}"
                                                 data-target="dropdownMenu{{ $hotel->id }}">View</a>
                                             {{-- <div id="dropdownMenu{{ $hotel->id }}" class="dropdown-menu"
-                                                style="display: none;">
-                                                <a class="dropdown-item"
-                                                    href="{{ route('hotel_images.show', $hotel->id) }}">Images</a>
-                                                <a class="dropdown-item"
-                                                    href="{{ route('hotel_services.show', $hotel->id) }}">Services</a>
-                                                <a class="dropdown-item"
-                                                    href="{{ route('hotel_comments.show', $hotel->id) }}">Comments</a>
-
-                                            </div> --}}
-                                            <a href="{{ route('hotels.edit', $hotel) }}"
-                                                class="btn btn-primary btn-sm">Edit</a>
-                                            <form action="{{ route('hotels.destroy', $hotel) }}" method="POST"
+                                                    style="display: none;">
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('hotel_images.show', $hotel->id) }}">Images</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('hotel_services.show', $hotel->id) }}">Services</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('hotel_comments.show', $hotel->id) }}">Comments</a>
+    
+                                                </div> --}}
+                                            <form action="{{ route('hotels.destroy', $hotel->id) }}" method="POST"
                                                 style="display: inline-block;">
                                                 @csrf
                                                 @method('DELETE')
@@ -93,28 +86,13 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{ $hotels->links() }}
+
                     </div>
+
+
                 </div>
             </div>
         </div>
     </div>
-@endsection
-@section('scripts')
-    <script>
-        document.querySelectorAll('.dropdownButton').forEach(button => {
-            button.addEventListener('click', function() {
-                var hideAll = document.querySelectorAll('.dropdown-menu');
-                var targetId = this.getAttribute('data-target');
-                var dropdownMenu = document.getElementById(targetId);
-                if (dropdownMenu.style.display === 'none' || dropdownMenu.style.display === '') {
-                    hideAll.forEach(item => {
-                        item.style.display = 'none';
-                    });
-                    dropdownMenu.style.display = 'block';
-                } else {
-                    dropdownMenu.style.display = 'none';
-                }
-            });
-        });
-    </script>
 @endsection

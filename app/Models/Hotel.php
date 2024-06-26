@@ -13,12 +13,9 @@ class Hotel extends Model
     protected $table = 'hotels';
     protected $fillable = [
         'name',
-        'room',
         'price',
         'promotion',
         'description',
-        'services',
-        'status',
         'province_id',
         'district_id',
         'ward_id',
@@ -42,6 +39,10 @@ class Hotel extends Model
     public function services()
     {
         return $this->belongsToMany(Service::class, 'hotel_service');
+    }
+    public function tours()
+    {
+        return $this->belongsToMany(Tour::class, 'tour_hotel');
     }
     public function images()
     {

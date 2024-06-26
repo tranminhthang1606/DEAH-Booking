@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class TourComment extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     protected $table = 'tour_comments';
     protected $fillable = [
         'comments',
@@ -19,5 +18,9 @@ class TourComment extends Model
     public function tour()
     {
         return $this->belongsTo(Tour::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
