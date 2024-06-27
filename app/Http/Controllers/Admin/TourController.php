@@ -91,16 +91,14 @@ class TourController extends Controller
         $attributes = Attribute::all();
         $provinces = Province::all();
         $types = TourType::all();
-        $hotels = Hotel::all();
         $tour->images = $tour->images()->paginate(5);
         $tour->attributes = $tour->attributes()->paginate(10);
         $tour->comments = $tour->comments()->paginate(10);
         $tour->rates = $tour->rates()->paginate(10);
         $tour->hotels = $tour->hotels()->paginate(10);
-        $attributes = Attribute::all();
-        $hotels = Hotel::where('is_active', 1)->get();
+        $hotels = Hotel::where('is_active', 1)->where('province_id', $tour->province_id)->get();
         $title = "Tour show";
-        return view('admin.tours.show', compact('tour', 'hotels', 'attributes', 'title', 'provinces'));
+        return view('admin.tours.show', compact('tour', 'types', 'hotels', 'attributes', 'title', 'provinces'));
     }
 
     public function edit($id)
@@ -114,51 +112,29 @@ class TourController extends Controller
     public function update(Request $request, $id)
     {
         // Validate input
-        $validatedData = $request->validate([
+        $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
             'price' => 'required|numeric',
             'promotion' => 'required|numeric|lt:price',
-            'day' => 'required|numeric',
             'type_id' => 'required|exists:tour_types,id',
             'description' => 'required',
-            'images' => 'required|array',
-            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'hotels' => 'required',
-            'hotels.*' => 'required|numeric|exists:hotels,id',
             'province_id' => 'required|exists:provinces,id',
             'district_id' => 'required|exists:districts,id',
             'ward_id' => 'required|exists:wards,id',
-            'attributes' => 'required|array',
-            'attributes.*' => 'required|numeric|exists:attributes,id',
-            'title_itinerary' => 'required',
-            'itinerary_add' => 'required',
+            'is_active' => 'nullable'
 
         ]);
 
         // Cập nhật thông tin của tour
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first());
+        }
+        $request->is_active ? $request->is_active : $request->merge(['is_active' => 0]);
         $tour = Tour::findOrFail($id);
-        $tour->update($validatedData);
+        $tour->update($request->all());
 
-        // Xử lý cập nhật hình ảnh
 
-        // Xử lý cập nhật lịch trình
-        if ($request->has('itinerary_add')) {
-            Itinerary::create([
-                'day' => $request->day_add,
-                'title' => $request->input('title_itinerary'),
-                'itinerary' => $request->input('itinerary_add')
-            ]);
-        }
-        if ($request->has('itinerary_update')) {
-            Itinerary::where('id', $request->input('itinerary_update'))
-                ->update([
-                    'day' => $request->day_update,
-                    'title' => $request->input('title_itinerary'),
-                    'itinerary' => $request->input('itinerary_update')
-                ]);
-        }
-
-        return redirect()->route('tours.index')->with('success', 'Tour updated successfully.');
+        return redirect()->back()->with('success', 'Tour updated successfully.');
     }
     public function getItinerary($id)
     {
@@ -167,13 +143,16 @@ class TourController extends Controller
     }
     public function addHotels(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'hotels' => 'required|array',
-            'hotels.*' => 'required|numeric|exists:hotels,id',
-            Rule::unique('tour_hotel', 'hotel_id')->where(function ($query) use ($request) {
+            'hotels.*' => Rule::unique('tour_hotel', 'hotel_id')->where(function ($query) use ($request) {
                 return $query->where('tour_id', $request->tour_id);
             }),
+
         ]);
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first());
+        }
         foreach ($request->input('hotels') as $hotel) {
             TourHotel::create([
                 'tour_id' => $request->tour_id,
@@ -194,16 +173,22 @@ class TourController extends Controller
     public function addItinerary(Request $request)
     {
 
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'day' => 'required|numeric',
             'title' => 'required',
             'itinerary' => 'required',
         ]);
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first());
+        }
         Itinerary::create([
             'tour_id' => $request->tour_id,
             'day' => $request->day,
             'title' => $request->title,
             'itinerary' => $request->itinerary
+        ]);
+        Tour::find($request->tour_id)->update([
+            'day' => Itinerary::where('tour_id', $request->tour_id)->count('day')
         ]);
         return redirect()->back()->with('success', 'Add Itinerary tour successfully');
     }
@@ -223,13 +208,19 @@ class TourController extends Controller
             'title' => $request->title,
             'itinerary' => $request->itinerary
         ]);
+
         return redirect()->back()->with('success', 'Update Itinerary tour successfully');
     }
 
-    public function delItinerary($id)
+    public function delItinerary($id, Request $request)
     {
-
-        Itinerary::where('id', $id)->delete();
+        $item = Itinerary::where('id', $id);
+        if ($item) {
+            $item->delete();
+            Tour::find($request->tour_id)->update([
+                'day' => Itinerary::where('tour_id', $request->tour_id)->count('day')
+            ]);
+        }
         return redirect()->back()->with('success', 'Update Itinerary tour successfully');
     }
     public function addImage(Request $request)
@@ -261,12 +252,16 @@ class TourController extends Controller
     }
     public function addAttributes(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'attributes' => 'required|exists:attributes,id',
-            Rule::unique('tour_attribute', 'attribute_id')->where(function ($query) use ($request) {
-                return $query->where('tour_id', $request->id);
-            }),
+            'attributes.*' =>
+                Rule::unique('tour_attribute', 'attribute_id')->where(function ($query) use ($request) {
+                    return $query->where('tour_id', $request->tour_id);
+                }),
         ]);
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first());
+        }
         foreach ($request->input('attributes') as $attribute) {
             TourAttribute::create([
                 'tour_id' => $request->tour_id,

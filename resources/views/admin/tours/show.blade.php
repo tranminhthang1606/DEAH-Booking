@@ -79,7 +79,7 @@
                     <div class="d-flex gap-3">
                         <h4 class="mt-2">Info tour</h4>
                         <a type="button" class="btn btn-success" data-bs-toggle="modal" id="create-btn"
-                            data-bs-target="#showModal">
+                            data-bs-target="#showModalTour">
                             Edit</a>
                     </div>
 
@@ -88,12 +88,16 @@
                         <div class="col-md-4">
                             <p>Title: <strong>{{ $tour->title }}</strong></p>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 d-flex gap-5">
                             <p>Active: <strong> @php
                                 echo $tour->is_active == 1
                                     ? '<span class="badge bg-success-subtle text-success text-uppercase">Active</span>'
                                     : '<span class="badge bg-success-subtle text-danger text-uppercase">Block</span>';
                             @endphp</strong></p>
+                            <span>
+                                <p>Day: <strong>{{ $tour->day }} Day
+                                        {{ $tour->day - 1>=1 ? $tour->day - 1 . ' Night' : '' }} </strong></p>
+                            </span>
                         </div>
 
                     </div>
@@ -142,7 +146,8 @@
                                                 alt="">
                                         </td>
                                         <td class="text-black">
-                                            <form action="{{ route('delImage.destroy', $image->id) }}" method="post">
+                                            <form action="{{ route('delImage.destroy', $image->id) }}"
+                                                method="post">
                                                 @csrf
                                                 <button type="submit" class="border-0 bg-white "
                                                     onclick="return confirm('Are you sure?')">
@@ -360,6 +365,7 @@
                                             <form action="{{ route('delItinerary.destroy', $itinerary->id) }}"
                                                 method="post">
                                                 @csrf
+                                                <input type="hidden" name="tour_id" value="{{ $tour->id }}">
                                                 <button type="submit" class="border-0 bg-white "
                                                     onclick="return confirm('Are you sure?')">
                                                     <i class="ri-delete-bin-line fs-4 text-danger"></i>
@@ -532,12 +538,12 @@
         </div>
         {{-- end form add Itinerary --}}
         {{-- start form edit hotel --}}
-        <div class="modal fade modal-lg" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        <div class="modal fade modal-lg" id="showModalTour" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content modal-xl">
                     <div class="modal-header bg-light p-3">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit hotel</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edit tour</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                             id="close-modal"></button>
                     </div>
@@ -622,7 +628,19 @@
 
 
                             <div class="row mb-3">
-                                <div class="col-md-4">
+                                <div class="mb-3 col-md-6">
+                                    <label for="date-field" class="form-label">Type
+                                    </label>
+                                    <select name="type_id" id="" class="form-control">
+                                        @foreach ($types as $type)
+                                            <option value="{{ $type->id }}"
+                                                @if ($tour->type_id == $type->id) selected @endif>
+                                                {{ $type->name_type }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
                                     <label for="status-field" class="form-label">Active</label>
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
@@ -819,8 +837,8 @@
             });
 
 
-            $('.ckeditor-classic-1')
-                .create(this)
+            ClassicEditor
+                .create(document.querySelector('.ckeditor-classic-1'))
                 .catch(error => {
                     console.error(error);
                 });
@@ -834,6 +852,7 @@
                 url: '/get-districts/' + {{ $tour->province_id }},
                 type: 'GET',
                 success: function(data) {
+                    $('#districts').empty();
                     $.each(data, function(key, value) {
                         if (value.id == {{ $tour->district_id }}) {
                             $('#districts').append('<option value="' + value.id +
@@ -856,7 +875,6 @@
                 success: function(data) {
                     $.each(data, function(key, value) {
                         if (value.id == {{ $tour->ward_id }}) {
-
                             $('#wards').append('<option value="' + value.id +
                                 '" selected>' + value.name + '</option>');
                         } else {
