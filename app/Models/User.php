@@ -20,7 +20,8 @@ class User extends Model implements Authenticatable
     'date_of_birth',
     'phone',
     'address',
-    'role'
+    'role',
+    'is_active',
 
 
   ];
@@ -32,6 +33,9 @@ class User extends Model implements Authenticatable
   {
     return $this->belongsTo(PostComment::class, 'post_id');
   }
-  
+  public function tour_comments()
+  {
+    return $this->hasMany(User::class);
+  }
 
 }

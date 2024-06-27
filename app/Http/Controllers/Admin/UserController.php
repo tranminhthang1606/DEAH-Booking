@@ -12,14 +12,12 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::with('vouchers')->get();
-        return view('admin.user.index', compact('users'));
+        $users = User::orderByDesc('created_at')->paginate(10);
+        $title = 'Users list';
+        return view('admin.user.index', compact('users', 'title'));
     }
 
-    public function create()
-    {
-        return view('admin.user.create');
-    }
+
 
     public function store(Request $request)
     {
@@ -50,20 +48,18 @@ class UserController extends Controller
         return view('admin.user.edit', compact('user'));
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
-            'password' => 'nullable|string|min:8',
+            'role' => 'nullable',
+            'is_active' => 'nullable',
         ]);
-
-        $user = User::findOrFail($id);
-
+        $request->is_active ? $request->is_active : $request->merge(['is_active' => 0]);
+        $request->role ? $request->role : $request->merge(['role' => 0]);
+        $user = User::find($request->id);
         $user->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password ? bcrypt($request->password) : $user->password,
+            'role' => $request->role,
+            'is_active' => intval($request->is_active),
         ]);
 
         return redirect()->route('users.index')->with('success', 'User updated successfully.');
