@@ -1,29 +1,127 @@
 @extends('admin.layout.master')
 @section('content')
-<table class="table">
-   <thead>
-    <tr>
-        <th>ID</th>
-        <th>Attribute</th>
-        <th>Action</th>
-    </tr>
-   </thead>
-   <tbody>
-    @foreach ($attribute as $item)
-         <tr>
-            <td>{{$item->id}}</td>
-            <td>{{$item->attribute}}</td>
-            <td>
-               <a href="{{route('attributes.create')}}">Thêm</a>
-               <a href="{{route('attributes.edit',$item)}}">Eidt</a>
-               <form  action="{{route('attributes.destroy',$item)}}" method="post">
-                       @method('DELETE')
-                       @csrf
-                       <button type="submit" onclick="return confirm('xóa k')">Xóa</button>
-               </form>
-            </td>
-         </tr>
-    @endforeach
-   </tbody>
-</table>
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h1>Manage Attributes</h1>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="{{ route('attributes.index') }}">Attributes</a></li>
+                                <li class="breadcrumb-item active"><a href="F{{ route('attributes.index') }}">List</a></li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 card">
+                <div class="row">
+                    <div class="card-header">Attributes List</div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Attribute</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($attributes as $index => $attribute)
+                                    <tr>
+                                        <td>{{ $index + 1 }}</td>
+                                        <td>{{ $attribute->attribute }}</td>
+                                        <td>
+
+                                            <button class="btn btn-sm btn-warning edit-item-btn showEdit"
+                                                data-bs-toggle="modal" data-bs-target="#showModal"
+                                                data-edit-value="{{ $attribute->attribute }}"
+                                                data-edit-id="{{ $attribute->id }}">Edit</button>
+                                            <form action="{{ route('attributes.destroy', $attribute->id) }}" method="POST"
+                                                style="display: inline-block;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('Are you sure you want to delete this tour?')">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        {{ $attributes->links() }}
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <form class="tablelist-form" autocomplete="off" id="addService" method="post"
+                    action="{{ route('attributes.store') }}">
+                    @csrf
+                    <div>
+                        <label for="date-field" class="form-label">Attribute
+                        </label>
+                        <input type="text" class="form-control" name="attribute">
+                        @error('attribute')
+                            <span class="text-danger fw-light "><i>{{ $message }}</i></span>
+                        @enderror
+                    </div>
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-light p-3">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            id="close-modal"></button>
+                    </div>
+                    <div id="formEdit">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            $('.showEdit').click(function() {
+                let id = $(this).attr('data-edit-id');
+                let value = $(this).attr('data-edit-value');
+                let form = `
+                    <form class="tablelist-form" autocomplete="off" action="{{ route('attribute.update') }}" method="post" >
+                        @csrf
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="customername-field" class="form-label">Attribute
+                                </label>
+                                <input type="hidden" id="customername-field" class="form-control" name="id" value="${id}"
+                                     >
+                                <input type="text" id="customername-field" class="form-control" name="attribute" value="${value}"
+                                     >
+                                
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="hstack gap-2 justify-content-end">
+                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-success" id="add-btn">Update
+                                    </button>
+                            </div>
+                        </div>
+                    </form>`;
+                $('#formEdit').html(form);
+            });
+        });
+    </script>
+@endsection
 @endsection
