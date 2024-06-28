@@ -6,7 +6,10 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import Header from "./Header.js";
 import Footer from "./Footer.js";
-import SlideShowpost from "../FunctionComponentContext/SlideShowpost.js";
+import { Link } from "react-router-dom";
+import TourNewid from "../FunctionComponentContext/TourNewid.js";
+import PostNewID from "../FunctionComponentContext/PostNewID.js";
+
 
 
 const Indextwo = () => {
@@ -21,12 +24,10 @@ const Indextwo = () => {
 
     }
   })
-
-
   if (isLoading) return <div>Loading.....</div>
   if (error) return <div>loi{error.message}</div>
   const tours = Array.isArray(data) ? data : [];
- 
+
   return (
 
     <div>
@@ -175,6 +176,8 @@ const Indextwo = () => {
           {/*/ End-of Hero*/}
           {/* Brand S t a r t */}
           <section className="why-area">
+
+            {/*  */}
             <div className="container">
               <div className="row">
                 <div className="col-lg-12">
@@ -409,8 +412,11 @@ const Indextwo = () => {
                     </div>
                   </div>
                 </div>
+
                 <div className="row g-4">
-             <SlideShowpost/>
+                  {/* <SlideShowpost/> */}
+
+                  <TourNewid />
                 </div>
               </div>
             </div>
@@ -483,12 +489,12 @@ const Indextwo = () => {
                   <div className="section-title mx-430 mx-auto text-center">
                     <span className="highlights"> Gói phổ biến</span>
                     <h4 className="title">
-                      Địa điểm du lịch yêu thích nhất trên thế giới
+                      Địa điểm du lịch yêu thích nhất ở Việt Nam
                     </h4>
                   </div>
                 </div>
               </div>
-           
+
               <div className="tab-content" id="pills-tabContent">
                 <div className="tab-pane fade show active" id="pills-london" role="tabpanel" aria-labelledby="pills-london-tab">
                   <div className="row g-4">
@@ -499,14 +505,15 @@ const Indextwo = () => {
                           <div className="package-card">
                             <div className="package-img imgEffect4">
                               <a href="news-details">
-                                <img src="/src/assets/category_tour/hội an.jpg" alt="travello" />
+                                <img src={'http://127.0.0.1:8000/' + (tour.images ? tour.images[0].image : '')} alt="travello" />
                               </a>
 
                             </div>
                             <div className="package-content">
                               <h4 className="area-name">
-                                <a href="tour-details">{tour.title}</a>
-                              
+                                {/* <a href="tour-details">{tour.title}</a> */}
+                                <Link to={`/tour-details/${tour.id}`}>{tour.title}</Link>
+
                               </h4>
                               <div className="location">
                                 <i className="ri-map-pin-line" />
@@ -538,55 +545,12 @@ const Indextwo = () => {
                   </div>
                 </div>
                 <div className="tab-pane fade" id="pills-bangkok" role="tabpanel" aria-labelledby="pills-bangkok-tab">
-                  <div className="row g-4">
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details">
-                            <img src="/src/assets/images/package/package-5.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                 
-                  
-                  </div>
+
+
                 </div>
-               
-             
-             
+
+
+
               </div>
               <div className="row">
                 <div className="col-12 text-center ">
@@ -606,6 +570,23 @@ const Indextwo = () => {
           </section>
           {/*/ End of Packages */}
           {/* Promotion S t a r t */}
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-xl-7 col-lg-7">
+                <div className="section-title text-center mx-605 mx-auto position-relative mb-60">
+
+
+                </div>
+              </div>
+            </div>
+            <div className="row g-4">
+
+
+
+
+            </div>
+
+          </div>
 
 
           {/*/ End of Brand */}
@@ -622,7 +603,7 @@ const Indextwo = () => {
                   </div>
                 </div>
               </div>
-      
+              <PostNewID />
               <div className="col-12 text-center">
                 <div className="section-button d-inline-block wow fadeInUp" data-wow-delay="0.3s">
                   <a href="news">

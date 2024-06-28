@@ -8,7 +8,7 @@ import Footer from './Footer';
 
 const New = () => {
 
- let api = 'http://127.0.0.1:8000/api/client/get-posts-list'
+  let api = 'http://127.0.0.1:8000/api/client/get-posts-list'
   const { data, error, isLoading } = useQuery({
     queryKey: ["POST"],
     queryFn: async () => {
@@ -27,7 +27,7 @@ const New = () => {
 
     <div>
       <div>
-<Header/>
+        <Header />
         <main>
           {/* Breadcrumbs S t a r t */}
           <section className="breadcrumbs-area breadcrumb-bg">
@@ -124,11 +124,11 @@ const New = () => {
                       <div className="news-content">
                         <div className="heading">
                           <span className="heading-pera">{post.title}</span>
-                      
+
                         </div>
                         <h4 className="title line-clamp-2">
-                        <Link to={`/news-details/${post.id}`}>{post.body}</Link>
-                         
+                          <Link to={`/news-details/${post.id}`}>{post.body}</Link>
+
                         </h4>
                         <div className="news-info">
                           <div className="d-flex gap-10 align-items-center">
@@ -173,7 +173,7 @@ const New = () => {
           {/*/ End-of About US*/}
         </main>
         {/* Footer S t a r t */}
-     <Footer/>
+        <Footer />
         <div className="progressParent" id="back-top">
           <svg className="backCircle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />

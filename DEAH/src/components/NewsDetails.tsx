@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
+import PostNewDetail from '../FunctionComponentContext/PostNewDetail';
 
 const NewsDetails = () => {
 
@@ -13,8 +14,8 @@ console.log(id);
     queryKey: ['KEY_POST', id],
     queryFn: async () => {
       const {data} = await axios.get(`http://127.0.0.1:8000/api/client/get-post-detail/${id}`);
-      console.log(data);
-      return data.data; 
+      console.log(data.data.post);
+      return data.data.post; 
     }
   });
   if (isLoading) return <div>Loading.....</div>;
@@ -45,11 +46,17 @@ console.log(id);
           <section className="destination-details-section section-padding2">
             <div className="container">
               <div className="row g-4">
-                <div className="col-xl-8 col-lg-7">
+              {postDetail?.map((newdetail:any, index:any)=>{
+                          return(
+                <div className="col-xl-8 col-lg-7" key={index}>
                   <div className="news-details-banner imgEffect">
-                    <img src="/src/assets/images/destination/details.png" alt="travello" />
+                  <img src={'http://127.0.0.1:8000/' + (newdetail.images? newdetail.images[0].image : '')} alt="travello" />
                   </div>
                   <div className="news-details-content">
+                 
+            
+
+                 
                     <div className="d-flex flex-wrap align-items-center gap-20">
                       <div className="d-flex gap-10 align-items-center">
                         <div className="author-img">
@@ -66,33 +73,9 @@ console.log(id);
                         <p className="pera">10 phút đọc </p>
                       </div>
                     </div>
-                    <h4 className="title">Thế giới là một cuốn sách và những người không đi du lịch chỉ đọc một trang.</h4>
-                    <p className="pera">Lorem rất cà rốt, nhà phát triển đại học cà chua, nhưng tôi
-                      đôi khi
-                      để làm việc hoặc đau đớn.Làm thế nào là tối thiểu, ai tập thể dục mũi
-                      Việc làm Ullamco
-                      Ngoại trừ việc yêu cầu từ cô ấy xin vui lòng công thức.Tự động vào khoảnh khắc của một cơn đau irure trong bị chỉ trích
-                      niềm vui được trở thành
-                      Cura Pain Football không chạy nữa.Ngoại trừ là người da đen và không có nguyên tắc
-                      đang ở trong lỗi
-                      Rằng các dịch vụ đã từ bỏ linh hồn cho một linh hồn hung hăng là một bữa ăn nhẹ."</p>
-                    <p className="pera">Tuy nhiên, để gặp phải tất cả sai lầm này là một công tố viên niềm vui
-                      nỗi đau
-                      Ca ngợi, toàn bộ điều cần mở, và những điều từ người sáng lập ra sự thật, và như thể
-                      Kiến trúc sư may mắn
-                      Cuộc sống đã được nói để giải thích.Không ai là niềm vui rằng niềm vui bị từ chối hoặc
-                      ghét hoặc chạy
-                      Nhưng vì họ đi theo những nỗi đau lớn của những người không biết niềm vui.Hoặc
-                      Hơn nữa có
-                      Chính nỗi đau vì cà rốt, được tăng cường, để có được, nhưng tôi không bao giờ
-                      Như vậy a
-                      Thời gian sự cố để làm việc và đau đớn để tìm kiếm một số niềm vui.Phải đi đến
-                      Minima sẽ đến với bất kỳ ai
-                      Đào tạo của chúng tôi là một sự đáng kinh ngạc, trừ khi bạn có một số người trong số họ quan tâm
-                      hậu quả?
-                      Một hoặc quyền của cô ấy để chỉ trích rằng trong niềm vui của cô ấy, xin vui lòng hơn không
-                      khó chịu để đạt được
-                      Hoặc là nỗi đau mà anh ấy tránh được niềm vui không còn nữa? "</p>
+                    <h4 className="title">{newdetail.title}</h4>
+                    <p className="pera">{newdetail.body}</p>
+                
                   </div>
                   <div className="news-details-info">
                     <h4 className="title">Những gì chúng tôi học được từ tour du lịch này</h4>
@@ -271,6 +254,8 @@ console.log(id);
                     </div>
                   </div>
                 </div>
+                     )
+                    })}
                 <div className="col-xl-4 col-lg-5">
                   <div className="row g-4 position-sticky top-0">
                     <div className="col-lg-12">
@@ -287,44 +272,8 @@ console.log(id);
                         <div className="heading">
                           <h4 className="title">Tin tức gần đây</h4>
                         </div>
-                        <ul className="recent-news-list">
-                          <li className="list">
-                            <h4 className="title line-clamp-2"><a href="news-details"> Thế giới là một
-                              Sách và những người làm
-                              not Du lịch...</a></h4>
-                            <div className="d-flex justify-content-between flex-wrap gap-8">
-                              <div className="d-flex align-items-center gap-8">
-                                <i className="ri-time-line" />
-                                <p className="date">Jan 23, 2025</p>
-                              </div>
-                              <p className="time">10 phút đọc </p>
-                            </div>
-                          </li>
-                          <li className="list">
-                            <h4 className="title line-clamp-2"><a href="news-details">Nhiệm vụ Quest:
-                              Cuối cùng của bạn
-                              [City/Region]...</a></h4>
-                            <div className="d-flex justify-content-between flex-wrap gap-8">
-                              <div className="d-flex align-items-center gap-8">
-                                <i className="ri-time-line" />
-                                <p className="date">Jan 23, 2025</p>
-                              </div>
-                              <p className="time">10 phút đọc </p>
-                            </div>
-                          </li>
-                          <li className="list">
-                            <h4 className="title line-clamp-2"><a href="news-details"> Chúng tôi du lịch, một số
-                              của chúng tôi mãi mãi, để tìm kiếm
-                              Other.</a></h4>
-                            <div className="d-flex justify-content-between flex-wrap gap-8">
-                              <div className="d-flex align-items-center gap-8">
-                                <i className="ri-time-line" />
-                                <p className="date">Jan 23, 2025</p>
-                              </div>
-                              <p className="time">10 phút đọc </p>
-                            </div>
-                          </li>
-                        </ul>
+                      
+                        <PostNewDetail/>
                       </div>
                     </div>
                     <div className="col-lg-12">
@@ -338,6 +287,7 @@ console.log(id);
                     </div>
                   </div>
                 </div>
+                <PostNewDetail/>
               </div>
             </div>
           </section>
