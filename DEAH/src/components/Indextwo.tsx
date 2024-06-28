@@ -654,7 +654,7 @@ const Indextwo = () => {
                       <a href={"news-details/" + post.id}>
                         <article className="news-card-two wow fadeInUp" data-wow-delay="0.0s">
                           <figure className="news-banner-two imgEffect">
-                            <img src={'http://127.0.0.1:8000/' + post.thumbnail} alt="travello" />
+                            <img className="image" src={'http://127.0.0.1:8000/' + post.thumbnail} alt="travello" />
                           </figure>
                           <div className="news-content">
                             <div className="heading line-clamp-1">
