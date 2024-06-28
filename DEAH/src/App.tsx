@@ -7,7 +7,7 @@ import Forgot from './components/Forgot';
 import Login from './components/Login';
 import NewPassword from './components/NewPassword';
 import NewsDetails from './components/NewsDetails';
-import New from './components/New';
+import News from './components/News';
 import Payment from './components/Payment';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Register from './components/Register';
@@ -40,7 +40,7 @@ function App() {
         <Route path="/faq" element={<Faq />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-condition" element={<TermsCondition />} />
-        <Route path="/news" element={<New />} />
+        <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/slide" element={<SlideShow />} />
 

@@ -21,7 +21,7 @@ const TourList = () => {
           province: selectedProvince
         });
         console.log(response.data.data);
-        
+
         setTour(response.data.data);
       } catch (error) {
         if (error) return <div>loi...</div>
@@ -73,7 +73,7 @@ const TourList = () => {
                         </div>
                         <select className="destination-dropdown" onChange={(e) => setSelectedProvince(e.target.value)}>
                           <option value=''>-- Lọc theo điểm đến --</option>
-                          {tour.provinces?.map((province) => {
+                          {tour.provinces?.map((province:any) => {
                             return (
                               <option value={province.id}>{province.name}</option>
                             )
@@ -87,7 +87,7 @@ const TourList = () => {
                         </div>
                         <select className="destination-dropdown" onChange={(e) => setSelectedType(e.target.value)}>
                           <option value=''>-- Lọc theo loại du lịch --</option>
-                          {tour.types?.map((type) => {
+                          {tour.types?.map((type:any) => {
                             return (
                               <option value={type.id}>{type.name_type}</option>
                             )
@@ -246,40 +246,41 @@ const TourList = () => {
                         return (
 
                           <div className="col-xl-4 col-lg-4 col-sm-6" key={index}>
-                            <div className="package-card">
-                              <div className="package-img imgEffect4">
-                                <a href="tour-details">
-                                  <img src={'http://127.0.0.1:8000/' + (tour.images ? tour.images: '')} alt="travello" />
-                                </a>
+                            <a href={`/tour-details/${tour.id}`}>
 
-                              </div>
-                              <div className="package-content">
-                                <h4 className="area-name mb-3">
-
-                                  <a href={`/tour-details/${tour.id}`}>{tour.title}</a>
-                                </h4>
-
-                                <div className="packages-person">
-                                  <div className="count">
-                                    <i className="ri-time-line" />
-                                    <p className="pera mt-3 ml-2">Lịch Trình {tour.day} Ngày</p>
-                                  </div>
+                              <div className="package-card">
+                                <div className="package-img imgEffect4">
+                                  <img src={'http://127.0.0.1:8000/' + (tour.images ? tour.images : '')} alt="travello" />
 
                                 </div>
-                                <div className="price-review">
-                                  <div className="d-flex gap-10">
-                                    <p className="light-pera mt-1">Từ</p>
-                                    <p className="pera text-danger"><CurrencyFormatter amount={tour.price} /></p>
+                                <div className="package-content">
+                                  <h4 className="area-name mb-3">
+
+                                    {tour.title}
+                                  </h4>
+
+                                  <div className="packages-person">
+                                    <div className="count">
+                                      <i className="ri-time-line" />
+                                      <p className="pera mt-3 ml-2">Lịch Trình {tour.day} Ngày</p>
+                                    </div>
+
                                   </div>
-                                  <div className="rating">
+                                  <div className="price-review">
+                                    <div className="d-flex gap-10">
+                                      <p className="light-pera mt-1">Từ</p>
+                                      <p className="pera text-danger"><CurrencyFormatter amount={tour.price} /></p>
+                                    </div>
+                                    <div className="rating">
 
 
-                                    <p className="pera mr-5">Đánh giá: {tour.rates ? tour.rates.qty : 0}</p> <p className="pera"> {tour.rates ? tour.rates.rate : 0}   </p> <i className="ri-star-s-fill  mb-3"></i>
+                                      <p className="pera mr-5">Đánh giá: {tour.rates ? tour.rates.qty : 0}</p> <p className="pera"> {tour.rates ? tour.rates.rate : 0}   </p> <i className="ri-star-s-fill  mb-3"></i>
+                                    </div>
+
                                   </div>
-
                                 </div>
                               </div>
-                            </div>
+                            </a>
                           </div>
                         )
                       })}

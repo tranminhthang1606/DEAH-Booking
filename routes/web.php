@@ -60,6 +60,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/get-itinerary/{id}', [TourController::class, 'getItinerary']);
 
     Route::resource('/attributes', AttributeController::class);
+    Route::post('/attribute/update', [AttributeController::class, 'update'])->name('attribute.update');
     //Posts
     Route::resource('/posts', PostController::class);
     //Vouchers
@@ -67,12 +68,13 @@ Route::group(['prefix' => 'admin'], function () {
     //Bookings
     Route::resource('/bookings', BookingController::class);
     //User
-    Route::get('/users',[UserController::class,'index'])->name('users.index');
-    Route::post('/users/update',[UserController::class,'update'])->name('users.update');
-    Route::delete('/users/delete/{id}',[UserController::class,'index'])->name('users.destroy');
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::post('/users/update', [UserController::class, 'update'])->name('users.update');
+    Route::delete('/users/delete/{id}', [UserController::class, 'index'])->name('users.destroy');
 
 
 });
+Route::get('/get-provinces', [LocationController::class, 'getProvinces'])->name('provinces');
 Route::get('/get-districts/{province_id}', [LocationController::class, 'getDistricts'])->name('districts');
 Route::get('/get-wards/{district_id}', [LocationController::class, 'getWards'])->name('wards');
 Route::get('/get-hotels/{province_id}', [HotelController::class, 'getHotelByProvince']);

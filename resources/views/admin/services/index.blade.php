@@ -9,8 +9,8 @@
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="{{ route('hotels.index') }}">Services</a></li>
-                                <li class="breadcrumb-item active"><a href="F{{ route('hotels.index') }}">List</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('services.index') }}">Services</a></li>
+                                <li class="breadcrumb-item active"><a href="F{{ route('services.index') }}">List</a></li>
                             </ol>
                         </div>
 
