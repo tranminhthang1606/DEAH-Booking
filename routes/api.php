@@ -3,6 +3,7 @@
 use App\Http\Controllers\Client\TourController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\PostController;
+use App\Http\Controllers\VNPayController;
 use App\Models\Province;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -35,8 +36,8 @@ Route::group(['middleware' => 'cors'], function () {
         //post
         Route::any('get-posts-list', [PostController::class, 'index']);
         Route::get('get-post-detail/{id}', [PostController::class, 'show']);
+
+        Route::post('create-payment', [VNPayController::class,'createPayment']);
+        // Route::get('payment-return', 'VNPayController@paymentReturn');
     });
-
 });
-
-

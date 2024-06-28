@@ -12,7 +12,8 @@ class AttributeController extends Controller
     public function index()
     {
         $attribute = Attribute::all();
-        return view('admin.Attributes.index', compact('attribute'));
+        $title = 'Attributes';
+        return view('admin.Attributes.index', compact('attribute','title'));
     }
 
    
