@@ -20,6 +20,7 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Email</th>
+                                    <th>Avarta</th>
                                     <th>Date</th>
                                     <th>Phone</th>
                                     <th>Address</th>
@@ -34,6 +35,7 @@
                                         <td>{{ $user->id }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
+                                        <td><img src="{{ $user->avarta }}" alt=""></td>
                                         <td>{{ $user->date_of_birth }}</td>
                                         <td>{{ $user->phone }}</td>
                                         <td>{{ $user->address }}</td>
@@ -52,7 +54,8 @@
                                         <td>
                                             <button class="btn btn-sm btn-warning edit-item-btn showEdit"
                                                 data-bs-toggle="modal" data-bs-target="#showModal"
-                                                data-edit-role="{{ $user->role }}" data-edit-active="{{ $user->is_active }}"
+                                                data-edit-role="{{ $user->role }}"
+                                                data-edit-active="{{ $user->is_active }}"
                                                 data-edit-id="{{ $user->id }}">Edit</button>
                                             <form action="{{ route('users.destroy', $user->id) }}" method="POST"
                                                 style="display: inline-block;">

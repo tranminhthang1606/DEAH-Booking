@@ -49,8 +49,8 @@ class TourController extends Controller
             $this->query->orderByDesc('created_at');
         }
         $tours = $this->query->get();
-        $provinces_id = Tour::groupBy('province_id')->get('province_id');
-        $types_id = Tour::groupBy('type_id')->get('type_id');
+        $provinces_id = Tour::where('deleted_at',null)->groupBy('province_id')->get('province_id');
+        $types_id = Tour::where('deleted_at',null)->groupBy('type_id')->get('type_id');
         $provinces = Province::whereIn('id', $provinces_id)->get();
         $tour_type = TourType::whereIn('id', $types_id)->get();
         foreach ($tours as $tour) {
@@ -85,6 +85,10 @@ class TourController extends Controller
         $tour->itineraries = $tour->itineraries()->orderBy('day')->get(['day', 'title', 'itinerary']);
         //Ảnh của tour
         $tour->images = $tour->images()->get('image');
+        //Attributes của tour
+        $tour->attributes = $tour->attributes()->get();
+        //Hotels của tour
+        $tour->hotels = $tour->hotels()->get();
         //Địa điểm tour
         $tour->location = [
             'province' => $this->query->provinces()->value('name'),
@@ -96,8 +100,8 @@ class TourController extends Controller
             'rate' => number_format($tour->rates()->avg('rate'), 1),
             'qty' => $rate->count('rate')
         ];
-        //Đánh giá của tour
-        $tour->comments = $tour->comments()->orderByDesc('created_at')->get('comment');
+        //Bình luận của tour
+        $tour->comments = $tour->comments()->orderByDesc('created_at')->get('comments');
         //Các tour cùng kiểu du lịch
         // $tour_same_type = Tour::where('is_active', 1)
         //     ->where('type_id', $this->query->type->id)->whereNot('id', $request->id)

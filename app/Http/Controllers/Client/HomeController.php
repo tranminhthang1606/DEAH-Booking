@@ -27,7 +27,7 @@ class HomeController extends Controller
                 'qty' => $tour->rates()->count()
             ];
             //Ảnh của tour
-            $tour->images = $tour->images()->value('image');
+            $tour->images = $tour->images()->take(1)->value('image');
             //Địa điểm tour
             $tour->location = [
                 'province' => $tour->provinces()->value('name'),
@@ -44,18 +44,18 @@ class HomeController extends Controller
     {
         $tours = Tour::where('is_active', 1)->orderByDesc('views')->take(8)->get();
         foreach ($tours as $tour) {
-            $tour->type = $tour->type()->value('name_type');
+            $tour->type = $tour->types()->value('name_type');
             $tour->rates = [
                 'rate' => number_format($tour->rates()->avg('rate'), 1),
                 'qty' => $tour->rates()->count()
             ];
             //Ảnh của tour
-            $tour->images = $tour->images()->value('image');
+            $tour->images = $tour->images()->take(1)->value('image');
             //Địa điểm tour
             $tour->location = [
-                'province' => $tour->province()->value('name'),
-                'district' => $tour->district()->value('name'),
-                'ward' => $tour->ward()->value('name')
+                'province' => $tour->provinces()->value('name'),
+                'district' => $tour->districts()->value('name'),
+                'ward' => $tour->wards()->value('name')
             ];
         }
         if ($tours) {
