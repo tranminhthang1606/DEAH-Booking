@@ -9,9 +9,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Service extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+    
     protected $table = 'services';
     protected $fillable = [
         'service'
     ];
+    public function hotels()
+    {
+        return $this->belongsToMany(Hotel::class, 'hotel_service');
+    }
 }

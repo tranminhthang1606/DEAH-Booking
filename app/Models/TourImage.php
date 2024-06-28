@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class TourImage extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     protected $table = 'tour_images';
     protected $fillable = [
         'tour_id',

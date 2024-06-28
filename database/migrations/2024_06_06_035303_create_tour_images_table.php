@@ -15,7 +15,6 @@ return new class extends Migration {
                 $table->id();
                 $table->foreignId('tour_id')->constrained()->on('tours');
                 $table->string('image');
-                $table->softDeletes();
                 $table->timestamps();
             });
         

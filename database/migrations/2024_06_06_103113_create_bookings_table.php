@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,6 +12,7 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->string('booking_code');
             $table->string('user_name');
             $table->string('email');
             $table->string('tour_name');
@@ -27,11 +27,11 @@ return new class extends Migration
             $table->integer('people');
             $table->date('start');
             $table->date('end');
-            $table->enum('status_tour',['Chờ xác nhận','Đã xác nhận','Hoàn thành','Đã hủy']);
-            $table->enum('status_payment',['Chờ thanh toán','Đã Thanh toán','Hoàn tiền','Đã hủy']);
+            $table->integer('status_tour');
+            $table->integer('status_payment');
             $table->softDeletes();
             $table->timestamps();
-           
+
         });
     }
 

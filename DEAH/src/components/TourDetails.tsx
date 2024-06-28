@@ -6,18 +6,21 @@ import SlideshowDetail from '../FunctionComponentContext/SlideshowDetail';
 import '../App.css'
 import Footer from './Footer';
 import Header from './Header';
+import { useEffect } from 'react';
 // import Header from './Header';
 // import Footer from './Footer';
 
 const TourDetails = () => {
   const { id } = useParams();
   console.log(id);
+  
   const { data, isLoading, error } = useQuery({
     queryKey: ['KEY_POST', id],
     queryFn: async () => {
       const { data } = await axios.get(`http://127.0.0.1:8000/api/client/get-tour-detail/${id}`);
       console.log(data.data.tour);
-      return data.data.tour;
+      localStorage.setItem('tour', JSON.stringify(data.data))
+      return data.data;
     }
   });
 
@@ -84,42 +87,40 @@ const TourDetails = () => {
               <div className="tour-details-container">
                 <div className="container">
                   {/* Details Heading */}
-                  {tourDetail?.map((tourDetai: any, index: any) => {
-                    return (
-                      <div className="details-heading" key={index}>
-                        <div className="d-flex flex-column">
-                          <h4 className="title">{tourDetai.title}</h4>
-                          <div className="d-flex flex-wrap align-items-center gap-30 mt-16">
-                            <div className="location">
-                              <i className="ri-map-pin-line" />
-                              <div className="name"></div>
-                            </div>
-                            <div className="divider" />
-                            <div className="d-flex align-items-center flex-wrap gap-20">
-                              <div className="count">
-                                <i className="ri-time-line" />
-                                <p className="pera mt-3">{tourDetai.day} Ngày</p>
-                              </div>
-                              <div className="count">
-                                <i className="ri-user-line" />
-                                <p className="pera"></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="price-review">
-                          <div className="d-flex gap-10 align-items-end">
-                            <p className="light-pera ">Từ</p>
-                            <p className="pera mt-2 text-danger">{tourDetai.price} VND</p>
-                          </div>
-                          <div className="rating">
-                            <p className="pera mr-5">Đánh giá: {tourDetai.rates ? tourDetai.rates.qty : 0}</p> <p className="pera"> {tourDetai.rates ? tourDetai.rates.rate : 0}   </p> <i className="ri-star-s-fill  mb-3"></i>
 
+                  <div className="details-heading" key={data.tour.id}>
+                    <div className="d-flex flex-column">
+                      <h4 className="title">{data.tour.title}</h4>
+                      <div className="d-flex flex-wrap align-items-center gap-30 mt-16">
+                        <div className="location">
+                          <i className="ri-map-pin-line" />
+                          <div className="name">{data.tour.location.province}</div>
+                        </div>
+                        <div className="divider" />
+                        <div className="d-flex align-items-center flex-wrap gap-20">
+                          <div className="count">
+                            <i className="ri-time-line" />
+                            <p className="pera mt-3">{data.tour.day} Ngày {data.tour.day - 1} Đêm</p>
+                          </div>
+                          <div className="count">
+                            <i className="ri-user-line" />
+                            <p className="pera"></p>
                           </div>
                         </div>
                       </div>
-                    )
-                  })}
+                    </div>
+                    <div className="price-review">
+                      <div className="d-flex gap-10 align-items-end">
+                        <p className="light-pera ">Từ</p>
+                        <p className="pera mt-2 text-danger">{data.tour.price} VND</p>
+                      </div>
+                      <div className="rating">
+                        <p className="pera mr-5">Đánh giá: {data.rates ? data.rates.qty : 0}</p> <p className="pera"> {data.rates ? data.rates.rate : 0}   </p> <i className="ri-star-s-fill  mb-3"></i>
+
+                      </div>
+                    </div>
+                  </div>
+
 
                   {/* / Details Heading */}
                   <div className="mt-30">
@@ -289,6 +290,30 @@ const TourDetails = () => {
                       </div>
                       {/* Right content */}
 
+                      <div className="col-xl-4">
+                        <div className="container">
+                          <div className="py-5 text-center">
+                            <img
+                              className="d-block mx-auto mb-4"
+                              src={'http://127.0.0.1:8000/' + (data.tour?.images ? data.tour.images[0].image : '')}
+                              alt=""
+                              width="300"
+                              height="300"
+                            />
+                          </div>
+
+                          <div className="container">
+                            <div className="row">
+                              <hr className="mb-4" />
+                              <div className="d-grid gap-2">
+                                <a href='/payment' className="btn btn-primary btn-lg" type="button">
+                                  Đặt Lịch Ngay
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
 
                       {/* <TravelCard /> */}

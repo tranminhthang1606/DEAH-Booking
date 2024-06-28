@@ -9,34 +9,47 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Hotel extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+
     protected $table = 'hotels';
     protected $fillable = [
-           'name',
-           'room',
-           'price',
-           'promotion',
-           'description',
-           'services',
-           'status',
-           'owner_id',
-           'province_id',
-           'district_id',
-           'ward_id',
-           'address',
-           'rate',
-
+        'name',
+        'price',
+        'promotion',
+        'description',
+        'province_id',
+        'district_id',
+        'ward_id',
+        'address',
+        'status',
+        'is_active'
     ];
     public function province()
     {
-        return $this->hasMany(Province::class);
+
+        return $this->belongsTo(Province::class);
     }
     public function district()
     {
-        return $this->hasMany(District::class);
+        return $this->belongsTo(District::class);
     }
     public function ward()
     {
-        return $this->hasMany(Ward::class);
+        return $this->belongsTo(Ward::class);
+    }
+    public function services()
+    {
+        return $this->belongsToMany(Service::class, 'hotel_service');
+    }
+    public function tours()
+    {
+        return $this->belongsToMany(Tour::class, 'tour_hotel');
+    }
+    public function images()
+    {
+        return $this->hasMany(HotelImage::class);
+    }
+    public function comments()
+    {
+        return $this->hasMany(HotelComment::class);
     }
 }

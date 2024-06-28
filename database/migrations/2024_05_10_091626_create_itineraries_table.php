@@ -17,7 +17,6 @@ return new class extends Migration {
                 $table->integer('day');
                 $table->string('title');
                 $table->text('itinerary');
-                $table->softDeletes();
                 $table->timestamps();
             });
         

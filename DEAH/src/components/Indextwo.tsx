@@ -1,32 +1,60 @@
 
 import "../assets/js/main.js"
 import { useQuery } from '@tanstack/react-query'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import Header from "./Header.js";
 import Footer from "./Footer.js";
-import { Link } from "react-router-dom";
-import TourNewid from "../FunctionComponentContext/TourNewid.js";
-import PostNewID from "../FunctionComponentContext/PostNewID.js";
+import CurrencyFormatter from "../FunctionComponentContext/CurrencyFormatter.js";
 
 
 
 const Indextwo = () => {
-  let api = 'http://localhost:8000/api/client/get-tours-new'
+  const [tourFeature, setToursFeature] = useState<any>([]);
+  const [tourNew, setToursNew] = useState<any>([]);
+  const [postsNew, setPostsNew] = useState<any>([]);
 
-  const { data, error, isLoading } = useQuery({
-    queryKey: ["KEY"],
-    queryFn: async () => {
-      const { data } = await axios.get(api)
-      console.log(data.data);
-      return data.data
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let tours_new = 'http://127.0.0.1:8000/api/client/get-tours-new';
+        let tours_lists = 'http://127.0.0.1:8000/api/client/get-tours-feature';
+        let posts = 'http://127.0.0.1:8000/api/client/get-posts-new';
 
-    }
-  })
-  if (isLoading) return <div>Loading.....</div>
-  if (error) return <div>loi{error.message}</div>
-  const tours = Array.isArray(data) ? data : [];
+        const [tourNew, tourFeature, postsNew] = await Promise.all([
+          axios.get(tours_new),
+          axios.get(tours_lists),
+          axios.get(posts)
+        ]);
+        // console.log(response1.data.data);
+
+        setToursNew(tourNew.data.data);
+        setToursFeature(tourFeature.data.data);
+        setPostsNew(postsNew.data.data);
+      } catch (error) {
+        if (error) return <div>loi...</div>
+      }
+    };
+    fetchData();
+    // fetchDataNew();
+  }, []);
+
+  // let api = 'http://localhost:8000/api/client/get-tours-new'
+
+  // const { data, error, isLoading } = useQuery({
+  //   queryKey: ["KEY"],
+  //   queryFn: async () => {
+  //     const { data } = await axios.get(api)
+  //     console.log(data.data);
+  //     return data.data
+
+  //   }
+  // })
+  // if (isLoading) return <div>Loading.....</div>
+  // if (error) return <div>loi{error.message}</div>
+  // const tours = Array.isArray(data) ? data : [];
 
   return (
 
@@ -405,7 +433,7 @@ const Indextwo = () => {
                 <div className="row justify-content-center">
                   <div className="col-xl-7 col-lg-7">
                     <div className="section-title text-center mx-430 mx-auto position-relative">
-                      <span className="highlights">Danh sách đích</span>
+                      <span className="highlights">Danh sách tour mới nhất</span>
                       <h4 className="title">
                         Chúng tôi cung cấp các điểm đến du lịch hàng đầu
                       </h4>
@@ -414,9 +442,27 @@ const Indextwo = () => {
                 </div>
 
                 <div className="row g-4">
-                  {/* <SlideShowpost/> */}
 
-                  <TourNewid />
+                  {tourNew?.map((tours: any, index: any) => {
+                    return (
+                      <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
+                        <a href="destination-details" className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
+                          <img src={'http://127.0.0.1:8000/' + (tours.images ? tours.images : '')} alt="travello" />
+                          <div className="destination-content-two">
+                            
+                            <div className="destination-info-two">
+                              <div className="destination-name line-clamp-2">
+                                <p className="pera">{tours.title}</p>
+                              </div>
+                              <div className="button-section">
+                                <div className="arrow"><i className="ri-arrow-right-line" /></div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             </div>
@@ -498,38 +544,36 @@ const Indextwo = () => {
               <div className="tab-content" id="pills-tabContent">
                 <div className="tab-pane fade show active" id="pills-london" role="tabpanel" aria-labelledby="pills-london-tab">
                   <div className="row g-4">
-                    {data?.map((tour: any, index: any) => {
+                    {tourFeature?.map((tour: any, index: any) => {
                       return (
                         <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
 
                           <div className="package-card">
                             <div className="package-img imgEffect4">
-                              <a href="news-details">
-                                <img src={'http://127.0.0.1:8000/' + (tour.images ? tour.images[0].image : '')} alt="travello" />
+                              <a href="tour-details">
+                                <img src={'http://127.0.0.1:8000/' + (tour.images ? tour.images : '')} alt="travello" />
                               </a>
 
                             </div>
                             <div className="package-content">
-                              <h4 className="area-name">
-                                {/* <a href="tour-details">{tour.title}</a> */}
-                                <Link to={`/tour-details/${tour.id}`}>{tour.title}</Link>
-
+                              <h4 className="area-name line-clamp-1">
+                                <a href="tour-details">{tour.title}</a>
                               </h4>
                               <div className="location">
                                 <i className="ri-map-pin-line" />
-                                {/* <div className="name">Tây Hồ , Hà Nội </div> */}
+                                {tour.location.province}
                               </div>
                               <div className="packages-person">
                                 <div className="count">
                                   <i className="ri-time-line" />
-                                  <p className="pera mt-3 ml-2">{tour.day} Ngày</p>
+                                  <p className="pera mt-3 ml-2">{tour.day} Ngày {(tour.day - 1) == 0 ? '' : tour.day - 1 + ' Đêm'}</p>
                                 </div>
 
                               </div>
                               <div className="price-review">
                                 <div className="d-flex gap-10">
                                   <p className="light-pera">Từ</p>
-                                  <p className="pera text-danger" >{tour.price}. VND</p>
+                                  <p className="pera text-danger" ><CurrencyFormatter amount={tour.price} /></p>
                                 </div>
 
                               </div>
@@ -603,7 +647,53 @@ const Indextwo = () => {
                   </div>
                 </div>
               </div>
-              <PostNewID />
+              <div className="row g-4">
+                {postsNew?.map((post: any, index: any) => {
+                  return (
+                    <div className="col-xl-3 col-lg-3 col-sm-6" key={index}>
+                      <a href={"news-details/" + post.id}>
+                        <article className="news-card-two wow fadeInUp" data-wow-delay="0.0s">
+                          <figure className="news-banner-two imgEffect">
+                            <img src={'http://127.0.0.1:8000/' + post.thumbnail} alt="travello" />
+                          </figure>
+                          <div className="news-content">
+                            <div className="heading line-clamp-1">
+                              <span className="heading-pera"> {post.title}</span>
+                            </div>
+                            <h4 className="title line-clamp-2">
+                              <a href="news-details">{post.body} </a>
+                            </h4>
+                            <div className="news-info">
+                              <div className="d-flex gap-10 align-items-center">
+                                <div className="all-user">
+                                  <div className="happy-user">
+                                    <img src="/src/assets/images/hero/user-1.jpeg" alt="travello" />
+                                  </div>
+                                  <div className="happy-user">
+                                    <img src="/src/assets/images/hero/user-2.png" alt="travello" />
+                                  </div>
+                                  <div className="happy-user">
+                                    <img src="/src/assets/images/hero/user-3.png" alt="travello" />
+                                  </div>
+                                  <div className="happy-user">
+                                    <img src="/src/assets/images/hero/user-4.jpeg" alt="travello" />
+                                  </div>
+                                </div>
+                              </div>
+                              <p className="time">10 phút đọc</p>
+                            </div>
+                          </div>
+                        </article>
+                      </a>
+                    </div>
+
+                  )
+
+
+
+                })}
+
+              </div>
               <div className="col-12 text-center">
                 <div className="section-button d-inline-block wow fadeInUp" data-wow-delay="0.3s">
                   <a href="news">

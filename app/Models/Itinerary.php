@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Itinerary extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+    
     protected $table ='itineraries';
     protected $fillable = [
         'tour_id',

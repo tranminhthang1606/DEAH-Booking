@@ -9,10 +9,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class HotelImage extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+   
     protected $table = 'hotel_images';
     protected $fillable = [
         'hotel_id',
         'image'
     ];
+
+    public function hotel(){
+        return $this->belongsTo(Hotel::class);
+    }
 }

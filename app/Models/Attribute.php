@@ -9,10 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Attribute extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     protected $table = 'attributes';
     protected $fillable = ['attribute'];
-    public function tours(){
-        return $this->belongsToMany(Tour::class,'tour_attribute');
+
+    public function tours()
+    {
+        return $this->belongsToMany(Tour::class, 'tour_attribute');
+
     }
 }

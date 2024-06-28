@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class TourHotel extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     protected $table = 'tour_hotel';
     protected $fillable = [
         'tour_id',

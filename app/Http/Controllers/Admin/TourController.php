@@ -3,79 +3,83 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TourRequest;
+use App\Models\Attribute;
+use App\Models\Hotel;
 use App\Models\Tour;
 use App\Models\TourImage;
-use App\Models\Rate;
 use App\Models\Itinerary;
-use App\Models\TourType;
 use App\Models\Province;
-use App\Models\District;
-use App\Models\Ward;
+use App\Models\Rate;
+use App\Models\TourAttribute;
+use App\Models\TourComment;
+use App\Models\TourHotel;
+use App\Models\TourType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use League\Flysystem\UrlGeneration\PublicUrlGenerator;
 
 class TourController extends Controller
 {
     public function index()
     {
         $tours = Tour::orderByDesc('created_at')->paginate(10);
-        return view('admin.tours.index', compact('tours'));
+        $title = "Tours list";
+        return view('admin.tours.index', compact('tours', 'title'));
     }
 
 
 
     public function create()
     {
-        $tourTypes = TourType::all();
+        $title = "Tour add";
+        $attributes = Attribute::all();
         $provinces = Province::all();
-        $districts = District::all();
-        $wards = Ward::all();
-        return view('admin.tours.create', compact('tourTypes', 'provinces', 'districts', 'wards'));
+        $types = TourType::all();
+        return view('admin.tours.create', compact('title', 'provinces', 'attributes', 'types'));
     }
 
-    public function store(Request $request)
+    public function store(TourRequest $request)
     {
         // Validate input
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'type_id' => 'required|exists:tour_types,id',
-            'province_id' => 'required|exists:provinces,id',
-            'district_id' => 'required|exists:provinces,id',
-            'ward_id' => 'required|exists:provinces,id',
-            // Add more validation rules as needed
-        ]);
-
-        // Tạo một tour mới từ dữ liệu được gửi lên từ form
-        $tour = Tour::create($validatedData);
-
-        // Xử lý lưu các hình ảnh nếu có
-        if ($request->has('images')) {
-            foreach ($request->input('images') as $image) {
+        $request->is_active ? $request->is_active : $request->merge(['is_active' => 0]);
+        $request->merge(['views' => 0]);
+        $tour = Tour::create($request->all());
+        if ($tour) {
+            for ($i = 0; $i < $request->day; $i++) {
+                Itinerary::create([
+                    'tour_id' => $tour->id,
+                    'day' => $i + 1,
+                    'title' => $request->title_itineraries[$i],
+                    'itinerary' => $request->itineraries[$i],
+                ]);
+            }
+            foreach ($request->file('images') as $image) {
+                $imageName = "storage/tours/" . time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('storage/tours'), $imageName);
                 TourImage::create([
                     'tour_id' => $tour->id,
-                    'image' => $image
+                    'image' => $imageName
                 ]);
             }
-        }
-
-        // Xử lý lưu đánh giá nếu có
-        if ($request->has('rates')) {
-            foreach ($request->input('rates') as $rate) {
-                Rate::create([
+            foreach ($request->input('attributes') as $attribute) {
+                TourAttribute::create([
                     'tour_id' => $tour->id,
-                    'rate' => $rate['rate']
+                    'attribute_id' => $attribute,
+                ]);
+            }
+            foreach ($request->input('hotels') as $hotel) {
+                TourHotel::create([
+                    'tour_id' => $tour->id,
+                    'hotel_id' => $hotel,
                 ]);
             }
         }
 
-        // Xử lý lưu lịch trình nếu có
-        if ($request->has('itinerary')) {
-            Itinerary::create([
-                'tour_id' => $tour->id,
-                'day' => $request->input('itinerary.day'),
-                'title' => $request->input('itinerary.title'),
-                'itinerary' => $request->input('itinerary.itinerary')
-            ]);
-        }
+
+
 
         return redirect()->route('tours.index')->with('success', 'Tour created successfully.');
     }
@@ -83,8 +87,18 @@ class TourController extends Controller
     public function show($id)
     {
         // Lấy thông tin chi tiết của một tour cụ thể
-        $tour = Tour::with('images', 'rates', 'itineraries', 'types', 'province', 'districts', 'wards')->findOrFail($id);
-        return view('admin.tours.show', compact('tour'));
+        $tour = Tour::find($id);
+        $attributes = Attribute::all();
+        $provinces = Province::all();
+        $types = TourType::all();
+        $tour->images = $tour->images()->paginate(5);
+        $tour->attributes = $tour->attributes()->paginate(10);
+        $tour->comments = $tour->comments()->paginate(10);
+        $tour->rates = $tour->rates()->paginate(10);
+        $tour->hotels = $tour->hotels()->paginate(10);
+        $hotels = Hotel::where('is_active', 1)->where('province_id', $tour->province_id)->get();
+        $title = "Tour show";
+        return view('admin.tours.show', compact('tour', 'types', 'hotels', 'attributes', 'title', 'provinces'));
     }
 
     public function edit($id)
@@ -92,76 +106,200 @@ class TourController extends Controller
         // Hiển thị form chỉnh sửa tour
         $tour = Tour::findOrFail($id);
         $tourTypes = TourType::all();
-        $provinces = Province::all();
-        $districts = District::all();
-        $wards = Ward::all();
-        return view('admin.tours.edit', compact('tour', 'tourTypes', 'provinces', 'districts', 'wards'));
+        return view('admin.tours.edit', compact('tour', 'tourTypes'));
     }
 
     public function update(Request $request, $id)
     {
         // Validate input
-        $validatedData = $request->validate([
+        $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'promotion' => 'required|numeric|lt:price',
             'type_id' => 'required|exists:tour_types,id',
+            'description' => 'required',
             'province_id' => 'required|exists:provinces,id',
             'district_id' => 'required|exists:districts,id',
-            'ward_id' => 'required|exists:wards,id'
-            // Add more validation rules as needed
+            'ward_id' => 'required|exists:wards,id',
+            'is_active' => 'nullable'
+
         ]);
 
         // Cập nhật thông tin của tour
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first());
+        }
+        $request->is_active ? $request->is_active : $request->merge(['is_active' => 0]);
         $tour = Tour::findOrFail($id);
-        $tour->update($validatedData);
+        $tour->update($request->all());
 
-        // Xử lý cập nhật hình ảnh
-        if ($request->has('images')) {
-            TourImage::where('tour_id', $id)->delete(); // Xóa hết các hình ảnh cũ của tour
-            foreach ($request->input('images') as $image) {
-                TourImage::create([
-                    'tour_id' => $id,
-                    'image' => $image
-                ]);
-            }
+
+        return redirect()->back()->with('success', 'Tour updated successfully.');
+    }
+    public function getItinerary($id)
+    {
+        $itinerary = Itinerary::where('id', $id)->get();
+        return response()->json($itinerary);
+    }
+    public function addHotels(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'hotels' => 'required|array',
+            'hotels.*' => Rule::unique('tour_hotel', 'hotel_id')->where(function ($query) use ($request) {
+                return $query->where('tour_id', $request->tour_id);
+            }),
+
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first());
+        }
+        foreach ($request->input('hotels') as $hotel) {
+            TourHotel::create([
+                'tour_id' => $request->tour_id,
+                'hotel_id' => $hotel,
+            ]);
         }
 
-        // Xử lý cập nhật đánh giá
-        if ($request->has('rates')) {
-            Rate::where('tour_id', $id)->delete(); // Xóa hết các đánh giá cũ của tour
-            foreach ($request->input('rates') as $rate) {
-                Rate::create([
-                    'tour_id' => $id,
-                    'rate' => $rate['rate']
-                ]);
-            }
-        }
+        return redirect()->back()->with('success', 'Add hotel successfully.');
+    }
+    public function delHotel(Request $request)
+    {
+        TourHotel::where('tour_id', $request->tour_id)->where('hotel_id', $request->hotel_id)
+            ->delete();
+        return redirect()->back()->with('success', 'Del hotel successfully.');
 
-        // Xử lý cập nhật lịch trình
-        if ($request->has('itinerary')) {
-            $itinerary = Itinerary::where('tour_id', $id)->first();
-            if ($itinerary) {
-                $itinerary->update([
-                    'day' => $request->input('itinerary.day'),
-                    'title' => $request->input('itinerary.title'),
-                    'itinerary' => $request->input('itinerary.itinerary')
-                ]);
-            } else {
-                Itinerary::create([
-                    'tour_id' => $id,
-                    'day' => $request->input('itinerary.day'),
-                    'title' => $request->input('itinerary.title'),
-                    'itinerary' => $request->input('itinerary.itinerary')
-                ]);
-            }
-        }
-
-        return redirect()->route('tours.index')->with('success', 'Tour updated successfully.');
     }
 
+    public function addItinerary(Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'day' => 'required|numeric',
+            'title' => 'required',
+            'itinerary' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first());
+        }
+        Itinerary::create([
+            'tour_id' => $request->tour_id,
+            'day' => $request->day,
+            'title' => $request->title,
+            'itinerary' => $request->itinerary
+        ]);
+        Tour::find($request->tour_id)->update([
+            'day' => Itinerary::where('tour_id', $request->tour_id)->count('day')
+        ]);
+        return redirect()->back()->with('success', 'Add Itinerary tour successfully');
+    }
+    public function updateItinerary(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'day' => 'required|numeric',
+            'title' => 'required',
+            'itinerary' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first());
+
+        }
+        Itinerary::find($request->id)->update([
+            'day' => $request->day,
+            'title' => $request->title,
+            'itinerary' => $request->itinerary
+        ]);
+
+        return redirect()->back()->with('success', 'Update Itinerary tour successfully');
+    }
+
+    public function delItinerary($id, Request $request)
+    {
+        $item = Itinerary::where('id', $id);
+        if ($item) {
+            $item->delete();
+            Tour::find($request->tour_id)->update([
+                'day' => Itinerary::where('tour_id', $request->tour_id)->count('day')
+            ]);
+        }
+        return redirect()->back()->with('success', 'Update Itinerary tour successfully');
+    }
+    public function addImage(Request $request)
+    {
+        $request->validate([
+            'images' => 'required|array',
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif'
+        ]);
+        foreach ($request->file('images') as $image) {
+            $imageName = "storage/tours/" . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('storage/tours'), $imageName);
+            TourImage::create([
+                'tour_id' => $request->tour_id,
+                'image' => $imageName
+            ]);
+        }
+        return redirect()->back()->with('success', 'Add image tour successfully');
+
+
+    }
+    public function delImage($id)
+    {
+        $del = TourImage::find($id)->delete();
+        if ($del) {
+            return redirect()->back()->with('success', 'Delete image tour successfully');
+        }
+        return redirect()->back()->with('error', 'Delete image tour faild');
+
+    }
+    public function addAttributes(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'attributes' => 'required|exists:attributes,id',
+            'attributes.*' =>
+                Rule::unique('tour_attribute', 'attribute_id')->where(function ($query) use ($request) {
+                    return $query->where('tour_id', $request->tour_id);
+                }),
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first());
+        }
+        foreach ($request->input('attributes') as $attribute) {
+            TourAttribute::create([
+                'tour_id' => $request->tour_id,
+                'attribute_id' => $attribute
+            ]);
+        }
+        return redirect()->back()->with('success', 'Add attributes tour successfully');
+    }
+    public function delAttribute(Request $request)
+    {
+        TourAttribute::where('tour_id', $request->tour_id)
+            ->where('attribute_id', $request->attribute_id)->delete();
+        return redirect()->back()->with('success', 'Delete attributes tour successfully');
+    }
+    public function delRate($id)
+    {
+        $del = Rate::find($id)->delete();
+        if ($del) {
+            return redirect()->back()->with('success', 'Delete rate successfully');
+        }
+        return redirect()->back()->with('error', 'Delete rate faild');
+
+    }
+    public function delComment($id)
+    {
+        $del = TourComment::find($id)->delete();
+        if ($del) {
+            return redirect()->back()->with('success', 'Delete comment successfully');
+        }
+        return redirect()->back()->with('error', 'Delete comment faild');
+
+    }
     public function destroy($id)
     {
         // Xóa một tour và các liên quan (hình ảnh, đánh giá, lịch trình)
         TourImage::where('tour_id', $id)->delete();
+        TourAttribute::where('tour_id', $id)->delete();
+        TourComment::where('tour_id', $id)->delete();
         Rate::where('tour_id', $id)->delete();
         Itinerary::where('tour_id', $id)->delete();
         Tour::findOrFail($id)->delete();

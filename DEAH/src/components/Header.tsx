@@ -34,7 +34,7 @@ const Header = () => {
                       <div className="top-header-left d-flex align-items-center">
                         {/* Logo*/}
                         <div className="logo">
-                          <a href="index-two"><img src="/src/assets/images/logo/logo.png" alt="logo" className="changeLogo" /></a>
+                          <a href="index-two" ><img width="80px"  src="/src/assets/images/logo/logonew-nobg.png" alt="logo" className="changeLogo" /></a>
                         </div>
                         {/* search box */}
                         <div className="search-box search-bar d-none d-lg-block">
@@ -111,7 +111,7 @@ const Header = () => {
 
                               </li>
                               <li className="single-list ">
-                                <a href="/about" className="single link-active">Về Chúng Tôi</a>
+                                <a href="/about" className="single">Về Chúng Tôi</a>
                               </li>
 
                               <li className="single-list">

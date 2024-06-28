@@ -2,29 +2,18 @@
 
 
 use App\Http\Controllers\Admin\AttributeController;
-use App\Http\Controllers\Admin\BannerImageController;
 use App\Http\Controllers\Admin\BookingController;
-use App\Http\Controllers\Admin\DistrictController;
 use App\Http\Controllers\Admin\Hotel_CommentController;
 use App\Http\Controllers\Admin\Hotel_ImageController;
 use App\Http\Controllers\Admin\HotelController;
-use App\Http\Controllers\Admin\Post_CommentController;
 use App\Http\Controllers\Admin\PostController;
-use App\Http\Controllers\Admin\ProvinceController;
-use App\Http\Controllers\Admin\RateController;
 use App\Http\Controllers\Admin\ServiceController;
-use App\Http\Controllers\Admin\TourAttributeController;
-use App\Http\Controllers\Admin\ItineraryController;
-use App\Http\Controllers\Admin\TourCommentController;
 use App\Http\Controllers\Admin\TourController;
-use App\Http\Controllers\Admin\TourHotelController;
 use App\Http\Controllers\Admin\TourTypeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VoucherController;
-use App\Http\Controllers\Admin\WardController;
-use App\Models\BannerImages;
-use App\Models\Province;
-use App\Http\Controllers\Admin\DashBoardController;
+use App\Http\Controllers\Admin\HotelServiceController;
+use App\Http\Controllers\LocationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,48 +26,58 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/', function () {
+    return redirect()->route('admin.index');
+});
 Route::group(['prefix' => 'admin'], function () {
     Route::get("/", function () {
         return view('admin.dashboard', ['title' => "Dashboard"]);
     })->name('admin.index');
-    Route::resource('/attributes', AttributeController::class);
-    Route::resource('/bannerimage', BannerImageController::class);
-    Route::resource('/bookings', BookingController::class);
-    Route::resource('/provinces', ProvinceController::class);
-    Route::resource('/districts', DistrictController::class);
+    //Hotels
     Route::resource('/hotels', HotelController::class);
-    Route::resource('/hotel_comments', Hotel_CommentController::class);
+    Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
+    Route::post('/services/store', [ServiceController::class, 'store'])->name('services.store');
+    Route::put('/services/update', [ServiceController::class, 'update'])->name('services.update');
+    Route::delete('/services/destroy/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
+    Route::resource('/hotel_services', HotelServiceController::class);
     Route::resource('/hotel_images', Hotel_ImageController::class);
+    Route::resource('/hotel_comments', Hotel_CommentController::class);
+    //Tours
+    Route::resource('/types', TourTypeController::class);
+    Route::put('/type/update', [TourTypeController::class, 'updateType'])->name('type.update');
+    Route::resource('/tours', TourController::class);
+    Route::post('/tour/add-attributes', [TourController::class, 'addAttributes'])->name('addAttributes.store');
+    Route::post('/tour/del-attributes', [TourController::class, 'delAttribute'])->name('delAttribute.destroy');
+    Route::post('/tour/add-image', [TourController::class, 'addImage'])->name('addImage.store');
+    Route::post('/tour/del-image/{id}', [TourController::class, 'delImage'])->name('delImage.destroy');
+    Route::post('/tour/add-hotels', [TourController::class, 'addHotels'])->name('addHotels.store');
+    Route::post('/tour/del-hotel', [TourController::class, 'delHotel'])->name('delHotel.destroy');
+    Route::post('/tour/add-itinerary', [TourController::class, 'addItinerary'])->name('addItinerary.store');
+    Route::post('/tour/update-itinerary', [TourController::class, 'updateItinerary'])->name('updateItinerary.update');
+    Route::post('/tour/del-itinerary/{id}', [TourController::class, 'delItinerary'])->name('delItinerary.destroy');
+    Route::post('/tour/del-comment/{id}', [TourController::class, 'delComment'])->name('delComment.destroy');
+    Route::post('/tour/del-rate/{id}', [TourController::class, 'delRate'])->name('delRate.destroy');
+    Route::get('/get-itinerary/{id}', [TourController::class, 'getItinerary']);
+
+    Route::resource('/attributes', AttributeController::class);
+    Route::post('/attribute/update', [AttributeController::class, 'update'])->name('attribute.update');
+    //Posts
     Route::resource('/posts', PostController::class);
-    Route::resource('/post_comments', Post_CommentController::class);
-    Route::resource('/districts', DistrictController::class);
-    Route::resource('rates', RateController::class);
-    Route::resource('services', ServiceController::class);
-    Route::resource('tourAttributes', TourAttributeController::class);
-    Route::resource('itineraries', ItineraryController::class);
-    Route::resource('tourComments', TourCommentController::class);
-    Route::resource('tours', TourController::class);
-    Route::resource('tourHotels', TourHotelController::class);
-    Route::resource('tourTypes', TourTypeController::class);
-    Route::resource('users', UserController::class);
-    Route::resource('vouchers', VoucherController::class);
-    Route::resource('wards', WardController::class);
+    //Vouchers
+    Route::resource('/vouchers', VoucherController::class);
+    //Bookings
+    Route::resource('/bookings', BookingController::class);
+    //User
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::post('/users/update', [UserController::class, 'update'])->name('users.update');
+    Route::delete('/users/delete/{id}', [UserController::class, 'index'])->name('users.destroy');
+
+
 });
-
-
-
-// Route::resource('/rates', RateController::class);
-// Route::resource('/services', ServiceController::class);
-// Route::resource('/tourAttributes', TourAttributeController::class);
-// Route::resource('/itineraries', ItineraryController::class);
-// Route::resource('/tourComments', TourCommentController::class);
-// Route::resource('/tours', TourController::class);
-// Route::resource('/tourHotels', TourHotelController::class);
-// Route::resource('/tourTypes', TourTypeController::class);
-// Route::resource('/users', UserController::class);
-// Route::resource('/vouchers', VoucherController::class);
-// Route::resource('/wards', WardController::class);
+Route::get('/get-provinces', [LocationController::class, 'getProvinces'])->name('provinces');
+Route::get('/get-districts/{province_id}', [LocationController::class, 'getDistricts'])->name('districts');
+Route::get('/get-wards/{district_id}', [LocationController::class, 'getWards'])->name('wards');
+Route::get('/get-hotels/{province_id}', [HotelController::class, 'getHotelByProvince']);
 
 
 
