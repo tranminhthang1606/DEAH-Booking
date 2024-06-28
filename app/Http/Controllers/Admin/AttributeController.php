@@ -32,7 +32,7 @@ class AttributeController extends Controller
             'attribute' => 'required|max:255',
 
         ]);
-        if ($validator->faild()) {
+        if ($validator->fails()) {
             return redirect()->back()->with('error', 'Add attribute faild');
         }
         Attribute::create($request->all());
