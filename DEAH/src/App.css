@@ -308,3 +308,13 @@ a {
 .dropdown-menu{
   width: 850px
 }
+
+.user-name {
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+.user-name:hover {
+  color: #007bff;
+  text-decoration: underline;
+}

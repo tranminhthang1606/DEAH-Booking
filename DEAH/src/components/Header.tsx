@@ -1,9 +1,27 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import '../App.css'
 const Header = () => {
+  const navigate = useNavigate()
+  const [userName, setUserName] = useState<{ name: String, photo: String } | null>(null);
+
+  useEffect(() => {
+    const userData = sessionStorage.getItem('user')
+    if (userData) {
+      setUserName(JSON.parse(userData));
+      // console.log(userData);
+
+    }
+  }, [])
+  const handlelogout = () => {
+    sessionStorage.removeItem('user'),
+      localStorage.removeItem('token'),
+      setUserName(null)
+    navigate('/login')
+  }
   return (
     <div>
-        <header>
+      <header>
         <div className="header-area">
           <div className="main-header">
             {/* Header Top */}
@@ -95,7 +113,7 @@ const Header = () => {
                               <li className="single-list ">
                                 <a href="/about" className="single">Về Chúng Tôi</a>
                               </li>
-                           
+
                               <li className="single-list">
                                 <a href="/tour-list" className="single">Gói Du Lịch</a>
                               </li>
@@ -114,25 +132,27 @@ const Header = () => {
                                     </div>
                                     <div className="divider gradient-divider" />
                                     <div className="money">
-                                      <p className="pera">VND</p>
+                                      <p className="pera">Login</p>
+
                                     </div>
                                   </div>
-                                  <div className="sign-btn">
-                                    <a href="/login" className="btn-secondary-sm">Đăng nhập</a>
 
-                                  </div>
                                 </div>
                               </li>
                             </ul>
                             <div className="header-right">
-                              <div className="d-flex align-items-center gap-12">
-                                <div className="lang">
-                                  <i className="ri-global-line" />
+                              {userName ? (
+                                <div>
+                                  <Link to={'/profile'}><p className='mt-3 user-name '>Chào mừng, {userName.name}!</p></Link>
+                                  <p>{userName.photo}</p>
+
+
                                 </div>
-                                <div className="divider gradient-divider" />
-                                <div className="money">
-                                  <p className="pera">VND</p>
-                                </div>
+                              ) : (
+                                <p className='mt-3'>Chào mừng, bạn vui lòng đăng nhập!</p>
+                              )}
+                              <div className="sign-btn">
+                                <a type='button' onClick={handlelogout} className="btn-secondary-sm">Đăng xuất</a>
                               </div>
                               <div className="sign-btn">
                                 <a href="/login" className="btn-secondary-sm">Đăng nhập</a>

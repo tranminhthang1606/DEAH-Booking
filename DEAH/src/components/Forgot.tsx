@@ -31,7 +31,7 @@ const Forgot = () => {
                   <div className="login-card">
                     {/* Logo */}
                     <div className="logo mb-40">
-                      <a href="index.html" className="mb-30 d-block">
+                      <a href="index" className="mb-30 d-block">
                         <img src="/src/assets/images/logo/logo.png" alt="logo" className="changeLogo" />
                       </a>
                     </div>
@@ -41,7 +41,7 @@ const Forgot = () => {
                         <label className="contact-label">eMail </label>
                         <input className="form-control contact-input" type="email" placeholder="Email" />
                       </div>
-                      <a href="verification.html" className="btn-primary-fill justify-content-center w-100">
+                      <a href="verification" className="btn-primary-fill justify-content-center w-100">
                         <span className="d-flex justify-content-center gap-6">
                           <span>Đặt lại mật khẩu </span>
                         </span>
@@ -51,7 +51,7 @@ const Forgot = () => {
                       <div className="create-account">
                         <p className="mb-0">
                           Quay trở lại
-                          <a href="login.html">
+                          <a href="login">
                             <span className="text-primary">Đăng nhập</span>
                           </a>
                         </p>

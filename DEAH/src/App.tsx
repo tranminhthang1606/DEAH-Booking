@@ -4,13 +4,13 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Faq from './components/Faq';
 import Forgot from './components/Forgot';
-import Login from './components/Login';
+import Login from './AuthForm/Login';
 import NewPassword from './components/NewPassword';
 import NewsDetails from './components/NewsDetails';
 import News from './components/News';
 import Payment from './components/Payment';
 import PrivacyPolicy from './components/PrivacyPolicy';
-import Register from './components/Register';
+import Register from './AuthForm/Register';
 import TermsCondition from './components/TermsCondition';
 import TourDetails from './components/TourDetails';
 import TourList from './components/TourList';
@@ -18,6 +18,7 @@ import Verification from './components/Verification';
 import Indextwo from './components/Indextwo';
 import SlideShow from './FunctionComponentContext/SlideShow';
 import SlideShowpost from './FunctionComponentContext/SlideShowpost';
+import ProfileUser from './AuthForm/ProfileUser';
 
 
 
@@ -45,6 +46,7 @@ function App() {
         <Route path="/slide" element={<SlideShow />} />
 
         <Route path="/slidepost" element={<SlideShowpost />} />
+        <Route path="/profile" element={<ProfileUser />} />
     
       </Routes>
     </>
