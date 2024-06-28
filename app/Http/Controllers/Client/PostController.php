@@ -21,7 +21,7 @@ class PostController extends Controller
     public function index(Request $request)
     {
         $posts = $this->query->orderByDesc('created_at')->get();
-        $posts_feature = $this->query->orderBy('views', 'desc')->get();
+        $posts_feature = Post::where('is_active', 1)->orderByDesc('views')->take(3)->get();
         foreach ($posts as $post) {
             $post->comments = $post->comments()->count('comments');
         }
@@ -41,7 +41,10 @@ class PostController extends Controller
     public function show(Request $request)
     {
         $post = $this->query->find($request->id);
-        $post->comments = $post->comments()->orderByDesc('created_at')->get('comments');
+        $post->comments = $post->comments()->orderByDesc('created_at')->get();
+        foreach ($post->comments as $comment) {
+            $comment->user = $comment->user()->get(['name','avatar']);
+        }
 
         if ($post) {
             $this->query->update(['views' => $post->views += 1]);
