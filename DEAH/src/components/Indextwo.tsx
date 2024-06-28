@@ -537,33 +537,7 @@ const Indextwo = () => {
                   </div>
                 </div>
               </div>
-              {/* <ul className="nav nav-pills package-pills" id="pills-tab" role="tablist">
-                <li className="nav-item package-item" role="presentation">
-                  <button className="nav-link package-nav active" id="pills-london-tab" data-bs-toggle="pill" data-bs-target="#pills-london" role="tab" aria-controls="pills-london" aria-selected="true">
-                    London
-                  </button>
-                </li>
-                <li className="nav-item package-item" role="presentation">
-                  <button className="nav-link package-nav" id="pills-bangkok-tab" data-bs-toggle="pill" data-bs-target="#pills-bangkok" role="tab" aria-controls="pills-bangkok" aria-selected="false">
-                    Bangkok
-                  </button>
-                </li>
-                <li className="nav-item" role="presentation">
-                  <button className="nav-link package-nav" id="pills-hongkong-tab" data-bs-toggle="pill" data-bs-target="#pills-hongkong" role="tab" aria-controls="pills-hongkong" aria-selected="false">
-                    Hong Kong
-                  </button>
-                </li>
-                <li className="nav-item" role="presentation">
-                  <button className="nav-link package-nav" id="pills-manchester-tab" data-bs-toggle="pill" data-bs-target="#pills-manchester" role="tab" aria-controls="pills-manchester" aria-selected="false">
-                    Manchester
-                  </button>
-                </li>
-                <li className="nav-item" role="presentation">
-                  <button className="nav-link package-nav" id="pills-dubai-tab" data-bs-toggle="pill" data-bs-target="#pills-dubai" role="tab" aria-controls="pills-dubai" aria-selected="false">
-                    Dubai
-                  </button>
-                </li>
-              </ul> */}
+             
               <div className="tab-content" id="pills-tabContent">
                 <div className="tab-pane fade show active" id="pills-london" role="tabpanel" aria-labelledby="pills-london-tab">
                   <div className="row g-4">
@@ -1325,7 +1299,7 @@ const Indextwo = () => {
                       <a href={"news-details/" + post.id}>
                         <article className="news-card-two wow fadeInUp" data-wow-delay="0.0s">
                           <figure className="news-banner-two imgEffect">
-                            <img src={'http://127.0.0.1:8000/' + post.thumbnail} alt="travello" />
+                            <img className="image" src={'http://127.0.0.1:8000/' + post.thumbnail} alt="travello" />
                           </figure>
                           <div className="news-content">
                             <div className="heading line-clamp-1">

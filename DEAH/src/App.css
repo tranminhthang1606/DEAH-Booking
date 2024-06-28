@@ -308,3 +308,6 @@ a {
 .dropdown-menu{
   width: 850px
 }
+.image{
+ height: 400px !important;
+}

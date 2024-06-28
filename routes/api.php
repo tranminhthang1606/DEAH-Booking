@@ -53,4 +53,4 @@ Route::group(['middleware' => 'cors'], function () {
         Route::post('create-payment', [VNPayController::class,'createPayment']);
         // Route::get('payment-return', 'VNPayController@paymentReturn');
     });
-});
+

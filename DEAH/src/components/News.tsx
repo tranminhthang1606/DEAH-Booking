@@ -4,12 +4,11 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
+import '../App.css'
 
 import { useEffect, useState } from 'react';
 
 const New = () => {
-
-
   const [postFeature, setPostFeature] = useState<any>([]);
   // const [postsNew, setPostsNew] = useState<any>([]);
 
@@ -17,7 +16,7 @@ const New = () => {
     const fetchData = async () => {
       try {
         let postsFeatureApi = 'http://127.0.0.1:8000/api/client/get-posts-list';
-        // let postsNewApi = 'http://127.0.0.1:8000/api/client/get-posts-list';
+     
 
         const [postFeature] = await Promise.all([
           axios.get(postsFeatureApi),
@@ -80,12 +79,12 @@ const New = () => {
                 </div>
 
                 <div className="col-xl-5 col-lg-5">
-                  {postFeature.posts?.map((post:any, index:number) => (
+                  {postFeature.posts_feature?.map((post:any, index:number) => (
                     <div className="all-contents" id="v-pills-tab-two" role="tablist" aria-orientation="vertical" key={index}>
                       <a href={"news-details/" + post.id}>
                         <div className="news-content active" id="pills-news-one-tab" data-bs-toggle="pill" data-bs-target="#pills-news-one" role="tab" aria-controls="pills-news-one" aria-selected="true">
                           <div className="heading d-flex gap-3">
-                            <img className='rounded' width={250} src={'http://127.0.0.1:8000/' + post.thumbnail} alt="travello" />
+                            <img className='rounded' width={100} src={'http://127.0.0.1:8000/' + post.thumbnail} alt="travello" />
                             <div>
                               <p className="heading-pera line-clamp-1">{post.title}</p>
                               <p className="heading-pera line-clamp-4">{post.body}</p>
@@ -110,8 +109,6 @@ const New = () => {
                     </div>
                   ))}
                 </div>
-
-
               </div>
               <div className="row g-4">
                 <div className="row justify-content-center">
@@ -125,14 +122,13 @@ const New = () => {
                   </div>
                 </div>
 
-                {postFeature.posts_feature?.map((post:any, index:number) => (
-
+                {postFeature.posts?.map((post:any, index:number) => (
                   <div className="col-xl-4 col-lg-4 col-sm-6" key={index} >
                     <a href={"news-details/" + post.id}>
 
                       <article className="news-card-two">
-                        <figure className="news-banner-two imgEffect">
-                          <img height={400} src={'http://127.0.0.1:8000/' + post.thumbnail} alt="travello" />
+                        <figure className="news-banner-two imgEffect ">
+                          <img className='image' src={'http://127.0.0.1:8000/' + post.thumbnail} alt="travello" />
                         </figure>
                         <div className="news-content">
                           <div className="heading line-clamp-1">
