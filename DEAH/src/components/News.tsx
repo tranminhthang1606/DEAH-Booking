@@ -80,7 +80,7 @@ const New = () => {
                 </div>
 
                 <div className="col-xl-5 col-lg-5">
-                  {postFeature.posts?.map((post, index) => (
+                  {postFeature.posts?.map((post:any, index:number) => (
                     <div className="all-contents" id="v-pills-tab-two" role="tablist" aria-orientation="vertical" key={index}>
                       <a href={"news-details/" + post.id}>
                         <div className="news-content active" id="pills-news-one-tab" data-bs-toggle="pill" data-bs-target="#pills-news-one" role="tab" aria-controls="pills-news-one" aria-selected="true">
@@ -125,7 +125,7 @@ const New = () => {
                   </div>
                 </div>
 
-                {postFeature.posts_feature?.map((post, index) => (
+                {postFeature.posts_feature?.map((post:any, index:number) => (
 
                   <div className="col-xl-4 col-lg-4 col-sm-6" key={index} >
                     <a href={"news-details/" + post.id}>

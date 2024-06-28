@@ -102,7 +102,7 @@ const NewsDetails = () => {
 
                     <h4 className="comment-count mb-3">( {post.comments?.length > 0 ? (post.comments).length : 0} ) Comments</h4>
                     {
-                      post.comments?.map((comment) => {
+                      post.comments?.map((comment:any) => {
 
                         return (
                           <div className="main-profile-two">
@@ -167,7 +167,7 @@ const NewsDetails = () => {
                           <h4 className="title">Tin tức gần đây</h4>
                         </div>
                         <ul className="recent-news-list">
-                          {postFeature.map((item, index) => {
+                          {postFeature.map((item:any, index:number) => {
 
                             return (
                               <li className="list  " key={index}>

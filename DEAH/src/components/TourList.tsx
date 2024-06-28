@@ -73,7 +73,7 @@ const TourList = () => {
                         </div>
                         <select className="destination-dropdown" onChange={(e) => setSelectedProvince(e.target.value)}>
                           <option value=''>-- Lọc theo điểm đến --</option>
-                          {tour.provinces?.map((province) => {
+                          {tour.provinces?.map((province:any) => {
                             return (
                               <option value={province.id}>{province.name}</option>
                             )
@@ -87,7 +87,7 @@ const TourList = () => {
                         </div>
                         <select className="destination-dropdown" onChange={(e) => setSelectedType(e.target.value)}>
                           <option value=''>-- Lọc theo loại du lịch --</option>
-                          {tour.types?.map((type) => {
+                          {tour.types?.map((type:any) => {
                             return (
                               <option value={type.id}>{type.name_type}</option>
                             )
