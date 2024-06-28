@@ -62,7 +62,9 @@ const NewsDetails = () => {
           <section className="destination-details-section section-padding2">
             <div className="container">
               <div className="row g-4">
-                <div className="col-xl-8 col-lg-7">
+              {postDetail?.map((newdetail:any, index:any)=>{
+                          return(
+                <div className="col-xl-8 col-lg-7" key={index}>
                   <div className="news-details-banner imgEffect">
                     <img src={'http://127.0.0.1:8000/' + post.thumbnail} alt="travello" />
                   </div>
@@ -158,6 +160,8 @@ const NewsDetails = () => {
                     </div>
                   </div>
                 </div>
+                     )
+                    })}
                 <div className="col-xl-4 col-lg-5">
                   <div className="row g-4 position-sticky top-0">
                     <div className="col-lg-12">
@@ -205,6 +209,7 @@ const NewsDetails = () => {
                     </div>
                   </div>
                 </div>
+                <PostNewDetail/>
               </div>
             </div>
           </section>

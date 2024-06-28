@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('price');
             $table->string('promotion');
-            $table->string('description');
+            $table->text('description');
             $table->foreignId('province_id')->constrained()->on('provinces');
             $table->foreignId('district_id')->constrained()->on('districts');
             $table->foreignId('ward_id')->constrained()->on('wards');
