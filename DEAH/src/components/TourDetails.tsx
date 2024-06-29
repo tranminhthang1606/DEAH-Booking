@@ -306,7 +306,7 @@ const TourDetails = () => {
                             <div className="row">
                               <hr className="mb-4" />
                               <div className="d-grid gap-2">
-                                <a href='/payment' className="btn btn-primary btn-lg" type="button">
+                                <a href={`/payment/${id}`} className="btn btn-primary btn-lg" type="button">
                                   Đặt Lịch Ngay
                                 </a>
                               </div>
