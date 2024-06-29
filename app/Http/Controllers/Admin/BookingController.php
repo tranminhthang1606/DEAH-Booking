@@ -13,7 +13,8 @@ class BookingController extends Controller
     public function index()
     {
         $bookings = Booking::all();
-        return view('admin.Bookings.index', compact('bookings'));
+        $title = 'Bookings';
+        return view('admin.Bookings.index', compact('bookings','title'));
     }
 
     public function create()
@@ -71,6 +72,12 @@ class BookingController extends Controller
 
         $booking->update($request->all());
         return redirect()->route('bookings.index')->with('success', 'Booking updated successfully.');
+    }
+
+    public function updatePaymentStatus(Request $request,$id, Booking $booking)
+    {      
+        $booking->where('booking_code',$id)->update($request->all());
+        return response()->json(array('success' => 'Booking updated successfully'));
     }
 
 

@@ -33,7 +33,7 @@ function App() {
         <Route path="/tour-list" element={<TourList />} />
         <Route path="/tour-details/:id" element={<TourDetails />} />
         <Route path="/news-details/:id" element={<NewsDetails />} />
-        <Route path="/payment" element={<Payment />} />
+        <Route path="/payment/:id" element={<Payment />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-pass" element={<Forgot />} />
@@ -46,7 +46,6 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/slide" element={<SlideShow />} />
         <Route path='/paymentSuccess' element={<PaymentSuccess/>} />
-
         <Route path="/slidepost" element={<SlideShowpost />} />
         <Route path="/profile" element={<ProfileUser />} />
     

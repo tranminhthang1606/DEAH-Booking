@@ -28,6 +28,14 @@ const Payment = () => {
   const [startDate, setStartDate] = useState<string>('');
   const [endDate, setEndDate] = useState<string>('');
   const Payment = async () => {
+    const user_payment_info = {
+      'user_name': username,
+      'email': email,
+      'phone': phone,
+      'start': startDate,
+      'end': endDate,
+    }
+    sessionStorage.setItem('user_payment_info', JSON.stringify(user_payment_info))
     const response = await axios.post('http://127.0.0.1:8000/api/client/create-payment', {
       'booking_code': '',
       'user_name': username,
@@ -38,27 +46,25 @@ const Payment = () => {
       'hotel_name': hotel.name,
       'hotel_price': hotel.promotion ? Number(hotel.promotion) : hotel.price,
       'hotel_address': hotel.address + ', ' + tour.tour.location.province,
-      'book_price':tour.tour.price+hotel.promotion ? Number(hotel.promotion) : hotel.price,
-      'promotion_price':1,
-      'total_price':(tour.tour.price+(hotel.promotion ? Number(hotel.promotion) : hotel.price))*1,
-      'people':1,
+      'book_price': tour.tour.price + hotel.promotion ? Number(hotel.promotion) : hotel.price,
+      'promotion_price': 1,
+      'total_price': (tour.tour.price + (hotel.promotion ? Number(hotel.promotion) : hotel.price)) * 1,
+      'people': 1,
       'start': startDate,
       'end': endDate,
-      'status_tour':0,
-      'status_payment':0,
+      'status_tour': 0,
+      'status_payment': 0,
       'type': tour.tour.type,
       'phone': phone,
       'promotion': tour.tour.promotion,
     })
-
-    
     return window.location.href = response.data.data;
   };
 
-const chooseHotel = (e:any)=>{
-  let data = JSON.parse(e.target.value);
-  setHotel(data);
-}
+  const chooseHotel = (e: any) => {
+    let data = JSON.parse(e.target.value);
+    setHotel(data);
+  }
   const handleStartDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedStartDate = e.target.value;
     setStartDate(selectedStartDate);

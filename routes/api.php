@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Client\TourController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\PostController;
@@ -47,12 +48,9 @@ Route::group(['middleware' => 'cors'], function () {
             Route::get('logout', [UserController::class, 'logout']);
         });
 
+        Route::post('update-payment-status/{id}',[BookingController::class,'updatePaymentStatus']);
         Route::post('create-payment', [VNPayController::class, 'createPayment']);
     });
-        Route::post('create-payment', [VNPayController::class,'createPayment']);
-        // Route::get('payment-return', 'VNPayController@paymentReturn');
-    });
+});
  
     // Route::get('payment-return', 'VNPayController@paymentReturn');
-});
-
