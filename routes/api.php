@@ -46,8 +46,13 @@ Route::group(['middleware' => 'cors'], function () {
             Route::post('update/{token}', [UserController::class, 'update']);
             Route::get('logout', [UserController::class, 'logout']);
         });
+
+        Route::post('create-payment', [VNPayController::class, 'createPayment']);
     });
         Route::post('create-payment', [VNPayController::class,'createPayment']);
         // Route::get('payment-return', 'VNPayController@paymentReturn');
     });
+ 
+    // Route::get('payment-return', 'VNPayController@paymentReturn');
+});
 

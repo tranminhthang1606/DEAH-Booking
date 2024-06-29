@@ -255,7 +255,6 @@ const TourList = () => {
                                 </div>
                                 <div className="package-content">
                                   <h4 className="area-name mb-3">
-
                                     {tour.title}
                                   </h4>
 
