@@ -48,7 +48,7 @@ const Payment = () => {
           {/* Breadcrumbs S t a r t */}
           <section className="breadcrumbs-area breadcrumb-bg">
             <div className="container">
-              <h1 className="title wow fadeInUp" data-wow-delay="0.0s">Sự chi trả</h1>
+              <h1 className="title wow fadeInUp" data-wow-delay="0.0s">Thanh Toán</h1>
               <div className="breadcrumb-text">
                 <nav aria-label="breadcrumb" className="breadcrumb-nav wow fadeInUp" data-wow-delay="0.1s">
                   <ul className="breadcrumb listing">
@@ -112,15 +112,10 @@ const Payment = () => {
                       <div className="donation-payment">
                         {/* Payment */}
                         <div className="card-style box-shadow border-0">
-
-                          <div className="row">
+                          <div className="row g-4">
                             <div className="col mb-4">
-                              <label htmlFor="firstName">Họ</label>
-                              <input type="text" className="form-control" placeholder="First name" aria-label="First name" />
-                            </div>
-                            <div className="col mb-4">
-                              <label htmlFor="lastName">Tên</label>
-                              <input type="text" className="form-control" placeholder="Last name" aria-label="Last name" />
+                              <label htmlFor="lastName">Họ và Tên</label>
+                              <input type="text" className="form-control" placeholder="Họ và tên" aria-label="Name" />
                             </div>
                           </div>
                           <div className="input-group col mb-4">
@@ -130,9 +125,8 @@ const Payment = () => {
 
                           <div className="mb-4">
                             <label htmlFor="email">Email (Bắt Buộc)</label>
-                            <input type="email" className="form-control" placeholder="you@example.com" aria-label="email" />
+                            <input type="email" className="form-control" placeholder="you@example.com" aria-label="email" required />
                           </div>
-
                           <div className="mb-4">
                             <label htmlFor="address">Địa chỉ</label>
                             <input type="text" className="form-control" placeholder="1234 Main St" aria-label="Address" />
@@ -140,7 +134,7 @@ const Payment = () => {
 
                           <div className="mb-4">
                             <label htmlFor="address2">Địa chỉ 2 (Tuỳ Chọn)</label>
-                            <input type="text" className="form-control" placeholder="Apartment or suite" aria-label="Address2" />
+                            <input type="text" className="form-control" placeholder="Apartment or suite" aria-label="Address 2" />
                           </div>
 
                           <div className="row">
@@ -172,6 +166,7 @@ const Payment = () => {
                               </select>
                             </div>
                           </div>
+                          <h4 className="mb-3">Hình thức thanh toán</h4>
                           <div className="form-group col-12 payment-gateway-wrapper mt-10">
 
                             <ul className="payment-gateway-list mb-10">

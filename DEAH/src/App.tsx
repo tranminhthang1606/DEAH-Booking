@@ -19,6 +19,7 @@ import Indextwo from './components/Indextwo';
 import SlideShow from './FunctionComponentContext/SlideShow';
 import SlideShowpost from './FunctionComponentContext/SlideShowpost';
 import ProfileUser from './AuthForm/ProfileUser';
+import PaymentSuccess from './components/PaymentSuccess';
 
 
 
@@ -44,6 +45,7 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/slide" element={<SlideShow />} />
+        <Route path='/paymentSuccess' element={<PaymentSuccess/>} />
 
         <Route path="/slidepost" element={<SlideShowpost />} />
         <Route path="/profile" element={<ProfileUser />} />
