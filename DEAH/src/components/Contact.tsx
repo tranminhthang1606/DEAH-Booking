@@ -28,7 +28,7 @@ const Contact = () => {
             <div className="position-relative contact-bg-before">
               <div className="container">
                 <div className="row justify-content-center">
-                  <div className="col-xl-7 col-lg-9">
+                  <div className="col-xl-7 col-lg-9 ">
                     <div className="contact-card">
                       <h4 className="contact-heading">Hãy viết cho chúng tôi bất cứ lúc nào </h4>
                       <form method="post" className="contact-form">
