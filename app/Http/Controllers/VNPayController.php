@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Number;
 
@@ -9,20 +10,19 @@ class VNPayController extends Controller
 {
     public function createPayment(Request $request)
     {
-        
         // Prepare payment parameters
         $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
         $vnp_Returnurl = "http://localhost:5173/";
-        $vnp_TmnCode = "JNX5BU3J";//Mã website tại VNPAY 
+        $vnp_TmnCode = "JNX5BU3J"; //Mã website tại VNPAY 
         $vnp_HashSecret = "3LOIJOCBALY2FWV4LC2DQXZJ0LY4VJHI"; //Chuỗi bí mật
-        $vnp_TxnRef = random_int(1000000, 9999999); 
-        $vnp_OrderInfo = 'Thanh Toán Tour: '.$request->title;
-        $vnp_OrderType = 100;
-        $vnp_Amount = $request->price *100;
+        $vnp_TxnRef = 'TOUR' . random_int(1000000, 9999999);
+        $vnp_OrderInfo = 'Thanh Toán Tour: ' . $request->title;
+        $vnp_OrderType = 1000;
+        $vnp_Amount = $request->total_price * 100;
         $vnp_Locale = 'VN';
         $vnp_BankCode = 'NCB';
         $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
-
+        $request['booking_code'] = $vnp_TxnRef;
         $inputData = array(
             "vnp_Version" => "2.1.0",
             "vnp_TmnCode" => $vnp_TmnCode,
@@ -37,14 +37,14 @@ class VNPayController extends Controller
             "vnp_ReturnUrl" => $vnp_Returnurl,
             "vnp_TxnRef" => $vnp_TxnRef,
         );
-        
+
         if (isset($vnp_BankCode) && $vnp_BankCode != "") {
             $inputData['vnp_BankCode'] = $vnp_BankCode;
         }
         if (isset($vnp_Bill_State) && $vnp_Bill_State != "") {
             $inputData['vnp_Bill_State'] = $vnp_Bill_State;
         }
-        
+
         //var_dump($inputData);
         ksort($inputData);
         $query = "";
@@ -59,25 +59,25 @@ class VNPayController extends Controller
             }
             $query .= urlencode($key) . "=" . urlencode($value) . '&';
         }
-        
+
         $vnp_Url = $vnp_Url . "?" . $query;
         if (isset($vnp_HashSecret)) {
-            $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret);//  
+            $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret); //  
             $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
         }
-        $returnData = array('code' => '00'
-            , 'message' => 'success'
-            , 'data' => $vnp_Url);
-            if (isset($_POST['redirect'])) {
-                header('Location: ' . $vnp_Url);
-                die();
-            } else {
-                echo json_encode($returnData);
-            }
-            // vui lòng tham khảo thêm tại code demo
+        $returnData = array(
+            'code' => '00', 'message' => 'success', 'data' => $vnp_Url
+        );
+        Booking::create($request->all());
+        if (isset($_POST['redirect'])) {
+            header('Location: ' . $vnp_Url);
+            die();
+        } else {
+            echo json_encode($returnData);
+        }
+        // vui lòng tham khảo thêm tại code demo
 
         // Add other parameters and create checksum
         // Redirect to VNPay payment page
     }
-
 }

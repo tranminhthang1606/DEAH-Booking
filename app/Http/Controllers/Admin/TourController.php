@@ -78,9 +78,6 @@ class TourController extends Controller
             }
         }
 
-
-
-
         return redirect()->route('tours.index')->with('success', 'Tour created successfully.');
     }
 
