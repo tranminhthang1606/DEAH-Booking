@@ -8,6 +8,8 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import CurrencyFormatter from "../FunctionComponentContext/CurrencyFormatter.js";
+import { Link } from "react-router-dom";
+import '../App.css'
 
 
 
@@ -38,23 +40,8 @@ const Indextwo = () => {
       }
     };
     fetchData();
-    // fetchDataNew();
+
   }, []);
-
-  // let api = 'http://localhost:8000/api/client/get-tours-new'
-
-  // const { data, error, isLoading } = useQuery({
-  //   queryKey: ["KEY"],
-  //   queryFn: async () => {
-  //     const { data } = await axios.get(api)
-  //     console.log(data.data);
-  //     return data.data
-
-  //   }
-  // })
-  // if (isLoading) return <div>Loading.....</div>
-  // if (error) return <div>loi{error.message}</div>
-  // const tours = Array.isArray(data) ? data : [];
 
   return (
 
@@ -547,17 +534,15 @@ const Indextwo = () => {
                     {tourFeature?.map((tour: any, index: any) => {
                       return (
                         <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
-
                           <div className="package-card">
                             <div className="package-img imgEffect4">
                               <a href="tour-details">
                                 <img src={'http://127.0.0.1:8000/' + (tour.images ? tour.images : '')} alt="travello" />
                               </a>
-
                             </div>
                             <div className="package-content">
                               <h4 className="area-name line-clamp-1">
-                                <a href="tour-details">{tour.title}</a>
+                                <Link to={`/tour-details/${tour.id}`}>{tour.title}</Link>
                               </h4>
                               <div className="location">
                                 <i className="ri-map-pin-line" />
@@ -624,15 +609,8 @@ const Indextwo = () => {
               </div>
             </div>
             <div className="row g-4">
-
-
-
-
             </div>
-
           </div>
-
-
           {/*/ End of Brand */}
           {/* News S t a r t */}
           <section className="news-area section-padding2">
@@ -661,7 +639,8 @@ const Indextwo = () => {
                               <span className="heading-pera"> {post.title}</span>
                             </div>
                             <h4 className="title line-clamp-2">
-                              <a href="news-details">{post.body} </a>
+                            
+                              <Link to={`/news-details/${post.id}`}>{post.body} </Link>
                             </h4>
                             <div className="news-info">
                               <div className="d-flex gap-10 align-items-center">
@@ -688,9 +667,6 @@ const Indextwo = () => {
                     </div>
 
                   )
-
-
-
                 })}
 
               </div>

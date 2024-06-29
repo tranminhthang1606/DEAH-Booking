@@ -89,6 +89,10 @@ class TourController extends Controller
         $tour->attributes = $tour->attributes()->get();
         //Hotels của tour
         $tour->hotels = $tour->hotels()->get();
+
+        foreach($tour->hotels as $hotel){
+            $hotel->images = $hotel->images()->take(1)->value('image');
+        }
         //Địa điểm tour
         $tour->location = [
             'province' => $this->query->provinces()->value('name'),

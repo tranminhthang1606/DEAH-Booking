@@ -19,7 +19,7 @@ class HomeController extends Controller
 
     public function newTours()
     {
-        $tours = Tour::where('is_active', 1)->orderByDesc('created_at')->take(8)->get();
+        $tours = Tour::where('is_active', 1)->orderByDesc('created_at')->take(4)->get();
         foreach ($tours as $tour) {
             $tour->type = $tour->types()->value('name_type');
             $tour->rates = [
@@ -42,7 +42,7 @@ class HomeController extends Controller
     }
     public function featureTours()
     {
-        $tours = Tour::where('is_active', 1)->orderByDesc('views')->take(8)->get();
+        $tours = Tour::where('is_active', 1)->orderByDesc('views')->take(4)->get();
         foreach ($tours as $tour) {
             $tour->type = $tour->types()->value('name_type');
             $tour->rates = [
@@ -65,7 +65,7 @@ class HomeController extends Controller
     }
     public function newPosts()
     {
-        $posts = Post::where('is_active', 1)->orderByDesc('created_at')->take(8)->get();
+        $posts = Post::where('is_active', 1)->orderByDesc('created_at')->take(4)->get();
         foreach ($posts as $post) {
             $post->comments = $post->comments()->count('comments');
         }

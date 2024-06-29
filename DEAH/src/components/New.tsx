@@ -15,7 +15,6 @@ const New = () => {
       const { data } = await axios.get(api)
       console.log(data.data.posts);
       return data.data.posts
-
     }
   })
   // console.log(data.data);

@@ -10,9 +10,9 @@ const PostNewDetail = () => {
     const { data, isLoading, error } = useQuery({
         queryKey: ['KEY_POST', id],
         queryFn: async () => {
-            const response = await axios.get('http://127.0.0.1:8000/api/client/get-post-detail');
-            console.log(response.data.data.posts);
-            return response.data.data.posts;
+            const response = await axios.get(`http://127.0.0.1:8000/api/client/get-post-detail/${id}`);
+            console.log(response.data.data);
+            return response.data.data;
         }
     });
 
