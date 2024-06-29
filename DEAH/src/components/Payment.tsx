@@ -25,7 +25,6 @@ const Payment = () => {
     window.location.href = response.data.data;
   };
 
-
   const handleStartDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedStartDate = e.target.value;
     setStartDate(selectedStartDate);

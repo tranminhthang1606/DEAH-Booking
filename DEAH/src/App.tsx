@@ -19,6 +19,8 @@ import Indextwo from './components/Indextwo';
 import SlideShow from './FunctionComponentContext/SlideShow';
 import SlideShowpost from './FunctionComponentContext/SlideShowpost';
 import ProfileUser from './AuthForm/ProfileUser';
+import Test from './FunctionComponentContext/test';
+
 
 
 
@@ -47,7 +49,8 @@ function App() {
 
         <Route path="/slidepost" element={<SlideShowpost />} />
         <Route path="/profile" element={<ProfileUser />} />
-    
+       
+ 
       </Routes>
     </>
   );

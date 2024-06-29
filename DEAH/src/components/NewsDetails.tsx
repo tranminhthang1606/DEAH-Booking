@@ -1,17 +1,13 @@
 
-import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import { useEffect, useState } from 'react';
-
 const NewsDetails = () => {
 
   const { id } = useParams();
   // console.log(id);
-
-
   const [postFeature, setPostFeature] = useState<any>([]);
   const [post, setPostDetail] = useState<any>([]);
   // const [postsNew, setPostsNew] = useState<any>([]);
@@ -21,12 +17,10 @@ const NewsDetails = () => {
       try {
         let postsFeatureApi = 'http://127.0.0.1:8000/api/client/get-posts-list';
         let postApi = `http://127.0.0.1:8000/api/client/get-post-detail/${id}`;
-
         const [postFeature, post] = await Promise.all([
           axios.get(postsFeatureApi),
           axios.get(postApi)
         ]);
-
         setPostFeature(postFeature.data.data.posts_feature);
         setPostDetail(post.data.data);
       } catch (error) {
@@ -62,11 +56,11 @@ const NewsDetails = () => {
           <section className="destination-details-section section-padding2">
             <div className="container">
               <div className="row g-4">
-              {postDetail?.map((newdetail:any, index:any)=>{
-                          return(
-                <div className="col-xl-8 col-lg-7" key={index}>
+
+
+                <div className="col-xl-8 col-lg-7" >
                   <div className="news-details-banner imgEffect">
-                    <img src={'http://127.0.0.1:8000/' + post.thumbnail} alt="travello" />
+                    <img className='image' src={'http://127.0.0.1:8000/' + post.thumbnail} alt="travello" />
                   </div>
                   <div className="news-details-content">
 
@@ -104,7 +98,7 @@ const NewsDetails = () => {
 
                     <h4 className="comment-count mb-3">( {post.comments?.length > 0 ? (post.comments).length : 0} ) Comments</h4>
                     {
-                      post.comments?.map((comment:any) => {
+                      post.comments?.map((comment: any) => {
 
                         return (
                           <div className="main-profile-two">
@@ -160,8 +154,7 @@ const NewsDetails = () => {
                     </div>
                   </div>
                 </div>
-                     )
-                    })}
+
                 <div className="col-xl-4 col-lg-5">
                   <div className="row g-4 position-sticky top-0">
                     <div className="col-lg-12">
@@ -171,15 +164,15 @@ const NewsDetails = () => {
                           <h4 className="title">Tin tức gần đây</h4>
                         </div>
                         <ul className="recent-news-list">
-                          {postFeature.map((item:any, index:number) => {
+                          {postFeature.map((item: any, index: number) => {
 
                             return (
                               <li className="list  " key={index}>
                                 <a href={`/news-details/${item.id}`} className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
-                                  <img src={'http://127.0.0.1:8000/' + (item.thumbnail ? item.thumbnail : '')} alt="travello" />
+                                  <img className='ImageNewDetail' src={'http://127.0.0.1:8000/' + (item.thumbnail ? item.thumbnail : '')} alt="travello" />
 
                                   <div className="destination-content-two">
-                                    
+
                                     <div className="destination-info-two">
                                       <div className="destination-name line-clamp-2">
                                         <p className="pera">{item.title}</p>
@@ -209,7 +202,7 @@ const NewsDetails = () => {
                     </div>
                   </div>
                 </div>
-                <PostNewDetail/>
+
               </div>
             </div>
           </section>

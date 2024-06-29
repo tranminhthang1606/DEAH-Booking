@@ -228,16 +228,19 @@ a {
 }
 
 .image-item {
-  width: 22%;
+  margin: auto;
+  width: 60%; /* Điều chỉnh chiều rộng theo ý muốn */
   text-align: center;
   box-sizing: border-box;
   padding: 10px;
 }
 
 .image-item img {
-  max-width: 100%;
-  height: auto;
-  margin-left: 70px;
+  width: 100%; /* Để ảnh rộng gần full chiều ngang */
+  height: auto; /* Đảm bảo tỷ lệ chiều cao tự động */
+  max-height: 400px; /* Giới hạn chiều cao tối đa là 700px */
+  object-fit: cover; /* Đảm bảo ảnh không bị méo hoặc căng */
+  margin: auto;
 }
 
 /* Responsive Styles */
@@ -258,49 +261,13 @@ a {
     width: 100%;
   }
 }
+
  /* slideshow */
- .slideshow-container {
-  width: 100%;
-  margin: 0 auto;
-}
 
-.image-group {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
 
-.image-item {
-  width: 22%;
-  text-align: center;
-  box-sizing: border-box;
-  padding: 10px;
-}
 
-.image-item img {
-  max-width: 100%;
-  height: auto;
-  margin-left: 10px;
-}
 
-/* Responsive Styles */
-@media (max-width: 1200px) {
-  .image-item {
-    width: 40%;
-  }
-}
 
-@media (max-width: 900px) {
-  .image-item {
-    width: 45%;
-  }
-}
-
-@media (max-width: 600px) {
-  .image-item {
-    width: 100%;
-  }
-}
 /* dropdow */
 .dropdown-toggle{
     width: 850px;
@@ -322,5 +289,19 @@ a {
 .user-name:hover {
   color: #007bff;
   text-decoration: underline;
+}
+.ImageNewDetail{
+  height: 250px !important;
+}
+.image{
+  height: 400px !important;
+}
+.img{
+  height: 100px !important;
+}
+.image-item imgs{
+height: auto;
+margin-left: 20px;
+width: 50px;
 }
 

@@ -1,6 +1,6 @@
-import { useQuery } from '@tanstack/react-query'
+
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import FunctionApp from "../FunctionComponentContext/Date.js"
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -11,7 +11,6 @@ const TourList = () => {
   const [selectedProvince, setSelectedProvince] = useState<any>(null);
   const [selectedType, setSelectedType] = useState<any>(null);
   const [tour, setTour] = useState<any>([]);
-  let api = 'http://127.0.0.1:8000/api/client/get-tours-list'
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,7 +31,6 @@ const TourList = () => {
   return (
     <div>
       <div>
-
         <Header />
         <main>
           {/* Breadcrumbs S t a r t */}
@@ -251,14 +249,11 @@ const TourList = () => {
                               <div className="package-card">
                                 <div className="package-img imgEffect4">
                                   <img src={'http://127.0.0.1:8000/' + (tour.images ? tour.images : '')} alt="travello" />
-
                                 </div>
                                 <div className="package-content">
                                   <h4 className="area-name mb-3">
-
                                     {tour.title}
                                   </h4>
-
                                   <div className="packages-person">
                                     <div className="count">
                                       <i className="ri-time-line" />
