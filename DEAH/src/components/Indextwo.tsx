@@ -9,9 +9,8 @@ import Header from "./Header.js";
 import Footer from "./Footer.js";
 import CurrencyFormatter from "../FunctionComponentContext/CurrencyFormatter.js";
 
-// import { useState } from "react";
-// import { Calendar } from "react-date-range";
-// import 'react-calendar/dist/Calendar.css';
+
+
 const Indextwo = () => {
   const [tourFeature, setToursFeature] = useState<any>([]);
   const [tourNew, setToursNew] = useState<any>([]);
@@ -43,6 +42,7 @@ const Indextwo = () => {
   }, []);
 
   // let api = 'http://localhost:8000/api/client/get-tours-new'
+
   // const { data, error, isLoading } = useQuery({
   //   queryKey: ["KEY"],
   //   queryFn: async () => {
@@ -204,6 +204,8 @@ const Indextwo = () => {
           {/*/ End-of Hero*/}
           {/* Brand S t a r t */}
           <section className="why-area">
+
+            {/*  */}
             <div className="container">
               <div className="row">
                 <div className="col-lg-12">
@@ -438,6 +440,7 @@ const Indextwo = () => {
                     </div>
                   </div>
                 </div>
+
                 <div className="row g-4">
 
                   {tourNew?.map((tours: any, index: any) => {
@@ -532,38 +535,12 @@ const Indextwo = () => {
                   <div className="section-title mx-430 mx-auto text-center">
                     <span className="highlights"> Gói phổ biến</span>
                     <h4 className="title">
-                      Địa điểm du lịch yêu thích nhất trên thế giới
+                      Địa điểm du lịch yêu thích nhất ở Việt Nam
                     </h4>
                   </div>
                 </div>
               </div>
-              {/* <ul className="nav nav-pills package-pills" id="pills-tab" role="tablist">
-                <li className="nav-item package-item" role="presentation">
-                  <button className="nav-link package-nav active" id="pills-london-tab" data-bs-toggle="pill" data-bs-target="#pills-london" role="tab" aria-controls="pills-london" aria-selected="true">
-                    London
-                  </button>
-                </li>
-                <li className="nav-item package-item" role="presentation">
-                  <button className="nav-link package-nav" id="pills-bangkok-tab" data-bs-toggle="pill" data-bs-target="#pills-bangkok" role="tab" aria-controls="pills-bangkok" aria-selected="false">
-                    Bangkok
-                  </button>
-                </li>
-                <li className="nav-item" role="presentation">
-                  <button className="nav-link package-nav" id="pills-hongkong-tab" data-bs-toggle="pill" data-bs-target="#pills-hongkong" role="tab" aria-controls="pills-hongkong" aria-selected="false">
-                    Hong Kong
-                  </button>
-                </li>
-                <li className="nav-item" role="presentation">
-                  <button className="nav-link package-nav" id="pills-manchester-tab" data-bs-toggle="pill" data-bs-target="#pills-manchester" role="tab" aria-controls="pills-manchester" aria-selected="false">
-                    Manchester
-                  </button>
-                </li>
-                <li className="nav-item" role="presentation">
-                  <button className="nav-link package-nav" id="pills-dubai-tab" data-bs-toggle="pill" data-bs-target="#pills-dubai" role="tab" aria-controls="pills-dubai" aria-selected="false">
-                    Dubai
-                  </button>
-                </li>
-              </ul> */}
+
               <div className="tab-content" id="pills-tabContent">
                 <div className="tab-pane fade show active" id="pills-london" role="tabpanel" aria-labelledby="pills-london-tab">
                   <div className="row g-4">
@@ -612,677 +589,12 @@ const Indextwo = () => {
                   </div>
                 </div>
                 <div className="tab-pane fade" id="pills-bangkok" role="tabpanel" aria-labelledby="pills-bangkok-tab">
-                  <div className="row g-4">
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details">
-                            <img src="/src/assets/images/package/package-5.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details">
-                            <img src="/src/assets/images/package/package-6.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details.html">
-                            <img src="/src/assets/images/package/package-7.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details.html">
-                            <img src="/src/assets/images/package/package-8.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+
+
                 </div>
-                <div className="tab-pane fade" id="pills-hongkong" role="tabpanel" aria-labelledby="pills-hongkong-tab">
-                  <div className="row g-4">
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details.html">
-                            <img src="/src/assets/images/package/package-9.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details.html">
-                            <img src="/src/assets/images/package/package-10.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details.html">
-                            <img src="/src/assets/images/package/package-11.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details.html">
-                            <img src="/src/assets/images/package/package-12.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="tab-pane fade" id="pills-manchester" role="tabpanel" aria-labelledby="pills-manchester-tab">
-                  <div className="row g-4">
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details.html">
-                            <img src="/src/assets/images/package/package-13.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details.html">
-                            <img src="/src/assets/images/package/package-14.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details.html">
-                            <img src="/src/assets/images/package/package-15.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details.html">
-                            <img src="/src/assets/images/package/package-16.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="tab-pane fade" id="pills-dubai" role="tabpanel" aria-labelledby="pills-dubai-tab">
-                  <div className="row g-4">
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details.html">
-                            <img src="/src/assets/images/package/package-17.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details.html">
-                            <img src="/src/assets/images/package/package-18.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details.html">
-                            <img src="/src/assets/images/package/package-19.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="package-card">
-                        <div className="package-img imgEffect4">
-                          <a href="tour-details.html">
-                            <img src="/src/assets/images/package/package-20.jpg" alt="travello" />
-                          </a>
-                          <div className="image-badge">
-                            <p className="pera">Đặc sắc</p>
-                          </div>
-                        </div>
-                        <div className="package-content">
-                          <h4 className="area-name">
-                            <a href="tour-details.html">Dusitd2 Samyan Bangkok</a>
-                          </h4>
-                          <div className="location">
-                            <i className="ri-map-pin-line" />
-                            <div className="name">Tây Hồ , Hà Nội </div>
-                          </div>
-                          <div className="packages-person">
-                            <div className="count">
-                              <i className="ri-time-line" />
-                              <p className="pera">3 ngày 2 đêm</p>
-                            </div>
-                            <div className="count">
-                              <i className="ri-user-line" />
-                              <p className="pera"> 2 người</p>
-                            </div>
-                          </div>
-                          <div className="price-review">
-                            <div className="d-flex gap-10">
-                              <p className="light-pera">Từ</p>
-                              <p className="pera">$95</p>
-                            </div>
-                            <div className="rating">
-                              <i className="ri-star-s-fill" />
-                              <p className="pera">4.7 (20 đánh giá)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
+
+
               </div>
               <div className="row">
                 <div className="col-12 text-center ">
@@ -1302,6 +614,23 @@ const Indextwo = () => {
           </section>
           {/*/ End of Packages */}
           {/* Promotion S t a r t */}
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-xl-7 col-lg-7">
+                <div className="section-title text-center mx-605 mx-auto position-relative mb-60">
+
+
+                </div>
+              </div>
+            </div>
+            <div className="row g-4">
+
+
+
+
+            </div>
+
+          </div>
 
 
           {/*/ End of Brand */}
@@ -1313,7 +642,7 @@ const Indextwo = () => {
                   <div className="section-title text-center mx-605 mx-auto position-relative mb-60">
                     <span className="highlights">News &amp; Bài báo</span>
                     <h4 className="title">
-                      Latest News &amp; Bài viết Từ The Blog Bài viết
+                      Latest News &amp; Bài viết Từ  Blog Bài viết
                     </h4>
                   </div>
                 </div>
@@ -1325,7 +654,7 @@ const Indextwo = () => {
                       <a href={"news-details/" + post.id}>
                         <article className="news-card-two wow fadeInUp" data-wow-delay="0.0s">
                           <figure className="news-banner-two imgEffect">
-                            <img src={'http://127.0.0.1:8000/' + post.thumbnail} alt="travello" />
+                            <img className="image" src={'http://127.0.0.1:8000/' + post.thumbnail} alt="travello" />
                           </figure>
                           <div className="news-content">
                             <div className="heading line-clamp-1">

@@ -81,7 +81,7 @@ const chooseHotel = (e:any)=>{
           {/* Breadcrumbs S t a r t */}
           <section className="breadcrumbs-area breadcrumb-bg">
             <div className="container">
-              <h1 className="title wow fadeInUp" data-wow-delay="0.0s">Sự chi trả</h1>
+              <h1 className="title wow fadeInUp" data-wow-delay="0.0s">Thanh Toán</h1>
               <div className="breadcrumb-text">
                 <nav aria-label="breadcrumb" className="breadcrumb-nav wow fadeInUp" data-wow-delay="0.1s">
                   <ul className="breadcrumb listing">
@@ -145,11 +145,12 @@ const chooseHotel = (e:any)=>{
                       <div className="donation-payment">
                         {/* Payment */}
                         <div className="card-style box-shadow border-0">
-
-                          <div className="row">
+                          <div className="row g-4">
                             <div className="col mb-4">
+
                               <label htmlFor="name">Họ và tên</label>
                               <input type="text" onChange={(e) => setUserName(e.target.value)} value={username} className="form-control" placeholder="Họ và Tên" aria-label="Họ và Tên" />
+
                             </div>
                           </div>
                           <div className="input-group col mb-4">
@@ -159,10 +160,11 @@ const chooseHotel = (e:any)=>{
 
                           <div className="mb-4">
                             <label htmlFor="email">Email (Bắt Buộc)</label>
+
                             <input type="email" onChange={(e) => setEmail(e.target.value)} className="form-control" placeholder="you@example.com" aria-label="email" />
                           </div>
-
                           <div className="mb-4">
+
                             <label htmlFor="email">Chọn khách sạn</label>
                             <div className=''>
                               {/* <input

@@ -29,7 +29,6 @@ const SlideShowpost = () => {
                 </div>
                 <div className="user-info">
                   <p className="name">{post.title}</p>
-            
                 </div>
               </div>
               <div className="testimonial-body" style={{ maxHeight: '100px', overflowY: 'auto' }}>

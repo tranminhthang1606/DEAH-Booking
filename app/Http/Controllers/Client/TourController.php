@@ -76,8 +76,8 @@ class TourController extends Controller
     public function show(Request $request)
     {
         $this->query = Tour::find($request->id);
-
         $rate = $this->query->rates();
+        // $rate = $this->query->rates();
         $tour = Tour::find($request->id);
         //Kiểu du lịch của tour
         $tour->type = $tour->types()->value('name_type');

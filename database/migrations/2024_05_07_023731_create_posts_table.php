@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('thumbnail');
+            $table->text('thumbnail');     
             $table->text('body');
             $table->integer('views');
             $table->boolean('is_active');
