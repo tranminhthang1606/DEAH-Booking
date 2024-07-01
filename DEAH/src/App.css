@@ -276,8 +276,8 @@ a {
   width: 850px
 }
 
-.image{
- height: 400px !important;
+.images{
+ height: 500px !important;
 }
 
 
@@ -303,5 +303,39 @@ a {
 height: auto;
 margin-left: 20px;
 width: 50px;
+}
+.image-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-image img {
+  border-radius: 20px;
+  margin: auto;
+  width: 70%;
+  max-height: 500px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  image-rendering: auto; /* Ensures smooth scaling */
+}
+
+.thumbnail-images {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.thumbnail {
+  width: 100px;
+  height: 75px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 10px;
+}
+
+.thumbnail:hover {
+  border-color: #007bff;
 }
 

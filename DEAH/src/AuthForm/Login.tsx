@@ -36,7 +36,7 @@ const Login = () => {
           localStorage.setItem('token', resData.accessToken);
 
           if (resData.user) {
-            sessionStorage.setItem('user', JSON.stringify({ name: resData.user.name, email: resData.user.email, photo: resData.user.photo || '' }));
+            sessionStorage.setItem('user', JSON.stringify({ name: resData.user.name, email: resData.user.email, password: resData.user.password || '' }));
           }
 
           navigate('/index-two');

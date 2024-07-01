@@ -19,7 +19,8 @@ import Indextwo from './components/Indextwo';
 import SlideShow from './FunctionComponentContext/SlideShow';
 import SlideShowpost from './FunctionComponentContext/SlideShowpost';
 import ProfileUser from './AuthForm/ProfileUser';
-import Test from './FunctionComponentContext/test';
+import Test from './components/Test';
+
 
 
 
@@ -49,7 +50,7 @@ function App() {
 
         <Route path="/slidepost" element={<SlideShowpost />} />
         <Route path="/profile" element={<ProfileUser />} />
-       
+        <Route path="/test" element={<Test />} />
  
       </Routes>
     </>

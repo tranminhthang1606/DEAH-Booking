@@ -8,10 +8,12 @@ import Footer from './Footer';
 import Header from './Header';
 import TourSbar from '../FunctionComponentContext/TourSbar';
 import { Slide } from 'react-slideshow-image';
+import { useState } from 'react';
 
 
 const TourDetails = () => {
   const { id } = useParams();
+  const [mainImage, setMainImage] = useState(null)
   console.log(id);
 
   const { data, isLoading, error } = useQuery({
@@ -30,6 +32,12 @@ const TourDetails = () => {
   // Ensure data is defined and is an array
   const tourDetail = data ? (Array.isArray(data) ? data : [data]) : [];
   console.log(tourDetail);
+  if (tourDetail.length > 0 && !mainImage) {
+    setMainImage(tourDetail[0].tour.images[0].image)
+  }
+  const handleImageClick = (image: any) => {
+    setMainImage(image)
+  }
 
   return (
     <div>
@@ -57,31 +65,32 @@ const TourDetails = () => {
           <section className="tour-details-section section-padding2">
             <div className="tour-details-area">
               {/* Details Banner Slider */}
-
-              <Slide>
-                <div className="each-slide-effect mr-3">
-                  <div className="image-group">
-                    {data.tour.images && data.tour.images.length > 0 && (
-                      <div className="image-item">
-                        <img
-                          src={'http://127.0.0.1:8000/' + (data.tour.images[0] ? data.tour.images[0].image : '')}
-                          alt="travello"
-                        />
-                      </div>
-                    )}
+              {data.tour.images && data.tour.images.length > 0 && (
+                <>
+                  <Slide>
+                    <div className="main-image">
+                      <img className='images' src={`http://127.0.0.1:8000/${mainImage}`} alt="Main" />
+                    </div>
+                  </Slide>
+                  <div className="thumbnail-images">
+                    {data.tour.images.map((imageObj: any, index: any) => (
+                      <img
+                        key={index}
+                        src={`http://127.0.0.1:8000/${imageObj.image}`}
+                        alt={`Thumbnail ${index}`}
+                        onClick={() => handleImageClick(imageObj.image)}
+                        className="thumbnail"
+                      />
+                    ))}
                   </div>
-                </div>
-              </Slide>
+                </>
+              )}
               <div className="tour-details-banner ">
-
-
-
               </div>
               {/* / Slider*/}
               <div className="tour-details-container">
                 <div className="container">
                   {/* Details Heading */}
-
                   <div className="details-heading" key={data.tour.id}>
                     <div className="d-flex flex-column">
                       <h4 className="title">{data.tour.title}</h4>
@@ -114,8 +123,6 @@ const TourDetails = () => {
                       </div>
                     </div>
                   </div>
-
-
                   {/* / Details Heading */}
                   <div className="mt-30">
                     <div className="row g-4">
@@ -189,38 +196,39 @@ const TourDetails = () => {
                         <div className="tour-details-content mb-30">
                           <h4 className="title">Kế hoạch du lịch</h4>
                           <div className="accordion" id="accordionExample">
-                            {data.tour.itineraries?.map((day:any, index:any) => (
-                              <div className="accordion-item" key={index}>
-                                <h2 className="accordion-header" id={`heading${index}`}>
-                                  <button
-                                    className="accordion-button"
-                                    type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target={`#collapse${index}`}
-                                    aria-expanded={index === 0 ? "true" : "false"}
-                                    aria-controls={`collapse${index}`}
+                            {data.tour && data.tour.itineraries && data.tour.itineraries.length > 0 ? (
+                              data.tour.itineraries.map((day: any, index: any) => (
+                                <div className="accordion-item" key={index}>
+                                  <h2 className="accordion-header" id={`heading${index}`}>
+                                    <button
+                                      className="accordion-button"
+                                      type="button"
+                                      data-bs-toggle="collapse"
+                                      data-bs-target={`#collapse${index}`}
+                                      aria-expanded={index === 0 ? "false" : "false"}
+                                      aria-controls={`collapse${index}`}
+                                    >
+                                      Ngày {day.day}: {day.title}
+                                    </button>
+                                  </h2>
+                                  <div
+                                    id={`collapse${index}`}
+                                    className={`accordion-collapse collapse ${index === 1 ? "show" : ""}`}
+                                    aria-labelledby={`heading${index}`}
+                                    data-bs-parent="#accordionExample"
                                   >
-                                    Ngày {day.day}: {day.title}
-                                  </button>
-                                </h2>
-                                <div
-                                  id={`collapse${index}`}
-                                  className={`accordion-collapse collapse ${index === 0 ? "show" : ""}`}
-                                  aria-labelledby={`heading${index}`}
-                                  data-bs-parent="#accordionExample"
-                                >
-                                  {/* <div className="accordion-body">
-                                    <div dangerouslySetInnerHTML={{ __html: day.itinerary }} />
-                                    <p>{day.itinerary}</p>
-                                  </div> */}
-                                
+                                    <div className="accordion-body">
+                                      {day.itinerary}
+                                    </div>
+                                  </div>
                                 </div>
-                                <p>{day.itinerary}</p>
-                              </div>
-                            ))}
+                              ))
+                            ) : (
+                              <p>Lịch trình không có sẵn.</p>
+                            )}
                           </div>
-                        </div>
 
+                        </div>
 
                         {/* / Tour Plan accordion*/}
                         {/* Tour Privacy Policy */}
@@ -234,7 +242,7 @@ const TourDetails = () => {
                                     <div className="package-card">
                                       <div className="package-img">
                                         <a href="tour-details">
-                                          <img className='image' src={'http://127.0.0.1:8000/' + (hotel.images ? hotel.images : '')} alt="travello" />
+                                          <img className='images' src={'http://127.0.0.1:8000/' + (hotel.images ? hotel.images : '')} alt="travello" />
                                         </a>
                                       </div>
                                       <div className="package-content">
@@ -246,7 +254,7 @@ const TourDetails = () => {
                                         <p>{hotel.address}</p>
 
                                         <div className="location">
-                                      
+
                                           <p>{hotel.description}</p>
                                         </div>
                                         <div className="packages-person">
