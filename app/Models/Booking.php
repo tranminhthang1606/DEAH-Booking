@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\StatusPayment;
+use App\Enums\StatusTour;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -29,6 +31,14 @@ class Booking extends Model
          'end',
          'status_payment',
          'status_tour',
+         'statusPayment',
+         'statusTour'
 
     ];
+    public function getNameStatusPayment(){
+        return StatusPayment::getValueByKey($this->status_payment);
+    }
+    public function getNameStatusTour(){
+        return StatusTour::getValueByKey($this->status_tour);
+    }
 }
