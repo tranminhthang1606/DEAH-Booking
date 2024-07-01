@@ -81,8 +81,8 @@ class UserController extends Controller
         if (Hash::check(Auth::user()->id, $token)) {
             if ($request->hasFile('file')) {
                 $image = $request->file('file');
-                $imageName = "storage/tours/" . time() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('storage/tours'), $imageName);
+                $imageName = "storage/users/" . time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('storage/users'), $imageName);
                 $request->merge(['avarta' => $imageName]);
                 $user = User::find(Auth::user()->id)->update($request->all());
                 if ($user) {
