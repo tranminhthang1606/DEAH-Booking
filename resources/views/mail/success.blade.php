@@ -19,12 +19,12 @@
         <div class="row">
             <div class="col-6">
                 <p>Tour: {{$booking->tour_name}}</p>
-                <p>Giá tour: {{number_format($booking->tour_price,0,'.','.')}}</p>
+                <p>Giá tour: {{number_format($booking->tour_price,0,'.','.')}} VND</p>
                 <p>Địa chỉ tour: {{$booking->tour_address}}</p>
             </div>
             <div class="col-6">
                 <p>Khách sạn: {{$booking->hotel_name}}</p>
-                <p>Giá khách sạn: {{number_format($booking->hotel_price,0,'.','.')}}</p>
+                <p>Giá khách sạn: {{number_format($booking->hotel_price,0,'.','.')}} VND</p>
                 <p>Địa chỉ khách sạn: {{$booking->hotel_address}}</p>
             </div>
         </div>
