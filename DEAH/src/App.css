@@ -290,6 +290,7 @@ a {
   color: #007bff;
   text-decoration: underline;
 }
+
 .ImageNewDetail{
   height: 250px !important;
 }
@@ -304,6 +305,7 @@ height: auto;
 margin-left: 20px;
 width: 50px;
 }
+<<<<<<< HEAD
 .image-group {
   display: flex;
   flex-direction: column;
@@ -337,5 +339,37 @@ width: 50px;
 
 .thumbnail:hover {
   border-color: #007bff;
+=======
+._failed{ border-bottom: solid 4px red !important; }
+._failed i{  color:red !important;  }
+
+._success {
+    box-shadow: 0 15px 25px #00000019;
+    padding: 45px;
+    width: 100%;
+    text-align: center;
+    margin: 40px auto;
+    border-bottom: solid 4px #28a745;
+}
+
+._success i {
+    font-size: 55px;
+    color: #28a745;
+}
+
+._success h2 {
+    margin-bottom: 12px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 10px;
+}
+
+._success p {
+    margin-bottom: 0px;
+    font-size: 18px;
+    color: #495057;
+    font-weight: 500;
+>>>>>>> 9b10302ca30304092a39c10bb5474688c725d654
 }
 

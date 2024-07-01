@@ -267,7 +267,7 @@
                                             <td class="text-black">
                                                 {{ number_format($hotel->price, 0, '.', '.') }} VND </td>
                                             <td class="text-black">
-                                                {{ number_format($hotel->price, 0, '.', '.') }} VND </td>
+                                                {{ number_format($hotel->promotion, 0, '.', '.') }} VND </td>
                                             <td class="text-black">
                                                 {{ $hotel->address . ',' . $hotel->ward->name . ',' . $hotel->district->name . ',' . $hotel->province->name }}
                                             </td>

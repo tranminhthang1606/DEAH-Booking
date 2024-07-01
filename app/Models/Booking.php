@@ -12,11 +12,12 @@ class Booking extends Model
     
     protected $table = 'bookings';
     protected $fillable = [
+        'booking_code',
          'user_name',
          'email',
          'tour_name',
          'tour_price',
-         'address_tour',
+         'tour_address',
          'hotel_name',
          'hotel_price',
          'hotel_address',
@@ -26,7 +27,8 @@ class Booking extends Model
          'people',
          'start',
          'end',
-         'status'
+         'status_payment',
+         'status_tour',
 
     ];
 }

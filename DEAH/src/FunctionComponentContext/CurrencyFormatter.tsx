@@ -6,7 +6,6 @@ interface CurrencyFormatterProps {
 
 const CurrencyFormatter: React.FC<CurrencyFormatterProps> = ({ amount }) => {
     const formatter = new Intl.NumberFormat('vi-VN', {
-        style: 'currency',
         currency: 'VND',
     });
 

@@ -271,12 +271,21 @@ const TourDetails = () => {
                                             </p>
 
 
+
                                           </div>
                                         </div>
                                       </div>
                                     </div>
                                   </div>
                                 ))}
+
+                          <div className="container">
+                            <div className="row">
+                              <hr className="mb-4" />
+                              <div className="d-grid gap-2">
+                                <a href={`/payment/${id}`} className="btn btn-primary btn-lg" type="button">
+                                  Đặt Lịch Ngay
+                                </a>
                               </div>
 
 
