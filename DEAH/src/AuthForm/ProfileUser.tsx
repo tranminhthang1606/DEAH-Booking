@@ -84,7 +84,7 @@ const ProfileUser = () => {
                 </div>
                 <nav className="side-menu ">
                   <ul className="nav">
-                    <li><a href="#"><span className="fa fa-user" /> Profile</a></li>
+                    <li><a href="/listbill"><span className="fa fa-user" /> Profile</a></li>
                     <li><a href="#"><span className="fa fa-cog" /> Settings</a></li>
                     <li className="active"><a href="#"><span className="fa fa-credit-card" /> Billing</a></li>
                     <li><a href="#"><span className="fa fa-envelope" /> Messages</a></li>
