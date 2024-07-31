@@ -28,6 +28,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import UserPicker from './components/You';
+import PaymentPage from './components/PaymentPage';
+import PaymentBanking from './components/PaymentBanking';
 
 
 
@@ -55,18 +57,14 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/slide" element={<SlideShow />} />
         <Route path='/paymentSuccess' element={<PaymentSuccess/>} />
-        
-
-
+        <Route path='/paymentpage' element={<PaymentPage/>}/>
+        <Route path='/paymentbanking' element={<PaymentBanking/>}/>
         {/* user */}
         <Route path="/profile" element={<ProfileUser />} />
        <Route path="/listbill" element={<ListBill/>}/>
             {/* user */}
             <Route path="/pass" element={<Password />} />
-            <Route path="/t" element={<Test/>} />
-            <Route path="/y" element={<UserPicker/>} />
-           
-
+            <Route path="/t" element={<Test/>} />           
       </Routes>
       <ToastContainer />
     </>
