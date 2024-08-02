@@ -16,7 +16,6 @@ class AttributeController extends Controller
         $attributes = Attribute::orderByDesc('created_at')->paginate(10);
         $title = 'Attributes';
         return view('admin.Attributes.index', compact('attributes', 'title'));
-
     }
 
 
@@ -82,6 +81,5 @@ class AttributeController extends Controller
         }
         return redirect()->back()
             ->with('error', 'Xóa thuộc tính thất bại');
-
     }
 }

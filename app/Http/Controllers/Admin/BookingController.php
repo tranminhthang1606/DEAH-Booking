@@ -58,7 +58,6 @@ class BookingController extends Controller
         }
         return response()->json();
     }
-
     public function update(Request $request)
     {
         $booking = Booking::find($request->id);

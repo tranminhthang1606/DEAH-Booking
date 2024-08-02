@@ -31,8 +31,7 @@ class DashBoardController extends Controller
             ->whereRaw('MONTH(created_at) = ' . $nowMonth)
             ->whereRaw('YEAR(created_at) = ' . $nowYear);
         $totalInMonth = number_format(
-            $book->sum('total_price')
-            ,
+            $book->sum('total_price'),
             0,
             ',',
             '.'

@@ -54,12 +54,7 @@ class Hotel_ImageController extends Controller
         }
         return redirect()->back()
             ->with('success', 'Hotel Image added successfully.');
-
-
     }
-
-
-
 
 
     public function edit(HotelImage $hotelImage)
@@ -102,7 +97,6 @@ class Hotel_ImageController extends Controller
             }
             $data->delete();
         }
-        return back()->with('success', 'Hotel image is deleted.');
-        ;
+        return back()->with('success', 'Hotel image is deleted.');;
     }
 }

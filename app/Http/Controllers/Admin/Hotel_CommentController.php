@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 
 class Hotel_CommentController extends Controller
 {
-    //
     public function index()
     {
         $hotelComments = HotelComment::all();
@@ -25,7 +24,7 @@ class Hotel_CommentController extends Controller
         return view('admin.Hotel_comments.add', compact('hotels', 'users'));
     }
 
-  
+
     public function store(Request $request)
     {
         $request->validate([
@@ -37,10 +36,10 @@ class Hotel_CommentController extends Controller
         HotelComment::create($request->all());
 
         return redirect()->route('hotel_comments.index')
-                        ->with('success','Hotel comment created successfully.');
+            ->with('success', 'Hotel comment created successfully.');
     }
 
-  
+
     public function show(HotelComment $hotelComment)
     {
         return view('admin.Hotel_comments.show', compact('hotelComment'));
@@ -54,7 +53,7 @@ class Hotel_CommentController extends Controller
         return view('admin.Hotel_comments.edit', compact('hotelComment', 'hotels', 'users'));
     }
 
-   
+
     public function update(Request $request, HotelComment $hotelComment)
     {
         $request->validate([
@@ -66,14 +65,13 @@ class Hotel_CommentController extends Controller
         $hotelComment->update($request->all());
 
         return redirect()->route('hotel_comments.index')
-                        ->with('success','Hotel comment updated successfully');
+            ->with('success', 'Hotel comment updated successfully');
     }
     public function destroy(HotelComment $hotelComment)
     {
         $hotelComment->delete();
 
         return redirect()->back()
-                        ->with('success','Hotel comment deleted successfully');
+            ->with('success', 'Hotel comment deleted successfully');
     }
-
 }
