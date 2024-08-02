@@ -45,9 +45,7 @@ class UserController extends Controller
             return $this->response->responseSuccess(Auth::user());
         } else {
             return $this->response->responseFailed('Tài khoản không tồn tại hoặc chưa được kích hoạt');
-
         }
-
     }
     public function signup(Request $request)
     {
@@ -90,9 +88,9 @@ class UserController extends Controller
         if ($validator->fails()) {
             return $this->response->responseFailed($validator->errors()->first());
         }
-        
 
-  
+
+
         if (Hash::check($request->id, $request->token)) {
             $user = User::find($request->id);
             if ($user) {
@@ -100,23 +98,17 @@ class UserController extends Controller
                     $image = $request->file;
                     $imageName = "storage/users/test-" . time() . '.' . $image->getClientOriginalExtension();
                     $image->move(public_path('storage/users'), $imageName);
-               
                 }
-                $user->update([...$request->all(),'avatar' => $imageName]);
+                $user->update([...$request->all(), 'avatar' => $imageName]);
 
 
                 $user->token = Hash::make($user->id);
                 return $this->response->responseSuccess($user, 'Cập nhật thành công');
-
-
             }
             return $this->response->responseFailed('Người dùng không tồn tại');
-
         } else {
             return $this->response->responseFailed('Cập nhật thất bại');
         }
-
-
     }
     public function changePass(Request $request)
     {

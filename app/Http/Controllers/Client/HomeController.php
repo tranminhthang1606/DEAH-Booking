@@ -63,6 +63,7 @@ class HomeController extends Controller
         }
         return $this->response->responseFailed();
     }
+    
     public function newPosts()
     {
         $posts = Post::where('is_active', 1)->orderByDesc('created_at')->take(4)->get();

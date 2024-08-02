@@ -14,9 +14,9 @@ class PostController extends Controller
 {
     public function index(Request $request)
     {
-        foreach(Post::all() as $tour){
+        foreach (Post::all() as $tour) {
             $tour->update([
-                'slug'=>Str::slug($tour->title)
+                'slug' => Str::slug($tour->title)
             ]);
         }
         $query = Post::query();
@@ -63,7 +63,6 @@ class PostController extends Controller
             return redirect()->route('posts.index')->with('success', 'Post created successfully.');
         }
         return redirect()->route('posts.index')->with('error', 'Post created faild.');
-
     }
 
     public function show(Post $post)

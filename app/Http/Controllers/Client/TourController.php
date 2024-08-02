@@ -22,7 +22,6 @@ class TourController extends Controller
     {
         $this->response = $response;
         $this->query = Tour::clone()->where('is_active', 1);
-
     }
     public function index(Request $request)
     {
@@ -39,8 +38,7 @@ class TourController extends Controller
         }
         if (isset($type_id) && $type_id !== null) {
             $this->query->where('type_id', $type_id);
-        }
-        ;
+        };
         if (isset($sortByPrice)) {
             if ($sortByPrice == 'desc') {
                 $this->query->orderByDesc('price')->get();

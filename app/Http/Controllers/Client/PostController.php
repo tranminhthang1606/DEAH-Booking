@@ -16,7 +16,6 @@ class PostController extends Controller
     {
         $this->response = $response;
         $this->query = Post::where('is_active', 1);
-
     }
     public function index(Request $request)
     {
@@ -36,7 +35,6 @@ class PostController extends Controller
             return $this->response->responseSuccess($data);
         }
         return $this->response->responseFailed();
-
     }
     public function show(Request $request)
     {

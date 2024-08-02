@@ -26,9 +26,9 @@ class TourController extends Controller
 {
     public function index(Request $request)
     {
-        foreach(Tour::all() as $tour){
+        foreach (Tour::all() as $tour) {
             $tour->update([
-                'slug'=>Str::slug($tour->title)
+                'slug' => Str::slug($tour->title)
             ]);
         }
         $provinces = Province::whereIn('id', Tour::groupBy('province_id')->get('province_id'))->get(['id', 'name']);
@@ -196,7 +196,6 @@ class TourController extends Controller
         TourHotel::where('tour_id', $request->tour_id)->where('hotel_id', $request->hotel_id)
             ->delete();
         return redirect()->back()->with('success', 'Del hotel successfully.');
-
     }
 
     public function addItinerary(Request $request)
@@ -230,7 +229,6 @@ class TourController extends Controller
         ]);
         if ($validator->fails()) {
             return redirect()->back()->with('error', $validator->errors()->first());
-
         }
         Itinerary::find($request->id)->update([
             'day' => $request->day,
@@ -268,8 +266,6 @@ class TourController extends Controller
             ]);
         }
         return redirect()->back()->with('success', 'Add image tour successfully');
-
-
     }
     public function delImage($id)
     {
@@ -278,16 +274,15 @@ class TourController extends Controller
             return redirect()->back()->with('success', 'Delete image tour successfully');
         }
         return redirect()->back()->with('error', 'Delete image tour failed');
-
     }
     public function addAttributes(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'attributes' => 'required|exists:attributes,id',
             'attributes.*' =>
-                Rule::unique('tour_attribute', 'attribute_id')->where(function ($query) use ($request) {
-                    return $query->where('tour_id', $request->tour_id);
-                }),
+            Rule::unique('tour_attribute', 'attribute_id')->where(function ($query) use ($request) {
+                return $query->where('tour_id', $request->tour_id);
+            }),
         ]);
         if ($validator->fails()) {
             return redirect()->back()->with('error', $validator->errors()->first());
@@ -313,7 +308,6 @@ class TourController extends Controller
             return redirect()->back()->with('success', 'Delete rate successfully');
         }
         return redirect()->back()->with('error', 'Delete rate failed');
-
     }
     public function delComment($id)
     {
@@ -322,7 +316,6 @@ class TourController extends Controller
             return redirect()->back()->with('success', 'Delete comment successfully');
         }
         return redirect()->back()->with('error', 'Delete comment failed');
-
     }
     public function destroy($id)
     {

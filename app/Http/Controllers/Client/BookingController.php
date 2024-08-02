@@ -51,11 +51,10 @@ class BookingController extends Controller
                     $booking->status_payment = StatusPayment::REFUND;
                 } else {
                     $booking->status_payment = StatusPayment::CANCEL;
-
                 }
                 $booking->status_tour = StatusTour::CANCEL;
                 $booking->save();
-                return $this->ResponseJson->responseSuccess($bookings,'Hủy thành công');
+                return $this->ResponseJson->responseSuccess($bookings, 'Hủy thành công');
             }
             if (
                 $booking->status_payment == StatusPayment::PAID
@@ -68,9 +67,7 @@ class BookingController extends Controller
                 return $this->ResponseJson->responseSuccess('Hoàn tiền thành công');
             }
             return $this->ResponseJson->responseSuccess('Không thể cập nhật dữ liệu');
-
         }
         return $this->ResponseJson->responseFailed('Không có dữ liệu');
     }
-
 }

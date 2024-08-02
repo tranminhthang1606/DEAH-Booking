@@ -35,11 +35,8 @@ class HotelController extends Controller
             //Bình luận
             $hotel->comments = $hotel->comments()->orderByDesc('created_at')->get();
 
-
             return $this->responseJson->responseSuccess($hotel);
-
         }
         return $this->responseJson->responseFailed();
-
     }
 }

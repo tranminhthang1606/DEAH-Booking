@@ -14,7 +14,7 @@ class ServiceController extends Controller
     {
         $services = Service::orderByDesc('created_at')->paginate(10);
         $title = "Services list";
-        return view('admin.services.index', compact('services','title'));
+        return view('admin.services.index', compact('services', 'title'));
     }
 
     // Tạo mới một dịch vụ
@@ -29,7 +29,6 @@ class ServiceController extends Controller
             return redirect()->back()->with('success', 'Add service successfully');
         }
         return redirect()->back()->with('error', 'Add service faild');
-
     }
 
     // Cập nhật một dịch vụ
@@ -53,11 +52,10 @@ class ServiceController extends Controller
     {
         $service = Service::find($id);
         if ($service) {
-            HotelService::where('service_id',$id);
+            HotelService::where('service_id', $id);
             $service->delete();
             return redirect()->back()->with('success', 'Delete service successfully');
-        } 
-            return redirect()->back()->with('error', 'Delete service faild');
-        
+        }
+        return redirect()->back()->with('error', 'Delete service faild');
     }
 }
