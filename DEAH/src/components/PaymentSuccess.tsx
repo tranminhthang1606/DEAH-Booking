@@ -11,7 +11,7 @@ const PaymentSuccess = () => {
   const user_payment_info = JSON.parse(sessionStorage.getItem('user_payment_info'));
   console.log(user_payment_info);
 
-  const updatePaymentState = async (vnp_TxnRef) => {
+  const updatePaymentState = async (vnp_TxnRef: any) => {
     
     const response = await axios.post(`http://127.0.0.1:8000/api/client/update-payment-status/${vnp_TxnRef}`, {
       'status_payment': 1
@@ -93,7 +93,7 @@ const PaymentSuccess = () => {
               </div>
               <div className="flex justify-around">
                 <a
-                  className="btn btn-primary" href='/'
+                  className="btn btn-primary" href='/index-two'
                 >
                   Quay lại trang chủ
                 </a>

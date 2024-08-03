@@ -18,7 +18,7 @@ const StatusPayment = ({status}) => {
       alertClass += 'danger';
       break;
     case 3:
-      statusinf = 'Đợi hoàn tiền';
+      statusinf = 'Hoàn tiền';
       alertClass += 'info';
       break;
     default:

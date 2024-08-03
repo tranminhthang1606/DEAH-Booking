@@ -8,64 +8,55 @@ const Footer = () => {
           <div className="container">
             <div className="footer-area">
               <div className="row g-4">
-                <div className="col-xl-3 col-lg-4 col-sm-6">
+                <div className="col-xl-3 col-lg-3 col-sm-6">
                   <div className="single-footer-caption">
                     <div className="footer-title">
                       <h4 className="title text-white">Công ty</h4>
                       <ul className="list-unstyled">
                         <li className="single-list">
-                          <a href="about">Về Chúng tôi</a>
+                          <a href="/about">Về Chúng tôi</a>
                         </li>
                         <li className="single-list">
-                          <a href="news  text-white">Tin tức</a>
+                          <a href="/news">Tin tức</a>
                         </li>
                         <li className="single-list">
-                          <a href="faq  text-white">Câu hỏi thường gặp</a>
-                        </li>
-                        <li className="single-list">
-                          <a href="contact  text-white">Liên Hệ</a>
+                          <a href="/contact">Liên Hệ</a>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </div>
-                <div className="col-xl-3 col-lg-4 col-sm-6">
+                <div className="col-xl-3 col-lg-3 col-sm-6">
                   <div className="single-footer-caption">
                     <div className="footer-title">
                       <h4 className="title text-white">Khám phá</h4>
                       <ul className="list-unstyled">
                         <li className="single-list">
-                          <a href="faq">Câu hỏi thường gặp</a>
-                        </li>
-                        <li className="single-list">
-                          <a href="tour-list">Chuyến du lịch Danh sách</a>
-                        </li>
-                        <li className="single-list">
-                          <a href="destination">Điểm đến</a>
+                          <a href="/tour-list">Danh sách chuyến du lịch</a>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </div>
-                <div className="col-xl-3 col-lg-4 col-sm-6">
+                <div className="col-xl-3 col-lg-3 col-sm-6">
                   <div className="single-footer-caption">
                     <div className="footer-title">
                       <h4 className="title text-white">Liên kết nhanh</h4>
                       <ul className="list-unstyled">
                         <li className="single-list">
-                          <a href="index">Trang chủ</a>
+                          <a href="/index-two">Trang chủ</a>
                         </li>
                         <li className="single-list">
-                          <a href="about">Về Chúng Tôi</a>
+                          <a href="/about">Về Chúng Tôi</a>
                         </li>
                         <li className="single-list">
-                          <a href="contact">Liên Hệ với chúng tôi</a>
+                          <a href="/contact">Liên Hệ với chúng tôi</a>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </div>
-                <div className="col-xl-3 col-lg-4 col-sm-6">
+                <div className="col-xl-3 col-lg-3 col-sm-6">
                   <div className="single-footer-caption">
                     <div className="footer-title">
                       <h4 className="title text-white">Liên Hệ</h4>
@@ -96,9 +87,9 @@ const Footer = () => {
             <div className="footer-middle-area">
               <div className="footer-body">
                 <div className="footer-content">
-                  <div className="d-flex flex-column gap-20">
+                  <div className="d-flex flex-column gap-8">
                     <div className="logo">
-                      <img src="/src/assets/images/logo/logo.png" alt="travello" className="changeLogo" />
+                      <img width="65px" src="/src/assets/images/logo/logonew-nobg.png" alt="logo" className="changeLogo"/>
                     </div>
                     <p className="pera">
                       Du lịch là một trải nghiệm biến đổi và phong phú

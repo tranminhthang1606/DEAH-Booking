@@ -14,7 +14,7 @@ import { useForm } from 'react-hook-form'
 
 
 const ListBill = () => {
-    const formattedDate = (currentDate) => format(currentDate, 'yyyy-MM-dd');
+    const formattedDate = (currentDate: number | Date) => format(currentDate, 'yyyy-MM-dd');
     const user = JSON.parse(sessionStorage.getItem("user"));
     const [listbill, setListBill] = useState<any>([]);
     const [avatarUrl, setAvatarUrl] = useState<string>('');
@@ -59,7 +59,7 @@ const ListBill = () => {
 
     return (
         <div>
-            <Header />
+            <Header/>
             <div className="container">
                 <div className="view-account">
                     <section className="module">
