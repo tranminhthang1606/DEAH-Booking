@@ -13,18 +13,13 @@ class Province extends Model
     public function tour()
     {
         return $this->hasMany(Tour::class);
-
     }
     public function districts()
     {
         return $this->hasMany(District::class);
-
     }
     public function hotel()
     {
         return $this->hasMany(Hotel::class);
-
     }
-
-
 }

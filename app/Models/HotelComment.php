@@ -9,19 +9,21 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class HotelComment extends Model
 {
     use HasFactory;
-    
+
     protected  $table = 'hotel_comments';
     protected $fillable = [
-        'comments', 
+        'comments',
         'hotel_id',
         'user_id'
     ];
 
-    public function hotel(){
+    public function hotel()
+    {
         return $this->belongsTo(Hotel::class);
     }
 
-    public function user(){
-        return $this->belongsTo(User::class,'user_id');
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

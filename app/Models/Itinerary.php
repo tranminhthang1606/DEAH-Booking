@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Itinerary extends Model
 {
     use HasFactory;
-    
-    protected $table ='itineraries';
+
+    protected $table = 'itineraries';
     protected $fillable = [
         'tour_id',
         'day',
@@ -18,7 +18,8 @@ class Itinerary extends Model
         'itinerary'
 
     ];
-    public function tour(){
+    public function tour()
+    {
         return $this->belongsTo(Tour::class);
     }
 }

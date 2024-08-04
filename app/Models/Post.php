@@ -8,14 +8,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
-    use HasFactory;
-    
-    protected $table = 'posts';
-    protected $fillable = [
-      'title','slug','body','views','thumbnail','is_active'
+  use HasFactory;
 
-    ];
-    public function comments(){
-      return $this->hasMany(PostComment::class);
-    }
+  protected $table = 'posts';
+  protected $fillable = [
+    'title', 'slug', 'body', 'views', 'thumbnail', 'is_active'
+
+  ];
+  public function comments()
+  {
+    return $this->hasMany(PostComment::class);
+  }
 }

@@ -8,14 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class HotelService extends Model
 {
     use HasFactory;
-    protected $table='hotel_service';
-    protected $fillable =['id','hotel_id','service_id'];
+    protected $table = 'hotel_service';
+    protected $fillable = ['id', 'hotel_id', 'service_id'];
 
-    public function hotel(){
+    public function hotel()
+    {
         return $this->belongsTo(Hotel::class);
     }
 
-    public function service(){
+    public function service()
+    {
         return $this->belongsTo(Service::class);
     }
 }
