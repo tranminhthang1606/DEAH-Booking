@@ -99,7 +99,7 @@ class UserController extends Controller
                     $imageName = "storage/users/test-" . time() . '.' . $image->getClientOriginalExtension();
                     $image->move(public_path('storage/users'), $imageName);
                 }
-                $user->update([...$request->all(), 'avatar' => $imageName]);
+                $user->update([...$request->all(),'avatar' => $imageName]);
 
 
                 $user->token = Hash::make($user->id);

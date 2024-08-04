@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Payment: React.FC = () => {
+
     const [username, setUserName] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
     const [email, setEmail] = useState<string>('');
@@ -29,6 +30,7 @@ const Payment: React.FC = () => {
     const [startDate, setStartDate] = useState<any>(new Date());
     const [endDate, setEndDate] = useState<any>(addDays(new Date(), tour.tour.day));
 
+
     const [children2To5, setChildren2To5] = useState<number>(0);
     const [children6To12, setChildren6To12] = useState<number>(0);
     const navigate = useNavigate();
@@ -41,9 +43,9 @@ const Payment: React.FC = () => {
     const calculateTotalPrice = (adults: number, kids: number) => {
         const tourprice = tour.tour.promotion ? tour.tour.promotion : tour.tour.price
         const adultPrice = tourprice // Giả sử giá cho mỗi người lớn
-        const kidPrice = tourprice * 0.2; // Giả sử giá cho mỗi trẻ em là 50% giá người lớn
+        const kidPrice = tourprice * 0.8; // Giả sử giá cho mỗi trẻ em là 80% giá người lớn
         const hotelPrice = hotel ? (hotel.promotion ? Number(hotel.promotion) : hotel.price) : 0;
-        const newTotalPrice = (adults * adultPrice) + (kids * kidPrice) + hotelPrice;
+        const newTotalPrice = (adults * adultPrice) + (children6To12 * kidPrice) + hotelPrice;
         setTotalPrice(newTotalPrice);
     };
 
@@ -60,24 +62,25 @@ const Payment: React.FC = () => {
             'booking_code': 'Tour' + Date.now(),
             'user_name': username,
             'email': email,
+            'tour_id': tour.tour.id,
             'tour_name': tour.tour.title,
-            'tour_price': tour.tour.price,
-            'tour_address': tour.tour.location.ward + ', ' + tour.tour.location.district + ', ' + tour.tour.location.province,
+            'tour_price': tour.tour.promotion ? tour.tour.promotion : tour.tour.price,
+            'tour_address': tour.tour.location.ward + ', ' + tour.tour.location.district + ',' + tour.tour.location.province,
             'hotel_name': hotel ? hotel.name : '',
             'hotel_price': hotel ? (hotel.promotion ? Number(hotel.promotion) : hotel.price) : 0,
-            'hotel_address': hotel ? (hotel.address + ', ' + tour.tour.location.province) : '',
-            'book_price': tour.tour.price + (hotel ? (hotel.promotion ? Number(hotel.promotion) : hotel.price) : 0),
-            'promotion_price': 1,
-            'total_price': totalPrice,
-            'people': kids + adults,
+            'hotel_address': hotel ? (hotel.address + ',' + tour.tour.location.province) : '',
+            'book_price': totalPrice,
+            'promotion_price': 0,
+            'total_price': totalPrice + (hotel ? (hotel.promotion ? Number(hotel.promotion) : hotel.price) : 0),
+            'people': children2To5 + children6To12 + adults,
             'start': startDate,
             'end': endDate,
             'status_tour': 0,
             'status_payment': 0,
             'type': tour.tour.type,
             'phone': phone,
-            'promotion': tour.tour.promotion,
-            'kids': kids,
+            'kids': children2To5 + children6To12,
+            // 'promotion': (tour.tour.price - tour.tour.promotion) + (hotel.price - hotel.promotion ?? 0) ?? 0,
             'adults': adults,
             'user_id': user_id,
             'children2To5': children2To5,
@@ -88,7 +91,7 @@ const Payment: React.FC = () => {
                 var response = await axios.post('http://127.0.0.1:8000/api/client/cashpayment', bookingData);
                 if (response.status === 200) {
                     toast.success(response.data.message);
-                    navigate('', { state: { data: bookingData } })
+                    navigate('/paymentpage', { state: { data: bookingData } })
                 } else {
                     toast.error(response.data.message);
                 }
@@ -98,8 +101,10 @@ const Payment: React.FC = () => {
             case 'CKNH':
                 var response = await axios.post('http://127.0.0.1:8000/api/client/bankingPayment', bookingData);
                 if (response.status === 200) {
+                    console.log(response.data.message);
+
                     toast.success(response.data.message);
-                    navigate('', { state: { data: bookingData } })
+                    navigate('/paymentbanking', { state: { data: bookingData } })
                 } else {
                     toast.error(response.data.message);
                 }
@@ -113,6 +118,7 @@ const Payment: React.FC = () => {
             default:
                 break;
         }
+
     };
 
     const chooseHotel = (e: any) => {
