@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
-    //
     public function getDistricts($province_id)
     {
         $districts = District::where('province_id', $province_id)->get();

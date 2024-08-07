@@ -12,7 +12,7 @@ use function Laravel\Prompts\error;
 
 class Hotel_ImageController extends Controller
 {
-    //
+    
     public function index()
     {
         $hotelImages = HotelImage::all();
@@ -38,7 +38,7 @@ class Hotel_ImageController extends Controller
         // dd($request->all());
         $validator = Validator::make($request->all(), [
             'hotel_id' => 'required',
-            'images' => 'required|array|max:5', // Số lượng ảnh tối đa là 5
+            'images' => 'required|array|max:5', // Số lượng hình ảnh tối đa là 5
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
         if ($validator->fails()) {
