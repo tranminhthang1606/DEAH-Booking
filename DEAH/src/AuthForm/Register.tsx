@@ -52,7 +52,7 @@ const Register = () => {
   return (
     <div>
       <div>
-        <Header />
+        <Header status={undefined} />
         <main>
           {/* Breadcrumbs S t a r t */}
           <section className="breadcrumbs-area breadcrumb-bg">
@@ -162,7 +162,7 @@ const Register = () => {
                         <p>
                           Bạn co săn san để tạo một tai khoản?
                           <a href="login">
-                            <span className="text-primary">Đăng nhập</span>
+                            <span className="text-primary">Đổi mật khẩu</span>
                           </a>
                         </p>
                       </div>

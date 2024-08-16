@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Admin\AttributeController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\DashBoardController;
 use App\Http\Controllers\Admin\Hotel_CommentController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\Admin\TourTypeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Admin\HotelServiceController;
+use App\Http\Controllers\Admin\StasticController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LocationController;
 use Illuminate\Support\Facades\Route;
@@ -28,14 +30,23 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::fallback(function () {
+    return redirect()->back();
+});
+
 Route::get('/', function () {
     return redirect()->route('auth.form');
 });
 Route::get('/login', [AuthController::class, 'form'])->name('auth.form');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+Route::any('/resgister', [AuthController::class, 'resgister'])->name('auth.resgister');
+Route::any('/repass', [AuthController::class, 'repass'])->name('auth.repass');
+Route::get('/change-pass/{token}', [AuthController::class, 'change'])->name('auth.change');
+Route::post('/change-pass', [AuthController::class, 'changePass'])->name('auth.change-pass');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'login'], function () {
     Route::get("/", [DashBoardController::class, 'index'])->name('admin.index');
+    Route::get("/stastics", [StasticController::class, 'index'])->name('stastics');
     //Hotels
     Route::resource('/hotels', HotelController::class);
     Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
@@ -97,7 +108,6 @@ Route::get('/get-provinces', [LocationController::class, 'getProvinces'])->name(
 Route::get('/get-districts/{province_id}', [LocationController::class, 'getDistricts'])->name('districts');
 Route::get('/get-wards/{district_id}', [LocationController::class, 'getWards'])->name('wards');
 Route::get('/get-hotels/{province_id}', [HotelController::class, 'getHotelByProvince']);
-
 
 
 

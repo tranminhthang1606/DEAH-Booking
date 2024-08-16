@@ -8,14 +8,17 @@ body {
   background: #FFFFFF;
   margin-top: 20px;
   overflow: hidden;
+  /* max-width: 100%; */
+  margin-left: auto;
+  margin-right: auto;
+width: 1320px;
+
   /* Ensures content doesn't overflow */
 }
 
 .view-account .pro-label {
   font-size: 13px;
   padding: 4px 5px;
-  position: relative;
-  top: -5px;
   margin-left: 10px;
   display: inline-block;
 }
@@ -24,12 +27,10 @@ body {
 .view-account .side-bar {
   padding-bottom: 30px;
   width: 100%;
-  /* Adjust as needed */
 }
 
 .module-inner.side-bar {
   width: 100%;
-  /* Adjust as needed */
 }
 
 .view-account .side-bar .user-info {
@@ -42,9 +43,7 @@ body {
 
 .view-account .side-bar .user-info .img-profile {
   width: 120px;
-  /* Adjust size as needed */
   height: 120px;
-  /* Adjust size as needed */
   margin-bottom: 15px;
   border-radius: 100px;
 }
@@ -62,10 +61,6 @@ body {
 
 .view-account .side-bar .user-info .meta li a {
   color: #616670;
-}
-
-.view-account .side-bar .user-info .meta li.activity {
-  color: #a2a6af;
 }
 
 .view-account .side-bar .side-menu {
@@ -103,23 +98,19 @@ body {
   color: #40babd;
   border-bottom: 2px solid #40babd;
   background: none;
-  border-right: none;
 }
 
 /* Content panel styles */
 .view-account .content-panel {
   padding: 30px;
-  /* background-color: #e2f4f3; */
 }
 
 .content-panel {
   margin-left: 0;
-  /* Adjust as needed */
 }
 
 .content-panel input {
   width: 100%;
-  /* Adjust as needed */
 }
 
 .view-account .content-panel .title {
@@ -195,7 +186,7 @@ body {
   }
 
   .content-panel input {
-    width: 500px;
+    width: 100%;
   }
 
   .view-account .content-panel .title {
@@ -257,6 +248,7 @@ body {
     text-align: left;
   }
 }
+
 
 @media (min-width: 992px) {
 
@@ -329,6 +321,8 @@ body {
     border-right: 4px solid #40babd;
     border-bottom: none;
   }
+}
+
 
   @keyframes spin {
     0% {
@@ -593,7 +587,7 @@ body {
   position: absolute;
 }
 
-}
+
 
 
 @media print {
@@ -694,7 +688,7 @@ main .table {
 
 
 table {
-  width: 100%;
+  width: 75%;
 }
 
 td img {
@@ -901,114 +895,4 @@ tbody td.active {
 .export__file .export__file-options img {
   width: 2rem;
   height: auto;
-}
-/* lichtrinh */
-/* .schedule{
-  width: 1000px;
-}
-.right{
-margin-right: 200px;
-} */
-.custom-modal-width .modal-dialog {
-  max-width: 100%;
-  width: auto;
-  margin: 0 auto;
-
-}
-
-.custom-modal-width .modal-content {
-  width: 100%;
-
-}
-
-.schedule-header, .schedule-body, .schedule-footer {
-  background-color: white;
-  /* background-color: #000000; */
-  /* width: 830px; */
-}
-
-@media (min-width: 768px) {
-  .custom-modal-width .modal-dialog {
-    max-width: 80%;
-  }
-}
-
-@media (min-width: 992px) {
-  .custom-modal-width .modal-dialog {
-    max-width: 70%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .custom-modal-width .modal-dialog {
-    max-width: 100%;
-   
-  }
-  /* rate_tourdetail */
-  /* Default styles for larger screens */
-.rating-section {
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
-  margin: 20px 0;
-}
-
-.rating-checkbox {
-  position: relative;
-  margin: 0 5px;
-}
-
-.rating-checkbox input {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.rating-checkbox label {
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.rating-checkbox label svg {
-  width: 24px;
-  height: 24px;
-}
-
-/* Styles for tablets (width less than 768px) */
-@media (max-width: 768px) {
-  .rating-section {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .rating-checkbox {
-    margin: 0 3px;
-  }
-
-  .rating-checkbox label svg {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-/* Styles for mobile phones (width less than 480px) */
-@media (max-width: 480px) {
-  .rating-section {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .rating-checkbox {
-    margin: 0 2px;
-  }
-
-  .rating-checkbox label svg {
-    width: 18px;
-    height: 18px;
-  }
-}
-
 }

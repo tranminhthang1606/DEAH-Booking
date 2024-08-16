@@ -15,12 +15,9 @@ import Register from './AuthForm/Register';
 import TermsCondition from './components/TermsCondition';
 import TourDetails from './components/TourDetails';
 import TourList from './components/TourList';
-import Verification from './components/Verification';
 import Indextwo from './components/Indextwo';
 import SlideShow from './FunctionComponentContext/SlideShow';
 import ProfileUser from './AuthForm/ProfileUser';
-
-import ListBill from './components/ListBill';
 import PaymentSuccess from './components/PaymentSuccess';
 import Password from './AuthForm/Password';
 
@@ -32,7 +29,8 @@ import PaymentBanking from './components/PaymentBanking';
 import Loading from './FunctionComponentContext/Loading';
 import Lisbill2 from './components/Lisbill2';
 import Hi from './FunctionComponentContext/Hi';
-import Ap from './Test/Ap';
+
+import Ab from './Test/Ab';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -56,12 +54,12 @@ function App() {
         <Route path="/tour-list" element={<TourList />} />
         <Route path="/tour-details/:slug" element={<TourDetails />} />
         <Route path="/news-details/:slug" element={<NewsDetails />} />
-        <Route path="/payment/:id" element={<Payment />} />
+        <Route path="/payment/:slug" element={<Payment />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-pass" element={<Forgot />} />
-        <Route path="/verification" element={<Verification />} />
-        <Route path="/new-password" element={<NewPassword />} />
+       
+        <Route path="/new-password/:token" element={<NewPassword />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-condition" element={<TermsCondition />} />
@@ -77,7 +75,8 @@ function App() {
         <Route path="/pass" element={<Password />} />
         <Route path="/t" element={<Test/>} />
         <Route path="/c" element={<Hi/>} />
-        <Route path="/test" element={<Ap />} />
+        {/* <Route path="/test" element={<Ap />} /> */}
+        <Route path="/test1" element={<Ab />} />
       </Routes>
       <ToastContainer />
     </>

@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import '../App.css'
 import { useNavigate } from 'react-router-dom';
 
-
+import SearchListBill from "../FunctionComponentContext/Shearchbill.js";
 
 const Indextwo = () => {
   const [tourFeature, setToursFeature] = useState<any>([]);
@@ -22,34 +22,42 @@ const Indextwo = () => {
   const [selectedProvince, setSelectedProvince] = useState<any>(null);
   const [selectedType, setSelectedType] = useState<any>(null);
   const [tour, setTour] = useState<any>([]);
+
   const navigate = useNavigate();
 
   // console.log(selectedType);
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         let tours_new = 'http://127.0.0.1:8000/api/client/get-tours-new';
         let tours_lists = 'http://127.0.0.1:8000/api/client/get-tours-feature';
         let posts = 'http://127.0.0.1:8000/api/client/get-posts-new';
-
         const [tourNew, tourFeature, postsNew] = await Promise.all([
           axios.get(tours_new),
           axios.get(tours_lists),
-          axios.get(posts)
+          axios.get(posts),
+
+
         ]);
+
+
         const response = await axios.post('http://127.0.0.1:8000/api/client/get-tours-list'
-      
+
         );
-        // console.log(response.data.data);
+
 
         setTour(response.data.data);
         // console.log(response1.data.data);
         setStatus(!status);
         setToursNew(tourNew.data.data);
+        // console.log(tourNew.data.data);
+
         setToursFeature(tourFeature.data.data);
         setPostsNew(postsNew.data.data);
-   
+
+
+
       } catch (error) {
         if (error) return <div>loi...</div>
       }
@@ -57,11 +65,16 @@ const Indextwo = () => {
     fetchData();
 
   }, [selectedProvince, selectedType]);
-  const handleSubmit = (e:any) => {
+  // console.log(selectedProvince);
+
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     navigate('/tour-list', {
       state: { province: selectedProvince, type_id: selectedType }
+
+
     });
+
   };
 
   return (
@@ -72,8 +85,11 @@ const Indextwo = () => {
         <Header status={status} />
         <main>
           {/* Hero area S t a r t*/}
-          <section className="hero-padding-two hero-bg-two position-relative">
+          <section className="hero-padding-two  position-relative banner">
+
             <div className="container">
+              <SearchListBill />
+
               <div className="row  g-4 align-items-center justify-content-between position-relative">
                 <div className="col-xl-7 col-lg-6">
                   <div className="hero-caption-two position-relative">
@@ -93,61 +109,59 @@ const Indextwo = () => {
                       <h4 className="title">Các tour du lịch tìm kiếm</h4>
                       <p className="pera">Hãy nhập những thông tin dưới đây .</p>
                     </div>
-                   <form action="" onSubmit={handleSubmit}>
-                   <div className="plan-section-two">
-                      <div className="select-dropdown-section">
-                        <div className="d-flex gap-10 align-items-center">
-                          <i className="ri-map-pin-line" />
-                          <h4 className="select2-title">Điểm đến</h4>
-                        </div>
-                        <select className="js-example-basic-single  destination-dropdown"onChange={(e) => setSelectedProvince(e.target.value)} >
-                        <option className='rounded' value=''>Lọc theo điểm đến</option>
-                        {tour.provinces?.map((province: any) => {
-                            return (
-                              <option value={province.id}>{province.name}</option>
-                            )
-                          })}
-                        </select>
+                    <form action="" onSubmit={handleSubmit}>
+                      <div className="plan-section-two">
+                        <div className="select-dropdown-section">
+                          <div className="d-flex gap-10 align-items-center">
+                            <i className="ri-map-pin-line" />
+                            <h4 className="select2-title">Điểm đến</h4>
+                          </div>
+                          <select className="js-example-basic-single  destination-dropdown" onChange={(e) => setSelectedProvince(e.target.value)} >
+                            <option className='rounded' value=''>Lọc theo điểm đến</option>
+                            {tour.provinces?.map((province: any) => {
+                              return (
+                                <option value={province.id}>{province.name}</option>
+                              )
+                            })}
+                          </select>
 
-                      </div>
-                      <div className="select-dropdown-section">
-                        <div className="d-flex gap-10 align-items-center">
-                          <i className="ri-flight-takeoff-fill" />
-                          <h4 className="select2-title">Tour Type</h4>
                         </div>
-                        <select className="destination-dropdown" onChange={(e) => setSelectedType(e.target.value)}>
-                        <option value=''>Lọc theo loại du lịch</option>
-                        {tour.types?.map((type: any) => {
-                            return (
-                              <option value={type.id}>{type.name_type}</option>
-                            )
-                          })}
-                        </select>
-                      </div>
-
-                      <div className="dropdown-section position-relative user-picker-dropdown">
-                        <div className="d-flex gap-10 align-items-center">
+                        <div className="select-dropdown-section">
+                          <div className="d-flex gap-10 align-items-center">
+                            <i className="ri-flight-takeoff-fill" />
+                            <h4 className="select2-title">Tour Type</h4>
+                          </div>
+                          <select className="destination-dropdown" onChange={(e) => setSelectedType(e.target.value)}>
+                            <option value=''>Lọc theo loại du lịch</option>
+                            {tour.types?.map((type: any) => {
+                              return (
+                                <option value={type.id}>{type.name_type}</option>
+                              )
+                            })}
+                          </select>
                         </div>
 
+                        <div className="dropdown-section position-relative user-picker-dropdown">
+                          <div className="d-flex gap-10 align-items-center">
+                          </div>
+
+                        </div>
+                        <div className="sign-btn">
+                          <button type="submit" className="btn-secondary-lg">Kế hoạch tìm kiếm</button>
+
+                        </div>
                       </div>
-                      <div className="sign-btn">
-                        <button  type="submit" className="btn-secondary-lg">Kế hoạch tìm kiếm</button>
-                     
-                      </div>
-                    </div>
-                   </form>
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
             {/* shape 01 */}
-            <div className="shape-one d-none d-lg-block p-5  pt-2" >
-              {/* <img  height="400px"  width={650}   src="/src/assets/category_tour/tamdao.jpg" alt="travello" /> */}
-            </div>
+
             {/* shape 02 */}
-            <div className="shape-two d-none d-lg-block">
-              {/* <img className='' src="/src/assets/category_tour/taxua.jpg" alt="travello" /> */}
-            </div>
+            {/* <div className="shape-two d-none d-lg-block">
+              <img className='' src="/src/assets/category_tour/Hue.jpg" alt="travello" />
+            </div> */}
           </section>
           {/*/ End-of Hero*/}
           {/* Brand S t a r t */}
@@ -181,7 +195,7 @@ const Indextwo = () => {
                     return (
                       <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
                         <a href={`/tour-details/${tours.slug}`} className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
-                          <img src={'http://127.0.0.1:8000/' + (tours.images ? tours.images : '')} alt="travello" />
+                          <img className="image" src={'http://127.0.0.1:8000/' + (tours.images ? tours.images : '')} alt="travello" />
                           <div className="destination-content-two">
 
                             <div className="destination-info-two">
@@ -271,7 +285,7 @@ const Indextwo = () => {
                     <span className="highlights"> Gói phổ biến</span>
                     <h4 className="title">
                       Địa điểm du lịch yêu thích nhất ở Việt Nam
-                 
+
                     </h4>
                   </div>
                 </div>
@@ -306,8 +320,8 @@ const Indextwo = () => {
                               </div>
                               <div className="price-review">
                                 <div className="d-flex gap-10">
-                                  <p className="text-muted text-decoration-line-through  mr-3 "><CurrencyFormatter amount={tour.promotion}/> </p>
-                                  <p className="text-danger fw-bold"> <CurrencyFormatter amount={tour.price}/> </p>
+                                  <p className="text-muted text-decoration-line-through  mr-3 "><CurrencyFormatter amount={tour.promotion} /> </p>
+                                  <p className="text-danger fw-bold"> <CurrencyFormatter amount={tour.price} /> </p>
 
 
                                 </div>

@@ -5,8 +5,10 @@
             <div class="col-lg-12">
                 <div class="text-center mt-sm-5 mb-4 text-white-50">
                     <div>
-                        <img width="150" height="150" src="{{ url('assets/images/logonew-nobg.png') }} " alt=""
-                            height="20">
+                        <a href="{{ route('auth.login') }}">
+                            <img width="150" height="150" src="{{ url('assets/images/logonew-nobg.png') }} "
+                                alt="" height="20">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -42,10 +44,6 @@
                                             onpaste="return false" placeholder="Enter password" id="password-input"
                                             aria-describedby="passwordInput"
                                             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-                                        <button
-                                            class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
-                                            type="button" id="password-addon"><i
-                                                class="ri-eye-fill align-middle"></i></button>
                                         <div class="invalid-feedback">
                                             Please enter password
                                         </div>
@@ -55,6 +53,14 @@
                                     @enderror
                                 </div>
 
+                                <div class=" text-right">
+                                    <div class="signin-other-title">
+                                        <h5 class="fs-13 title text-muted text-primary"><a
+                                                href="{{ route('auth.repass') }}">Forget pass ?
+                                            </a></h5>
+                                    </div>
+
+                                </div>
 
 
                                 <div id="password-contain" class="p-3 bg-light mb-2 rounded">
@@ -67,27 +73,16 @@
                                 </div>
 
                                 <div class="mt-4">
-                                    <button class="btn btn-success w-100" type="submit">Sign Up</button>
+                                    <button class="btn btn-success w-100" type="submit">Sign In</button>
                                 </div>
 
-                                {{-- <div class="mt-4 text-center">
+                                <div class="mt-4 text-center">
                                     <div class="signin-other-title">
-                                        <h5 class="fs-13 mb-4 title text-muted">Signin with</h5>
+                                        <h5 class="fs-13 mb-4 title text-muted"><a
+                                                href="{{ route('auth.resgister') }}">Sign Up</a></h5>
                                     </div>
 
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-primary btn-icon waves-effect waves-light"><i
-                                                class="ri-facebook-fill fs-16"></i></button>
-                                        <button type="button"
-                                            class="btn btn-danger btn-icon waves-effect waves-light"><i
-                                                class="ri-google-fill fs-16"></i></button>
-                                        <button type="button" class="btn btn-dark btn-icon waves-effect waves-light"><i
-                                                class="ri-github-fill fs-16"></i></button>
-                                        <button type="button" class="btn btn-info btn-icon waves-effect waves-light"><i
-                                                class="ri-twitter-fill fs-16"></i></button>
-                                    </div>
-                                </div> --}}
+                                </div>
                             </form>
 
                         </div>

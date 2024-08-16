@@ -67,7 +67,7 @@ const Password = () => {
 
     <div>
       <div>
-        <Header />
+        <Header status={undefined} />
         <main>
           {/* Breadcrumbs S t a r t */}
           <section className="breadcrumbs-area breadcrumb-bg">
@@ -139,10 +139,7 @@ const Password = () => {
                         </p>
                      
                       </div>
-                      <a href="javascript:void(0)" className="login-btn d-flex align-items-center justify-content-center gap-10">
-                        <img src="/src/assets/images/icon/google-icon.png" alt="img" className="m-0" />
-                        <span> Đăng nhập với Google </span>
-                      </a>
+                     
                     </div>
                   </div>
                 </div>

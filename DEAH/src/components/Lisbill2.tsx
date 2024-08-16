@@ -12,10 +12,11 @@ import Popup from '../FunctionComponentContext/Popup';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 const Lisbill2 = () => {
-    const formattedDate = (currentDate) => format(currentDate, 'yyyy-MM-dd');
+    const formattedDate = (currentDate: any) => format(currentDate, 'yyyy-MM-dd');
     const user = JSON.parse(sessionStorage.getItem("user"));
+    console.log(user);
+
     const [listbill, setListBill] = useState<any>([]);
     const [avatarUrl, setAvatarUrl] = useState<string>('');
     const [statusdelete, setstatusdelete] = useState<boolean>(false);
@@ -32,7 +33,22 @@ const Lisbill2 = () => {
         date_of_birth: ''
     });
 
-   
+    const perpage = 6;
+    const [billCount, setBillCount] = useState<any>();
+    const [totalPages, setTotalPages] = useState<any>();
+    const [currentPageBills, setCurrentPageBills] = useState<any>();
+    const [loading, setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState<any>(1);
+
+
+    const changePage = (page) => {
+        var start = (page - 1) * perpage;
+        var end = start + perpage;
+        var userListBillPage = listbill.slice(start, end);
+        setCurrentPage(page);
+        setCurrentPageBills(userListBillPage)
+        return userListBillPage;
+    }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -41,10 +57,24 @@ const Lisbill2 = () => {
                     id: user.id
                 });
                 console.log(response.data.data);
-                setListBill(response.data.data);
-                console.log(listbill);
+                var userListBill = response.data.data;
+                setListBill(userListBill);
+                setBillCount(userListBill.length);
+                var pageNum = Math.ceil(billCount / perpage);
+                var arrayLi = [];
+                for (let index = 0; index < pageNum; index++) {
+                    arrayLi.push(<li className="page-item m-1" aria-current="page" key={index + 1}>
+                        <button className="page-link btn" disabled={index + 1 === currentPage} onClick={() => changePage(index + 1)}>{index + 1}</button>
+                    </li>)
+                }
+                setTotalPages(arrayLi);
+                var userListBillPage = changePage(currentPage);
+                setCurrentPageBills(userListBillPage);
+                setLoading(false);
+
             } catch (error) {
                 console.error('Có lỗi xảy ra khi lấy dữ liệu đơn hàng');
+                setLoading(false);
             }
         };
 
@@ -56,33 +86,50 @@ const Lisbill2 = () => {
             reset(user);
         }
         fetchData();
-    }, [reset,statusdelete]);
+    }, [reset, statusdelete, loading, currentPage]);
 
     const handleDelete = async (code: any) => {
-       
+
         if (window.confirm('Bạn có chắc chắn chắn hủy đơn?')) {
-            
+            setLoading(true);
             try {
-          
+
                 const response = await axios.post('http://127.0.0.1:8000/api/client/user/booking/update', {
                     action: 'cancel',
                     booking_code: code,
-               
-
                 });
+                const status = response.data.status;
+                if (status === 200) {
+                    toast.success('Đơn hàng đã hủy thành công');
+                } else {
+                    toast.error('Đơn hàng không thể hủy');
+                }
                 setstatusdelete(!statusdelete)
-                toast.success('Bạn đã hủy đơn hàng thành công');
-         
-        
             } catch (error) {
                 toast.error('Có lỗi xảy ra khi hủy đơn hàng');
             }
         }
-    
+
     };
+
+    const handleRepay = async (item: any) => {
+
+        let response = await axios.post('http://127.0.0.1:8000/api/client/repay', item);
+        window.location.href = response.data.data;
+
+    }
+    if (loading) {
+        return (
+            <div className="loading">
+                <div className="spinner">
+                    <div className="blob blob-0" />
+                </div>
+            </div>
+        );
+    }
     return (
         <div>
-            <Header />
+            <Header status={undefined} />
             <div className="container">
                 <div className="view-account">
                     <section className="module">
@@ -92,15 +139,13 @@ const Lisbill2 = () => {
                                 <div className="">
                                     <section className="table__header">
                                         <h1>Danh Sách Đơn hàng</h1>
-                                        <div className="input-group">
-                                            <input type="search" placeholder="Search Data..." />
-                                        </div>
+                                       
                                     </section>
                                     <table className=''>
                                         <thead>
                                             <tr>
                                                 <th>STT <span className=""></span></th>
-                                                <th>Mã Đặt Tour <span className=""></span></th>
+                                                <th>Mã Tour <span className=""></span></th>
                                                 <th>Giá <span className=""></span></th>
                                                 <th>Ngày Đặt <span className=""></span></th>
                                                 <th>Trạng thái Thanh Toán <span className=""></span></th>
@@ -109,11 +154,11 @@ const Lisbill2 = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {listbill.map((item: any, index: number) => (
+                                            {currentPageBills.map((item: any, index: number) => (
                                                 <tr key={item.id}>
                                                     <td>{index + 1}</td>
                                                     <td>{item.booking_code}</td>
-                                                    <td><CurrencyFormatter amount={item.tour_price} /></td>
+                                                    <td><CurrencyFormatter amount={item.total_price} /></td>
                                                     <td>{formattedDate(new Date(item.created_at))}</td>
                                                     <td><StatusPayment status={item.status_payment} /></td>
                                                     <td><StatusTour status={item.status_tour} /></td>
@@ -126,11 +171,24 @@ const Lisbill2 = () => {
                                                                 className="ri-delete-bin-7-fill text-danger fs-4"
                                                             />
                                                         ) : ''}
+                                                        {item.status_payment == 0 ? <i onClick={() => handleRepay(item)} className="ri-refund-2-line mt-2 ml-2"></i> : ''}
                                                     </td>
                                                 </tr>
                                             ))}
+
+
                                         </tbody>
+
                                     </table>
+                                    <nav aria-label="Page navigation">
+                                        <ul
+                                            className="pagination"
+                                        >
+
+                                            {totalPages}
+
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
