@@ -12,7 +12,7 @@ use function Laravel\Prompts\error;
 
 class Hotel_ImageController extends Controller
 {
-    
+
     public function index()
     {
         $hotelImages = HotelImage::all();

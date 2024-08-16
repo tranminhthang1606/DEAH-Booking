@@ -53,6 +53,7 @@ class VoucherController extends Controller
 
     public function destroy($id)
     {
+
         $item = Voucher::findOrFail($id);
         $item->delete();
         return response()->json(['message' => 'Voucher deleted']);

@@ -129,7 +129,6 @@ class HotelController extends Controller
         return response()->json($hotels);
     }
 
-
     public function destroy($id)
     {
         HotelImage::where('hotel_id', $id)->delete();
