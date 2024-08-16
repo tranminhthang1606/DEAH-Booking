@@ -28,6 +28,8 @@ class VoucherController extends Controller
     public function store(Request $request)
     {
         $validate = Validator::make($request->all(), [
+            
+            //
             'voucher' => 'required',
             'title' => 'required',
             'qty' => 'required|numeric',
@@ -53,6 +55,7 @@ class VoucherController extends Controller
 
     public function destroy($id)
     {
+        //
 
         $item = Voucher::findOrFail($id);
         $item->delete();

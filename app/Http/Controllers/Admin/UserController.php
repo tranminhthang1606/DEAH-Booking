@@ -12,6 +12,7 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
+        //
         $query = User::query();
         if ($request->name && $request->name != null) {
             $query->where('name', 'LIKE', '%' . $request->name . '%');
