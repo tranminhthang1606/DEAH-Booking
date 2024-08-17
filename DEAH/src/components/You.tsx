@@ -9,6 +9,7 @@ const UserPicker: React.FC<UserPickerProps> = ({ onUserChange }) => {
     const [children2To5, setChildren2To5] = useState(0);
     const [children6To12, setChildren6To12] = useState(0);
 
+    
     const totalUsers = adults + children2To5 + children6To12;
     const maxChildren = 2;
 
@@ -71,8 +72,7 @@ const UserPicker: React.FC<UserPickerProps> = ({ onUserChange }) => {
             <div className="dropdown-section position-relative user-picker-dropdown">
                 <div className="d-flex gap-12 align-items-center">
                     <div className="qty-container">
-                        <strong className='mr-2'>Người lớn 
-                            (100% giá tiền)
+                        <strong className='mr-2'>Người lớn (Không giảm)
                         </strong>
                         <button
                             className="qty-btn-minus mr-1"
@@ -103,7 +103,7 @@ const UserPicker: React.FC<UserPickerProps> = ({ onUserChange }) => {
             <div className="dropdown-section position-relative user-picker-dropdown">
                 <div className="d-flex gap-12 align-items-center">
                     <div className="qty-container">
-                        <strong className='mr-4'>Trẻ 6-12 (20% giá tiền)</strong>
+                        <strong className='mr-4'>Trẻ 6-12 (giảm 20% giá tiền)</strong>
                         <button
                             className="qty-btn-minus mr-1"
                             type="button"
@@ -134,7 +134,7 @@ const UserPicker: React.FC<UserPickerProps> = ({ onUserChange }) => {
             <div className="dropdown-section position-relative user-picker-dropdown">
                 <div className="d-flex gap-12 align-items-center">
                     <div className="qty-container">
-                        <strong className='mr-4'>Trẻ 2 - 5 (miễn phí)  </strong>
+                        <strong className='mr-4'>Trẻ 2 - 5 (miễn phí vé)  </strong>
                         <button
                             className="qty-btn-minus mr-1"
                             type="button"

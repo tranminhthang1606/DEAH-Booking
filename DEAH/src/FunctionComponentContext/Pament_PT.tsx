@@ -4,19 +4,15 @@ const Payment_PT = ({ setPaymentMethod, paymentMethod }) => {
   const [openIndex, setOpenIndex] = useState(null);
   const Menus = [
     {
-      name1: 'Quý khách vui lòng thanh toán tại bất kỳ văn phòng Vietravel trên toàn quốc và các chi nhánh tại nước ngoài.',
+      name1: 'Quý khách vui lòng thanh toán tại bất kỳ văn phòng DEAH trên toàn quốc và các chi nhánh tại nước ngoài.',
       name2: `Quý khách chuyển khoản qua ngân hàng sau <br> <br>
 
-       Ngân hàng MB BANK <br>
-       Tên tài khoản: Vua Mạnh Hùng <br>
-        Số tài khoản: 2 3333 666 9999 <br> CHI NHÁNH GIA ĐỊNH, TPHCM<br>
-                <hr>
-
-        Ngân hàng ACB<br>
-       Tên tài khoản: Vua Mạnh Hùng <br>
-         Tài khoản 1818386868 <br> CHI NHÁNH BÌNH THẠNH, TPHCM `,
+       Ngân hàng Techcombank <br>
+       Tên tài khoản: Trần Minh Thắng <br>
+        Số tài khoản: 1903 634394 2015 <br>
+                <hr>`,
       link: '/abc',
-      name3: 'HÌNH THỨC THANH TOÁN BẰNG THẺ ATM/ INTERNET BANKING Vietravel chấp nhận thanh toán bằng thẻ ATM qua cổng thanh toán ZaloPay Hãy đảm bảo Quý khách đang sử dụng thẻ ATM do ngân hàng trong nước phát hành và đã được kích hoạt chức năng thanh toán trực tuyến. '
+      name3: 'HÌNH THỨC THANH TOÁN BẰNG THẺ ATM/ INTERNET BANKING DEAH chấp nhận thanh toán bằng thẻ ATM qua cổng thanh toán VNPay Hãy đảm bảo Quý khách đang sử dụng thẻ ATM do ngân hàng trong nước phát hành và đã được kích hoạt chức năng thanh toán trực tuyến. '
     },
   ];
 
@@ -24,7 +20,7 @@ const Payment_PT = ({ setPaymentMethod, paymentMethod }) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  const handleRadioChange = (event:any) => {
+  const handleRadioChange = (event: any) => {
     setPaymentMethod(event.target.value);
   }
 
@@ -65,7 +61,7 @@ const Payment_PT = ({ setPaymentMethod, paymentMethod }) => {
                   <ul className='limited-width'>
                     {Menus.map((menu, index) => (
                       <li className='' key={index}>
-                       
+
                         <div className='fs-6' dangerouslySetInnerHTML={{ __html: menu.name2 }} />
 
                       </li>
