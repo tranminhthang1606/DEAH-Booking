@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../App.css';
-import Ok from './Ok';
 
 
 
-const Header = ({ status }) => {
+
+const Header = ({ status }: { status: any }) => {
 
 
   const navigate = useNavigate();

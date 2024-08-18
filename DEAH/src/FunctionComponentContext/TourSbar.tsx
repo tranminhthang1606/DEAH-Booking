@@ -75,7 +75,5 @@ const TourSbar = () => {
 }
 
 export default TourSbar
-function setPostDetail(data: any) {
-  throw new Error("Function not implemented.");
-}
+
 

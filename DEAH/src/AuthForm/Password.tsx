@@ -11,7 +11,7 @@ type PasswordInput = {
 };
 
 const Password = () => {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<PasswordInput>();
+  const { register, handleSubmit, formState: { errors } } = useForm<PasswordInput>();
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 

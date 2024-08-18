@@ -6,7 +6,7 @@ import Footer from "./Footer.js";
 const About = () => {
     return (
         <div>
-            <Header />
+            <Header status={true}/>
             <main>
                 <section className="breadcrumbs-area breadcrumb-bg">
                     <div className="container">

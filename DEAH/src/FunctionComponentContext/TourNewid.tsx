@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-import React from 'react'
+
 
 const TourNewid = () => {
     const api = `${import.meta.env.VITE_API_BASE_URL}/api/client/get-tours-new`

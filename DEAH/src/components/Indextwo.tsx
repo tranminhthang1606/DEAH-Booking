@@ -1,7 +1,7 @@
 
 import "../assets/js/main.js"
 
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -13,8 +13,6 @@ import '../App.css'
 import { useNavigate } from 'react-router-dom';
 
 import SearchListBill from "../FunctionComponentContext/Shearchbill.js";
-import Slider from "react-slick";
-import { Slide } from "react-toastify";
 
 const Indextwo = () => {
   const [tourFeature, setToursFeature] = useState<any>([]);

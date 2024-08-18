@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Header from './Header'
 import Footer from './Footer'
 
@@ -6,7 +6,7 @@ const Verification = () => {
   return (
     <div>
       <div>
-  <Header/>
+  <Header status={true}/>
         <main>
           {/* Breadcrumbs S t a r t */}
           <section className="breadcrumbs-area breadcrumb-bg">

@@ -1,6 +1,6 @@
-import { param } from 'jquery';
+
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+
 import { JSX } from 'react/jsx-runtime'
 import CurrencyFormatter from '../FunctionComponentContext/CurrencyFormatter';
 import axios from 'axios';
@@ -8,12 +8,12 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { format, parse } from 'date-fns';
 const PaymentSuccess = () => {
-  const [params, setParams] = useState({});
+  const [params, setParams] = useState<any>({});
 
-  const user_payment_info = JSON.parse(sessionStorage.getItem('user_payment_info'));
+  const user_payment_info = JSON.parse(sessionStorage.getItem('user_payment_info')!);
   console.log(user_payment_info);
 
-  const updatePaymentState = async (vnp_TxnRef) => {
+  const updatePaymentState = async (vnp_TxnRef:any) => {
 
     const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/client/update-payment-status/${vnp_TxnRef}`, {
       'status_payment': 1
@@ -48,9 +48,9 @@ const PaymentSuccess = () => {
 
   }, []);
 
-  const handlePDF = (booking_code) => {
+  const handlePDF = (booking_code:any) => {
     const capture = document.querySelector('.pdfBill');
-    html2canvas(capture).then((canvas) => {
+    html2canvas(capture as HTMLElement).then((canvas) => {
       const imgData = canvas.toDataURL('img/png');
       const doc = new jsPDF('p', 'mm', 'a4');
       const componentWidth = doc.internal.pageSize.getWidth();
@@ -64,7 +64,7 @@ const PaymentSuccess = () => {
       <div className="flex flex-col items-center justify-center min-h-screen bg-green dark:bg-green">
         <div className="max-w-xl w-full space-y-6 p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800 pdfBill">
           <div className="flex flex-col items-center">
-            {params.vnp_ResponseCode == '00' ? <CircleCheckIcon className="text-green-500 h-16 w-16" /> : <ErrorIcon className="text-green-500 h-16 w-16" />}
+            {params.vnp_ResponseCode == '00' ? <CircleCheckIcon className="text-green-500 h-16 w-16" /> : <ErrorIcon  />}
             <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-700 mt-4">{params.vnp_ResponseCode == '00' ? 'Thanh Toán Thành công' : 'Thanh Toán Không Thành Công'}</h1>
             <p className="text-gray-700 dark:text-gray-400 mt-2">
               {params.vnp_ResponseCode == '00' ? 'Cảm ơn vì đã thanh toán. Tour du lịch của bạn đã được đặt chỗ.' : `Thanh toán không thành công. Vui lòng thử lại sau.`}
@@ -154,7 +154,7 @@ function CircleCheckIcon(props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGE
 }
 
 const ErrorIcon = () => (
-  <svg
+  <svg className="text-green-500 h-16 w-16"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     width="40"

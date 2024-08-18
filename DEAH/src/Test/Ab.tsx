@@ -26,7 +26,7 @@ const Ab: React.FC = () => {
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const tourString = localStorage.getItem('tour');
   const tour = tourString ? JSON.parse(tourString) : null;
-  const [filteredOptions, setFilteredOptions] = useState<any[]>(tour ? tour.tour.hotels : []);
+  const [filteredOptions] = useState<any[]>(tour ? tour.tour.hotels : []);
   const userString = sessionStorage.getItem('user');
   // console.log(userString);
 
@@ -42,10 +42,10 @@ const Ab: React.FC = () => {
 
   const [paymentMethod, setPaymentMethod] = useState<any>('VPGD');
   useEffect(() => {
-    calculateTotalPrice(adults, kids);
+    calculateTotalPrice(adults);
   }, [adults, kids, hotel]);
 
-  const calculateTotalPrice = (adults: number, kids: number) => {
+  const calculateTotalPrice = (adults: number) => {
     const tourprice = tour.tour.promotion ? tour.tour.promotion : tour.tour.price
     const adultPrice = tourprice // Giả sử giá cho mỗi người lớn
     const kidPrice = tourprice * 0.2; // Giả sử giá cho mỗi trẻ em là 20% giá người lớn
