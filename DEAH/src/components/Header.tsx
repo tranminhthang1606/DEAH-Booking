@@ -113,19 +113,19 @@ const Header = ({ status }: { status: any }) => {
                           <div className="d-flex justify-content-between align-items-center">
                             <ul className="listing" id="navigation">
                               <li className="single-list">
-                                <a href="/index-two" className="single">Trang Chủ </a>
+                                <Link to="/index-two" className="single">Trang Chủ </Link>
                               </li>
                               <li className="single-list">
-                                <a href="/about" className="single">Về Chúng Tôi</a>
+                                <Link to="/about" className="single">Về Chúng Tôi</Link>
                               </li>
                               <li className="single-list">
-                                <a href="/tour-list" className="single">Gói Du Lịch</a>
+                                <Link to="/tour-list" className="single">Gói Du Lịch</Link>
                               </li>
                               <li className="single-list">
-                                <a href="/news" className="single">Tin tức</a>
+                                <Link to="/news" className="single">Tin tức</Link>
                               </li>
                               <li className="single-list">
-                                <a href="/contact" className="single">Liên hệ</a>
+                                <Link to="/contact" className="single">Liên hệ</Link>
                               </li>
                               <li className="single-list">
                               </li>
@@ -165,7 +165,7 @@ const Header = ({ status }: { status: any }) => {
                               )}
                               {!userName && (
                                 <div className="sign-btn">
-                                  <a href="/login" className="btn-secondary-sm">Đăng nhập</a>
+                                  <Link to="/login" className="btn-secondary-sm">Đăng nhập</Link>
                                 </div>
                               )}
                               {userName && (
