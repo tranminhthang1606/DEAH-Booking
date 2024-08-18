@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import CurrencyFormatter from '../FunctionComponentContext/CurrencyFormatter';
-import StatusPayment from '../FunctionComponentContext/StatusPayment';
 import Popup from '../FunctionComponentContext/Popup';
 // Giả sử rằng bạn đã tạo component Popup ở đây
 

@@ -3,7 +3,6 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
 import '../App1.css'
-import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -14,9 +13,7 @@ const ProfileUser = () => {
   const [file, setFile] = useState<File | null>(null);
   const [avatarUrl, setAvatarUrl] = useState<string>(''); // State để lưu URL của ảnh
   const [status, setStatus] = useState<boolean>(false); // State để lưu URL của ảnh
-  const navigate = useNavigate();
   const { register, handleSubmit, reset } = useForm();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState({
     id: '',
     avatar: '',

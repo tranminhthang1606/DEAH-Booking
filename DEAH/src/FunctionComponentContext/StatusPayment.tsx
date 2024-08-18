@@ -1,6 +1,6 @@
-import React from 'react'
 
-const StatusPayment = ({status}) => {
+
+const StatusPayment = ({status}:{status:any}) => {
   let alertClass = 'badge bg-';
   let statusinf = "";
 

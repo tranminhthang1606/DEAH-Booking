@@ -26,7 +26,7 @@ const New = () => {
 
     <div>
       <div>
-        <Header />
+        <Header status={true}/>
         <main>
           {/* Breadcrumbs S t a r t */}
           <section className="breadcrumbs-area breadcrumb-bg">
@@ -102,7 +102,7 @@ const New = () => {
               <div className="row g-4">
 
 
-                {posts.map((post, index) => (
+                {posts.map((post) => (
 
                   <div className="col-xl-4 col-lg-4 col-sm-6" key={post.id} >
                     <Link to={`/news-details/${post.slug}`}>s

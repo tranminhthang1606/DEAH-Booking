@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import { useEffect, useState } from 'react';
-import Register from '../AuthForm/Register';
 const NewsDetails = () => {
 
   const { slug } = useParams();

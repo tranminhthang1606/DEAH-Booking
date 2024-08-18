@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../App1.css';
 import Header from './Header';
 import Footer from './Footer';
@@ -14,13 +14,14 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Lisbill2 = () => {
     const formattedDate = (currentDate: any) => format(currentDate, 'yyyy-MM-dd');
-    const user = JSON.parse(sessionStorage.getItem("user"));
+    
+    const user = JSON.parse(sessionStorage.getItem("user")!);
     console.log(user);
 
     const [listbill, setListBill] = useState<any>([]);
     const [avatarUrl, setAvatarUrl] = useState<string>('');
     const [statusdelete, setstatusdelete] = useState<boolean>(false);
-    const { register, handleSubmit, reset } = useForm();
+    const { reset } = useForm();
     const [userData, setUserData] = useState({
         id: '',
         avatar: '',
@@ -41,7 +42,7 @@ const Lisbill2 = () => {
     const [currentPage, setCurrentPage] = useState<any>(1);
 
 
-    const changePage = (page) => {
+    const changePage = (page:any) => {
         var start = (page - 1) * perpage;
         var end = start + perpage;
         var userListBillPage = listbill.slice(start, end);

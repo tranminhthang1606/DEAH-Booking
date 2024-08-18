@@ -1,7 +1,7 @@
 
 import "../assets/js/main.js"
 
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -13,8 +13,6 @@ import '../App.css'
 import { useNavigate } from 'react-router-dom';
 
 import SearchListBill from "../FunctionComponentContext/Shearchbill.js";
-import Slider from "react-slick";
-import { Slide } from "react-toastify";
 
 const Indextwo = () => {
   const [tourFeature, setToursFeature] = useState<any>([]);
@@ -195,7 +193,7 @@ const Indextwo = () => {
                  {tourNew?.map((tours: any, index: any) => {
                     return (
                       <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
-                        <a href={`/tour-details/${tours.slug}`} className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
+                        <Link to={`/tour-details/${tours.slug}`} className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
                           <img className="" src={`${import.meta.env.VITE_API_BASE_URL}/` + (tours.images ? tours.images : '')} alt="travello" />
                           <div className="destination-content-two">
 
@@ -209,7 +207,7 @@ const Indextwo = () => {
                               </div>
                             </div>
                           </div>
-                        </a>
+                        </Link>
                       </div>
                     )
                   })}
@@ -301,9 +299,9 @@ const Indextwo = () => {
                         <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
                           <div className="package-card">
                             <div className="package-img imgEffect4">
-                              <a href={`/tour-details/${tour.slug}`}>
+                              <Link to={`/tour-details/${tour.slug}`}>
                                 <img src={`${import.meta.env.VITE_API_BASE_URL}/` + (tour.images ? tour.images : '')} alt="travello" />
-                              </a>
+                              </Link>
                             </div>
                             <div className="package-content">
                               <h4 className="area-name line-clamp-1">
@@ -396,7 +394,7 @@ const Indextwo = () => {
                 {postsNew?.map((post: any, index: any) => {
                   return (
                     <div className="col-xl-3 col-lg-3 col-sm-6" key={index}>
-                      <a href={"news-details/" + post.slug}>
+                      <Link to={"news-details/" + post.slug}>
                         <article className="news-card-two wow fadeInUp" data-wow-delay="0.0s">
                           <figure className="news-banner-two imgEffect">
                             <img className="images" src={`${import.meta.env.VITE_API_BASE_URL}/` + post.thumbnail} alt="travello" />
@@ -432,7 +430,7 @@ const Indextwo = () => {
                             </div>
                           </div>
                         </article>
-                      </a>
+                      </Link>
                     </div>
 
                   )
@@ -441,12 +439,12 @@ const Indextwo = () => {
               </div>
               <div className="col-12 text-center">
                 <div className="section-button d-inline-block wow fadeInUp" data-wow-delay="0.3s">
-                  <a href="news">
+                  <Link to="news">
                     <div className="btn-primary-icon-sm pt-3">
                       <p className="pera">Xem tất cả các tin tức</p>
                       {/* <i className="ri-arrow-right-up-line" /> */}
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

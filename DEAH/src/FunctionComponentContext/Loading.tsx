@@ -1,5 +1,5 @@
 // Loading.js
-import React from 'react';
+
 import '../App.css'; // Tùy chỉnh CSS cho loading nếu cần
 
 const Loading = () => {

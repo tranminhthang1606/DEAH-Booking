@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { toast, ToastContainer } from 'react-toastify';
+import { toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 type Input = {
   email: string,
@@ -25,7 +25,7 @@ const Login = () => {
           return resdata.json()
         } else {
           const message = await resdata.json();
-          return new Promise((resolve, reject) => {
+          return new Promise(( reject) => {
             reject(message)
           })
         }

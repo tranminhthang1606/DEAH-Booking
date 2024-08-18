@@ -11,9 +11,9 @@ const PaymentBanking = () => {
         maxWidth: '800px',
         margin: 'auto',
     };
-    const handlePDF = (booking_code) => {
+    const handlePDF = (booking_code:any) => {
         const capture = document.querySelector('.pdfBill');
-        html2canvas(capture).then((canvas) => {
+        html2canvas(capture as HTMLElement).then((canvas) => {
             const imgData = canvas.toDataURL('img/png');
             const doc = new jsPDF('p', 'mm', 'a4');
             const componentWidth = doc.internal.pageSize.getWidth();
@@ -171,17 +171,5 @@ function CircleCheckIcon(props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGE
     )
 }
 
-const ErrorIcon = () => (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        width="40"
-        height="40"
-        fill="red"
 
-    >
-
-        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18c-.828 0-1.5-.672-1.5-1.5S11.172 15 12 15s1.5.672 1.5 1.5S12.828 18 12 18zm1-4h-2V7h2v7z" />
-    </svg>
-);
 export default PaymentBanking

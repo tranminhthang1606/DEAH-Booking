@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Longtour = () => {
-  const [tours, setTours] = useState([]);
+  // const [tours, setTours] = useState([]);
   const [totalTours, setTotalTours] = useState(0);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const Longtour = () => {
         const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/client/get-tours-list`);
         const data = await response.json();
         if (data.status === 200) {
-          setTours(data.data.tours);
+          // setTours(data.data.tours);
           setTotalTours(data.data.tours.length);
         }
       } catch (error) {

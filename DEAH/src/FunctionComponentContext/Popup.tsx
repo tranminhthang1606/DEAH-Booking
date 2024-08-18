@@ -6,7 +6,7 @@ import StatusTour from './StatusTour';
 import CurrencyFormatter from './CurrencyFormatter';
 
 
-function Popup({ item }) {
+function Popup({ item }:{item:any}) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -60,7 +60,7 @@ function Popup({ item }) {
               <div className="col-12 row">
 
                 <div className="col-6">
-                  <p for="customername-field" className="form-label">Tour Name: <strong>{item.tour_name}</strong>
+                  <p className="form-label">Tour Name: <strong>{item.tour_name}</strong>
                   </p>
                   <p>
                     Tour price: <strong><CurrencyFormatter amount={item.tour_price} /> vnđ</strong>
@@ -70,7 +70,7 @@ function Popup({ item }) {
                   </p>
                 </div>
                 <div className="col-6">
-                  <p for="customername-field" className="form-label">Hotel Name: <strong>{item.hotel_name}</strong>
+                  <p className="form-label">Hotel Name: <strong>{item.hotel_name}</strong>
                   </p>
                   <p>
                     Hotel price: <strong><CurrencyFormatter amount={item.hotel_price} /> vnđ</strong>

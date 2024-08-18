@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../App1.css'
-const Payment_PT = ({ setPaymentMethod, paymentMethod }) => {
+const Payment_PT = ({ setPaymentMethod, paymentMethod }:{setPaymentMethod:any,paymentMethod:any}) => {
   const [openIndex, setOpenIndex] = useState(null);
   const Menus = [
     {
