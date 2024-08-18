@@ -33,7 +33,7 @@ const Password = () => {
     const userData = JSON.parse(sessionStorage.getItem('user') || '{}');
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/client/user/change-pass', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/client/user/change-pass`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

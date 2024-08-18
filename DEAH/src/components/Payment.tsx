@@ -130,7 +130,7 @@ const Payment: React.FC = () => {
         }
         switch (paymentMethod) {
             case 'VPGD':
-                var response = await axios.post('http://127.0.0.1:8000/api/client/cashpayment', bookingData);
+                var response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/client/cashpayment`, bookingData);
                 if (response.status === 200) {
                     toast.success(response.data.message);
                     navigate('/paymentpage', { state: { data: bookingData } })
@@ -141,7 +141,7 @@ const Payment: React.FC = () => {
                 break;
 
             case 'CKNH':
-                var response = await axios.post('http://127.0.0.1:8000/api/client/bankingPayment', bookingData);
+                var response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/client/bankingPayment`, bookingData);
                 if (response.status === 200) {
                     console.log(response.data.message);
 
@@ -154,7 +154,7 @@ const Payment: React.FC = () => {
                 break;
 
             case 'VNPAY':
-                var response = await axios.post('http://127.0.0.1:8000/api/client/vnpayment', bookingData);
+                var response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/client/vnpayment`, bookingData);
                 window.location.href = response.data.data;
                 break;
             default:

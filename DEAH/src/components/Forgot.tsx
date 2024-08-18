@@ -10,7 +10,7 @@ const Forgot = () => {
 
   const onSubmit = async (data:any) => {
     try {
-      await axios.post('http://127.0.0.1:8000/api/client/mail-forget-pass', {
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/client/mail-forget-pass`, {
         email: data.email,
       });
       toast.success('Bạn đã cập nhật thông tin thành công'); 

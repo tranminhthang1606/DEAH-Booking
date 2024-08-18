@@ -36,7 +36,7 @@ const ProfileUser = () => {
     if (Data) {
       const user = JSON.parse(Data);
       setUserData(user);
-      setAvatarUrl(user.avatar ? 'http://127.0.0.1:8000/' + user.avatar : ''); // Cập nhật URL ảnh từ userData
+      setAvatarUrl(user.avatar ? `${import.meta.env.VITE_API_BASE_URL}/` + user.avatar : ''); // Cập nhật URL ảnh từ userData
       reset(user);
     }
 
@@ -56,7 +56,7 @@ const ProfileUser = () => {
     console.log(user);
 
     try {
-      await axios.post('http://127.0.0.1:8000/api/client/user/update', user, {
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/client/user/update`, user, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

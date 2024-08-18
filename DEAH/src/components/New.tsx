@@ -8,7 +8,7 @@ import Footer from './Footer';
 
 const New = () => {
 
-  let api = 'http://127.0.0.1:8000/api/client/get-posts-list'
+  let api = `${import.meta.env.VITE_API_BASE_URL}/api/client/get-posts-list`
   const { data, error, isLoading } = useQuery({
     queryKey: ["POST"],
     queryFn: async () => {
