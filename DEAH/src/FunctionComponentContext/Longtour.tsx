@@ -8,7 +8,7 @@ const Longtour = () => {
     // Fetch dữ liệu từ API
     const fetchData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/client/get-tours-list');
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/client/get-tours-list`);
         const data = await response.json();
         if (data.status === 200) {
           setTours(data.data.tours);

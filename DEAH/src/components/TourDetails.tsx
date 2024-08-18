@@ -36,7 +36,7 @@ const TourDetails = () => {
     queryKey: ['KEY_POST', slug],
     queryFn: async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/client/get-tour-detail/${slug}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/client/get-tour-detail/${slug}`);
         console.log(response.data.data.tour.id); // Log dữ liệu API để kiểm tra
         localStorage.setItem('tour', JSON.stringify(response.data.data))
         return response.data.data;
@@ -75,7 +75,7 @@ const TourDetails = () => {
     e.preventDefault();
     console.log('Submitting form data:', formData); // Log dữ liệu form trước khi gửi
     try {
-      const response = await axios.post(`http://127.0.0.1:8000/api/client/review-tour`, formData);
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/client/review-tour`, formData);
       console.log('Success:', response.data);
       setFormData((prevFormData) => ({
         name: '',
@@ -160,7 +160,7 @@ const TourDetails = () => {
                   {data.tour.images.map((imageObj: any, index: any) => (
                     <div key={index} className="main-image">
                       <img
-                        src={`http://127.0.0.1:8000/${imageObj.image}`}
+                        src={`${import.meta.env.VITE_API_BASE_URL}/${imageObj.image}`}
                         alt={`Slide ${index}`}
                         style={{ width: '90%' }}
                       />

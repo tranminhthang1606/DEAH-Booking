@@ -14,7 +14,7 @@ const New = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let postsFeatureApi = 'http://127.0.0.1:8000/api/client/get-posts-list';
+        let postsFeatureApi = `${import.meta.env.VITE_API_BASE_URL}/api/client/get-posts-list`;
         const [postFeature] = await Promise.all([
           axios.get(postsFeatureApi),
           // axios.get(postsNewApi)

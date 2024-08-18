@@ -32,9 +32,9 @@ const Indextwo = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let tours_new = 'http://127.0.0.1:8000/api/client/get-tours-new';
-        let tours_lists = 'http://127.0.0.1:8000/api/client/get-tours-feature';
-        let posts = 'http://127.0.0.1:8000/api/client/get-posts-new';
+        let tours_new = `${import.meta.env.VITE_API_BASE_URL}/api/client/get-tours-new`;
+        let tours_lists = `${import.meta.env.VITE_API_BASE_URL}/api/client/get-tours-feature`;
+        let posts = `${import.meta.env.VITE_API_BASE_URL}/api/client/get-posts-new`;
         const [tourNew, tourFeature, postsNew] = await Promise.all([
           axios.get(tours_new),
           axios.get(tours_lists),
@@ -44,7 +44,7 @@ const Indextwo = () => {
         ]);
 
 
-        const response = await axios.post('http://127.0.0.1:8000/api/client/get-tours-list'
+        const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/client/get-tours-list`
 
         );
 
@@ -196,7 +196,7 @@ const Indextwo = () => {
                     return (
                       <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
                         <a href={`/tour-details/${tours.slug}`} className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
-                          <img className="" src={'http://127.0.0.1:8000/' + (tours.images ? tours.images : '')} alt="travello" />
+                          <img className="" src={`${import.meta.env.VITE_API_BASE_URL}/` + (tours.images ? tours.images : '')} alt="travello" />
                           <div className="destination-content-two">
 
                             <div className="destination-info-two">
@@ -302,7 +302,7 @@ const Indextwo = () => {
                           <div className="package-card">
                             <div className="package-img imgEffect4">
                               <a href={`/tour-details/${tour.slug}`}>
-                                <img src={'http://127.0.0.1:8000/' + (tour.images ? tour.images : '')} alt="travello" />
+                                <img src={`${import.meta.env.VITE_API_BASE_URL}/` + (tour.images ? tour.images : '')} alt="travello" />
                               </a>
                             </div>
                             <div className="package-content">
@@ -399,7 +399,7 @@ const Indextwo = () => {
                       <a href={"news-details/" + post.slug}>
                         <article className="news-card-two wow fadeInUp" data-wow-delay="0.0s">
                           <figure className="news-banner-two imgEffect">
-                            <img className="images" src={'http://127.0.0.1:8000/' + post.thumbnail} alt="travello" />
+                            <img className="images" src={`${import.meta.env.VITE_API_BASE_URL}/` + post.thumbnail} alt="travello" />
                           </figure>
                           <div className="news-content">
                             <div className="heading line-clamp-1">

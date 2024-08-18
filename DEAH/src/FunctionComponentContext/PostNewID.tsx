@@ -3,7 +3,7 @@ import axios from "axios"
 import { Link } from "react-router-dom"
 
 const PostNewID = () => {
-    const api = 'http://127.0.0.1:8000/api/client/get-posts-new'
+    const api = `${import.meta.env.VITE_API_BASE_URL}/api/client/get-posts-new`
  	
     const { data } = useQuery({
         queryKey: ["POSTID"],
@@ -27,7 +27,7 @@ const PostNewID = () => {
                 <article className="news-card-two wow fadeInUp" data-wow-delay="0.0s">
                   <figure className="news-banner-two imgEffect">
                     <a href="news-details.html">
-                    <img src={'http://127.0.0.1:8000/' + (post.images? post.images[0].image : '')} alt="travello" />
+                    <img src={`${import.meta.env.VITE_API_BASE_URL}`+'/'+ (post.images? post.images[0].image : '')} alt="travello" />
 
                         </a>
                   </figure>
