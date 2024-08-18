@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\StatusPayment;
 use App\Enums\StatusTour;
 use App\Events\BookingCreate;
+use App\Events\BookingStatusUpdated;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -17,6 +18,7 @@ class Booking extends Model
     protected $table = 'bookings';
     protected $dispatchesEvents = [
         'created' => BookingCreate::class,
+        'updated' => BookingStatusUpdated::class
     ];
     protected $fillable = [
         'booking_code',

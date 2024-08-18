@@ -44,11 +44,13 @@ class BookingController extends Controller
     }
     public function cancelBooking(Request $request)
     {
-        $bookings = Booking::where('user_id', $request->id)->orderByDesc('created_at')->get();
-        $booking = Booking::where('booking_code', 'LIKE', $request->booking_code)->first();
+        $query = Booking::query();
+        if ($request->id && $request->id != null) {
+            $query->where('user_id', $request->id);
+        }
+        $booking = $query->where('booking_code', 'LIKE', $request->booking_code)->first();
         $now = date("");
-        
-        if ($booking && $bookings->created_at < $now) {
+        if ($booking && $booking->start > $now) {
             if ($booking->status_tour == StatusTour::WAITING && $request->action == 'cancel') {
                 if ($booking->status_payment == 1) {
                     $booking->status_payment = StatusPayment::REFUND;
@@ -58,7 +60,7 @@ class BookingController extends Controller
                 }
                 $booking->status_tour = StatusTour::CANCEL;
                 $booking->save();
-                return $this->ResponseJson->responseSuccess($bookings, 'Hủy thành công');
+                return $this->ResponseJson->responseSuccess($booking, 'Hủy thành công');
             }
             if (
                 $booking->status_payment == StatusPayment::PAID
