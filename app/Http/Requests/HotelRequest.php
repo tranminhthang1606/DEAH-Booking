@@ -23,8 +23,8 @@ class HotelRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'price' => 'required|numeric',
-            'promotion' => 'required|numeric|lt:price',
+            'price' => 'required',
+            'promotion' => 'required|lt:price',
             'services' => 'required',
             'images' => 'required',
             'images.*' => 'image',

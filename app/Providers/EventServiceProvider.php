@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Events\BookingCreate;
+use App\Events\BookingStatusUpdated;
 use App\Listeners\SendBookingCreatedNotifications;
+use App\Listeners\SendNotifyBookingUpdated;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -23,6 +25,10 @@ class EventServiceProvider extends ServiceProvider
         ],
         BookingCreate::class => [
             SendBookingCreatedNotifications::class,
+
+        ],
+        BookingStatusUpdated::class => [
+            SendNotifyBookingUpdated::class,
 
         ]
     ];
