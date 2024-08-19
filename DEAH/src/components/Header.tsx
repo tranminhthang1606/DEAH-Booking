@@ -49,7 +49,7 @@ const Header = ({ status }: { status: any }) => {
                           <a href="index-two">
                             <img
                               width="80px"
-                              src="/src/assets/images/logo/logonew-nobg.png"
+                              src={`${import.meta.env.VITE_BASE_URL}/assets/images/logo/logonew-nobg.png`}
                               alt="logo"
                               className="changeLogo"
                             />
@@ -113,7 +113,7 @@ const Header = ({ status }: { status: any }) => {
                           <div className="d-flex justify-content-between align-items-center">
                             <ul className="listing" id="navigation">
                               <li className="single-list">
-                                <Link to="/index-two" className="single">Trang Chủ </Link>
+                                <Link to="/" className="single">Trang Chủ </Link>
                               </li>
                               <li className="single-list">
                                 <Link to="/about" className="single">Về Chúng Tôi</Link>
@@ -149,7 +149,7 @@ const Header = ({ status }: { status: any }) => {
                                   <Link className='d-flex' to={'/profile'}>
                                     <h6 className='mt-10 mr-2 user-name '> {userName.name}</h6>
                                     
-                                    {<img className='rounded-circle i' width={40} height={100} src={'http://127.0.0.1:8000/' + (userName.avatar ? userName.avatar : '')} alt="" />}
+                                    {<img className='rounded-circle i' width={40} height={100} src={`${import.meta.env.VITE_BACKEND_URL}/` + (userName.avatar ? userName.avatar : '')} alt="" />}
                                   </Link>
                                   {/* {userName && (
                                 <li className="single-list">
@@ -215,7 +215,7 @@ const Header = ({ status }: { status: any }) => {
                       <a href="tour-details">
                         <div className="search-flex">
                           <div className="content-img">
-                            <img src="/src/assets/images/gallery/search-img-1.jpeg" alt="travello" />
+                            <img src={`${import.meta.env.VITE_BASE_URL}/assets/images/gallery/search-img-1.jpeg`} alt="travello" />
                           </div>
                           <div className="content">
                             <h4 className="title line-clamp-1">
@@ -234,7 +234,7 @@ const Header = ({ status }: { status: any }) => {
                       <a href="tour-details">
                         <div className="search-flex">
                           <div className="content-img">
-                            <img src="/src/assets/images/gallery/search-img-2.jpeg" alt="travello" />
+                            <img src={`${import.meta.env.VITE_BASE_URL}/assets/images/gallery/search-img-2.jpeg`} alt="travello" />
                           </div>
                           <div className="content">
                             <h4 className="title line-clamp-1">
@@ -253,7 +253,7 @@ const Header = ({ status }: { status: any }) => {
                       <a href="tour-details">
                         <div className="search-flex">
                           <div className="content-img">
-                            <img src="/src/assets/images/gallery/search-img-1.jpeg" alt="travello" />
+                            <img src={`${import.meta.env.VITE_BASE_URL}/assets/images/gallery/search-img-1.jpeg`} alt="travello" />
                           </div>
                           <div className="content">
                             <h4 className="title line-clamp-1">
@@ -279,7 +279,7 @@ const Header = ({ status }: { status: any }) => {
                       <a href="tour-details">
                         <div className="search-flex">
                           <div className="content-img">
-                            <img src="/src/assets/images/gallery/search-img-1.jpeg" alt="travello" />
+                            <img src={`${import.meta.env.VITE_BASE_URL}/assets/images/gallery/search-img-1.jpeg`} alt="travello" />
                           </div>
                           <div className="content">
                             <h4 className="title line-clamp-1">
@@ -298,7 +298,7 @@ const Header = ({ status }: { status: any }) => {
                       <a href="tour-details">
                         <div className="search-flex">
                           <div className="content-img">
-                            <img src="/src/assets/images/gallery/search-img-2.jpeg" alt="travello" />
+                            <img src={`${import.meta.env.VITE_BASE_URL}/assets/images/gallery/search-img-2.jpeg`} alt="travello" />
                           </div>
                           <div className="content">
                             <h4 className="title line-clamp-1">
@@ -317,7 +317,7 @@ const Header = ({ status }: { status: any }) => {
                       <a href="tour-details">
                         <div className="search-flex">
                           <div className="content-img">
-                            <img src="/src/assets/images/gallery/search-img-1.jpeg" alt="travello" />
+                            <img src={`${import.meta.env.VITE_BASE_URL}/assets/images/gallery/search-img-1.jpeg`} alt="travello" />
                           </div>
                           <div className="content">
                             <h4 className="title line-clamp-1">

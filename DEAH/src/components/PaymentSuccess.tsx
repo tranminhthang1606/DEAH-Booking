@@ -15,7 +15,7 @@ const PaymentSuccess = () => {
 
   const updatePaymentState = async (vnp_TxnRef:any) => {
 
-    const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/client/update-payment-status/${vnp_TxnRef}`, {
+    const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/client/update-payment-status/${vnp_TxnRef}`, {
       'status_payment': 1
     })
     console.log(response);

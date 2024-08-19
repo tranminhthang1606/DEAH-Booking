@@ -9,7 +9,7 @@ const Forgot = () => {
 
   const onSubmit = async (data:any) => {
     try {
-      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/client/mail-forget-pass`, {
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/client/mail-forget-pass`, {
         email: data.email,
       });
       toast.success('Bạn đã cập nhật thông tin thành công'); 

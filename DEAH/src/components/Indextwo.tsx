@@ -30,9 +30,9 @@ const Indextwo = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let tours_new = `${import.meta.env.VITE_API_BASE_URL}/api/client/get-tours-new`;
-        let tours_lists = `${import.meta.env.VITE_API_BASE_URL}/api/client/get-tours-feature`;
-        let posts = `${import.meta.env.VITE_API_BASE_URL}/api/client/get-posts-new`;
+        let tours_new = `${import.meta.env.VITE_BACKEND_URL}/api/client/get-tours-new`;
+        let tours_lists = `${import.meta.env.VITE_BACKEND_URL}/api/client/get-tours-feature`;
+        let posts = `${import.meta.env.VITE_BACKEND_URL}/api/client/get-posts-new`;
         const [tourNew, tourFeature, postsNew] = await Promise.all([
           axios.get(tours_new),
           axios.get(tours_lists),
@@ -42,7 +42,7 @@ const Indextwo = () => {
         ]);
 
 
-        const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/client/get-tours-list`
+        const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/client/get-tours-list`
 
         );
 
@@ -159,7 +159,7 @@ const Indextwo = () => {
             {/* shape 01 */}
 
             {/* shape 02 */}
-         
+
           </section>
           {/*/ End-of Hero*/}
           {/* Brand S t a r t */}
@@ -189,12 +189,12 @@ const Indextwo = () => {
 
                 <div className="row g-4">
 
-        
-                 {tourNew?.map((tours: any, index: any) => {
+
+                  {tourNew?.map((tours: any, index: any) => {
                     return (
                       <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
                         <Link to={`/tour-details/${tours.slug}`} className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
-                          <img className="" src={`${import.meta.env.VITE_API_BASE_URL}/` + (tours.images ? tours.images : '')} alt="travello" />
+                          <img className="" src={`${import.meta.env.VITE_BACKEND_URL}/` + (tours.images ? tours.images : '')} alt="travello" />
                           <div className="destination-content-two">
 
                             <div className="destination-info-two">
@@ -211,7 +211,7 @@ const Indextwo = () => {
                       </div>
                     )
                   })}
-              
+
                 </div>
               </div>
             </div>
@@ -248,12 +248,12 @@ const Indextwo = () => {
                 <div className="video-section">
                   {/* Video */}
                   <div className="hero-bg-video">
-                    <video className="hero-slider-video video-cover radius-30" poster="/src/assets/images/gallery/about-curve-banner.png" loop autoPlay muted>
-                      <source src="/src/assets/images/videos/travel4.mp4" type="video/mp4" />
+                    <video className="hero-slider-video video-cover radius-30" poster={`${import.meta.env.VITE_BASE_URL}/assets/images/gallery/about-curve-banner.png`} loop autoPlay muted>
+                      <source src={`${import.meta.env.VITE_BASE_URL}/assets/images/videos/travel4.mp4`} type="video/mp4" />
                       Trình duyệt của bạn không hỗ trợ thẻ video.
                     </video>
                   </div>
-                  <img src="/src/assets/images/gallery/about-curve-banner.png" alt="travello" />
+                  <img src={`${import.meta.env.VITE_BASE_URL}/assets/images/gallery/about-curve-banner.png`} alt="travello" />
                   <div className="rectangle-shape d-none d-sm-block">
                     <div className="sticky-corner right-corner">
                       <svg xmlns="http://www.w3.org/2000/svg" width={35} height={35} viewBox="0 0 35 35" fill="none">
@@ -300,7 +300,7 @@ const Indextwo = () => {
                           <div className="package-card">
                             <div className="package-img imgEffect4">
                               <Link to={`/tour-details/${tour.slug}`}>
-                                <img src={`${import.meta.env.VITE_API_BASE_URL}/` + (tour.images ? tour.images : '')} alt="travello" />
+                                <img src={`${import.meta.env.VITE_BACKEND_URL}/` + (tour.images ? tour.images : '')} alt="travello" />
                               </Link>
                             </div>
                             <div className="package-content">
@@ -397,7 +397,7 @@ const Indextwo = () => {
                       <Link to={"news-details/" + post.slug}>
                         <article className="news-card-two wow fadeInUp" data-wow-delay="0.0s">
                           <figure className="news-banner-two imgEffect">
-                            <img className="images" src={`${import.meta.env.VITE_API_BASE_URL}/` + post.thumbnail} alt="travello" />
+                            <img className="images" src={`${import.meta.env.VITE_BACKEND_URL}/` + post.thumbnail} alt="travello" />
                           </figure>
                           <div className="news-content">
                             <div className="heading line-clamp-1">
@@ -413,16 +413,16 @@ const Indextwo = () => {
                               <div className="d-flex gap-10 align-items-center">
                                 <div className="all-user">
                                   <div className="happy-user">
-                                    <img src="/src/assets/images/hero/user-1.jpeg" alt="travello" />
+                                    <img src={`${import.meta.env.VITE_BASE_URL}/assets/images/hero/user-1.jpeg`} alt="travello" />
                                   </div>
                                   <div className="happy-user">
-                                    <img src="/src/assets/images/hero/user-2.png" alt="travello" />
+                                    <img src={`${import.meta.env.VITE_BASE_URL}/assets/images/hero/user-2.png`} alt="travello" />
                                   </div>
                                   <div className="happy-user">
-                                    <img src="/src/assets/images/hero/user-3.png" alt="travello" />
+                                    <img src={`${import.meta.env.VITE_BASE_URL}/assets/images/hero/user-3.png`} alt="travello" />
                                   </div>
                                   <div className="happy-user">
-                                    <img src="/src/assets/images/hero/user-4.jpeg" alt="travello" />
+                                    <img src={`${import.meta.env.VITE_BASE_URL}/assets/images/hero/user-4.jpeg`} alt="travello" />
                                   </div>
                                 </div>
                               </div>
