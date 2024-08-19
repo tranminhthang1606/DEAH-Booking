@@ -54,7 +54,7 @@ const Lisbill2 = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/client/user/get-bookings`, {
+                const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/client/user/get-bookings`, {
                     id: user.id
                 });
                 console.log(response.data.data);
@@ -83,7 +83,7 @@ const Lisbill2 = () => {
         if (Data) {
             const user = JSON.parse(Data);
             setUserData(user);
-            setAvatarUrl(user.avatar ? `${import.meta.env.VITE_API_BASE_URL}`+'/'+ user.avatar : '');
+            setAvatarUrl(user.avatar ? `${import.meta.env.VITE_BACKEND_URL}`+'/'+ user.avatar : '');
             reset(user);
         }
         fetchData();
@@ -95,7 +95,7 @@ const Lisbill2 = () => {
             setLoading(true);
             try {
 
-                const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/client/user/booking/update`, {
+                const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/client/user/booking/update`, {
                     action: 'cancel',
                     booking_code: code,
                 });
@@ -115,7 +115,7 @@ const Lisbill2 = () => {
 
     const handleRepay = async (item: any) => {
 
-        let response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/client/repay`, item);
+        let response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/client/repay`, item);
         window.location.href = response.data.data;
 
     }
@@ -135,7 +135,7 @@ const Lisbill2 = () => {
                 <div className="view-account">
                     <section className="module">
                         <div className="module-inner">
-                            <SideBar userData={userData} avatarUrl={avatarUrl} />
+                            <SideBar status={true} userData={userData} avatarUrl={avatarUrl} />
                             <div className="content-panel">
                                 <div className="">
                                     <section className="table__header">

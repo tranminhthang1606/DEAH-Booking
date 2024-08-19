@@ -23,7 +23,7 @@ const Register = () => {
     const { name, password, email } = data;
     // Check if there are any validation errors
     if (Object.keys(errors).length === 0) {
-      fetch(`${import.meta.env.VITE_API_BASE_URL}/api/client/user/signup`, {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/client/user/signup`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'

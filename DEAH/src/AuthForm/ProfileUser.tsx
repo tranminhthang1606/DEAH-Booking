@@ -29,21 +29,21 @@ const ProfileUser = () => {
   useEffect(() => {
     const Data = sessionStorage.getItem('user');
     console.log(Data);
-    
+
     if (Data) {
       const user = JSON.parse(Data);
       setUserData(user);
-      setAvatarUrl(user.avatar ? `${import.meta.env.VITE_API_BASE_URL}/` + user.avatar : ''); // Cập nhật URL ảnh từ userData
+      setAvatarUrl(user.avatar ? `${import.meta.env.VITE_BACKEND_URL}/` + user.avatar : ''); // Cập nhật URL ảnh từ userData
       reset(user);
     }
 
-  }, [reset]);
+  }, [reset,status]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files && files.length > 0) {
       setFile(files[0]);
-      const imageUrl = URL.createObjectURL(files[0]); // Tạo URL cho ảnh mới
+      const imageUrl = `${import.meta.env.VITE_BACKEND_URL}/${files[0]}`; // Tạo URL cho ảnh mới
       setAvatarUrl(imageUrl); // Cập nhật URL ảnh trong form
     }
   };
@@ -53,7 +53,7 @@ const ProfileUser = () => {
     console.log(user);
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/client/user/update`, user, {
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/client/user/update`, user, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -65,13 +65,13 @@ const ProfileUser = () => {
           sessionStorage.setItem('user', JSON.stringify(res.data.data));
           toast.success('Bạn đã cập nhật thành công');
         });
-      } catch (error) {
-        toast.success('Có lỗi khi cập nhật thông tin người dùng');
-      };
+    } catch (error) {
+      toast.success('Có lỗi khi cập nhật thông tin người dùng');
+    };
 
-    }
-  
-  
+  }
+
+
   return (
     <div>
       <Header status={status} />
@@ -80,7 +80,7 @@ const ProfileUser = () => {
           <section className="module">
             <div className="module-inner">
 
-              <SideBar userData={userData} avatarUrl={avatarUrl} />
+              <SideBar status={status} userData={userData} avatarUrl={avatarUrl} />
 
               <div className="content-panel">
                 <div className="billing">

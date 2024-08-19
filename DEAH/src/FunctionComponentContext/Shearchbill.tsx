@@ -28,7 +28,7 @@ const SearchListBill: React.FC = () => {
   const handleSearchClick = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/client/get-booking/${booking_code}`);
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/client/get-booking/${booking_code}`);
       if (response.data.data && response.data.data.length > 0) {
         setOrderInfo(response.data.data[0]);
         setError(null);

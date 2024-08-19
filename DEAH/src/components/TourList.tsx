@@ -31,7 +31,7 @@ const TourList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/client/get-tours-list`, {
+        const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/client/get-tours-list`, {
           type_id: selectedType,
           province: selectedProvince,
           hightprice: sortOder,
@@ -246,7 +246,7 @@ const TourList = () => {
 
                               <div className="package-card">
                                 <div className="package-img imgEffect4">
-                                  <img src={`${import.meta.env.VITE_API_BASE_URL}/` + (tour.images ? tour.images : '')} alt="travello" />
+                                  <img src={`${import.meta.env.VITE_BACKEND_URL}/` + (tour.images ? tour.images : '')} alt="travello" />
                                 </div>
                                 <div className="package-content">
 

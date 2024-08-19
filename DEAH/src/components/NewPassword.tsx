@@ -27,7 +27,7 @@ const NewPassword = () => {
       console.log('Token:', token);
       console.log('Password to send:', password);
       
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/client/change-pass`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/client/change-pass`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

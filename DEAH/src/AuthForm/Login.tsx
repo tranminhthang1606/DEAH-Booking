@@ -13,7 +13,7 @@ const Login = () => {
   const navigate = useNavigate()
   const { register, handleSubmit , formState :{errors}} = useForm<Input>()
   function onSubmit(data: Input) {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/client/user/login`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/client/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": 'Application/json'
