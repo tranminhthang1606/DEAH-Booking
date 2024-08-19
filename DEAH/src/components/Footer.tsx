@@ -1,140 +1,64 @@
 const Footer = () => {
     return (
         <div>
-            <footer className="bg-dark  py-5">
+            <footer className="new_footer_area bg_color">
+            <div className="new_footer_top">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-3">
-                            <h5 className="font-bold text-2xl text-white">
-                                Về DEAH Tour
-                            </h5>
-                            <ul className="list-unstyled">
-                                <li>
-                                    <a href="#" className="text-white">
-                                        Cách đặt chỗ
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-white">
-                                        Liên hệ chúng tôi
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-white">
-                                        Trợ giúp
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-white">
-                                        Tuyển dụng
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-white">
-                                        Về chúng tôi
-                                    </a>
-                                </li>
-                            </ul>
+                        <div className="col-lg-3 col-md-6">
+                            <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s">
+                                <h3 className="f-title f_600 t_color f_size_18">Download</h3>
+                                <ul className="list-unstyled f_list">
+                                    <li><a href="#">Company</a></li>
+                                    <li><a href="#">Android App</a></li>
+                                    <li><a href="#">ios App</a></li>
+                                    <li><a href="#">Desktop</a></li>
+                                    <li><a href="#">Projects</a></li>
+                                    <li><a href="#">My tasks</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div className="col-md-3">
-                            <h5 className="font-bold text-2xl text-white">
-                                Dịch vụ
-                            </h5>
-                            <ul className="list-unstyled">
-                                <li>
-                                    <a href="#" className="text-white">
-                                        Khách sạn
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-white">
-                                        Du lịch
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-white">
-                                        Bài viết
-                                    </a>
-                                </li>
-                            </ul>
+                        <div className="col-lg-3 col-md-6">
+                            <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" >
+                                <h3 className="f-title f_600 t_color f_size_18">Help</h3>
+                                <ul className="list-unstyled f_list">
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">Term &amp; conditions</a></li>
+                                    <li><a href="#">Reporting</a></li>
+                                    <li><a href="#">Documentation</a></li>
+                                    <li><a href="#">Support Policy</a></li>
+                                    <li><a href="#">Privacy</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div className="col-md-3">
-                            <h5 className="font-bold text-2xl text-white">
-                                Khác
-                            </h5>
-                            <ul className="list-unstyled">
-                                <li>
-                                    <a href="#" className="text-white">
-                                        DEAH Tour Affiliate
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-white">
-                                        DEAH Tour Blog
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-white">
-                                        Chính Sách Quyền Riêng
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-white">
-                                        Điều khoản & Điều kiện
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-white">
-                                        Quy chế hoạt động
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div className="col-md-3">
-                            <h5 className="font-bold text-2xl text-white">
-                                Vị trí
-                            </h5>
-                            <li>
-                                <a href="#" className="text-white">
-                                    Hải Hậu, Hải Dương
-                                </a>
-                            </li>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29822.927584943576!2d106.54187519999999!3d20.87745275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1722491046804!5m2!1sen!2s"
-                                width="200"
-                                height="200"
-                                loading="lazy"
-                            ></iframe>
-                        </div>
-                        <div className="animated-border"></div>
-
-                        <div
-                            style={{
-                              width:"100%",
-                                height: "100px",
-                                overflow: "hidden",
-                                whiteSpace: "nowrap",
-                            }}
-                        >
-                            <div
-                                style={{
-                                  width :"100%",
-                                    display: "inline-block",
-                                    animation:
-                                        "scroll-right 20s linear infinite",
-                                }}
-                            >
-                                <div className="text-white "> DEAH Tour </div>
-                                <div>
-                                    <i className="bi bi-facebook text-white"></i>
-                                    <i className="bi bi-tiktok pl-3 text-white"></i>
-                                </div>{" "}
+                        <div className="col-lg-3 col-md-6">
+                            <div className="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" >
+                                <h3 className="f-title f_600 t_color f_size_18">Team Solutions</h3>
+                                <div className="f_social_icon">
+                                    <a href="#" className="fab fa-facebook"></a>
+                                    <a href="#" className="fab fa-twitter"></a>
+                                    <a href="#" className="fab fa-linkedin"></a>
+                                    <a href="#" className="fab fa-pinterest"></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </footer>
+                <div className="footer_bg">
+                    <div className="footer_bg_one"></div>
+                    <div className="footer_bg_two"></div>
+                </div>
+            </div>
+            <div className="footer_bottom">
+                <div className="container">
+                    <div className="row align-items-center">
+                        <div className="col-lg-6 col-sm-7">
+                            <p className="mb-0 f_400">© DEAH Inc.. 2024 All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
         </div>
     );
 };

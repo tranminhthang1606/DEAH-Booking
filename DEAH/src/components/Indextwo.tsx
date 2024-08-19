@@ -93,7 +93,7 @@ const Indextwo = () => {
               <div className="row  g-4 align-items-center justify-content-between position-relative">
                 <div className="col-xl-7 col-lg-6">
                   <div className="hero-caption-two position-relative">
-                    <span className="highlights wow fadeInUp d-block p-1" data-wow-delay="0.0s">Khám phá từ này</span>
+                    <span className="highlights wow fadeInUp d-block p-1" data-wow-delay="0.0s">Khám Phá Ngay</span>
                     <h4 className="title wow fadeInUp fs-1 p-1 " data-wow-delay="0.1s">  Kế  hoạch  chuyến  tham  quan  đến  các  địa  điểm  mơ  ước  chỉ  bằng  một  cú  nhấp  chuột ! </h4>
                     <p className="pera wow fadeInUp" data-wow-delay="0.3s">
                       Tận hưởng từng khoảnh khắc tại các địa điểm mơ ước, tham gia các hoạt động thú vị và lưu giữ những kỷ niệm đẹp.<br />
