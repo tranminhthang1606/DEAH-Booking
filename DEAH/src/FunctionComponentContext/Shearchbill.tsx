@@ -61,7 +61,7 @@ const SearchListBill: React.FC = () => {
 
   return (
     <div>
-      <div className="shadow-2xl searchlistbill">
+      <div className="searchlistbill">
         <input
           className="col-6 mb-4"
           type="search"
