@@ -38,9 +38,11 @@
     :: Variables
 -----------------------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=Kaushan+Script&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+
 :root {
   --remix-icon: "remixicon";
-  --Kaushan: "Kaushan Script", cursive;
+  --Kaushan: "Playball", cursive;
   --Dm: "DM Sans", sans-serif;
   --white: #fff;
   --light: #d8dbe0;
