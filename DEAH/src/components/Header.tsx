@@ -49,7 +49,7 @@ const Header = ({ status }: { status: any }) => {
                           <a href="index-two">
                             <img
                               width="180px"
-                              src={`${import.meta.env.VITE_BASE_URL}/assets/images/logo/LOGO DEAH2-Photoroom.png`}
+                              src={`${import.meta.env.VITE_BASE_URL}/assets/images/logo/LOGO-DEAH2-Photoroom.png`}
                               alt="logo"
                               className="changeLogo"
                             />
