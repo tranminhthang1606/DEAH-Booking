@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Quản lý chuyến du lịch</h4>
+                    <h4 class="mb-sm-0">Quản lý Tour</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
@@ -450,7 +450,7 @@
 
                                                     </td>
                                                     <td class="text-black">
-                                                        <?php echo e($comment->user->name); ?>
+                                                        <?php echo e($comment->name); ?>
 
                                                     </td>
                                                     <td class="text-black">
@@ -635,7 +635,7 @@ unset($__errorArgs, $__bag); ?>
                                     <div class="col-md-4 mb-3">
                                         <label for="email-field" class="form-label">Giá</label>
                                         <input type="text" id="email-field" class="form-control" name="price"
-                                            value="<?php echo e($tour->price); ?>" placeholder="" />
+                                            id="price" value="<?php echo e($tour->price); ?>" placeholder="" />
                                         <?php $__errorArgs = ['price'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -651,7 +651,7 @@ unset($__errorArgs, $__bag); ?>
                                     <div class="col-md-4 mb-3">
                                         <label for="phone-field" class="form-label">Giá khuyến mại</label>
                                         <input type="text" id="phone-field" class="form-control" name="promotion"
-                                            value="<?php echo e($tour->promotion); ?>" placeholder="" />
+                                            id="promotion" value="<?php echo e($tour->promotion); ?>" placeholder="" />
                                         <?php $__errorArgs = ['promotion'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -886,6 +886,20 @@ unset($__errorArgs, $__bag); ?>
             });
         }
         $(document).ready(function() {
+            $('#price').on('blur', function() {
+                const value = this.value.replace(/[^0-9]/g, "");
+                this.value = parseFloat(value).toLocaleString('vi-VN');
+                if (value == "") {
+                    this.value = "";
+                }
+            });
+            $('#promotion').on('blur', function() {
+                const value = this.value.replace(/[^0-9]/g, "");
+                this.value = parseFloat(value).toLocaleString('vi-VN');
+                if (value == "") {
+                    this.value = "";
+                }
+            });
             $('.showEdit').click(function() {
                 let id = $(this).attr('data-edit-id');
                 $.ajax({

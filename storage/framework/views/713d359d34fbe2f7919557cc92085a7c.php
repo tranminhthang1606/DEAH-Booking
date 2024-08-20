@@ -69,6 +69,16 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
+                                <?php $__sessionArgs = ['promotion'];
+if (session()->has($__sessionArgs[0])) :
+if (isset($value)) { $__sessionPrevious[] = $value; }
+$value = session()->get($__sessionArgs[0]); ?>
+                                <span class="text-danger fw-light "><?php echo e(session('promotion')); ?></span>
+                                      <?php unset($value);
+if (isset($__sessionPrevious) && !empty($__sessionPrevious)) { $value = array_pop($__sessionPrevious); }
+if (isset($__sessionPrevious) && empty($__sessionPrevious)) { unset($__sessionPrevious); }
+endif;
+unset($__sessionArgs); ?>
                             </div>
                         </div>
                         <div class="row mt-3">

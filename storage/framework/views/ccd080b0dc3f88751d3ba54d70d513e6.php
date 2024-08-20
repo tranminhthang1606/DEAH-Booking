@@ -133,7 +133,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php if(count($hotel->images)>0): ?>
+                                    <?php if(count($hotel->images) > 0): ?>
                                         <?php $__currentLoopData = $hotel->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <tr class="">
                                                 <td class="text-black" scope="col"><?php echo e($index + 1); ?></td>
@@ -185,7 +185,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php if(count($hotel->services)>0): ?>
+                                        <?php if(count($hotel->services) > 0): ?>
                                             <?php $__currentLoopData = $hotel->services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <tr class="">
                                                     <td class="text-black" scope="col"><?php echo e($index + 1); ?></td>
@@ -263,7 +263,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php if(count($hotel->comments)>0): ?>
+                                    <?php if(count($hotel->comments) > 0): ?>
                                         <?php $__currentLoopData = $hotel->comments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $comment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <tr class="">
                                                 <td class="text-black" scope="col"><?php echo e($index + 1); ?></td>
@@ -338,7 +338,7 @@ unset($__errorArgs, $__bag); ?>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="email-field" class="form-label">Giá</label>
-                                        <input type="text" id="email-field" class="form-control" name="price"
+                                        <input type="text" id="email-field" class="form-control" name="price"  id="price"
                                             value="<?php echo e($hotel->price); ?>" placeholder="" />
                                         <?php $__errorArgs = ['price'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -355,7 +355,7 @@ unset($__errorArgs, $__bag); ?>
                                     <div class="col-md-4 mb-3">
                                         <label for="phone-field" class="form-label">Giá khuyến mại</label>
                                         <input type="text" id="phone-field" class="form-control" name="promotion"
-                                            value="<?php echo e($hotel->promotion); ?>" placeholder="" />
+                                            id="promotion" value="<?php echo e($hotel->promotion); ?>" placeholder="" />
                                         <?php $__errorArgs = ['promotion'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -603,6 +603,20 @@ unset($__errorArgs, $__bag); ?>
                 });
             }
             $(document).ready(function() {
+                $('#price').on('blur', function() {
+                    const value = this.value.replace(/[^0-9]/g, "");
+                    this.value = parseFloat(value).toLocaleString('vi-VN');
+                    if (value == "") {
+                        this.value = "";
+                    }
+                });
+                $('#promotion').on('blur', function() {
+                    const value = this.value.replace(/[^0-9]/g, "");
+                    this.value = parseFloat(value).toLocaleString('vi-VN');
+                    if (value == "") {
+                        this.value = "";
+                    }
+                });
                 upload();
                 $("#preview-container").on("click", ".delete", function() {
                     $(this).parent(".preview").remove();

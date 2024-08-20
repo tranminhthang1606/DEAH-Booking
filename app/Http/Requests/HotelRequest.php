@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
 class HotelRequest extends FormRequest
 {
@@ -19,12 +20,22 @@ class HotelRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules(Request $request): array
     {
+        $priceString = str_replace('.', '', $request->price);
+        $promotionString = str_replace('.', '', $request->promotion);
+
+        // Chuyển đổi chuỗi thành số
+        $price = intval($priceString);
+        $promotion = intval($promotionString);
+
+        if ($promotion > $price) {
+             back()->withInput()->with('promotion', 'The promotion field must be less than price');
+        }
         return [
             'name' => 'required',
-            'price' => 'required|numeric',
-            'promotion' => 'required|numeric|lt:price',
+            'price' => 'required',
+            'promotion' => 'required',
             'services' => 'required',
             'images' => 'required',
             'images.*' => 'image',

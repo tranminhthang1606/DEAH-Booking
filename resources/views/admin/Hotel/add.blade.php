@@ -50,6 +50,9 @@
                             @error('promotion')
                                 <span class="text-danger fw-light "><i>{{ $message }}</i></span>
                             @enderror
+                            @session('promotion')
+                                    <span class="text-danger fw-light ">{{ session('promotion') }}</span>
+                            @endsession
                         </div>
                     </div>
                     <div class="row mt-3">

@@ -42,7 +42,7 @@ unset($__errorArgs, $__bag); ?>
                         <div class="col-4">
                             <label for="date-field" class="form-label">Giá
                             </label>
-                            <input type="text" value="<?php echo e(old('price')); ?>" name="price" id=""
+                            <input type="text" value="<?php echo e(old('price')); ?>" name="price" id="price"
                                 class="form-control" placeholder="Nhập giá">
                             <?php $__errorArgs = ['price'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -58,9 +58,8 @@ unset($__errorArgs, $__bag); ?>
                         <div class="col-4">
                             <label for="date-field" class="form-label">Giá khuyến mại
                             </label>
-
                             <input type="text" value="<?php echo e(old('promotion')); ?>" name="promotion"
-                                placeholder="Nhập giá khuyến mại" id="" class="form-control">
+                                placeholder="Nhập giá khuyến mại" id="promotion" class="form-control">
                             <?php $__errorArgs = ['promotion'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -71,6 +70,16 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
+                            <?php $__sessionArgs = ['promotion'];
+if (session()->has($__sessionArgs[0])) :
+if (isset($value)) { $__sessionPrevious[] = $value; }
+$value = session()->get($__sessionArgs[0]); ?>
+                                    <span class="text-danger fw-light "><?php echo e(session('promotion')); ?></span>
+                            <?php unset($value);
+if (isset($__sessionPrevious) && !empty($__sessionPrevious)) { $value = array_pop($__sessionPrevious); }
+if (isset($__sessionPrevious) && empty($__sessionPrevious)) { unset($__sessionPrevious); }
+endif;
+unset($__sessionArgs); ?>
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -257,6 +266,20 @@ unset($__errorArgs, $__bag); ?>
 <?php $__env->startSection('scripts'); ?>
     <script>
         $(document).ready(function() {
+            $('#price').on('blur', function() {
+                const value = this.value.replace(/[^0-9]/g, "");
+                this.value = parseFloat(value).toLocaleString('vi-VN');
+                if (value == "") {
+                    this.value = "";
+                }
+            });
+            $('#promotion').on('blur', function() {
+                const value = this.value.replace(/[^0-9]/g, "");
+                this.value = parseFloat(value).toLocaleString('vi-VN');
+                if (value == "") {
+                    this.value = "";
+                }
+            });
             $("#fileUpload").on("change", function() {
                 let files = $(this)[0].files;
                 $("#preview-container").empty();
