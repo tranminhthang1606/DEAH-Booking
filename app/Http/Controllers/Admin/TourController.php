@@ -136,8 +136,8 @@ class TourController extends Controller
         // Validate input
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
-            'price' => 'required|numeric',
-            'promotion' => 'required|numeric|lt:price',
+            'price' => 'required',
+            'promotion' => 'required|lt:price',
             'type_id' => 'required|exists:tour_types,id',
             'description' => 'required',
             'province_id' => 'required|exists:provinces,id',
