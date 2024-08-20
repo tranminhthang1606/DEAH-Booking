@@ -87,7 +87,7 @@ const Login = () => {
                     {/* Logo */}
                     <div className="logo mb-40">
                       <a href="index" className="mb-30 d-block">
-                        <img src="/src/assets/images/logo/logo.png" alt="logo" className="changeLogo" />
+                        <img src="/src/assets/images/logo/LOGO DEAH2-Photoroom.png" alt="logo" className="changeLogo" width={250}/>
                       </a>
                     </div>
                     {/* Form */}
