@@ -48,8 +48,8 @@ const Header = ({ status }: { status: any }) => {
                         <div className="logo">
                           <a href="index-two">
                             <img
-                              width="80px"
-                              src={`${import.meta.env.VITE_BASE_URL}/assets/images/logo/logonew-nobg.png`}
+                              width="180px"
+                              src={`${import.meta.env.VITE_BASE_URL}/assets/images/logo/LOGO DEAH2-Photoroom.png`}
                               alt="logo"
                               className="changeLogo"
                             />

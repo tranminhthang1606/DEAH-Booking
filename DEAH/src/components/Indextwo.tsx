@@ -116,7 +116,7 @@ const Indextwo = () => {
                             <i className="ri-map-pin-line" />
                             <h4 className="select2-title">Điểm đến</h4>
                           </div>
-                          <select className="js-example-basic-single  destination-dropdown" onChange={(e) => setSelectedProvince(e.target.value)} >
+                          <select className="destination-dropdown" onChange={(e) => setSelectedProvince(e.target.value)} >
                             <option className='rounded' value=''>Lọc theo điểm đến</option>
                             {tour.provinces?.map((province: any) => {
                               return (
