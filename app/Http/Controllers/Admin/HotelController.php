@@ -104,8 +104,8 @@ class HotelController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'price' => 'required|numeric',
-            'promotion' => 'required|numeric|lt:price',
+            'price' => 'required',
+            'promotion' => 'required|lt:price',
             'description' => 'required',
             'province_id' => 'required|exists:provinces,id',
             'district_id' => 'required|exists:districts,id',

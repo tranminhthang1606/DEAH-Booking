@@ -265,10 +265,10 @@
                                                                                     <strong>{{ $booking->adults }}</strong>
                                                                                     người
                                                                                     lớn,<strong>
-                                                                                        {{ $booking->kids6To12 }}
+                                                                                        {{ $booking->children6To12 }}
                                                                                     </strong>
                                                                                     trẻ 6-12, <strong>
-                                                                                        {{ $booking->kids0To5 }}
+                                                                                        {{ $booking->children2To5 }}
                                                                                     </strong> trẻ 0-5</p>
                                                                                 <p>Ngày bắt đầu: {{ $booking->start }} <br>
                                                                                     Ngày kết thúc: {{ $booking->end }}</p>
@@ -318,7 +318,7 @@
                                                                                 <p>Tour: {{ $booking->tour_name }}</p>
                                                                                 <p>Giá tour:
                                                                                     {{ number_format($booking->tour_price, 0, '.', '.') }}
-                                                                                    VND</p>
+                                                                                    VNĐ</p>
                                                                                 <p>Địa chỉ tour:
                                                                                     {{ $booking->tour_address }}</p>
                                                                             </span></p>
@@ -346,7 +346,7 @@
                                                                                 </p>
                                                                                 <p>Giá khách sạn:
                                                                                     {{ number_format($booking->hotel_price, 0, '.', '.') }}
-                                                                                    VND</p>
+                                                                                    VNĐ</p>
                                                                                 <p>Địa chỉ khách sạn:
                                                                                     {{ $booking->hotel_address }}
                                                                                 </p>
