@@ -116,7 +116,7 @@ const Indextwo = () => {
                             <i className="ri-map-pin-line" />
                             <h4 className="select2-title">Điểm đến</h4>
                           </div>
-                          <select className="destination-dropdown" onChange={(e) => setSelectedProvince(e.target.value)} >
+                          <select className="rounded destination-dropdown" onChange={(e) => setSelectedProvince(e.target.value)} >
                             <option className='rounded' value=''>Lọc theo điểm đến</option>
                             {tour.provinces?.map((province: any) => {
                               return (
@@ -131,7 +131,7 @@ const Indextwo = () => {
                             <i className="ri-flight-takeoff-fill" />
                             <h4 className="select2-title">Tour Type</h4>
                           </div>
-                          <select className="destination-dropdown" onChange={(e) => setSelectedType(e.target.value)}>
+                          <select className="destination-dropdown rounded" onChange={(e) => setSelectedType(e.target.value)}>
                             <option value=''>Lọc theo loại du lịch</option>
                             {tour.types?.map((type: any) => {
                               return (

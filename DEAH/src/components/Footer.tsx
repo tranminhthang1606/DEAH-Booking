@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
     return (
         <div>
@@ -40,14 +42,14 @@ const Footer = () => {
                                 <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" >
                                     <h3 className="f-title f_600 t_color f_size_20">DEAH VIỆT NAM</h3>
                                     <h5 className="titlee">Đi Muôn Nơi</h5>
-                                    <a href="/index-two">
+                                    <Link to="/">
                                     <img
                                         width="400px"
-                                        src="/src/assets/images/logo/LOGO DEAH2-Photoroom.png"
+                                        src={`${import.meta.env.VITE_BASE_URL}/assets/images/logo/LOGO-DEAH2-Photoroom.png`}
                                         alt="logo"
                                         className="changeLogo"
                                     />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
