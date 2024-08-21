@@ -7,7 +7,7 @@ const Footer = () => {
                         <div className="row">
                             <div className="col-lg-3 col-md-6">
                                 <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s">
-                                    <h3 className="f-title f_600 t_color f_size_20">VỀ DEAH TOUR</h3>
+                                    <h3 className="title f_600 t_color text-30">VỀ DEAH TOUR</h3>
                                     <ul className="list-unstyled f_list my-2">
                                         <li><a href="/tour-list">Đặt chỗ ngay</a></li>
                                         <li><a href="/about">Liên hệ chúng tôi</a></li>
@@ -18,7 +18,7 @@ const Footer = () => {
                             </div>
                             <div className="col-lg-3 col-md-6">
                                 <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" >
-                                    <h3 className="f-title f_600 t_color f_size_20">DỊCH VỤ</h3>
+                                    <h3 className="title f_600 f_color text-30">DỊCH VỤ</h3>
                                     <ul className="list-unstyled f_list my-2">
                                         <li><a href="/tour-list">Khách sạn</a></li>
                                         <li><a href="/tour-list">Du lịch</a></li>
@@ -28,7 +28,7 @@ const Footer = () => {
                             </div>
                             <div className="col-lg-3 col-md-6">
                                 <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" >
-                                    <h3 className="f-title f_600 t_color f_size_20">KHÁC</h3>
+                                    <h3 className="title f_600 t_color text-30">KHÁC</h3>
                                     <ul className="list-unstyled f_list my-2">
                                         <li><a href="/about">DEAH tour blog</a></li>
                                         <li><a href="/contact">Các chính sách</a></li>
@@ -38,7 +38,7 @@ const Footer = () => {
                             </div>
                             <div className="col-lg-3 col-md-6">
                                 <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" >
-                                    <h3 className="f-title f_600 t_color f_size_20">DEAH VIỆT NAM</h3>
+                                    <h3 className="title f_600 t_color text-30">DEAH VIỆT NAM</h3>
                                     <h5 className="titlee">Đi Muôn Nơi</h5>
                                     <a href="/index-two">
                                         <img
@@ -65,7 +65,9 @@ const Footer = () => {
                                     <p className="mb-0 f_400">© DEAH Inc.. 2024 All rights reserved.</p>
                                 </div>
                                 <div className="col-lg-6 col-sm-7 text-end">
+
                                     <div className="social-icons">
+                                        <h5 className="title mx-2 my-2">Theo dõi tại:</h5>
                                         <a href="https://www.facebook.com/groups/deahtourinvietnam" target="_blank" className="social-icon">
                                             <i className="fab fa-facebook-f"></i>
                                         </a>

@@ -15,6 +15,7 @@ h5,
 h6 {
   margin: 0 !important;
 }
+
 .discover-circle {
   width: 400px;
   height: 400px;
@@ -866,5 +867,29 @@ h1, h2, h3, h4, h5, h6 {
     left: 100%;
   }
 }
-
 /*************footer End*****************/
+#accordion .panel-heading{
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 10px;
+  z-index: 1;
+  position: relative;
+}
+#accordion .panel-heading:before,
+#accordion .panel-heading:after{
+  content: "";
+  width: 50%;
+  height: 20%;
+  box-shadow: 0 15px 5px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+  transform: rotate(-3deg);
+  z-index: -1;
+}
+#accordion .panel-heading:after{
+  left: auto;
+  right: 10px;
+  transform: rotate(3deg);
+}

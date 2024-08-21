@@ -249,7 +249,7 @@ const Indextwo = () => {
                   {/* Video */}
                   <div className="hero-bg-video">
                     <video className="hero-slider-video video-cover radius-30" poster="/src/assets/images/gallery/about-curve-banner.png" loop autoPlay muted>
-                      <source src="/src/assets/images/videos/travel4.mp4" type="video/mp4" />
+                      <source src="/src/assets/images/videos/travel4.mp4" type="video/mp4" max-width={1920}/>
                       Trình duyệt của bạn không hỗ trợ thẻ video.
                     </video>
                   </div>
