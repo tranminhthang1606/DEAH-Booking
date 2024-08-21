@@ -41,12 +41,12 @@ const Footer = () => {
                                     <h3 className="f-title f_600 t_color f_size_20">DEAH VIỆT NAM</h3>
                                     <h5 className="titlee">Đi Muôn Nơi</h5>
                                     <a href="/index-two">
-                                    <img
-                                        width="400px"
-                                        src="/src/assets/images/logo/LOGO DEAH2-Photoroom.png"
-                                        alt="logo"
-                                        className="changeLogo"
-                                    />
+                                        <img
+                                            width="400px"
+                                            src="/src/assets/images/logo/LOGO DEAH2-Photoroom.png"
+                                            alt="logo"
+                                            className="changeLogo"
+                                        />
                                     </a>
                                 </div>
                             </div>
@@ -74,11 +74,10 @@ const Footer = () => {
                                         </a>
                                     </div>
                                 </div>
+                            </div>
                         </div>
-
                     </div>
                 </div>
-        </div>
             </footer >
         </div >
     );

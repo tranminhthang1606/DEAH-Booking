@@ -13,7 +13,6 @@ import '../App.css'
 import { useNavigate } from 'react-router-dom';
 
 import SearchListBill from "../FunctionComponentContext/Shearchbill.js";
-
 const Indextwo = () => {
   const [tourFeature, setToursFeature] = useState<any>([]);
   const [tourNew, setToursNew] = useState<any>([]);
@@ -93,7 +92,7 @@ const Indextwo = () => {
               <div className="row  g-4 align-items-center justify-content-between position-relative">
                 <div className="col-xl-7 col-lg-6">
                   <div className="hero-caption-two position-relative">
-                    <span className="highlights wow fadeInUp d-block p-1" data-wow-delay="0.0s">Khám Phá Ngay</span>
+                    <span className="highlights text-30 wow fadeInUp d-block p-1" data-wow-delay="0.0s">Khám Phá Ngay</span>
                     <h4 className="title wow fadeInUp fs-1 p-1 " data-wow-delay="0.1s">  Kế  hoạch  chuyến  tham  quan  đến  các  địa  điểm  mơ  ước  chỉ  bằng  một  cú  nhấp  chuột ! </h4>
                     <p className="pera wow fadeInUp" data-wow-delay="0.3s">
                       Tận hưởng từng khoảnh khắc tại các địa điểm mơ ước, tham gia các hoạt động thú vị và lưu giữ những kỷ niệm đẹp.<br />
@@ -106,7 +105,7 @@ const Indextwo = () => {
                 <div className="col-xl-5 col-lg-6 relative">
                   <div className="search-tour-card sidenav-active">
                     <div className="section-title text-center">
-                      <h4 className="title">Các tour du lịch tìm kiếm</h4>
+                      <h4 className="title">Tìm kiếm các tour du lịch</h4>
                       <p className="pera">Hãy nhập những thông tin dưới đây .</p>
                     </div>
                     <form action="" onSubmit={handleSubmit}>
@@ -157,9 +156,8 @@ const Indextwo = () => {
               </div>
             </div>
             {/* shape 01 */}
-
             {/* shape 02 */}
-         
+
           </section>
           {/*/ End-of Hero*/}
           {/* Brand S t a r t */}
@@ -179,7 +177,7 @@ const Indextwo = () => {
                 <div className="row justify-content-center">
                   <div className="col-xl-7 col-lg-7">
                     <div className="section-title text-center mx-430 mx-auto position-relative">
-                      <span className="highlights">Danh sách tour mới nhất</span>
+                      <span className="highlights text-30">Danh sách tour mới nhất</span>
                       <h4 className="title">
                         Chúng tôi cung cấp các điểm đến du lịch hàng đầu
                       </h4>
@@ -189,8 +187,8 @@ const Indextwo = () => {
 
                 <div className="row g-4">
 
-        
-                 {tourNew?.map((tours: any, index: any) => {
+
+                  {tourNew?.map((tours: any, index: any) => {
                     return (
                       <div className="col-xl-3 col-lg-4 col-sm-6" key={index}>
                         <Link to={`/tour-details/${tours.slug}`} className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
@@ -211,19 +209,19 @@ const Indextwo = () => {
                       </div>
                     )
                   })}
-              
+
                 </div>
               </div>
             </div>
           </section>
           {/*/ End-of Destination */}
           {/* About Us area S t a r t */}
-          <section className="about-area-two about-bg-before section-padding2">
+          <section className="about-area-two about-bg-before section-padding">
             <div className="container">
               <div className="row align-items-center position-relative">
                 <div className="col-lg-8">
                   <div className="section-title mx-526 mb-30">
-                    <span className="highlights">về chúng tôi</span>
+                    <span className="highlights text-30">về chúng tôi</span>
                     <h4 className="title"> Trải nghiệm thế giới với công ty của chúng tôi</h4>
                     <p className="pera">
                       Du lịch là một trải nghiệm biến đổi và phong phú
@@ -238,13 +236,15 @@ const Indextwo = () => {
                   </div>
                 </div>
                 <div className="col-lg-4">
-                  <div className="discover-circle ">
-                    <a href="about" className="discover-btn">Khám phá nhiều hơn<i className="ri-arrow-right-up-line" /></a>
-                  </div>
+                  <a className="dis-btn" href="/about">
+                    <div className="discover-circle">
+                      <a href="/about" className="discover-btn text-30">KHÁM PHÁ NHIỀU HƠN<i className="ri-arrow-right-up-line" /></a>
+                    </div>
+                  </a>
                 </div>
               </div>
               <div className="about-banner-two">
-                <h4 className="watermark-text  p-4">Hơn 15 năm kinh nghiệm </h4>
+                <h4 className="watermark-text  p-4 my-2">Hơn 15 năm kinh nghiệm </h4>
                 <div className="video-section">
                   {/* Video */}
                   <div className="hero-bg-video">
@@ -282,7 +282,7 @@ const Indextwo = () => {
               <div className="row justify-content-center">
                 <div className="col-xl-7 col-lg-7">
                   <div className="section-title mx-430 mx-auto text-center">
-                    <span className="highlights"> Gói phổ biến</span>
+                    <span className="highlights text-30"> Gói phổ biến</span>
                     <h4 className="title">
                       Địa điểm du lịch yêu thích nhất ở Việt Nam
 
@@ -383,7 +383,7 @@ const Indextwo = () => {
               <div className="row justify-content-center">
                 <div className="col-xl-7 col-lg-7">
                   <div className="section-title text-center mx-605 mx-auto position-relative mb-60">
-                    <span className="highlights">News &amp; Bài báo</span>
+                    <span className="highlights text-30">News &amp; Bài báo</span>
                     <h4 className="title">
                       Bài viết mới nhất
                     </h4>
