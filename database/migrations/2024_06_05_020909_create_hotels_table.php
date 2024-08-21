@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('hotels', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('price');
+            $table->string('price');
             $table->string('promotion');
             $table->text('description');
             $table->foreignId('province_id')->constrained()->on('provinces');
