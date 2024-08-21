@@ -269,8 +269,8 @@
                                     <br>
                                      <strong>
                                         ${data.adults} người lớn <br>
-                                        ${data.children6To12} trẻ 6 - 12<br> 
-                                        ${data.children2To5} trẻ 2 - 5 
+                                        ${data.children6To12?data.children6To12+" trẻ 6 - 12 <br> ":''} 
+                                        ${data.children2To5?data.children2To5+" trẻ 0 - 5 <br> ":''} 
                                         
                                         </strong>
                                 </p>
