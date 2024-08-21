@@ -15,8 +15,8 @@ const NewsDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let postsFeatureApi = `${import.meta.env.VITE_API_BASE_URL}/api/client/get-posts-list`;
-        let postApi = `${import.meta.env.VITE_API_BASE_URL}/api/client/get-post-detail/${slug}`;
+        let postsFeatureApi = `${import.meta.env.VITE_BACKEND_URL}/api/client/get-posts-list`;
+        let postApi = `${import.meta.env.VITE_BACKEND_URL}/api/client/get-post-detail/${slug}`;
         const [postFeature, post] = await Promise.all([
           axios.get(postsFeatureApi),
           axios.get(postApi)
@@ -60,7 +60,7 @@ const NewsDetails = () => {
 
                 <div className="col-xl-8 col-lg-7" >
                   <div className="news-details-banner imgEffect">
-                    <img className='image' src={'http://127.0.0.1:8000/' + post.thumbnail} alt="travello" />
+                    <img className='image' src={`${import.meta.env.VITE_BACKEND_URL}/` + post.thumbnail} alt="travello" />
                   </div>
                   <div className="news-details-content">
 
@@ -104,7 +104,7 @@ const NewsDetails = () => {
                         return (
                           <div className="main-profile-two">
                             <div className="user-img-sm">
-                              <img src={'http://127.0.0.1:8000/' + comment.user[0].avatar} alt="travello" />
+                              <img src={`${import.meta.env.VITE_BACKEND_URL}/` + comment.user[0].avatar} alt="travello" />
                             </div>
                             <div className="user-info">
                               <h4 className="name-sm">{comment.user.name}</h4>
@@ -170,7 +170,7 @@ const NewsDetails = () => {
                             return (
                               <li className="list  " key={index}>
                                 <a href={`/news-details/${item.slug}`} className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
-                                  <img className='ImageNewDetail' src={'http://127.0.0.1:8000/' + (item.thumbnail ? item.thumbnail : '')} alt="travello" />
+                                  <img className='ImageNewDetail' src={`${import.meta.env.VITE_BACKEND_URL}/` + (item.thumbnail ? item.thumbnail : '')} alt="travello" />
 
                                   <div className="destination-content-two">
 

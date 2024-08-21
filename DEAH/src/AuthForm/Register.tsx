@@ -23,7 +23,7 @@ const Register = () => {
     const { name, password, email } = data;
     // Check if there are any validation errors
     if (Object.keys(errors).length === 0) {
-      fetch(`${import.meta.env.VITE_API_BASE_URL}/api/client/user/signup`, {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/client/user/signup`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -78,7 +78,7 @@ const Register = () => {
                     {/* Logo */}
                     <div className="logo mb-40">
                       <a href="index" className="mb-30 d-block">
-                        <img src="/src/assets/images/logo/LOGO DEAH2-Photoroom.png" alt="logo" className="changeLogo" width={250}/>
+                        <img src={`${import.meta.env.VITE_BASE_URL}/assets/images/logo/LOGO-DEAH2-Photoroom.png`} alt="logo" className="changeLogo" width={250}/>
                       </a>
                     </div>
                     {/* Form */}

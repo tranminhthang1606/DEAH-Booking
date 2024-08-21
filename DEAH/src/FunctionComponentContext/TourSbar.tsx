@@ -8,7 +8,7 @@ const TourSbar = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let tours_lists = `${import.meta.env.VITE_API_BASE_URL}/api/client/get-tours-feature`;
+        let tours_lists = `${import.meta.env.VITE_BACKEND_URL}/api/client/get-tours-feature`;
         const [tourlist] = await Promise.all([
           axios.get(tours_lists),
         ]);
@@ -39,7 +39,7 @@ const TourSbar = () => {
                   return (
                     <li className="list  " key={index}>
                       <a href={`/tour-details/${item.slug}`} className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
-                        <img className='img' src={`${import.meta.env.VITE_API_BASE_URL}/` + (item.images ? item.images : '')} alt="travello" />
+                        <img className='img' src={`${import.meta.env.VITE_BACKEND_URL}/` + (item.images ? item.images : '')} alt="travello" />
                         <div className="destination-content-two">
                           <div className="destination-info-two">
                             <div className="destination-name line-clamp-2">

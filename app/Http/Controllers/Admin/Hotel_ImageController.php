@@ -96,7 +96,7 @@ class Hotel_ImageController extends Controller
     {
         $data = HotelImage::find($id);
         if ($data) {
-            $imagePath = public_path('storage/' . $data->image);
+            $imagePath = public_path($data->image);
             if (file_exists($imagePath)) {
                 unlink($imagePath);
             }

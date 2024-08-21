@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 const TourNewid = () => {
-    const api = `${import.meta.env.VITE_API_BASE_URL}/api/client/get-tours-new`
+    const api = `${import.meta.env.VITE_BACKEND_URL}/api/client/get-tours-new`
     const { data } = useQuery({
         queryKey: ["TOURID"],
         queryFn: async () => {
@@ -24,7 +24,7 @@ const TourNewid = () => {
                 <div className="col-xl-3 col-lg-4 col-sm-6" key={tour.id}>
                     <a href="destination-details.html" className="destination-banner-two h-calc wow fadeInUp" data-wow-delay="0.s">
                      
-                        <img src={`${import.meta.env.VITE_API_BASE_URL}/` + (tour.images? tour.images[0].image : '')} alt="travello" />
+                        <img src={`${import.meta.env.VITE_BACKEND_URL}/` + (tour.images? tour.images[0].image : '')} alt="travello" />
 
                         <div className="destination-content-two">
                             <div className="ratting-badge">

@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import '../App1.css'
+import { useEffect } from 'react';
 
-const SideBar = ({ userData, avatarUrl }: { userData: any, avatarUrl: any }) => {
+const SideBar = ({status, userData, avatarUrl }: {status:any, userData: any, avatarUrl: any }) => {
 
+  useEffect(()=>{
+
+  },[status])
 
   return (
     <div>

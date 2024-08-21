@@ -94,8 +94,8 @@
         <tbody>
             <tr>
                 <td>
-                    <table class="row row-1" align="center" width="100%" border="0" cellpadding="0"
-                        cellspacing="0" role="presentation"
+                    <table class="row row-1" align="center" width="100%" border="0" cellpadding="0" cellspacing="0"
+                        role="presentation"
                         style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #cfd6f4;">
                         <tbody>
                             <tr>
@@ -134,8 +134,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table class="row row-2" align="center" width="100%" border="0" cellpadding="0"
-                        cellspacing="0" role="presentation"
+                    <table class="row row-2" align="center" width="100%" border="0" cellpadding="0" cellspacing="0"
+                        role="presentation"
                         style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #d9dffa; background-image: url('https://d1oco4z2z1fhwp.cloudfront.net/templates/default/3991/body_background_2.png'); background-position: top center; background-repeat: repeat;">
                         <tbody>
                             <tr>
@@ -156,8 +156,7 @@
                                                                 <div
                                                                     style="color:#506bec;font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:38px;line-height:120%;text-align:left;mso-line-height-alt:45.6px;">
                                                                     <p style="margin: 0; word-break: break-word;">
-                                                                        <strong><span
-                                                                                style="word-break: break-word;">
+                                                                        <strong><span style="word-break: break-word;">
                                                                                 Quên mật khẩu?</span></strong>
                                                                     </p>
                                                                 </div>
@@ -172,8 +171,9 @@
                                                                 <div
                                                                     style="color:#40507a;font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
                                                                     <p style="margin: 0; word-break: break-word;"><span
-                                                                            style="word-break: break-word;">Chúng tôi đã nhận được yêu cầu đặt lại mật khẩu của bạn.
-                                                                            </span></p>
+                                                                            style="word-break: break-word;">Chúng tôi đã
+                                                                            nhận được yêu cầu đặt lại mật khẩu của bạn.
+                                                                        </span></p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -186,7 +186,8 @@
                                                                 <div
                                                                     style="color:#40507a;font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
                                                                     <p style="margin: 0; word-break: break-word;"><span
-                                                                            style="word-break: break-word;">Xác nhận để đổi mật khẩu</span></p>
+                                                                            style="word-break: break-word;">Xác nhận để
+                                                                            đổi mật khẩu</span></p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -197,7 +198,8 @@
                                                         <tr>
                                                             <td class="pad"
                                                                 style="padding-bottom:20px;padding-left:10px;padding-right:10px;padding-top:20px;text-align:left;">
-                                                                <div class="alignment" align="left"><!--[if mso]>
+                                                                <div class="alignment" align="left">
+                                                                    <!--[if mso]>
 <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://www.example.com/" style="height:48px;width:212px;v-text-anchor:middle;" arcsize="34%" stroke="false" fillcolor="#506bec">
 <w:anchorlock/>
 <v:textbox inset="5px,0px,0px,0px">
@@ -208,15 +210,15 @@
                                                                                 style="word-break: break-word;"><span
                                                                                     style="word-break: break-word; line-height: 30px;"
                                                                                     data-mce-style><strong>Đổi mật khẩu
-                                                                                    </strong></span></span></span></a><!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
+                                                                                    </strong></span></span></span></a>
+                                                                    <!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
                                                                 </div>
                                                             </td>
                                                         </tr>
                                                     </table>
 
-                                                    <table class="paragraph_block block-6" width="100%"
-                                                        border="0" cellpadding="10" cellspacing="0"
-                                                        role="presentation"
+                                                    <table class="paragraph_block block-6" width="100%" border="0"
+                                                        cellpadding="10" cellspacing="0" role="presentation"
                                                         style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
                                                         <tr>
                                                             <td class="pad">
@@ -236,8 +238,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table class="row row-3" align="center" width="100%" border="0" cellpadding="0"
-                        cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                    <table class="row row-3" align="center" width="100%" border="0" cellpadding="0" cellspacing="0"
+                        role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                         <tbody>
                             <tr>
                                 <td>

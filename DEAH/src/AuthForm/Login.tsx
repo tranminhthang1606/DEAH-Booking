@@ -13,7 +13,7 @@ const Login = () => {
   const navigate = useNavigate()
   const { register, handleSubmit , formState :{errors}} = useForm<Input>()
   function onSubmit(data: Input) {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/client/user/login`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/client/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": 'Application/json'
@@ -87,7 +87,7 @@ const Login = () => {
                     {/* Logo */}
                     <div className="logo mb-40">
                       <a href="index" className="mb-30 d-block">
-                        <img src="/src/assets/images/logo/LOGO DEAH2-Photoroom.png" alt="logo" className="changeLogo" width={250}/>
+                        <img src={`${import.meta.env.VITE_BASE_URL}/assets/images/logo/LOGO-DEAH2-Photoroom.png`} alt="logo" className="changeLogo" width={250}/>
                       </a>
                     </div>
                     {/* Form */}

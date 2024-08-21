@@ -49,9 +49,9 @@ class BookingController extends Controller
         $booking = Booking::find($id);
         $booking->statusPayment = $booking->getNameStatusPayment();
         $booking->statusTour = $booking->getNameStatusTour();
-        $booking->total_price = number_format($booking->total_price, 0, '.', '.') . " VND";
-        $booking->tour_price = number_format($booking->tour_price, 0, '.', '.') . " VND";
-        $booking->hotel_price = number_format($booking->hotel_price, 0, '.', '.') . " VND";
+        $booking->total_price = number_format($booking->total_price, 0, '.', '.') . " VNĐ";
+        $booking->tour_price = number_format($booking->tour_price, 0, '.', '.') . " VNĐ";
+        $booking->hotel_price = number_format($booking->hotel_price, 0, '.', '.') . " VNĐ";
         // dd($booking);
         if ($booking) {
             return response()->json($booking);
