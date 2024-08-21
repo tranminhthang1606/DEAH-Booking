@@ -61,6 +61,7 @@ class TourController extends Controller
 
     public function store(TourRequest $request)
     {
+        
         // Validate input
         $request->is_active ? $request->is_active : $request->merge(['is_active' => 0]);
         $request->merge(['views' => 0]);
@@ -71,7 +72,17 @@ class TourController extends Controller
         } else {
             $request->merge(['slug' => $slug]);
         }
-        $tour = Tour::create($request->all());
+        $priceString = str_replace('.', '', $request->price);
+        $promotionString = str_replace('.', '', $request->promotion);
+
+        // Chuyển đổi chuỗi thành số
+        $price = intval($priceString);
+        $promotion = intval($promotionString);
+        $tour = Tour::create([
+            ...$request->all(),
+            'price' => $price,
+            'promotion' => $promotion,
+        ]);        
         if ($tour) {
             for ($i = 0; $i < $request->day; $i++) {
                 Itinerary::create([
@@ -133,11 +144,20 @@ class TourController extends Controller
 
     public function update(Request $request, $id)
     {
+        $priceString = str_replace('.', '', $request->price);
+        $promotionString = str_replace('.', '', $request->promotion);
+
+        // Chuyển đổi chuỗi thành số
+        $price = intval($priceString);
+        $promotion = intval($promotionString);
+        if ($promotion > $price) {
+           return back()->withInput()->with('error', 'The promotion field must be less than price');
+       }
         // Validate input
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
             'price' => 'required',
-            'promotion' => 'required|lt:price',
+            'promotion' => 'required',
             'type_id' => 'required|exists:tour_types,id',
             'description' => 'required',
             'province_id' => 'required|exists:provinces,id',
@@ -332,7 +352,23 @@ class TourController extends Controller
         TourComment::where('tour_id', $id)->delete();
         Rate::where('tour_id', $id)->delete();
         Itinerary::where('tour_id', $id)->delete();
-        Tour::findOrFail($id)->delete();
+        $tour = Tour::findOrFail($id);
+
+        if($tour){
+            $arrImage = TourImage :: where('tour_id',$tour->id)->get();
+            $id = TourImage :: where('tour_id',$tour->id)->get('id');
+
+            foreach($arrImage as $imageTour){
+                $imagePath =  public_path($imageTour->image);
+                if(file_exists($imagePath)){
+                    unlink($imagePath);
+                }
+            }
+          
+            TourImage :: whereIn('id',$id)->delete();
+            $tour->delete();
+        }
+        // Tour::findOrFail($id)->delete();
         return redirect()->route('tours.index')->with('success', 'Tour deleted successfully.');
     }
 }

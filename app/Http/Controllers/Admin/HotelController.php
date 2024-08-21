@@ -51,13 +51,19 @@ class HotelController extends Controller
 
     public function store(HotelRequest $request)
     {
+        $priceString = str_replace('.', '', $request->price);
+        $promotionString = str_replace('.', '', $request->promotion);
+
+        // Chuyển đổi chuỗi thành số
+        $price = intval($priceString);
+        $promotion = intval($promotionString);
 
         $request->status ? $request->status : $request->merge(['status' => 0]);
         $request->is_active ? $request->is_active : $request->merge(['is_active' => 0]);
         $hotel = Hotel::create([
             'name' => $request->name,
-            'price' => $request->price,
-            'promotion' => $request->promotion,
+            'price' => $price,
+            'promotion' => $promotion,
             'description' => $request->description,
             'province_id' => $request->province_id,
             'district_id' => $request->district_id,
@@ -102,10 +108,20 @@ class HotelController extends Controller
 
     public function update(Request $request, $id)
     {
+        $priceString = str_replace('.', '', $request->price);
+        $promotionString = str_replace('.', '', $request->promotion);
+
+        // Chuyển đổi chuỗi thành số
+        $price = intval($priceString);
+        $promotion = intval($promotionString);
+        if ($promotion > $price) {
+            return back()->withInput()->with('error', 'The promotion field must be less than price');
+        }
+     
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'price' => 'required',
-            'promotion' => 'required|lt:price',
+            'promotion' => 'required',
             'description' => 'required',
             'province_id' => 'required|exists:provinces,id',
             'district_id' => 'required|exists:districts,id',
@@ -133,12 +149,25 @@ class HotelController extends Controller
 
     public function destroy($id)
     {
-        HotelImage::where('hotel_id', $id)->delete();
+        // HotelImage::where('hotel_id', $id)->delete();
         HotelService::where('hotel_id', $id)->delete();
         HotelComment::where('hotel_id', $id)->delete();
         TourHotel::where('hotel_id', $id)->delete();
         $hotel = Hotel::findOrFail($id);
-        $hotel->delete();
+        if($hotel){
+            $arrImage = HotelImage :: where('hotel_id',$hotel->id)->get();
+            $id = HotelImage :: where('hotel_id',$hotel->id)->get('id');
+
+            foreach($arrImage as $imageHotel){
+                $imagePath =  public_path($imageHotel->image);
+                if(file_exists($imagePath)){
+                    unlink($imagePath);
+                }
+            }
+          
+            HotelImage :: whereIn('id',$id->id)->delete();
+            $hotel->delete();
+        }
         return redirect()->route('hotels.index')->with('success', 'Hotel deleted successfully.');
     }
 }
