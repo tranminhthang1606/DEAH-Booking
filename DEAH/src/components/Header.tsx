@@ -4,9 +4,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../App.css';
 
-
-
-
 const Header = ({ status }: { status: any }) => {
 
 
@@ -109,7 +106,7 @@ const Header = ({ status }: { status: any }) => {
                     <div className="menu-wrapper">
                       {/* Main-menu for desktop */}
                       <div className="main-menu d-none d-lg-block">
-                        <nav>
+                        <nav className='my-3'>
                           <div className="d-flex justify-content-between align-items-center">
                             <ul className="listing" id="navigation">
                               <li className="single-list">
