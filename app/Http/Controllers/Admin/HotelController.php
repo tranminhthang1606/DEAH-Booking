@@ -154,18 +154,18 @@ class HotelController extends Controller
         HotelComment::where('hotel_id', $id)->delete();
         TourHotel::where('hotel_id', $id)->delete();
         $hotel = Hotel::findOrFail($id);
-        if($hotel){
-            $arrImage = HotelImage :: where('hotel_id',$hotel->id)->get();
-            $id = HotelImage :: where('hotel_id',$hotel->id)->get('id');
-
-            foreach($arrImage as $imageHotel){
-                $imagePath =  public_path($imageHotel->image);
-                if(file_exists($imagePath)){
+        if ($hotel) {
+            $arrImage = HotelImage::where('hotel_id', $hotel->id)->get();
+            $ids = HotelImage::where('hotel_id', $hotel->id)->pluck('id')->toArray();
+        
+            foreach ($arrImage as $imageHotel) {
+                $imagePath = public_path($imageHotel->image);
+                if (file_exists($imagePath)) {
                     unlink($imagePath);
                 }
             }
-          
-            HotelImage :: whereIn('id',$id->id)->delete();
+        
+            HotelImage::whereIn('id', $ids)->delete();
             $hotel->delete();
         }
         return redirect()->route('hotels.index')->with('success', 'Hotel deleted successfully.');

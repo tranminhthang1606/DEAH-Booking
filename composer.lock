@@ -96,7 +96,9 @@
                     "type": "github"
                 }
             ],
+
             "time": "2024-08-21T10:45:41+00:00"
+
         },
         {
             "name": "brick/math",
@@ -3315,6 +3317,7 @@
                 "source": "https://github.com/php-fig/log/tree/3.0.1"
             },
             "time": "2024-08-21T13:31:24+00:00"
+
         },
         {
             "name": "psr/simple-cache",
@@ -3974,6 +3977,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
+
             "version": "v7.1.1",
             "source": {
                 "type": "git",
