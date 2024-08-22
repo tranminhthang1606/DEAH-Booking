@@ -45,7 +45,7 @@ const Forgot = () => {
                 <div className="login-card">
                   <div className="logo mb-40">
                     <a href="index" className="mb-30 d-block">
-                      <img src="/src/assets/images/logo/logo.png" alt="logo" className="changeLogo" />
+                      <img width="180px" src={`${import.meta.env.VITE_BASE_URL}/assets/images/logo/LOGO-DEAH2-Photoroom.png`} alt="logo" className="changeLogo" />
                     </a>
                   </div>
                   <form onSubmit={handleSubmit(onSubmit)}>
@@ -66,9 +66,9 @@ const Forgot = () => {
                   <div className="login-footer">
                     <div className="create-account">
                       <p className="mb-0">
-                        Quay trở lại
+                        Quay trở lại |
                         <a href="login">
-                          <span className="text-primary">Đăng nhập</span>
+                          <span className="text-primary"> Đăng nhập</span>
                         </a>
                       </p>
                     </div>

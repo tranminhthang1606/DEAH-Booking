@@ -6,7 +6,7 @@
                 <div class="text-center mt-sm-3 mb-2 text-white-50">
                     <div>
                         <a href="{{ route('auth.login') }}">
-                            <img width="150" height="150" src="{{ url('assets/images/logonew-nobg.png') }} "
+                            <img width="150" height="150" src="{{ url('assets/images/LOGO-DEAH2-Photoroom.png') }} "
                                 alt="" height="20">
                         </a>
                     </div>
