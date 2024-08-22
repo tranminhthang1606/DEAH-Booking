@@ -53,17 +53,13 @@ const Header = ({ status }: { status: any }) => {
                           </a>
                         </div>
                         {/* Search box */}
-                      
+
                         {/* Mobile Device Search & Theme Mode */}
                         <div className="search-header-position d-block d-lg-none">
                           <div className="d-flex gap-15">
                             <div className="search-bar">
-                        
+
                             </div>
-                            {/* Theme Mode */}
-                            <button className="ToggleThemeButton change-theme-mode m-0 p-0 border-0">
-                              <i className="ri-sun-line" />
-                            </button>
                           </div>
                         </div>
                       </div>
@@ -134,7 +130,19 @@ const Header = ({ status }: { status: any }) => {
                                     </div>
                                     <div className="divider gradient-divider" />
                                     <div className="money">
-                                      <p className="pera">Login</p>
+                                      {userName ? (
+                                        <div className='d-flex'>
+                                          <Link className='d-flex' to={'/profile'}>
+                                            <h6 className='mt-10 mr-2 user-name '> {userName.name}</h6>
+
+                                            {<img className='rounded-circle i' width={40} height={100} src={`${import.meta.env.VITE_BACKEND_URL}/` + (userName.avatar ? userName.avatar : '')} alt="" />}
+                                          </Link>
+
+                                        </div>
+
+                                      ) : (
+                                        <p className='mt-3'><Link to="/login" className="btn-secondary-sm">Đăng nhập</Link></p>
+                                      )}
                                     </div>
                                   </div>
                                 </div>
@@ -145,18 +153,12 @@ const Header = ({ status }: { status: any }) => {
                                 <div className='d-flex'>
                                   <Link className='d-flex' to={'/profile'}>
                                     <h6 className='mt-10 mr-2 user-name '> {userName.name}</h6>
-                                    
+
                                     {<img className='rounded-circle i' width={40} height={100} src={`${import.meta.env.VITE_BACKEND_URL}/` + (userName.avatar ? userName.avatar : '')} alt="" />}
                                   </Link>
-                                  {/* {userName && (
-                                <li className="single-list">
-                                  <button className="ToggleThemeButton change-theme-mode m-0 p-0 border-0">
-                                    <Ok />
-                                  </button>
-                                </li>
-                              )} */}
+
                                 </div>
-                                
+
                               ) : (
                                 <p className='mt-3'>Chào mừng, bạn vui lòng đăng nhập!</p>
                               )}
@@ -170,8 +172,6 @@ const Header = ({ status }: { status: any }) => {
                                   <a type='submit' className="btn-secondary-sm " onClick={handleLogout}>Đăng xuất</a>
                                 </div>
                               )}
-                           
-                              {/* Theme Mode */}
                             </div>
 
 
