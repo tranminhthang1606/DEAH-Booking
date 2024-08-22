@@ -1,4 +1,4 @@
-import "../assets/js/main.js";
+import "../Style/main.js";
 import "react-slideshow-image/dist/styles.css";
 import "../App.css";
 import Header from "./Header.js";
