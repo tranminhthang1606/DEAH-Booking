@@ -172,7 +172,7 @@ const Lisbill2 = () => {
                                                                 className="ri-delete-bin-7-fill text-danger fs-4"
                                                             />
                                                         ) : ''}
-                                                        {item.status_payment == 0 ? <i onClick={() => handleRepay(item)} className="ri-refund-2-line mt-2 ml-2"></i> : ''}
+                                                        {item.status_payment == 0 ? <i role='button' onClick={() => handleRepay(item)} className="ri-refund-2-line text-success ml-2 fs-4"></i> : ''}
                                                     </td>
                                                 </tr>
                                             ))}
