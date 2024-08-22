@@ -10,7 +10,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ url('assets/images/logonew-nobg.png') }} ">
+    <link rel="shortcut icon" href="{{ url('assets/images/LOGO-DEAH2-Photoroom.png') }} ">
     <!-- jsvectormap css -->
     <link href="{{ url('assets/libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />
 
