@@ -117,7 +117,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn border-0 border-spacing-0 p-0"
-                                                        onclick="return confirm('Bạn có chắc chắn muốn xóa đơn hàng này?')">
+                                                        onclick="return confirm('Bạn có chắc chắn muốn xóa bài viết này hong?')">
                                                         <i class="ri-delete-bin-7-fill fs-5 text-danger"></i></button>
                                                 </form>
 
