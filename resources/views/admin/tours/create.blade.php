@@ -1,5 +1,13 @@
 @extends('admin.layout.master')
 @section('content')
+@section('styles')
+ <style>
+    #itine{
+        display: none;
+    }
+ </style>
+ 
+@endsection
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -95,9 +103,9 @@
                             </div>
 
                         </div>
+                
 
-
-                        <div class="row mt-3">
+                           <div class="row mt-3">
                             <div class="col-4">
                                 <label for="date-field" class="form-label">Số ngày
                                 </label>
@@ -106,7 +114,12 @@
                                 @error('day')
                                     <span class="text-danger fw-light ">{{ $message }}</span>
                                 @enderror
+                                @session('vudz')
+                                <span class="text-danger fw-light ">{{ session('vudz') }}</span>
+                                      @endsession
+   
                             </div>
+                            
                             <div class="form-group col-md-4">
                                 <label for="date-field" class="form-label">Kiểu du lịch
                                 </label>
@@ -138,10 +151,9 @@
 
 
                         </div>
-                        <div class="row mt-2" id="itine">
-                            <h2>Lịch trình</h2>
+                        <div class="row mt-2 " id="itine" >
+                            <h2 class="ancute"></h2>
                             <div id="itineraries">
-
                             </div>
                         </div>
                         <div class="row mt-3">
@@ -200,7 +212,7 @@
                             <!-- end col -->
                         </div>
 
-
+               
                         <button type="submit" id="" class="btn btn-primary my-3" href="#"
                             role="button">Thêm</button>
 
@@ -213,6 +225,7 @@
     </div>
 
 @section('scripts')
+
     <script>
         $(document).ready(function() {
             $('#price').on('blur', function() {
@@ -229,12 +242,25 @@
                     this.value = "";
                 }
             });
-            $('#itine').hide();
+            $('#itine').addClass('d-hidden');
+
+            if ($('#day').val()) {
+                deptrai();
+
+            }
+            
             $('#day').on('change', function() {
+                 deptrai();
+            })
+          
+            function deptrai(){
+              
                 $('#itine').show();
+                $('.ancute').text('Lịch Trình');
+
                 // $('#itineraries').html('');
                 var currentInputs = $('#itineraries').children('.child').length;
-                let days = $(this).val();
+                let days = $('#day').val();
                 if (currentInputs > days) {
                     $('#itineraries').children('.child:gt(' + (days - 1) + ')').remove();
                 } else {
@@ -246,7 +272,7 @@
                         <div class="col-md-4">
                             <label for="basiInput" class="form-label">Tiêu đề</label>
                             <input type="text" class="form-control itinerary" id="title" name="title_itineraries[]">
-                          
+                             
                             </div>    
                         <div class="col-md-8">
                             <label for="basiInput" class="form-label">Lịch trình cụ thể</label>
@@ -266,7 +292,7 @@
                             });
                     });
                 }
-            })
+            }
 
             $("#fileUpload").on("change", function() {
                 let files = $(this)[0].files;

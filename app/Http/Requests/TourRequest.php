@@ -32,6 +32,11 @@ class TourRequest extends FormRequest
         if ($promotion > $price) {
              back()->withInput()->with('promotion', 'The promotion field must be less than price');
         }
+
+        if(count($request->itineraries) === 0 || count($request->title_itineraries)){
+            back()->withInput()->with('vudz', 'The  itineraries field must required');
+
+        }
         return [
             'title' => 'required|max:255',
             'price' => 'required',
@@ -49,6 +54,10 @@ class TourRequest extends FormRequest
             'images.*' => 'required|image|mimes:jpeg,png,jpg,gif',
             'hotels'=>'required',
             'hotels.*' => 'required|numeric|exists:hotels,id',
+            'itineraries'=> 'required|array',
+            'itineraries .*'=>'required',
+            'title_itineraries'=>'required|array',
+            'title_itineraries .*'=>'required'
         ];
     }
 }

@@ -62,6 +62,7 @@ class TourController extends Controller
     public function store(TourRequest $request)
     {
         
+        
         // Validate input
         $request->is_active ? $request->is_active : $request->merge(['is_active' => 0]);
         $request->merge(['views' => 0]);
@@ -78,6 +79,9 @@ class TourController extends Controller
         // Chuyển đổi chuỗi thành số
         $price = intval($priceString);
         $promotion = intval($promotionString);
+        if (empty($request->title_itineraries) || empty($request->itineraries) || $request->title_itineraries == [] || $request->itineraries == []) {
+            return back()->withInput()->with('error', 'Chưa Thêm Lịch Trình Cho Tour');
+        }
         $tour = Tour::create([
             ...$request->all(),
             'price' => $price,
@@ -347,16 +351,18 @@ class TourController extends Controller
     public function destroy($id)
     {
         // Xóa một tour và các liên quan (hình ảnh, đánh giá, lịch trình)
-        TourImage::where('tour_id', $id)->delete();
-        TourAttribute::where('tour_id', $id)->delete();
-        TourComment::where('tour_id', $id)->delete();
-        Rate::where('tour_id', $id)->delete();
-        Itinerary::where('tour_id', $id)->delete();
+        // TourImage::where('tour_id', $id)->delete();
+      
         $tour = Tour::findOrFail($id);
 
         if($tour){
+            TourAttribute::where('tour_id', $tour->id)->delete();
+            TourComment::where('tour_id', $tour->id)->delete();
+            Rate::where('tour_id', $tour->id)->delete();
+            Itinerary::where('tour_id',$tour->id)->delete();
+            TourHotel::where('tour_id',$tour->id)->delete();
             $arrImage = TourImage :: where('tour_id',$tour->id)->get();
-            $id = TourImage :: where('tour_id',$tour->id)->get('id');
+            $idnew = TourImage :: where('tour_id',$tour->id)->get('id');
 
             foreach($arrImage as $imageTour){
                 $imagePath =  public_path($imageTour->image);
@@ -365,7 +371,7 @@ class TourController extends Controller
                 }
             }
           
-            TourImage :: whereIn('id',$id)->delete();
+            TourImage :: whereIn('id',$idnew)->delete();
             $tour->delete();
         }
         // Tour::findOrFail($id)->delete();

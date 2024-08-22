@@ -113,8 +113,9 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-        if ($post->thumbnail) {
-            Storage::delete('public/' . $post->thumbnail);
+        $imagePath =  public_path($post->thumbnail);
+        if(file_exists($imagePath)){
+            unlink($imagePath);
         }
         PostComment::where('post_id', $post->id)->delete();
         $post->delete();
