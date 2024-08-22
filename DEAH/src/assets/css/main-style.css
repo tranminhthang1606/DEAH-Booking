@@ -17661,7 +17661,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   }
 }
 .header-area .main-menu .listing .single-list .single.active {
-  position: relative;
+  position: relative; 
   -webkit-transition: 0;
   transition: 0;
 }
@@ -19503,7 +19503,6 @@ button.applyBtn.btn.btn-sm.btn-primary {
   background-repeat: no-repeat;
   -webkit-background-position: center;
   background-position: center;
-  width: 100%;
   position: relative;
   width: 100%;
   height: 100%;
@@ -25068,6 +25067,9 @@ button.applyBtn.btn.btn-sm.btn-primary {
   padding: 30px 40px;
   z-index: 1;
   position: relative;
+}
+#specific-card{
+  border-radius: 0;
 }
 @media (max-width: 991px) {
   .contact-card {

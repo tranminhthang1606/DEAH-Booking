@@ -1,7 +1,7 @@
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -160,10 +160,10 @@ const Register = () => {
                     <div className="login-footer mb-20">
                       <div className="create-account">
                         <p>
-                          Bạn co săn san để tạo một tai khoản?
-                          <a href="login">
-                            <span className="text-primary">Đổi mật khẩu</span>
-                          </a>
+                          Bạn đã có tài khoản?
+                          <Link to="/login">
+                            <span className="text-primary"> Đăng Nhập</span>
+                          </Link>
                         </p>
                       </div>
                     </div>
