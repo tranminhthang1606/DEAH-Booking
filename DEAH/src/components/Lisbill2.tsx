@@ -142,7 +142,7 @@ const Lisbill2 = () => {
                                         <h1>Danh Sách Đơn hàng</h1>
                                        
                                     </section>
-                                    <table className=''>
+                                    <table className='table__body'>
                                         <thead>
                                             <tr>
                                                 <th>STT <span className=""></span></th>

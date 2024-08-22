@@ -128,7 +128,7 @@ const ProfileUser = () => {
                       </div>
                     </div>
                     <hr />
-                    <div className="action-wrapper text-center">
+                    <div className="action-wrapper ">
                       <div className="action-btn">
                         <div className="mt-40">
                           <button type="submit" className="send-btn">Lưu thay đổi</button>

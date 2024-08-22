@@ -19,7 +19,7 @@ const SideBar = ({status, userData, avatarUrl }: {status:any, userData: any, ava
 
           </ul>
         </div>
-        <nav className="side-menu ">
+        <nav className="side-menu">
           <ul className="nav">
             <li><Link to={'/profile'}><span className="fa fa-user" /> Thông tin</Link></li>
             <li><Link to={'/listbill'}><span className="fa fa-credit-card" /> Đon hàng</Link></li>

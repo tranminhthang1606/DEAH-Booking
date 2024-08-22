@@ -27,8 +27,17 @@ body {
   width: 100%;
 }
 
-.module-inner.side-bar {
+.module-inner .side-bar {
   width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .module-inner .side-bar .user-info{
+    width: 300px;
+  }
+  .module-inner .side-bar .side-menu{
+    width: 300px;
+  }
 }
 
 .view-account .side-bar .user-info {
@@ -99,9 +108,7 @@ body {
 }
 
 /* Content panel styles */
-.view-account .content-panel {
-  padding: 30px;
-}
+
 
 .content-panel {
   margin-left: 0;
@@ -172,16 +179,12 @@ body {
   display: inline-block;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 700px) {
 
   /* Adjustments for tablets and smaller screens */
-  .view-account .content-panel {
-    padding: 15px;
-  }
 
-  .billing {
-    margin-left: 60px;
-  }
+
+  
 
   .content-panel input {
     width: 100%;
@@ -258,10 +261,8 @@ body {
     margin-left: 320px;
     padding: 30px;
   }
-
-  .billing {
-    margin-left: 60px;
-  }
+  
+  
 
   .content-panel input {
     width: 750px;
@@ -573,8 +574,6 @@ body {
 /* paymentyPT */
 .limited-width {
   max-width: 750px;
-  /* Thay đổi giá trị này theo ý muốn của bạn */
-  /* Để căn giữa thẻ ul */
   margin-left: 20px;
   margin-top: 20px;
 
@@ -590,7 +589,6 @@ body {
 
 
 @media print {
-
   .table,
   .table__body {
     overflow: visible;
@@ -608,11 +606,9 @@ body {
 main .table {
   height: 90vh;
   background-color: #fff5;
-
   backdrop-filter: blur(7px);
   box-shadow: 0 .4rem .8rem #0005;
   border-radius: .8rem;
-
 }
 
 .table__header {
@@ -620,7 +616,6 @@ main .table {
   height: 10%;
   background-color: #fff4;
   padding: .5rem 0.5rem;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -632,11 +627,9 @@ main .table {
   background-color: #fff5;
   padding: 0 .8rem;
   border-radius: 2rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   transition: .2s;
 }
 
@@ -663,11 +656,9 @@ main .table {
 main .table {
   height: 90vh;
   background-color: #fff5;
-
   backdrop-filter: blur(7px);
   box-shadow: 0 .4rem .8rem #0005;
   border-radius: .8rem;
-
 }
 
 .header {
@@ -675,7 +666,6 @@ main .table {
   height: 10%;
   background-color: #fff4;
   padding: .5rem 0.5rem;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -687,11 +677,9 @@ main .table {
   background-color: #fff5;
   padding: 0 .8rem;
   border-radius: 2rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   transition: .3s;
 }
 
@@ -718,11 +706,9 @@ main .table {
 main .table {
   height: 90vh;
   background-color: #fff5;
-
   backdrop-filter: blur(7px);
   box-shadow: 0 .4rem .8rem #0005;
   border-radius: .8rem;
-
 }
 
 .header {
@@ -730,7 +716,6 @@ main .table {
   height: 10%;
   background-color: #fff4;
   padding: .5rem 0.5rem;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -742,7 +727,6 @@ main .table {
   background-color: #fff5;
   padding: 0 .8rem;
   border-radius: 2rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -805,7 +789,6 @@ td img {
   height: 36px;
   margin-right: .5rem;
   border-radius: 50%;
-
   vertical-align: middle;
 }
 
@@ -1145,7 +1128,7 @@ margin-right: 200px;
     /* Space between dropdowns */
   }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 991px) {
   .showing-result {
     background-color: #f7f7f7;
     /* Light grey background */
@@ -1158,7 +1141,15 @@ margin-right: 200px;
     font-family: 'Roboto', sans-serif;
     /* Clean and modern font */
   }
+  .view-account .side-bar .user-info{
+    text-align: left;
+    padding: 0;
+  }
 
+  .view-account .side-bar .side-menu{
+    text-align: left;
+    padding: 0;
+  }
   /* Title Styling */
   .showing-result .title {
     font-size: 1.5rem;
@@ -1300,6 +1291,16 @@ margin-right: 200px;
   .ratting-checkbox span {
     font-size: 0.9rem;
     /* Slightly smaller rating text */
+  }
+
+  .view-account .side-bar .user-info{
+    text-align: left;
+    padding: 0;
+  }
+
+  .view-account .side-bar .side-menu{
+    text-align: left;
+    padding: 0;
   }
 
 

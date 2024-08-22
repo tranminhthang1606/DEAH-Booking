@@ -27,17 +27,27 @@ function Popup({ item }:{item:any}) {
               <div className="col-12 row mb-3">
                 <div className="col-6">
                   <p>
-                    Name: <strong>{item.user_name}</strong>
+                    Tên: <strong>{item.user_name}</strong>
                   </p>
                   <p>
                     Email: <strong>{item.email}</strong>
                   </p>
                   <p>
-                    Phone: <strong>{item.phone}</strong>
+                    Số Điện Thoại: <strong>{item.phone}</strong>
                   </p>
                   <p>
-                    People: <strong>{item.people}</strong>
+                    Số Người: <strong>{item.people}</strong>
                   </p>
+                  <p>
+                    Người Lớn: <strong>{item.adults}</strong>
+                  </p>
+                  <p>
+                    Trẻ Em Từ 2-5 Tuổi: <strong>{item.children2To5}</strong>
+                  </p>
+                  <p>
+                    Trẻ Em Từ 6-12 Tuổi: <strong>{item.children6To12}</strong>
+                  </p>
+
 
 
                   <p>
