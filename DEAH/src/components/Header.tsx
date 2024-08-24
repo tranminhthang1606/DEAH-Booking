@@ -1,29 +1,29 @@
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../App.css';
 
 const Header = ({ status }: { status: any }) => {
-
+  
 
   const navigate = useNavigate();
-  const [userName, setUserName] = useState<{ name: String, avatar: String } | null>(null);
-
+  let userData:any = sessionStorage.getItem('user');
+  if (userData) {
+    userData = JSON.parse(userData);
+  }
   useEffect(() => {
-    const userData = sessionStorage.getItem('user');
+    userData = sessionStorage.getItem('user');
     if (userData) {
-      setUserName(JSON.parse(userData));
+      userData = JSON.parse(userData); 
     }
+
   }, [status]);
 
   const handleLogout = () => {
     toast.success('Bạn đã đăng xuất thành công');
     sessionStorage.removeItem('user');
     localStorage.removeItem('token');
-    setUserName(null);
-
-
     navigate('/login');
   };
 
@@ -130,12 +130,12 @@ const Header = ({ status }: { status: any }) => {
                                     </div>
                                     <div className="divider gradient-divider" />
                                     <div className="money">
-                                      {userName ? (
+                                      {userData ? (
                                         <div className='d-flex'>
                                           <Link className='d-flex' to={'/profile'}>
-                                            <h6 className='mt-10 mr-2 user-name '> {userName.name}</h6>
+                                            <h6 className='mt-10 mr-2 user-name '> {userData.name}</h6>
 
-                                            {<img className='rounded-circle i' width={40} height={100} src={`${import.meta.env.VITE_BACKEND_URL}/` + (userName.avatar ? userName.avatar : '')} alt="" />}
+                                            {<img className='rounded-circle i' width={40} height={100} src={`${import.meta.env.VITE_BACKEND_URL}/` + (userData.avatar ? userData.avatar : '')} alt="" />}
                                           </Link>
 
                                         </div>
@@ -149,12 +149,12 @@ const Header = ({ status }: { status: any }) => {
                               </li>
                             </ul>
                             <div className="header-right">
-                              {userName ? (
+                              {userData ? (
                                 <div className='d-flex'>
                                   <Link className='d-flex' to={'/profile'}>
-                                    <h6 className='mt-10 mr-2 user-name '> {userName.name}</h6>
+                                    <h6 className='mt-10 mr-2 user-name '> {userData.name}</h6>
 
-                                    {<img className='rounded-circle i' width={40} height={100} src={`${import.meta.env.VITE_BACKEND_URL}/` + (userName.avatar ? userName.avatar : '')} alt="" />}
+                                    {<img className='rounded-circle i' width={40} height={100} src={`${import.meta.env.VITE_BACKEND_URL}/` + (userData.avatar ? userData.avatar : '')} alt="" />}
                                   </Link>
 
                                 </div>
@@ -162,12 +162,12 @@ const Header = ({ status }: { status: any }) => {
                               ) : (
                                 <p className='mt-3'>Chào mừng, bạn vui lòng đăng nhập!</p>
                               )}
-                              {!userName && (
+                              {!userData && (
                                 <div className="sign-btn">
                                   <Link to="/login" className="btn-secondary-sm">Đăng nhập</Link>
                                 </div>
                               )}
-                              {userName && (
+                              {userData && (
                                 <div className="sign-btn">
                                   <a type='submit' className="btn-secondary-sm " onClick={handleLogout}>Đăng xuất</a>
                                 </div>

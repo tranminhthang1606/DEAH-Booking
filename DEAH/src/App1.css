@@ -1118,19 +1118,29 @@ margin-right: 200px;
   box-shadow: 100px;
 
 }
-
+.packages-person{
+  background: #fe6f61;
+}
+.searchlistbill{
+  background: #efeedb;
+}
 /* Global Styling */
 .showing-result {
-  background-color: #f7f7f7;
+  background-color: #daedef;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-family: 'Roboto', sans-serif;
 }
+.showing-result input,
+.showing-result select{
+  border: 1px solid #fe6f61;
+  border-radius: 10px;
+}
 
 @media only screen and (max-width: 991px) {
   .showing-result {
-    background-color: #f7f7f7;
+    background-color: #efeedb;
     /* Light grey background */
     padding: 20px;
     /* Add padding for better spacing */
@@ -1152,7 +1162,10 @@ margin-right: 200px;
     padding: 0;
   }
 
-  
+.sorting-dropdown select{
+  background: transparent;
+}
+
 
   .showing-result .title {
     font-size: 0.7rem;
@@ -1216,7 +1229,8 @@ margin-right: 200px;
     color: var(--primary-paragraph);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 3px;
+    
   }
 
   .ratting-checkbox div {
@@ -1280,7 +1294,7 @@ margin-right: 200px;
       font-size: 0.9rem;
     }
 
-    <<<<<<< HEAD .view-account .side-bar .user-info {
+    .view-account .side-bar .user-info {
       text-align: left;
       padding: 0;
     }
@@ -1292,109 +1306,95 @@ margin-right: 200px;
 
 
 
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    =======>>>>>>>andog
+/* Tablet Styles (max-width: 980px) */
+@media only screen and (max-width: 980px) {
+  .destination-dropdown {
+    width: 100%;
+    border-radius: 30px;
   }
 
-  /* Tablet Styles (max-width: 980px) */
-  @media only screen and (max-width: 980px) {
-    .destination-dropdown {
-      width: 100%;
-      border-radius: 30px;
-    }
-
-    .ratting-section {
-      width: 350px;
-    }
-
-    .ratting-checkbox {
-      width: 40px;
-      cursor: pointer;
-    }
-
-    .ratting-checkbox i {
-      color: #ffb400;
-    }
-
-    .ratting-checkbox input[type="checkbox"] {
-      accent-color: #ffb400;
-    }
-
-    .ratting-checkbox svg {
-      fill: #ffb400;
-      margin-top: 10px;
-    }
-
-    .ratting-checkbox span {
-      font-size: 1rem;
-      color: #333;
-    }
+  .ratting-section {
+    width: 350px;
   }
 
-  /* Small Screen Styles (max-width: 768px) */
-  @media only screen and (max-width: 768px) {
-    .showing-result {
-      padding: 15px;
-    }
-
-    .title {
-      font-size: 1.25rem;
-    }
-
-    .destination-dropdown {
-      font-size: 0.9rem;
-    }
-
-    .ratting-checkbox span {
-      font-size: 0.9rem;
-    }
+  .ratting-checkbox {
+    width: 40px;
+    cursor: pointer;
   }
 
-  /* Extra Small Screen Styles (max-width: 480px) */
-  @media only screen and (max-width: 480px) {
-    .destination-dropdown {
-      width: 100%;
-      border-radius: 30px;
-    }
-
-    .ratting-section {
-      width: 300px;
-    }
-
-    .ratting-checkbox {
-      gap: 5px;
-    }
-
-    .checkbox {
-      background-color: #000000;
-    }
+  .ratting-checkbox i {
+    color: #ffb400;
   }
 
-
-  .link-muted {
-    color: #aaa;
+  .ratting-checkbox input[type="checkbox"] {
+    accent-color: #ffb400;
   }
 
-  .link-muted:hover {
-    color: #1266f1;
+  .ratting-checkbox svg {
+    fill: #ffb400;
+    margin-top: 10px;
   }
 
-  .comments {
-    background-color: #edfaf8;
-    border-radius: 20px;
-    width: 1300px;
-    box-shadow: 100px;
+  .ratting-checkbox span {
+    font-size: 1rem;
+    color: #333;
   }
+}
+
+/* Small Screen Styles (max-width: 768px) */
+@media only screen and (max-width: 768px) {
+  .showing-result {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .destination-dropdown {
+    font-size: 0.9rem;
+  }
+
+  .ratting-checkbox span {
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra Small Screen Styles (max-width: 480px) */
+@media only screen and (max-width: 480px) {
+  .destination-dropdown {
+    width: 100%;
+    border-radius: 30px;
+  }
+
+  .ratting-section {
+    width: 300px;
+  }
+
+  .ratting-checkbox {
+    gap: 5px;
+  }
+
+  .checkbox {
+    background-color: #000000;
+  }
+}
+
+
+.link-muted {
+  color: #aaa;
+}
+
+.link-muted:hover {
+  color: #1266f1;
+}
+
+.comments {
+  background-color: #edfaf8;
+  border-radius: 20px;
+  width: 1300px;
+  box-shadow: 100px;
+}
