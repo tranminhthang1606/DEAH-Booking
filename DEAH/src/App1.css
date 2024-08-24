@@ -1121,9 +1121,7 @@ margin-right: 200px;
 .packages-person{
   background: #fe6f61;
 }
-.searchlistbill{
-  background: #efeedb;
-}
+
 /* Global Styling */
 .showing-result {
   background-color: #daedef;
@@ -1316,6 +1314,7 @@ margin-right: 200px;
     border-radius: 30px;
   }
 
+  
   .ratting-section {
     width: 350px;
   }

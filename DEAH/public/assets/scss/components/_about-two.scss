@@ -200,11 +200,6 @@
             i {
                 font-size: 44px;
             }
-
-            @media #{$xs-to-sm-max} {
-                width: 80px;
-                height: 80px;
-            }
         }
     }
 }

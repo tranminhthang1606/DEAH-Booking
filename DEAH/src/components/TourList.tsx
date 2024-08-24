@@ -156,7 +156,7 @@ const TourList = () => {
                             <h4 className="select2-title">Loại du lịch </h4>
                           </div>
                           <select className="destination-dropdown rounded" onChange={(e) => setSelectedType(e.target.value)}>
-                            <option value='rounded'>Lọc theo loại du lịch</option>
+                            <option value=''>Lọc theo loại du lịch</option>
                             {types?.map((type: any) => {
                               return (
                                 <option selected={type.id == selectedType ? true : false} value={type.id}>{type.name_type}</option>

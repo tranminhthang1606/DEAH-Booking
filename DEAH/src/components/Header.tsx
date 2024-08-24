@@ -43,14 +43,14 @@ const Header = ({ status }: { status: any }) => {
                       <div className="top-header-left d-flex align-items-center">
                         {/* Logo */}
                         <div className="logo">
-                          <a href="index-two">
+                          <Link to="/">
                             <img
                               width="180px"
                               src={`${import.meta.env.VITE_BASE_URL}/assets/images/logo/LOGO-DEAH2-Photoroom.png`}
                               alt="logo"
                               className="changeLogo"
                             />
-                          </a>
+                          </Link>
                         </div>
                         {/* Search box */}
 
