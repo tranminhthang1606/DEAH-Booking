@@ -24,7 +24,7 @@ class HotelController extends Controller
         $query = Hotel::query();
         $provinces = Province::whereIn('id', Hotel::groupBy('province_id')->get('province_id'))->get(['id', 'name']);
         if ($request->name && $request->name != null) {
-            $query->where('name', 'LIKE', '%'.$request->name.'%');
+            $query->where('name', 'LIKE', '%' . $request->name . '%');
         }
         if (isset($request->province)) {
             $query->where('province_id', intval($request->province));
@@ -37,7 +37,7 @@ class HotelController extends Controller
         }
         $hotels = $query->orderByDesc('created_at')->paginate(10);
         $title = "Hotels list";
-        return view('admin.Hotel.index', compact('hotels', 'title','provinces'));
+        return view('admin.Hotel.index', compact('hotels', 'title', 'provinces'));
     }
 
     public function create()
@@ -74,11 +74,11 @@ class HotelController extends Controller
                 ]);
             }
             foreach ($request->images as $image) {
-                $imageName =  uniqid() . '.' . $image->getClientOriginalExtension();
+                $imageName = uniqid() . '.' . $image->getClientOriginalExtension();
                 $image->move(public_path('storage/hotels'), $imageName);
                 HotelImage::create([
                     'hotel_id' => $hotel->id,
-                    'image' => "storage/hotels/" .$imageName
+                    'image' => "storage/hotels/" . $imageName
                 ]);
             }
         }
@@ -126,7 +126,7 @@ class HotelController extends Controller
     }
     public function getHotelByProvince($province_id)
     {
-        $hotels = Hotel::where('is_active', 1)->where('province_id', $province_id)->get();
+        $hotels = Hotel::where('is_active', 1)->where('status', 1)->where('province_id', $province_id)->get();
         return response()->json($hotels);
     }
 
