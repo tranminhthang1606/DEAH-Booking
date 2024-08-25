@@ -4,8 +4,8 @@ import axios from 'axios';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import '../App.css';
 import '../App1.css';
+import '../App.css';
 import Footer from './Footer';
 import Header from './Header';
 import TourSbar from '../FunctionComponentContext/TourSbar';
@@ -15,9 +15,10 @@ import "slick-carousel/slick/slick-theme.css";
 import { Slide } from 'react-slideshow-image';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { toast } from 'react-toastify';
 
 
-
+const page = 3
 const TourDetails = () => {
   const navigate = useNavigate();
   const { slug } = useParams();
@@ -25,12 +26,16 @@ const TourDetails = () => {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [currentDay, setCurrentDay] = useState<any>(null);
   const [rating, setRating] = useState<number>(0);
+  const [comments, setComments] = useState<CommentType[]>([]);
   const [formData, setFormData] = useState({
     name: '',
     comments: '',
     rate: '',
     tour_id: ''
   });
+
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(1);
 
   const { data, isLoading, error } = useQuery({
     queryKey: ['KEY_POST', slug],
@@ -46,6 +51,7 @@ const TourDetails = () => {
       }
     }
   });
+console.log(data);
 
   useEffect(() => {
     if (data?.tour?.images?.length > 0 && !mainImage) {
@@ -63,6 +69,20 @@ const TourDetails = () => {
     }
   }, [data]);
 
+  useEffect(() => {
+    if (data?.tour?.comments) {
+      setComments(data.tour.comments);
+      setTotalPages(Math.ceil(data.tour.comments.length / page))
+    }
+  }, [data]);
+
+  // phan trang
+  const displayedComments = comments.slice((currentPage - 1) * page, currentPage * page);
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  // đánh giá 
   const handleRating = (rate: number) => {
     setRating(rate);
     setFormData((formData) => ({
@@ -77,18 +97,27 @@ const TourDetails = () => {
     try {
       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/client/review-tour`, formData);
       console.log('Success:', response.data);
+
+      // Thêm bình luận mới vào danh sách bình luận
+      setComments((prevComments) => [...prevComments, response.data]);
+
+      // Reset form data nhưng giữ lại tour_id
       setFormData((prevFormData) => ({
         name: '',
         comments: '',
         rate: '',
         tour_id: prevFormData.tour_id // Giữ lại tour_id sau khi gửi thành công
       }));
-      alert('Bình luận của bạn đã được gửi thành công!');
+      navigate(`/tour-details/:${slug}`)
+     toast.success('Bạn đã gửi bình luận thành công')
     } catch (error) {
       console.error('Error:', error);
-      alert('Có lỗi xảy ra khi gửi bình luận!');
+      navigate(-1)
+      toast.error('Có lỗi gửi bình luận')
     }
   };
+
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -130,7 +159,7 @@ const TourDetails = () => {
     return <div>Error: {error.message}</div>;
   }
 
-  
+
   return (
 
     <div>
@@ -222,18 +251,18 @@ const TourDetails = () => {
                       <div className="includ-exclude-point">
                         <h4 className="title">Thuộc tính</h4>
                         <ul>
-              
-                        {data.tour.attributes?.map((attr: any) => (
+
+                          {data.tour.attributes?.map((attr: any) => (
                             <li key={attr.id}>
                               <strong> - {attr.attribute}</strong>
                             </li>
                           ))}
-                 
+
                         </ul>
                       </div>
                       <div className="divider" />
                     </div>
-                    
+
                     {/* cmt_tour */}
                     <div className="tour-details-content mb-30 ">
                       <h4 className="title">Xem lịch trình của bạn tại đây</h4>
@@ -318,13 +347,13 @@ const TourDetails = () => {
                         </div>
                       </form>
                     </div>
-                    
-                    
+
+
                   </div>
 
 
                   <div className="col-xl-4 col-lg-5">
-                  <div className="row">
+                    <div className="row">
                       <hr className="mb-4" />
                       <div className="d-grid gap-2">
                         <Link to={`/payment/${slug}`} className="btn btn-primary btn-lg" type="button">
@@ -333,7 +362,7 @@ const TourDetails = () => {
                       </div>
                     </div>
                     <TourSbar />
-                    
+
                   </div>
                 </div>
 
@@ -347,46 +376,59 @@ const TourDetails = () => {
                 </div>
 
                 <div className="row g-4   d-flex">
-                  <div className="container mt-4">        
-                      <div className="col-12">
+                  <div className="container mt-4">
+                    <div className="col-12">
 
-                      </div>
-                      <section className='bg-orange-50 comments'  >
-                        <div className="container   ">
-                            <div className="col-md-12 col-lg-10">
+                    </div>
+                    <section className='bg-orange-50 comments'  >
+                      <div className="container   ">
+                        <div className="col-md-12 col-lg-10">
                           <div className="row d-flex justify-content-center  ">
-                              <div className="">
-                              
-                                {data.tour.comments?.map((comment:any) => (
-                                <div className="card-body p-4">
+                            <div className="">
+
+                              {displayedComments.map((comment, index) => (
+                                <div key={index} className="card-body p-4 ">
                                   <div className="d-flex flex-start">
-                                    <img className="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(24).webp" alt="avatar" width={60} height={60} />
+                                
+                                    <i className="rounded-circle shadow-1-strong me-3 icon"   ><i className='bi bi-person'></i></i>
                                     <div>
-                                      <h6 className="fw-bold mb-1">Betty Walker</h6>
+                                      <h6 className="fw-bold mb-1">{comment.name}</h6>
                                       <div className="d-flex align-items-center mb-3">
                                         <p className="mb-0">
-                                          March 30, 2021
-                                          <span className="badge bg-primary">Pending</span>
+                                          {/* Hiển thị ngày và trạng thái bình luận nếu có */}
+                                          {comment.created_at || 'Ngày bình luận không xác định'}
+                                         
                                         </p>
-                                        <a href="#!" className="link-muted"><i className="fas fa-pencil-alt ms-2" /></a>
+                                       
                                         <a href="#!" className="link-muted"><i className="fas fa-redo-alt ms-2" /></a>
                                         <a href="#!" className="link-muted"><i className="fas fa-heart ms-2" /></a>
                                       </div>
-                                      <p className="mb-0">
-                                      {comment.comments}
-                                      <p> {comment.name}</p>
-                                      </p>
+                                      <p className="mb-0">{comment.comments}</p>
                                     </div>
                                   </div>
                                 </div>
+                              ))}
+                              <ul className="pagination">
+                                {Array.from({ length: totalPages }, (_, index) => (
+                                  <li className="page-item m-1" key={index + 1}>
+                                    <button
+                                      className="page-link btn"
+                                      disabled={index + 1 === currentPage}
+                                      onClick={() => handlePageChange(index + 1)}
+                                    >
+                                      {index + 1}
+                                    </button>
+                                  </li>
                                 ))}
-                              </div>
+                              </ul>
                             </div>
                           </div>
                         </div>
-                      </section>
+                      </div>
 
-                  
+                    </section>
+
+
                   </div>
                 </div>
               </div>
