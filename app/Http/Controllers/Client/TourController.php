@@ -32,11 +32,11 @@ class TourController extends Controller
         $sortByPrice = $request->sort;
         if (isset($rate) && $rate !== []) {
             $id = Rate::select('tour_id')
-            ->selectRaw('AVG(rate) as avg_rate')
-            ->groupBy('tour_id')
-            ->havingRaw('ROUND(AVG(rate)) IN (' . implode(',', array_map('intval', $rate)) . ')')
-            ->pluck('tour_id');
-        $this->query->whereIn('id', $id);
+                ->selectRaw('AVG(rate) as avg_rate')
+                ->groupBy('tour_id')
+                ->havingRaw('ROUND(AVG(rate)) IN (' . implode(',', array_map('intval', $rate)) . ')')
+                ->pluck('tour_id');
+            $this->query->whereIn('id', $id);
         }
         if (isset($province) && $province !== null) {
             $this->query->where('province_id', $province);
@@ -93,7 +93,7 @@ class TourController extends Controller
         //Attributes của tour
         $tour->attributes = $tour->attributes()->get();
         //Hotels của tour
-        $tour->hotels = $tour->hotels()->get();
+        $tour->hotels = $tour->hotels()->where('is_active', 1)->where('status', 1)->get();
 
         foreach ($tour->hotels as $hotel) {
             $hotel->images = $hotel->images()->take(1)->value('image');
@@ -110,7 +110,7 @@ class TourController extends Controller
             'qty' => $tour->rates()->count('rate')
         ];
         //Bình luận của tour
-        $tour->comments = $tour->comments()->orderByDesc('created_at')->get(['comments','name','created_at']);
+        $tour->comments = $tour->comments()->orderByDesc('created_at')->get(['comments', 'name', 'created_at']);
         //Các tour cùng kiểu du lịch
         // $tour_same_type = Tour::where('is_active', 1)
         //     ->where('type_id', $this->query->type->id)->whereNot('id', $request->id)
