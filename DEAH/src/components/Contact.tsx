@@ -61,7 +61,7 @@ const Contact = () => {
                                 <h3>Chúng tôi có thể giúp gì cho bạn?</h3>
                             </div>
                             <div className="row">
-                                <div className="col-5 justify-content-center">
+                                <div className="col-12 col-lg-5 justify-content-center">
                                     <div className="container">
                                         <div className="row">
                                             <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -236,7 +236,7 @@ const Contact = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-7 my-4">
+                                <div className="col-12 col-lg-7 my-4">
                                     <img src={myImage} />
                                     <img className="py-5" src={myImage2}/>
                                 </div>

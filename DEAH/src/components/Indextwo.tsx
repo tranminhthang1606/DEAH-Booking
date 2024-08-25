@@ -145,7 +145,7 @@ const Indextwo = () => {
 
                         </div>
                         <div className="sign-btn">
-                          <button type="submit" className="btn-secondary-lg">Kế hoạch tìm kiếm</button>
+                          <button type="submit" className="btn-secondary-lg">Tìm Kiếm</button>
 
                         </div>
                       </div>

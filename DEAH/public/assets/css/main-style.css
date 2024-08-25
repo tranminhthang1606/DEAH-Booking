@@ -38,9 +38,11 @@
     :: Variables
 -----------------------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=Kaushan+Script&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+
 :root {
   --remix-icon: "remixicon";
-  --Kaushan: "Kaushan Script", cursive;
+  --Kaushan: "Playball", cursive;
   --Dm: "DM Sans", sans-serif;
   --white: #fff;
   --light: #d8dbe0;
@@ -13637,20 +13639,17 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   max-width: 100vw;
-  overflow: hidden;
   
 }
 
 body {
   margin: 0;
   color: var(--primary-paragraph);
-  overflow: hidden;
   font-size: 16px;
   font-weight: 400;
   font-family: var(--Dm);
   background-color: var(--body);
   margin: auto;
-  
 }
 
 p {
@@ -17661,7 +17660,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   }
 }
 .header-area .main-menu .listing .single-list .single.active {
-  position: relative;
+  position: relative; 
   -webkit-transition: 0;
   transition: 0;
 }
@@ -19085,51 +19084,6 @@ button.applyBtn.btn.btn-sm.btn-primary {
     display: none;
   }
 }
-
-.video-player {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background-color: var(--white);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: var(--primary-color);
-  font-size: 36px;
-  position: relative;
-  z-index: 1;
-}
-.video-player:before, .video-player:after {
-  width: 0px;
-  height: 0px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  -webkit-animation-delay: 0.9s;
-  animation-delay: 0.9s;
-  content: "";
-  position: absolute;
-  -webkit-animation: ripple 3s infinite;
-  animation: ripple 3s infinite;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
-  z-index: -1;
-}
-.video-player:after {
-  -webkit-animation-delay: 0.4s;
-  animation-delay: 0.4s;
-}
-
 @-webkit-keyframes ripple {
   70% {
     background: rgba(255, 255, 255, 0);
@@ -19548,7 +19502,6 @@ button.applyBtn.btn.btn-sm.btn-primary {
   background-repeat: no-repeat;
   -webkit-background-position: center;
   background-position: center;
-  width: 100%;
   position: relative;
   width: 100%;
   height: 100%;
@@ -21767,9 +21720,14 @@ button.applyBtn.btn.btn-sm.btn-primary {
 .search-tour-card {
   background-color: var(--white);
   border-radius: 16px;
+  margin-top: 20px;
   padding: 30px;
   position: relative;
   z-index: 2;
+  transition: 0.4s;
+}
+.search-tour-card:hover {
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 .search-tour-card .section-title {
   padding-bottom: 20px;
@@ -22489,62 +22447,12 @@ button.applyBtn.btn.btn-sm.btn-primary {
   width: 100%;
   border-radius: 30px;
 }
-.about-banner-two .video-section .rectangle-shape {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 194px;
-  height: 194px;
-  background-color: var(--primary-soft-color);
-  border-radius: 0 0 30px 0;
-  z-index: 1;
-}
-@media (max-width: 767px) {
-  .about-banner-two .video-section .rectangle-shape {
-    width: 120px;
-    height: 120px;
-  }
-}
-.about-banner-two .video-section .rectangle-shape .sticky-corner {
+
+.about-banner-two .video-section{
   position: absolute;
   z-index: 2;
 }
-.about-banner-two .video-section .rectangle-shape .sticky-corner.right-corner {
-  top: -4px;
-  right: -38px;
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
-}
-.about-banner-two .video-section .rectangle-shape .sticky-corner.bottom-corner {
-  bottom: -38px;
-  left: 3px;
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
-}
-.about-banner-two .video-section .rectangle-shape .right-sticky-corner {
-  position: absolute;
-  top: 0px;
-  right: -34px;
-  -webkit-transform: rotate(-180deg);
-  transform: rotate(-180deg);
-}
-.about-banner-two .video-section .video-player {
-  position: absolute;
-  top: 12px;
-  left: 14px;
-  width: 154px;
-  height: 154px;
-}
-.about-banner-two .video-section .video-player i {
-  font-size: 44px;
-}
-@media (max-width: 767px) {
-  .about-banner-two .video-section .video-player {
-    width: 80px;
-    height: 80px;
-  }
-}
+
 
 .watermark-text {
   font-size: 105px;
@@ -23867,62 +23775,11 @@ button.applyBtn.btn.btn-sm.btn-primary {
   width: 100%;
   border-radius: 30px;
 }
-.about-banner-two .video-section .rectangle-shape {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 194px;
-  height: 194px;
-  background-color: var(--primary-soft-color);
-  border-radius: 0 0 30px 0;
-  z-index: 1;
-}
-@media (max-width: 767px) {
-  .about-banner-two .video-section .rectangle-shape {
-    width: 120px;
-    height: 120px;
-  }
-}
-.about-banner-two .video-section .rectangle-shape .sticky-corner {
-  position: absolute;
-  z-index: 2;
-}
-.about-banner-two .video-section .rectangle-shape .sticky-corner.right-corner {
-  top: -4px;
-  right: -38px;
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
-}
-.about-banner-two .video-section .rectangle-shape .sticky-corner.bottom-corner {
-  bottom: -38px;
-  left: 3px;
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
-}
-.about-banner-two .video-section .rectangle-shape .right-sticky-corner {
-  position: absolute;
-  top: 0px;
-  right: -34px;
-  -webkit-transform: rotate(-180deg);
-  transform: rotate(-180deg);
-}
-.about-banner-two .video-section .video-player {
-  position: absolute;
-  top: 12px;
-  left: 14px;
-  width: 154px;
-  height: 154px;
-}
-.about-banner-two .video-section .video-player i {
+
+.about-banner-two .video-section{
   font-size: 44px;
 }
-@media (max-width: 767px) {
-  .about-banner-two .video-section .video-player {
-    width: 80px;
-    height: 80px;
-  }
-}
+
 
 .watermark-text {
   font-size: 105px;
@@ -25188,6 +25045,9 @@ button.applyBtn.btn.btn-sm.btn-primary {
   padding: 30px 40px;
   z-index: 1;
   position: relative;
+}
+#specific-card{
+  border-radius: 0;
 }
 @media (max-width: 991px) {
   .contact-card {

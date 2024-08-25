@@ -22458,12 +22458,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   position: absolute;
   z-index: 2;
 }
-@media (max-width: 767px) {
-  .about-banner-two .video-section .video-player {
-    width: 80px;
-    height: 80px;
-  }
-}
+
 
 .watermark-text {
   font-size: 105px;
