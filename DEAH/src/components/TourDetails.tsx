@@ -4,8 +4,8 @@ import axios from 'axios';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import '../App.css';
 import '../App1.css';
+import '../App.css';
 import Footer from './Footer';
 import Header from './Header';
 import TourSbar from '../FunctionComponentContext/TourSbar';
@@ -15,22 +15,32 @@ import "slick-carousel/slick/slick-theme.css";
 import { Slide } from 'react-slideshow-image';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { toast } from 'react-toastify';
+import format from 'date-fns/format';
 
 
 
 const TourDetails = () => {
+  const page = 3
   const navigate = useNavigate();
   const { slug } = useParams();
   const [mainImage, setMainImage] = useState<string | null>(null);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [currentDay, setCurrentDay] = useState<any>(null);
   const [rating, setRating] = useState<number>(0);
+  const [comments, setComments] = useState<any>([]);
   const [formData, setFormData] = useState({
     name: '',
     comments: '',
     rate: '',
     tour_id: ''
   });
+  let userData: any = sessionStorage.getItem('user');
+  if (userData) {
+    userData = JSON.parse(userData);
+  }
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(1);
 
   const { data, isLoading, error } = useQuery({
     queryKey: ['KEY_POST', slug],
@@ -46,6 +56,7 @@ const TourDetails = () => {
       }
     }
   });
+  console.log(data);
 
   useEffect(() => {
     if (data?.tour?.images?.length > 0 && !mainImage) {
@@ -57,12 +68,27 @@ const TourDetails = () => {
     if (data?.tour?.id) {
       setFormData((prevFormData) => ({
         ...prevFormData,
+        'name': userData.name,
         tour_id: data.tour.id
       }));
       console.log(`Updated formData.tour_id: ${data.tour.id}`); // Log khi formData được cập nhật
     }
   }, [data]);
 
+  useEffect(() => {
+    if (data?.tour?.comments) {
+      setComments(data.tour.comments);
+      setTotalPages(Math.ceil(data.tour.comments.length / page))
+    }
+  }, [data]);
+
+  // phan trang
+  const displayedComments = comments.slice((currentPage - 1) * page, currentPage * page);
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  // đánh giá 
   const handleRating = (rate: number) => {
     setRating(rate);
     setFormData((formData) => ({
@@ -77,21 +103,31 @@ const TourDetails = () => {
     try {
       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/client/review-tour`, formData);
       console.log('Success:', response.data);
+
+      // Thêm bình luận mới vào danh sách bình luận
+      setComments((prevComments: any) => [...prevComments, response.data]);
+
+      // Reset form data nhưng giữ lại tour_id
       setFormData((prevFormData) => ({
         name: '',
         comments: '',
         rate: '',
         tour_id: prevFormData.tour_id // Giữ lại tour_id sau khi gửi thành công
       }));
-      alert('Bình luận của bạn đã được gửi thành công!');
+      navigate(`/tour-details/:${slug}`)
+      toast.success('Bạn đã gửi bình luận thành công')
     } catch (error) {
       console.error('Error:', error);
-      alert('Có lỗi xảy ra khi gửi bình luận!');
+      navigate(-1)
+      toast.error('Có lỗi gửi bình luận')
     }
   };
 
+
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+    var { name, value } = e.target;
+
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value
@@ -130,7 +166,7 @@ const TourDetails = () => {
     return <div>Error: {error.message}</div>;
   }
 
-  
+
   return (
 
     <div>
@@ -222,18 +258,18 @@ const TourDetails = () => {
                       <div className="includ-exclude-point">
                         <h4 className="title">Thuộc tính</h4>
                         <ul>
-              
-                        {data.tour.attributes?.map((attr: any) => (
+
+                          {data.tour.attributes?.map((attr: any) => (
                             <li key={attr.id}>
                               <strong> - {attr.attribute}</strong>
                             </li>
                           ))}
-                 
+
                         </ul>
                       </div>
                       <div className="divider" />
                     </div>
-                    
+
                     {/* cmt_tour */}
                     <div className="tour-details-content mb-30 ">
                       <h4 className="title">Xem lịch trình của bạn tại đây</h4>
@@ -273,14 +309,95 @@ const TourDetails = () => {
                       </div>
 
                     </div>
+                    <hr />
+                    <div className="row justify-content-center">
+                      <div className="col-xl-7 col-lg-7">
+                        <div className="section-title text-center mx-auto position-relative ">
+
+                          <span className="title highlights">Nhận Xét Khách Hàng</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="container comment">
+                      <div className="col-md-12 col-lg-10">
+                        <div className="row d-flex justify-content-center  ">
+                          <div className="">
+
+                            {displayedComments.map((comment: any, index: any) => (
+                              <>
+                                <div key={index} className="card-body">
+                                  <div className="d-flex flex-start">
+
+                                    <i className="rounded-circle shadow-1-strong me-3 icon"   ><i className='bi bi-person'></i></i>
+                                    <div>
+                                      <h6 className="fw-bold mb-1">{comment.name}</h6>
+                                      <div className="d-flex align-items-center mb-3">
+                                        <p className="mb-0">
+                                          {/* Hiển thị ngày và trạng thái bình luận nếu có */}
+                                          {format(new Date(comment.created_at), 'dd/MM/yyyy HH:mm:ss') || 'Ngày bình luận không xác định'}
+
+                                        </p>
+
+                                      </div>
+                                      <p className="mb-0">{comment.comments}</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <hr />
+                              </>
+                            ))}
+                            <ul className="pagination mt-4">
+                              {Array.from({ length: totalPages }, (_, index) => (
+                                <li className="page-item m-1" key={index + 1}>
+                                  <button
+                                    className="page-link btn"
+                                    disabled={index + 1 === currentPage}
+                                    onClick={() => handlePageChange(index + 1)}
+                                  >
+                                    {index + 1}
+                                  </button>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
 
                     {/* cmt tour */}
+
+
+
+                  </div>
+
+
+                  <div className="col-xl-4 col-lg-5">
+                    <div className="row">
+                      <hr className="mb-4" />
+                      <div className="d-grid gap-2">
+                        <Link to={`/payment/${slug}`} className="btn btn-primary btn-lg" type="button">
+                          Đặt Lịch Ngay
+                        </Link>
+                      </div>
+                    </div>
+                    <TourSbar />
+
+                  </div>
+                </div>
+
+                <div className="row g-4   d-flex">
+                  <div className="container mt-4">
+                    <div className="col-12">
+
+                    </div>
+
                     <div className="contact-card mt-40">
                       <h4 className="contact-heading">Viết bình luận của bạn</h4>
                       <form method="post" className="contact-form" onSubmit={handleSubmit}>
                         <div className="row g-4">
                           <div className="col-sm-12 text-center">
-                            <input className="custom-form" type="text" placeholder="Nhập tên của bạn" value={formData.name} onChange={handleChange} name='name' />
+                            <input className="custom-form" type="text" placeholder="Nhập tên của bạn" readOnly={userData ? true : false} value={userData ? userData.name : formData.name} onChange={handleChange} name='name' />
                           </div>
                           <div className="col-sm-12">
                             <textarea className="custom-form-textarea" id="exampleFormControlTextarea1" rows={3} placeholder="Hãy để lại bình luận của bạn tại đây" defaultValue={""} value={formData.comments} onChange={handleChange} name='comments' />
@@ -318,75 +435,7 @@ const TourDetails = () => {
                         </div>
                       </form>
                     </div>
-                    
-                    
-                  </div>
 
-
-                  <div className="col-xl-4 col-lg-5">
-                  <div className="row">
-                      <hr className="mb-4" />
-                      <div className="d-grid gap-2">
-                        <Link to={`/payment/${slug}`} className="btn btn-primary btn-lg" type="button">
-                          Đặt Lịch Ngay
-                        </Link>
-                      </div>
-                    </div>
-                    <TourSbar />
-                    
-                  </div>
-                </div>
-
-                <div className="row justify-content-center">
-                  <div className="col-xl-7 col-lg-7">
-                    <div className="section-title text-center mx-605 mx-auto position-relative mb-60">
-                      <span className="highlights">Khách hàng của chúng tôi</span>
-                      <h2 className="title">Nhận Xét Khách Hàng</h2>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="row g-4   d-flex">
-                  <div className="container mt-4">        
-                      <div className="col-12">
-
-                      </div>
-                      <section className='bg-orange-50 comments'  >
-                        <div className="container   ">
-                            <div className="col-md-12 col-lg-10">
-                          <div className="row d-flex justify-content-center  ">
-                              <div className="">
-                              
-                                {data.tour.comments?.map((comment:any) => (
-                                <div className="card-body p-4">
-                                  <div className="d-flex flex-start">
-                                    <img className="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(24).webp" alt="avatar" width={60} height={60} />
-                                    <div>
-                                      <h6 className="fw-bold mb-1">Betty Walker</h6>
-                                      <div className="d-flex align-items-center mb-3">
-                                        <p className="mb-0">
-                                          March 30, 2021
-                                          <span className="badge bg-primary">Pending</span>
-                                        </p>
-                                        <a href="#!" className="link-muted"><i className="fas fa-pencil-alt ms-2" /></a>
-                                        <a href="#!" className="link-muted"><i className="fas fa-redo-alt ms-2" /></a>
-                                        <a href="#!" className="link-muted"><i className="fas fa-heart ms-2" /></a>
-                                      </div>
-                                      <p className="mb-0">
-                                      {comment.comments}
-                                      <p> {comment.name}</p>
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </section>
-
-                  
                   </div>
                 </div>
               </div>

@@ -22448,6 +22448,12 @@ button.applyBtn.btn.btn-sm.btn-primary {
   border-radius: 30px;
 }
 
+@media (max-width: 767px) {
+  .about-banner-two .video-section .rectangle-shape{
+    width: 120px;
+    height: 120px;
+  }
+}
 .about-banner-two .video-section{
   position: absolute;
   z-index: 2;
@@ -23775,11 +23781,21 @@ button.applyBtn.btn.btn-sm.btn-primary {
   width: 100%;
   border-radius: 30px;
 }
-
+@media (max-width: 767px) {
+  .about-banner-two .video-section .rectangle-shape {
+    width: 120px;
+    height: 120px;
+  }
+}
 .about-banner-two .video-section{
   font-size: 44px;
 }
-
+@media (max-width: 767px) {
+  .about-banner-two .video-section{
+    width: 80px;
+    height: 80px;
+  }
+}
 
 .watermark-text {
   font-size: 105px;
@@ -25040,11 +25056,17 @@ button.applyBtn.btn.btn-sm.btn-primary {
     :: Contact us
 -----------------------------------------------*/
 .contact-card {
-  background-color: var(--tertiary-border);
   border-radius: 12px;
   padding: 30px 40px;
   z-index: 1;
   position: relative;
+}
+.contact-card-2{
+  background-color: var(--tertiary-border);
+    border-radius: 12px;
+    padding: 30px 40px;
+    z-index: 1;
+    position: relative;
 }
 #specific-card{
   border-radius: 0;
@@ -25053,6 +25075,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   .contact-card {
     padding: 20px;
   }
+  
 }
 .contact-card .contact-heading {
   font-size: 24px;
@@ -25108,6 +25131,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   .send-btn {
     font-size: 14px;
   }
+  
 }
 .send-btn:hover {
   background-color: transparent;
@@ -25809,7 +25833,6 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .search-filter-section {
-  padding: 10px 20px 10px 20px;
   border: 1px solid var(--tertiary-border);
   border-radius: 12px;
 }

@@ -101,7 +101,7 @@ const Header = ({ status }: { status: any }) => {
                   <div className="col-lg-12">
                     <div className="menu-wrapper">
                       {/* Main-menu for desktop */}
-                      <div className="main-menu d-none d-lg-block">
+                      <div className="main-menu d-none d-lg-block d-md-block">
                         <nav className='my-3'>
                           <div className="d-flex justify-content-between align-items-center">
                             <ul className="listing" id="navigation">

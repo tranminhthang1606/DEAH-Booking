@@ -67,7 +67,7 @@ const Contact = () => {
                                             <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                                 <div className="panel panel-default">
                                                     <div className="panel-heading" role="tab" id="headingOne">
-                                                        <div className="contact-card my-4" id="specific-card">
+                                                        <div className="contact-card-2 my-4" id="specific-card">
                                                             <div className="d-flex h-30">
                                                                 <div>
                                                                     {" "}
@@ -116,7 +116,7 @@ const Contact = () => {
                                             <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                                 <div className="panel panel-default">
                                                     <div className="panel-heading" role="tab" id="headingOne">
-                                                        <div className="contact-card my-4" id="specific-card">
+                                                        <div className="contact-card-2 my-4" id="specific-card">
                                                             <div className="ml-[180px]">
                                                                 <img
                                                                     className=" w-10 h-10"
@@ -143,7 +143,7 @@ const Contact = () => {
                                             <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                                 <div className="panel panel-default">
                                                     <div className="panel-heading" role="tab" id="headingOne">
-                                                        <div className="contact-card my-4" id="specific-card">
+                                                        <div className="contact-card-2 my-4" id="specific-card">
                                                             <div className="ml-[180px] mb-4">
                                                                 <br />
                                                                 <img
@@ -175,7 +175,7 @@ const Contact = () => {
                                             <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                                 <div className="panel panel-default">
                                                     <div className="panel-heading" role="tab" id="headingOne">
-                                                        <div className="contact-card my-4" id="specific-card">
+                                                        <div className="contact-card-2 my-4" id="specific-card">
                                                             <div className="contact-policy ">
                                                                 <div className="row">
                                                                     <div className="">

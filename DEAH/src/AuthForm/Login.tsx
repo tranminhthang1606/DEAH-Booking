@@ -1,7 +1,7 @@
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -86,9 +86,9 @@ const Login = () => {
                   <div className="login-card">
                     {/* Logo */}
                     <div className="logo mb-40">
-                      <Link to="/" className="mb-30 d-block">
+                      <a href="/" className="mb-30 d-block">
                         <img src={`${import.meta.env.VITE_BASE_URL}/assets/images/logo/LOGO-DEAH2-Photoroom.png`} alt="logo" className="changeLogo" width={250}/>
-                      </Link>
+                      </a>
                     </div>
                     {/* Form */}
                     <form onSubmit={handleSubmit(onSubmit)} action="#" method="POST">
@@ -108,8 +108,8 @@ const Login = () => {
                         <div className="position-relative ">
                           <div className="d-flex justify-content-between aligin-items-center">
                             <label className="contact-label">Mật khẩu</label>
-                            <Link to="/forgot-pass"><span className="text-primary text-15"> Quên
-                              mật khẩu?</span></Link>
+                            <a href="/forgot-pass"><span className="text-primary text-15"> Quên
+                              mật khẩu?</span></a>
                           </div>
                           <input  type="password" className="form-control contact-input password-input" id="txtPasswordLogin" placeholder="Enter Password" {...register('password',
                             {required:'Mật khẩu của bạn đang bị trống',
@@ -130,9 +130,9 @@ const Login = () => {
                       <div className="create-account">
                         <p>
                           Bạn có tài khoản không?
-                          <Link to="/register">
+                          <a href="/register">
                             <span className="text-primary">Đăng ký</span>
-                          </Link>
+                          </a>
                         </p>
                       </div>
                      
