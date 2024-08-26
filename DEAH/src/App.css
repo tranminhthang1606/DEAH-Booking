@@ -540,9 +540,7 @@ body{
   background-color:#69f7e7
 }
 .banner{
-  background: url('https://deahbooking.online/assets/images/videos/travel4.mp4');
-  background-repeat: no-repeat;
-  background-size:cover;
+  background: rgba(0, 0, 0, 0.4);
   
 }
 .searchlistbill {
