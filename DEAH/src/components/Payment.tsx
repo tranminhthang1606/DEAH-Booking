@@ -8,14 +8,14 @@ import DateStar from '../FunctionComponentContext/FunctionApp';
 import addDays from 'date-fns/addDays';
 import UserPicker from './You';
 import Payment_PT from '../FunctionComponentContext/Pament_PT';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Payment: React.FC = () => {
 
 
-
+    const { slug } = useParams();
     const [username, setUserName] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
     const [email, setEmail] = useState<string>('');
@@ -23,11 +23,13 @@ const Payment: React.FC = () => {
     const [adults, setAdults] = useState<number>(0);
     const [kids, setKids] = useState<number>(0);
     const [totalPrice, setTotalPrice] = useState<number>(0);
-    const tourString = localStorage.getItem('tour');
-    const tour = tourString ? JSON.parse(tourString) : null;
-    const [filteredOptions] = useState<any[]>(tour ? tour.tour.hotels : []);
+    let tourString = localStorage.getItem('tour');
+    let tour = tourString ? JSON.parse(tourString) : null;
+    const [filteredOptions, setFilteredOptions] = useState<any[]>(tour ? tour.tour.hotels : []);
+    const [update, setUpdate] = useState<any>(false);
     const userString = sessionStorage.getItem('user');
     // console.log(userString);
+
 
     const user = userString ? JSON.parse(userString) : null;
     const user_id = user ? user.id : null;
@@ -48,7 +50,7 @@ const Payment: React.FC = () => {
 
         const tourprice = tour.tour.promotion ? tour.tour.promotion : tour.tour.price
         const adultPrice = tourprice // Giả sử giá cho mỗi người lớn
-        const kidPrice = tourprice * 0.2; // Giả sử giá cho mỗi trẻ em là 20% giá người lớn
+        const kidPrice = tourprice * 0.8; // Giả sử giá cho mỗi trẻ em là 20% giá người lớn
         const hotelPrice = hotel ? (hotel.promotion ? Number(hotel.promotion) : hotel.price) : 0;
         const newTotalPrice = (adults * adultPrice) + (children6To12 * kidPrice) + hotelPrice;
         setTotalPrice(newTotalPrice);
@@ -66,7 +68,15 @@ const Payment: React.FC = () => {
             setPhone(user.phone || '');
             setEmail(user.email || '');
         }
-    }, []);
+        const callApiTour = async ()=>{
+            const tour = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/client/get-tour-detail/${slug}`);
+            console.log(tour.data.data.tour.id); // Log dữ liệu API để kiểm tra
+            localStorage.setItem('tour', JSON.stringify(tour.data.data))
+            setFilteredOptions(tour ? tour.data.data.tour.hotels : [])
+        }
+        callApiTour();
+
+    }, [update]);
     const Payment = async () => {
         if (!username) {
             toast.error("vui lòng nhập họ và tên")
@@ -107,12 +117,12 @@ const Payment: React.FC = () => {
             'email': email,
             'tour_id': tour.tour.id,
             'tour_name': tour.tour.title,
-            'tour_price': tour.tour.promotion ? tour.tour.promotion : tour.tour.price,
+            'tour_price': totalPrice - (hotel ? (hotel.promotion ? Number(hotel.promotion) : hotel.price) : 0),
             'tour_address': tour.tour.location.ward + ', ' + tour.tour.location.district + ',' + tour.tour.location.province,
             'hotel_name': hotel ? hotel.name : '',
             'hotel_price': hotel ? (hotel.promotion ? Number(hotel.promotion) : hotel.price) : 0,
             'hotel_address': hotel ? (hotel.address + ',' + tour.tour.location.province) : '',
-            'book_price': totalPrice - (hotel ? (hotel.promotion ? Number(hotel.promotion) : hotel.price) : 0),
+            'book_price': totalPrice,
             'promotion_price': 0,
             'total_price': totalPrice,
             'people': children2To5 + children6To12 + adults,
@@ -164,11 +174,18 @@ const Payment: React.FC = () => {
 
     };
 
-    const chooseHotel = (e: any) => {
+    const chooseHotel = async (e: any) => {
         console.log(paymentMethod);
-
         let data = JSON.parse(e.target.value);
-        setHotel(data);
+        var response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/client/get-hotel-detail/${data.id}`);
+
+        console.log(response.data.data);
+        if (response.data.data.status == 1) {
+            setHotel(data);
+        } else {
+            toast.error("Khách sạn vừa hết phòng. Bạn vui lòng thông cảm!");       
+            setUpdate(!update);
+        }
     };
 
     const handleUserChange = (adults: number, children2To5: number, children6To12: number) => {
@@ -273,8 +290,8 @@ const Payment: React.FC = () => {
                                                     <select className="form-select" onChange={(e) => chooseHotel(e)} style={{ maxHeight: '500px', overflowY: 'auto' }}>
                                                         <option value="">-- Hotel --</option>
                                                         {filteredOptions.map((option: any, index: any) => (
-                                                            <option key={index} value={JSON.stringify(option)}>
-                                                                {option.name}
+                                                            <option key={index} value={JSON.stringify(option)} disabled={option.status == 1 ? false : true}>
+                                                                {option.name} - {option.status == 1 ? 'Còn Phòng' : 'Hết Phòng'}
                                                             </option>
                                                         ))}
                                                     </select>
@@ -287,7 +304,7 @@ const Payment: React.FC = () => {
                                         {/*End-of Payment */}
                                     </div>
                                     <div className="col-xl-4">
-                                        <div className="date-travel-card position-sticky top-0">
+                                        <div className="date-travel-card top-0">
                                             <div className="price-review">
                                                 <div className="d-flex gap-10 align-items-end">
                                                     <p className="light-pera">Tổng</p>

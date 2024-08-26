@@ -50,7 +50,7 @@ class BookingController extends Controller
         }
         $booking = $query->where('booking_code', 'LIKE', $request->booking_code)->first();
         $now = date("");
-        if ($booking && $booking->start > $now) {
+        if ($booking && $booking->start < $now) {
             if ($booking->status_tour == StatusTour::WAITING && $request->action == 'cancel') {
                 if ($booking->status_payment == 1) {
                     $booking->status_payment = StatusPayment::REFUND;

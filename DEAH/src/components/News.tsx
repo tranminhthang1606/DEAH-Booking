@@ -132,7 +132,7 @@ const New = () => {
                         <div className="news-content">
                           <div className="heading line-clamp-1">
 
-                            <Link className='text-success' to={`/news-details/${post.id}`}>{post.title}</Link>
+                            <Link className='text-success' to={`/news-details/${post.slug}`}>{post.title}</Link>
                           </div>
                           <h4 className="title line-clamp-2">
 

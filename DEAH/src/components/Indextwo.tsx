@@ -405,7 +405,7 @@ const Indextwo = () => {
                           </figure>
                           <div className="news-content">
                             <div className="heading line-clamp-1">
-                              <Link to={`/news-details/${post.id}`}>{post.title} </Link>
+                              <Link to={`/news-details/${post.slug}`}>{post.title} </Link>
                             </div>
                             <h4 className="title line-clamp-2">
 
