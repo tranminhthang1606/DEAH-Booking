@@ -16,7 +16,6 @@ import { Slide } from 'react-slideshow-image';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { toast } from 'react-toastify';
-import format from 'date-fns/format';
 
 
 
@@ -39,8 +38,11 @@ const TourDetails = () => {
   if (userData) {
     userData = JSON.parse(userData);
   }
+
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
+
+  console.log(slug);
 
   const { data, isLoading, error } = useQuery({
     queryKey: ['KEY_POST', slug],
@@ -62,25 +64,28 @@ const TourDetails = () => {
     if (data?.tour?.images?.length > 0 && !mainImage) {
       setMainImage(data.tour.images[0].image);
     }
-  }, [data, mainImage]);
-
-  useEffect(() => {
     if (data?.tour?.id) {
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        'name': userData.name,
-        tour_id: data.tour.id
-      }));
+      if (userData) {
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          'name': userData.name,
+          tour_id: data.tour.id
+        }));
+      } else {
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          tour_id: data.tour.id
+        }));
+      }
+
       console.log(`Updated formData.tour_id: ${data.tour.id}`); // Log khi formData được cập nhật
     }
-  }, [data]);
-
-  useEffect(() => {
     if (data?.tour?.comments) {
+      
       setComments(data.tour.comments);
       setTotalPages(Math.ceil(data.tour.comments.length / page))
     }
-  }, [data]);
+  }, [data, mainImage, comments]);
 
   // phan trang
   const displayedComments = comments.slice((currentPage - 1) * page, currentPage * page);
@@ -107,18 +112,27 @@ const TourDetails = () => {
       // Thêm bình luận mới vào danh sách bình luận
       setComments((prevComments: any) => [...prevComments, response.data]);
 
-      // Reset form data nhưng giữ lại tour_id
-      setFormData((prevFormData) => ({
-        name: '',
-        comments: '',
-        rate: '',
-        tour_id: prevFormData.tour_id // Giữ lại tour_id sau khi gửi thành công
-      }));
-      navigate(`/tour-details/:${slug}`)
-      toast.success('Bạn đã gửi bình luận thành công')
+      if (userData) {
+        setFormData((prevFormData) => ({
+          name: userData.name,
+          comments: '',
+          rate: '',
+          tour_id: prevFormData.tour_id // Giữ lại tour_id sau khi gửi thành công
+        }));
+      } else {
+        setFormData((prevFormData) => ({
+          name: '',
+          comments: '',
+          rate: '',
+          tour_id: prevFormData.tour_id // Giữ lại tour_id sau khi gửi thành công
+        }));
+      }
+
+      setRating(0);
+      navigate(`/tour-details/:${slug}`);
+      toast.success('Bạn đã gửi bình luận thành công');
     } catch (error) {
       console.error('Error:', error);
-      navigate(-1)
       toast.error('Có lỗi gửi bình luận')
     }
   };
@@ -238,8 +252,8 @@ const TourDetails = () => {
                     </div>
                   </div>
                   <div className="rating">
-                    <p className="pera mr-5">Đánh giá: {data.rates ? data.rates.qty : 0}</p>
-                    <p className="pera">{data.rates ? data.rates.rate : 0}</p>
+                    <p className="pera mr-5">Đánh giá: {data.rate ? data.rate.qty : 0}</p>
+                    <p className="pera">{data.rate ? data.rate.rate : 0}</p>
                     <i className="ri-star-s-fill mb-3"></i>
                   </div>
                 </div>
@@ -334,7 +348,7 @@ const TourDetails = () => {
                                       <div className="d-flex align-items-center mb-3">
                                         <p className="mb-0">
                                           {/* Hiển thị ngày và trạng thái bình luận nếu có */}
-                                          {format(new Date(comment.created_at), 'dd/MM/yyyy HH:mm:ss') || 'Ngày bình luận không xác định'}
+                                          {comment.created_at || 'Ngày bình luận không xác định'}
 
                                         </p>
 

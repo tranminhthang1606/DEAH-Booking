@@ -73,7 +73,7 @@ const Header = ({ status }: { status: any }) => {
                           <div className="info">
                             <p className="pera">Email bất cứ lúc nào</p>
                             <h4 className="title">
-                              <a href="javascript:void(0)">example@gmail.com</a>
+                              <a href="javascript:void(0)">deahbooking@gmail.com</a>
                             </h4>
                           </div>
                         </div>
@@ -84,7 +84,7 @@ const Header = ({ status }: { status: any }) => {
                           <div className="info">
                             <p className="pera">Gọi bất cứ lúc nào</p>
                             <h4 className="title">
-                              <a href="javascript:void(0)">00 (888) +123456</a>
+                              <a href="javascript:void(0)">0868928332</a>
                             </h4>
                           </div>
                         </div>
@@ -101,7 +101,7 @@ const Header = ({ status }: { status: any }) => {
                   <div className="col-lg-12">
                     <div className="menu-wrapper">
                       {/* Main-menu for desktop */}
-                      <div className="main-menu d-none d-lg-block d-md-block">
+                      <div className="main-menu d-none d-lg-block">
                         <nav className='my-3'>
                           <div className="d-flex justify-content-between align-items-center">
                             <ul className="listing" id="navigation">
@@ -154,7 +154,7 @@ const Header = ({ status }: { status: any }) => {
                                   <Link className='d-flex' to={'/profile'}>
                                     <h6 className='mt-10 mr-2 user-name '> {userData.name}</h6>
 
-                                    {<img className='rounded-circle i' width={40} height={100} src={`${import.meta.env.VITE_BACKEND_URL}/` + (userData.avatar ? userData.avatar : '')} alt="" />}
+                                    {<img className='rounded-circle i' width={40} height={100} src={`${import.meta.env.VITE_BACKEND_URL}/` + (userData.avatar ? userData.avatar : '')} alt="DEAH" />}
                                   </Link>
 
                                 </div>
@@ -181,7 +181,7 @@ const Header = ({ status }: { status: any }) => {
                     </div>
                     {/* Mobile Menu */}
                     <div className="div">
-                      <div className="mobile_menu d-block d-lg-none" />
+                      <div className="mobile_menu" />
                     </div>
                   </div>
                 </div>

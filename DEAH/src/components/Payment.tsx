@@ -112,7 +112,7 @@ const Payment: React.FC = () => {
             'hotel_name': hotel ? hotel.name : '',
             'hotel_price': hotel ? (hotel.promotion ? Number(hotel.promotion) : hotel.price) : 0,
             'hotel_address': hotel ? (hotel.address + ',' + tour.tour.location.province) : '',
-            'book_price': totalPrice,
+            'book_price': totalPrice - (hotel ? (hotel.promotion ? Number(hotel.promotion) : hotel.price) : 0),
             'promotion_price': 0,
             'total_price': totalPrice,
             'people': children2To5 + children6To12 + adults,
@@ -256,19 +256,19 @@ const Payment: React.FC = () => {
                                                         <input type="text" onChange={(e) => setUserName(e.target.value)} value={username} className="form-control" placeholder="Họ và Tên" aria-label="Họ và Tên" />
                                                     </div>
                                                 </div>
-                                               <div className='row g-4'>
-                                               <div className=" col mb-4 ">
-                                                    <label htmlFor="name">Số điện thoại</label>
-                                                    <input type="number" onChange={(e) => setPhone(e.target.value)} value={phone} className="form-control" placeholder="+84" />
+                                                <div className='row g-4'>
+                                                    <div className=" col mb-4 ">
+                                                        <label htmlFor="name">Số điện thoại</label>
+                                                        <input type="number" onChange={(e) => setPhone(e.target.value)} value={phone} className="form-control" placeholder="+84" />
+                                                    </div>
                                                 </div>
-                                               </div>
-                                               <div className='row g-4'>
-                                               <div className="mb-4">
-                                                    <label htmlFor="email">Email (Bắt Buộc)</label>
-                                                    <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} className="form-control" placeholder="you@example.com" aria-label="email" />
+                                                <div className='row g-4'>
+                                                    <div className="mb-4">
+                                                        <label htmlFor="email">Email (Bắt Buộc)</label>
+                                                        <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} className="form-control" placeholder="you@example.com" aria-label="email" />
+                                                    </div>
                                                 </div>
-                                               </div>
-                                                <div className="mb-4">
+                                                <div className="row mb-4">
                                                     <label htmlFor="hotel">Chọn khách sạn</label>
                                                     <select className="form-select" onChange={(e) => chooseHotel(e)} style={{ maxHeight: '500px', overflowY: 'auto' }}>
                                                         <option value="">-- Hotel --</option>

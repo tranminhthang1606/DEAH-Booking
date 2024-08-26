@@ -293,6 +293,7 @@ a {
   .image-item {
     width: 100%;
   }
+  
 }
 
  /* slideshow */
@@ -330,10 +331,8 @@ a {
 .image{
   height: 400px !important;
 }
-.img{
-  height: 100px !important;
-}
-.image-item imgs{
+
+.image-item img{
 height: auto;
 margin-left: 20px;
 width: 50px;
@@ -541,9 +540,10 @@ body{
   background-color:#69f7e7
 }
 .banner{
-  background-image: url('/src/assets/images/videos/travel4.mp4');
+  background: url('https://deahbooking.online/assets/images/videos/travel4.mp4');
   background-repeat: no-repeat;
   background-size:cover;
+  
 }
 .searchlistbill {
   height: 100px;

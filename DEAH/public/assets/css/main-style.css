@@ -17823,7 +17823,6 @@ button.applyBtn.btn.btn-sm.btn-primary {
   color: var(--primary-title);
 }
 .header-area .mobile_menu {
-  position: unset;
   right: 0px;
   width: 100%;
   z-index: 99;
@@ -17897,12 +17896,13 @@ button.applyBtn.btn.btn-sm.btn-primary {
   padding: 0;
 }
 .header-area .mobile_menu .slicknav_menu .slicknav_nav .slicknav_item a i {
-  display: none;
+  
 }
 .header-area .mobile_menu .slicknav_menu .slicknav_nav .slicknav_arrow {
   color: var(--primary-color);
   top: -30px;
 }
+
 
 .header-transparent {
   position: absolute;
@@ -17926,9 +17926,15 @@ button.applyBtn.btn.btn-sm.btn-primary {
   z-index: 20;
   background-color: var(--white);
 }
-@media (max-width: 991px) {
-  .header-sticky.sticky-bar {
+.header-area .mobile_menu{
+  display: none;
+}
+@media only screen and (max-width: 991px) {
+  .header-sticky .sticky-bar {
     display: none;
+  }
+  .header-area .mobile_menu{
+    display: block !important;
   }
 }
 .header-sticky.sticky-bar .main-menu .listing .single-list .active {
@@ -17981,6 +17987,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
     padding-top: 20px;
     padding-bottom: 20px;
   }
+  
 }
 .header-area-two .top-header-two {
   background: -webkit-gradient(linear, left top, right top, color-stop(0.91%, #f67b40), to(#870ae9));
@@ -18220,7 +18227,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   color: var(--primary-title);
 }
 .header-area-two .mobile_menu {
-  position: unset;
+  
   right: 0px;
   width: 100%;
   z-index: 99;
@@ -19083,6 +19090,10 @@ button.applyBtn.btn.btn-sm.btn-primary {
   .hero-banner .shape {
     display: none;
   }
+  .about-banner-two .video-section{
+    width: 100% !important;
+    height: 100% !important;
+  }
 }
 @-webkit-keyframes ripple {
   70% {
@@ -19217,6 +19228,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 .hero-caption-two {
   max-width: 605px;
   z-index: 2;
+  
 }
 .hero-caption-two .highlights {
   font-size: 20px;
@@ -19224,6 +19236,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   line-height: 1.4;
   color: var(--secondary-color);
   font-family: var(--Kaushan);
+  margin-bottom: 10px;
 }
 .hero-caption-two .title {
   margin-top: 20px;
@@ -19233,9 +19246,16 @@ button.applyBtn.btn.btn-sm.btn-primary {
   font-weight: 700;
   line-height: 1;
 }
+.hero-caption-two .hero-content{
+  background: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 16px;
+}
 @media (max-width: 1199px) {
   .hero-caption-two .title {
     font-size: 34px;
+    
   }
 }
 .hero-caption-two .pera {

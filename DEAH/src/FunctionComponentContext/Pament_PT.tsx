@@ -25,7 +25,7 @@ const Payment_PT = ({ setPaymentMethod, paymentMethod }:{setPaymentMethod:any,pa
   }
 
   return (
-    <div className=''>
+    <div className='row w-100'>
       <div className="tour-include-exclude m-0 mb-30 radius-6">
         <div className="include-exclude-point">
           <div className="checkbox-group">

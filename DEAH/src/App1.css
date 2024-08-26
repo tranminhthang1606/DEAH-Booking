@@ -538,6 +538,7 @@ body {
   .checkbox-group {
     gap: 8px;
     /* Giảm khoảng cách giữa các checkbox trên màn hình nhỏ */
+    max-width: 360px;
   }
 
   .checkbox-group label {
