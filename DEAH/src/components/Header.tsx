@@ -56,12 +56,12 @@ const Header = ({ status }) => {
                           </a>
                         </div>
                         {/* Search box */}
-                      
+
                         {/* Mobile Device Search & Theme Mode */}
                         <div className="search-header-position d-block d-lg-none">
                           <div className="d-flex gap-15">
                             <div className="search-bar">
-                        
+
                             </div>
                             {/* Theme Mode */}
                             <button className="ToggleThemeButton change-theme-mode m-0 p-0 border-0">
@@ -137,7 +137,9 @@ const Header = ({ status }) => {
                                     </div>
                                     <div className="divider gradient-divider" />
                                     <div className="money">
-                                      <p className="pera">Login</p>
+                                      <div className="sign-btn">
+                                        <a href="/login" className="btn-secondary-sm">Đăng nhập</a>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -148,7 +150,7 @@ const Header = ({ status }) => {
                                 <div className='d-flex'>
                                   <Link className='d-flex' to={'/profile'}>
                                     <h6 className='mt-10 mr-2 user-name '> {userName.name}</h6>
-                                    
+
                                     {<img className='rounded-circle i' width={40} height={100} src={'http://127.0.0.1:8000/' + (userName.avatar ? userName.avatar : '')} alt="" />}
                                   </Link>
                                   {/* {userName && (
@@ -159,7 +161,7 @@ const Header = ({ status }) => {
                                 </li>
                               )} */}
                                 </div>
-                                
+
                               ) : (
                                 <p className='mt-3'>Chào mừng, bạn vui lòng đăng nhập!</p>
                               )}
@@ -173,7 +175,7 @@ const Header = ({ status }) => {
                                   <a type='submit' className="btn-secondary-sm " onClick={handleLogout}>Đăng xuất</a>
                                 </div>
                               )}
-                           
+
                               {/* Theme Mode */}
                             </div>
 

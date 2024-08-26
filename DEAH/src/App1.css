@@ -1061,6 +1061,7 @@ margin-right: 200px;
     /* justify-content: center; */
     align-items: center;
     margin: 20px 0;
+    /* background-color: #006b21; */
   }
 
   .rating-checkbox {
@@ -1088,38 +1089,105 @@ margin-right: 200px;
   }
 
   /* Styles for tablets (width less than 768px) */
-  @media (max-width: 768px) {
-    .rating-section {
-      flex-direction: row;
-      justify-content: center;
-    }
 
-    .rating-checkbox {
-      margin: 0 3px;
-    }
 
-    .rating-checkbox label svg {
-      width: 20px;
-      height: 20px;
-    }
+}
+@media only screen and (max-width: 960px) {
+  .custom-modal-width .modal-dialog {
+    max-width: 100%;
+
   }
 
-  /* Styles for mobile phones (width less than 480px) */
-  @media (max-width: 480px) {
-    .rating-section {
-      flex-direction: row;
-      justify-content: center;
-    }
+  /* rate_tourdetail */
+  /* Default styles for larger screens */
+  .rating-section {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    margin: 20px 0;
+    /* background-color: #006b21; */
+  }
 
-    .rating-checkbox {
-      margin: 0 2px;
-    }
+  .rating-checkbox {
+    position: relative;
+    margin: 0 5px;
+  }
 
-    .rating-checkbox label svg {
-      width: 18px;
-      height: 18px;
-    }
+  .rating-checkbox input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
 
+  .rating-checkbox label {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rating-checkbox label svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .custom-modal-width .modal-dialog {
+    max-width: 100%;
+
+  }
+
+  /* rate_tourdetail */
+  /* Default styles for larger screens */
+  .rating-section {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    margin: 20px 0;
+    /* background-color: #006b21; */
+  }
+
+  .rating-checkbox {
+    position: relative;
+    margin: 0 5px;
+  }
+
+  .rating-checkbox input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .rating-checkbox label {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rating-checkbox label svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Styles for mobile phones (width less than 480px) */
+@media (max-width: 480px) {
+  .rating-section {
+    flex-direction: row;
+    justify-content: center;
+
+  }
+
+  .rating-checkbox {
+    margin: 0 2px;
+  }
+
+  .rating-checkbox label svg {
+    width: 18px;
+    height: 18px;
   }
 
 }
@@ -1411,7 +1479,7 @@ margin-right: 200px;
 }
 
 @media only screen and (max-width: 1200px) {
-  .container {
+  .containers {
     padding: 0 15px;
     float: left;
   }
@@ -1426,7 +1494,7 @@ margin-right: 200px;
 }
 
 @media only screen and (max-width: 980px) {
-  .container {
+  .containers {
     padding: 0 10px;
     float: left;
   }
@@ -1456,14 +1524,14 @@ margin-right: 200px;
 }
 
 @media only screen and (max-width: 768px) {
-  .container {
+  .containers {
     padding: 0 5px;
     float: left;
   }
 
   .comments {
     background-color: #f9a825;
-    /* Adjust as needed */
+
     padding: 20px;
     height: 100%;
     width: 600px;
@@ -1487,14 +1555,14 @@ margin-right: 200px;
 }
 
 @media only screen and (max-width: 480px) {
-  .container {
+  .containers {
     padding: 0;
     float: left;
   }
 
   .comments {
     background-color: #f9a825;
-    /* Adjust as needed */
+
     padding: 20px;
     height: 100%;
     width: 400px;

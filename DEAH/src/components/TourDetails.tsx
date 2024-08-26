@@ -16,11 +16,13 @@ import { Slide } from 'react-slideshow-image';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { toast } from 'react-toastify';
+import { format } from 'date-fns';
 
 
 const page = 3
 const TourDetails = () => {
   const navigate = useNavigate();
+  const formattedDate = (currentDate: any) => format(currentDate, 'yyyy-MM-dd');
   const { slug } = useParams();
   const [mainImage, setMainImage] = useState<string | null>(null);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
@@ -312,7 +314,7 @@ console.log(data);
                             <input className="custom-form" type="text" placeholder="Nhập tên của bạn" value={formData.name} onChange={handleChange} name='name' />
                           </div>
                           <div className="col-sm-12">
-                            <textarea className="custom-form-textarea" id="exampleFormControlTextarea1" rows={3} placeholder="Hãy để lại bình luận của bạn tại đây" defaultValue={""} value={formData.comments} onChange={handleChange} name='comments' />
+                            <textarea className="custom-form-textarea" id="exampleFormControlTextarea1" rows={3} placeholder="Hãy để lại bình luận của bạn tại đây" defaultValue={""} value={formData.comments} onChange={handleChange} name='comments'  />
                           </div>
                           {/* sao */}
                           <h4 className="contact-heading">Đánh giá về tour du lịch</h4>
@@ -381,7 +383,7 @@ console.log(data);
 
                     </div>
                     <section className='bg-orange-50 comments'  >
-                      <div className="container   ">
+                      <div className="containers   ">
                         <div className="col-md-12 col-lg-10">
                           <div className="row d-flex justify-content-center  ">
                             <div className="">
@@ -395,9 +397,8 @@ console.log(data);
                                       <h6 className="fw-bold mb-1">{comment.name}</h6>
                                       <div className="d-flex align-items-center mb-3">
                                         <p className="mb-0">
-                                          {/* Hiển thị ngày và trạng thái bình luận nếu có */}
-                                          {comment.created_at || 'Ngày bình luận không xác định'}
-                                         
+                         
+                                          {formattedDate(new Date(comment.created_at))}
                                         </p>
                                        
                                         <a href="#!" className="link-muted"><i className="fas fa-redo-alt ms-2" /></a>
