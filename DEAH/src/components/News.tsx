@@ -168,16 +168,6 @@ const New = () => {
                 ))}
 
 
-                <div className="col-12 text-center">
-                  <div className="section-button d-inline-block">
-                    <a href="javascript:void(0)">
-                      <div className="btn-primary-icon-sm">
-                        <i className="ri-loader-2-line" />
-                        <p className="pera mt-3 ml-2">Đang tải</p>
-                      </div>
-                    </a>
-                  </div>
-                </div>
               </div>
             </div>
           </section>

@@ -13,7 +13,7 @@ const PaymentSuccess = () => {
   const user_payment_info = JSON.parse(sessionStorage.getItem('user_payment_info')!);
   console.log(user_payment_info);
 
-  const updatePaymentState = async (vnp_TxnRef:any) => {
+  const updatePaymentState = async (vnp_TxnRef: any) => {
 
     const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/client/update-payment-status/${vnp_TxnRef}`, {
       'status_payment': 1
@@ -48,7 +48,7 @@ const PaymentSuccess = () => {
 
   }, []);
 
-  const handlePDF = (booking_code:any) => {
+  const handlePDF = (booking_code: any) => {
     const capture = document.querySelector('.pdfBill');
     html2canvas(capture as HTMLElement).then((canvas) => {
       const imgData = canvas.toDataURL('img/png');
@@ -64,11 +64,17 @@ const PaymentSuccess = () => {
       <div className="flex flex-col items-center justify-center min-h-screen bg-green dark:bg-green">
         <div className="max-w-xl w-full space-y-6 p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800 pdfBill">
           <div className="flex flex-col items-center">
-            {params.vnp_ResponseCode == '00' ? <CircleCheckIcon className="text-green-500 h-16 w-16" /> : <ErrorIcon  />}
+            {params.vnp_ResponseCode == '00' ? <CircleCheckIcon className="text-green-500 h-16 w-16" /> : <ErrorIcon />}
             <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-700 mt-4">{params.vnp_ResponseCode == '00' ? 'Thanh Toán Thành công' : 'Thanh Toán Không Thành Công'}</h1>
             <p className="text-gray-700 dark:text-gray-400 mt-2">
               {params.vnp_ResponseCode == '00' ? 'Cảm ơn vì đã thanh toán. Tour du lịch của bạn đã được đặt chỗ.' : `Thanh toán không thành công. Vui lòng thử lại sau.`}
             </p>
+            {params.vnp_ResponseCode != '00' && <a
+              className="btn btn-primary" href='/'
+            >
+              Quay lại trang chủ
+            </a>}
+
           </div>
           {params.vnp_ResponseCode == '00' &&
             <>

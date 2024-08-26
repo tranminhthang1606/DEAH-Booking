@@ -136,7 +136,7 @@ const PaymentBanking = () => {
                     </div>
                     <div className="flex justify-around">
                         <a
-                            className="btn btn-primary" href='/index-two'
+                            className="btn btn-primary" href='/'
                         >
                             Quay lại trang chủ
                         </a>

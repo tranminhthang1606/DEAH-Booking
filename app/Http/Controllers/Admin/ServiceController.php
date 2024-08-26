@@ -53,7 +53,7 @@ class ServiceController extends Controller
     {
         $service = Service::find($id);
         if ($service) {
-            HotelService::where('service_id',$id);
+            HotelService::where('service_id',$id)->delete();
             $service->delete();
             return redirect()->back()->with('success', 'Delete service successfully');
         } 

@@ -35,7 +35,15 @@ const TourDetails = () => {
     rate: '',
     tour_id: ''
   });
-  const formattedDate = (currentDate: any) => format(currentDate, 'yyyy-MM-dd');
+  const formattedDate = (date: string | Date) => {
+    // Check if date is valid
+    const parsedDate = new Date(date);
+    if (isNaN(parsedDate.getTime())) {
+      return 'Invalid Date'; // or handle appropriately
+    }
+    
+    return format(parsedDate, 'yyyy-MM-dd'); // Example format
+  };
   let userData: any = sessionStorage.getItem('user');
   if (userData) {
     userData = JSON.parse(userData);
@@ -254,8 +262,8 @@ const TourDetails = () => {
                     </div>
                   </div>
                   <div className="rating">
-                    <p className="pera mr-5">Đánh giá: {data.rate ? data.rate.qty : 0}</p>
-                    <p className="pera">{data.rate ? data.rate.rate : 0}</p>
+                    <p className="pera mr-5">Đánh giá: {data.tour.rate ? data.tour.rate.qty : 0}</p>
+                    <p className="pera">{data.tour.rate ? data.tour.rate.rate : 0}</p>
                     <i className="ri-star-s-fill mb-3"></i>
                   </div>
                 </div>

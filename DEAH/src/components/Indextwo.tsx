@@ -255,7 +255,7 @@ const Indextwo = () => {
                   <div className="hero-bg-video">
 
                     <video className="hero-slider-video video-cover radius-30" poster={`${import.meta.env.VITE_BASE_URL}/assets/images/gallery/about-curve-banner.png`} loop autoPlay muted>
-                      <source src={`${import.meta.env.VITE_BASE_URL}/assets/images/videos/travel4.mp4`} type="video/mp4" />
+                      <source src={`${import.meta.env.VITE_BASE_URL}/assets/images/videos/travel1.mp4`} type="video/mp4" />
 
                       Trình duyệt của bạn không hỗ trợ thẻ video.
                     </video>

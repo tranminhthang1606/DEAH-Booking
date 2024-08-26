@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Attribute;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use App\Models\TourAttribute;
 class AttributeController extends Controller
 {
     //
@@ -76,7 +76,9 @@ class AttributeController extends Controller
     public function destroy(Attribute $attribute)
     {
 
+        
         if ($attribute->delete()) {
+            TourAttribute::where('attribute_id',$attribute->id)->delete();
             return redirect()->route('attributes.index')
                 ->with('success', 'Xóa thuộc tính thành công');
         }

@@ -23,9 +23,9 @@ class DashBoardController extends Controller
         $title = "Dashboard";
 
         $booksInDay = Booking::where('deleted_at', null)
-        ->whereRaw('DAY(start) = ' . $nowDay)
-        ->whereRaw('MONTH(start) = ' . $nowMonth)
-        ->whereRaw('YEAR(start) = ' . $nowYear)
+        ->whereRaw('DAY(created_at) = ' . $nowDay)
+        ->whereRaw('MONTH(created_at) = ' . $nowMonth)
+        ->whereRaw('YEAR(created_at) = ' . $nowYear)
         ->limit(5)->get();
 
         $book = Booking::where('deleted_at', null)

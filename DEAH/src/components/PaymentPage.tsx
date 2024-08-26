@@ -109,7 +109,7 @@ const PaymentPage = () => {
                         </p>
                         <p> Chúc quý khách một ngày tốt lành!</p>
                         <div className=" text-center">
-                            <Link to={'/index-two'}>Trở lại trang chủ</Link>
+                            <Link to={'/'}>Trở lại trang chủ</Link>
                         </div>
                     </div>
                 </div>

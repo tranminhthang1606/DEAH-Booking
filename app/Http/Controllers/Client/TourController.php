@@ -106,7 +106,7 @@ class TourController extends Controller
         ];
         //Đánh giá của tour
         $tour->rate = [
-            'rate' => number_format($tour->rates()->avg('rate'), 1),
+            'rate' => number_format($tour->rates()->avg('rate'), 0),
             'qty' => $tour->rates()->count('rate')
         ];
         //Bình luận của tour
